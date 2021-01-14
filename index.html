@@ -314,7 +314,8 @@ document.addEventListener("click", function (e) {
 		var n = parseInt(sources[0].match(/(\d+?)\.ogg/)[1]);
 		if (n < 10) { document.getElementById('audioPlayer').addEventListener('ended', function(){ document.getElementById('KinhHanhPhuc' + (n+1)).click(); }); }
 	}
-	p.scrollIntoView(); window.scrollBy({top: -10, left: 0});
+	// p.scrollIntoView(); window.scrollBy({top: -10, left: 0});
+	window.scrollTo(0,0); // scroll to top
 });
 
 // Play random Phap
