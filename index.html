@@ -98,7 +98,8 @@ window.onpopstate = function() {
  	newQuote(parseInt(location.hash.replace("#","")));
 }
 function newQuote(qIndex) {
-    quoteIndex = qIndex ? qIndex : Math.floor(Math.random() * document.quotes.length);
+	randomQuoteId = document.quotesSortedByLen[Math.floor(Math.random() * 1500)].id;
+	quoteIndex = qIndex ? qIndex : randomQuoteId;
     quote = String(document.quotes[quoteIndex]).replace(/&.+?;/g, '').replace("<br />", "");
     document.querySelector("h1").innerText = quote;
     if (document.getElementById("option").value != "Đọc to") { speakQuote(); }
