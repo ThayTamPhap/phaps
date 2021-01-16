@@ -154,7 +154,24 @@ function nghePhap() {
 	onVuotQuaDeDuoi = false;
 }
 
-document.addEventListener("click", function (e) {
+document.addEventListener("click", function (e) {		
+	if (e.target.classList.contains("selectPhapToggle")) {
+		var phapIndex = parseInt(e.target.getAttribute("phapIndex"));
+		var index = document.selectedPhapIndexs.indexOf(phapIndex);
+        console.log(phapIndex, index)
+		if (index == -1) {
+			document.selectedPhapIndexs.push(phapIndex);
+			e.target.text = "[x]";
+			e.target.style= "color:gray";
+		} else {
+			document.selectedPhapIndexs.splice(index, 1);
+			e.target.text = "[+]";
+			e.target.style= "color:white";
+		}
+		console.log(JSON.stringify(document.selectedPhapIndexs));
+		return;
+	}
+
 	var url = e.target.href;
 	if (!url) { return; }
 	if (e.target.download) { return; }
@@ -172,18 +189,26 @@ document.addEventListener("click", function (e) {
 var xmlhttp = new XMLHttpRequest(), phaps;
 xmlhttp.onreadystatechange = function () {
 	if (this.readyState == 4 && this.status == 200) {
-		phaps = JSON.parse(this.responseText).phaps;
-		// console.log(phaps);
+		let data = JSON.parse(this.responseText);
+		let phaps = data.phaps;
+		document.phaps = phaps;
+		document.selectedPhapIndexs = data.selected;
+		console.log("Selected phaps indexes: ", document.selectedPhapIndexs);
 		var ul = document.getElementById("thuyetPhap"), i = 0, n = phaps.length, elem;
 		for (; i < n; i++) {
 			elem = document.createElement('li');
-			elem.innerHTML = '<a href="'+phaps[i].audio+'">'+phaps[i].title+'</a>';
-			if (phaps[i]["id"]) { elem.children[0].id = phaps[i].id; }
+			str = ""
+			if (document.selectedPhapIndexs) {
+				selected = document.selectedPhapIndexs.includes(i);
+				str = str+'<a class="selectPhapToggle" phapIndex="'+i+'" style="color:'+(selected?'gray':'white')+'">['+(selected?'x':'+')+']</a>&nbsp;'
+			}
+			elem.innerHTML = str+'<a href="'+phaps[i].audio+'">'+phaps[i].title+'</a>';
+			if (phaps[i]["id"]) { elem.lastElementChild.id = phaps[i].id; }
 			ul.appendChild(elem); 
 		}
 		// Play random Phap
 		var rand = 3 + Math.round(Math.random() * phaps.length - 3);
-		ul.children[rand].children[0].click();
+		ul.children[rand].lastElementChild.click();
 	}
 };
 xmlhttp.open("GET", "phaps.json", true);
@@ -191,5 +216,15 @@ xmlhttp.send();
 </script>
 
 <script src="quotes.js"></script>
-<script>newQuote(); // Init new quote from quotes.js data</script>
+<script>newQuote(); // Init new quote from quotes.js data
+// https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/hash-map-of.html
+function selectedPhaps() {
+	document.ktHash = document.selectedPhapIndexs.map(function (x) {
+		phap = document.phaps[x];
+		phapId = phap.audio.split("?https")[0];
+		return `"${phapId}" to "${phap.title}"`;
+	}).join(",\n");
+	console.log(document.ktHash);
+}
+</script>
 </html>

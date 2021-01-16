@@ -1,4 +1,6 @@
-{ "phaps": [
+{   
+    "selected" : [2,3,4,5,6,15,16,19,20,21,24,25,26,27,29,30,32,34,35,37,38,40,41,43,49,56,58,60,76,79,80],
+    "phaps": [
     { "audio" : "phaps/an-uong-dung.ogg?https://sutamphap.com/wp-content/uploads/2020/12/AN-UONG-DUNG.mp3", "title" : "Ăn uống đúng" },
     { "audio" : "phaps/Tu-Tap-Khong-Phai-Chi-La-Thien.ogg?https://sutamphap.com/wp-content/uploads/2020/12/Tu-Tap-Khong-Phai-Chi-La-Thien.mp3", "title" : "Tu tập ko phải chỉ là thiền" },
     { "audio" : "phaps/Vo-Mong.ogg?https://sutamphap.com/wp-content/uploads/2020/12/Vo-Mong.mp3", "title" : "Vỡ mộng" },
