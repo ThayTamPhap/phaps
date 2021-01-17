@@ -20,5 +20,3 @@ mp3 to opus (ogg) 42% (29.7mb /  69.0mb)
 https://developers.cloudflare.com/pages/tutorials/build-a-blog-using-nuxt-and-sanity
 https://kinderas.com/technology/2020/06/06/jamstack-integrating-sanity-io-and-hugo/
 https://endler.dev/2020/perf/
-https://github.com/tinysearch/tinysearch
-https://github.com/getzola/zola fast static site generator written in Rust

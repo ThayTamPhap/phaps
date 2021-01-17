@@ -169,6 +169,9 @@ document.addEventListener("click", function (e) {
 			e.target.style= "color:white";
 		}
 		console.log(JSON.stringify(document.selectedPhapIndexes));
+		if (document.useCookie) {
+			document.cookie = document.selectedPhapIndexes.join(",");
+		}
 		return;
 	}
 
@@ -186,28 +189,29 @@ document.addEventListener("click", function (e) {
 });
 
 // Load phaps from json file and generate related HTML content
-var xmlhttp = new XMLHttpRequest(), phaps;
+var xmlhttp = new XMLHttpRequest();
+document.useCookie = (window.location.host != "localhost:3000");
 xmlhttp.onreadystatechange = function () {
 	if (this.readyState == 4 && this.status == 200) {
 		let data = JSON.parse(this.responseText);
-		let phaps = data.phaps;
-		document.phaps = phaps;
-		document.selectedPhapIndexes = data.selected;
+		document.phaps = data.phaps;
+		document.selectedPhapIndexes = !document.useCookie ? data.selected :
+			(document.cookie || "-1").split(',').map(x => parseInt(x));
 		console.log("Selected phaps indexes: ", document.selectedPhapIndexes);
 		var ul = document.getElementById("thuyetPhap");
-		for (var i = phaps.length-2, elem; i >= 0; i--) {
+		for (var i = data.phaps.length-2, elem; i >= 0; i--) {
 			elem = document.createElement('li');
 			str = ""
 			if (document.selectedPhapIndexes) {
 				selected = document.selectedPhapIndexes.includes(i);
 				str = str+'<a class="selectPhapToggle" phapIndex="'+i+'" style="color:'+(selected?'gray':'white')+'">['+(selected?'x':'+')+']</a>&nbsp;'
 			}
-			elem.innerHTML = str+'<a href="'+phaps[i].audio+'">'+phaps[i].title+'</a>';
-			if (phaps[i]["id"]) { elem.lastElementChild.id = phaps[i].id; }
-			ul.appendChild(elem); 
+			elem.innerHTML = str+'<a href="'+data.phaps[i].audio+'">'+data.phaps[i].title+'</a>';
+			if (data.phaps[i]["id"]) { elem.lastElementChild.id = data.phaps[i].id; }
+			ul.appendChild(elem);
 		}
 		// Play random Phap
-		var rand = 3 + Math.round(Math.random() * phaps.length - 3);
+		var rand = 3 + Math.round(Math.random() * data.phaps.length - 3);
 		ul.children[rand].lastElementChild.click();
 	}
 };
