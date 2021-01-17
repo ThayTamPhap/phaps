@@ -157,18 +157,18 @@ function nghePhap() {
 document.addEventListener("click", function (e) {		
 	if (e.target.classList.contains("selectPhapToggle")) {
 		var phapIndex = parseInt(e.target.getAttribute("phapIndex"));
-		var index = document.selectedPhapIndexs.indexOf(phapIndex);
+		var index = document.selectedPhapIndexes.indexOf(phapIndex);
         console.log(phapIndex, index)
 		if (index == -1) {
-			document.selectedPhapIndexs.push(phapIndex);
+			document.selectedPhapIndexes.push(phapIndex);
 			e.target.text = "[x]";
 			e.target.style= "color:gray";
 		} else {
-			document.selectedPhapIndexs.splice(index, 1);
+			document.selectedPhapIndexes.splice(index, 1);
 			e.target.text = "[+]";
 			e.target.style= "color:white";
 		}
-		console.log(JSON.stringify(document.selectedPhapIndexs));
+		console.log(JSON.stringify(document.selectedPhapIndexes));
 		return;
 	}
 
@@ -192,14 +192,14 @@ xmlhttp.onreadystatechange = function () {
 		let data = JSON.parse(this.responseText);
 		let phaps = data.phaps;
 		document.phaps = phaps;
-		document.selectedPhapIndexs = data.selected;
-		console.log("Selected phaps indexes: ", document.selectedPhapIndexs);
-		var ul = document.getElementById("thuyetPhap"), i = 0, n = phaps.length, elem;
-		for (; i < n; i++) {
+		document.selectedPhapIndexes = data.selected;
+		console.log("Selected phaps indexes: ", document.selectedPhapIndexes);
+		var ul = document.getElementById("thuyetPhap");
+		for (var i = phaps.length-1, elem; i >= 0; i--) {
 			elem = document.createElement('li');
 			str = ""
-			if (document.selectedPhapIndexs) {
-				selected = document.selectedPhapIndexs.includes(i);
+			if (document.selectedPhapIndexes) {
+				selected = document.selectedPhapIndexes.includes(i);
 				str = str+'<a class="selectPhapToggle" phapIndex="'+i+'" style="color:'+(selected?'gray':'white')+'">['+(selected?'x':'+')+']</a>&nbsp;'
 			}
 			elem.innerHTML = str+'<a href="'+phaps[i].audio+'">'+phaps[i].title+'</a>';
@@ -219,7 +219,7 @@ xmlhttp.send();
 <script>newQuote(); // Init new quote from quotes.js data
 // https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/hash-map-of.html
 function selectedPhaps() {
-	document.ktHash = document.selectedPhapIndexs.map(function (x) {
+	document.ktHash = document.selectedPhapIndexes.map(function (x) {
 		phap = document.phaps[x];
 		phapId = phap.audio.split("?https")[0];
 		return `"${phapId}" to "${phap.title}"`;
