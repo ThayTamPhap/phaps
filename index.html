@@ -43,7 +43,7 @@
 <div>
 	<button id="nghePhap" onclick="nghePhap()">Nghe pháp</button>
 	<button onclick="vuotQuaDeDuoi()">Vượt qua dễ duôi</button>
-	<ul id="thuyetPhap">
+	<ul id="thuyetPhap" style="list-style-type:none; padding-left: 0;">
 		<li><a class='hilite' href="phaps/HuongDanRaQuetVaThuGianToanThan.ogg?https://sutamphap.com/wp-content/uploads/2019/08/HuongDanRaQuetVaThuGianToanThan.mp3">Thư Giãn</a></li>
 		<li><a class='hilite' href="phaps/tutaptrongCS_ThienTamTu.ogg?https://sutamphap.com/wp-content/uploads/2019/06/tutaptrongCS_ThienTamTu.mp3">Thiền Tâm Từ</a></li>
 		<li><a class='hilite' href="phaps/tutaptrongCS_NiemChet.ogg?https://sutamphap.com/wp-content/uploads/2019/06/tutaptrongCS_NiemChet.mp3">Niệm chết</a></li>
@@ -161,12 +161,12 @@ document.addEventListener("click", function (e) {
         console.log(phapIndex, index)
 		if (index == -1) {
 			document.selectedPhapIndexes.push(phapIndex);
-			e.target.text = "[x]";
-			e.target.style= "color:gray";
+			e.target.text = "[ ✔]";
+			e.target.style= "color:white";
 		} else {
 			document.selectedPhapIndexes.splice(index, 1);
-			e.target.text = "[+]";
-			e.target.style= "color:white";
+			e.target.text = "[ + ]";
+			e.target.style= "color:gray";
 		}
 		console.log(JSON.stringify(document.selectedPhapIndexes));
 		if (document.useCookie) {
@@ -179,14 +179,18 @@ document.addEventListener("click", function (e) {
 	if (!url) { return; }
 	if (e.target.download) { return; }
 	event.preventDefault();
+	playPhap(url, e.target.text);
+});
+
+function playPhap(url, title) {
 	var sources = url.split('?'), p = document.getElementById('playing');
-	p.innerHTML = '<p style="padding-bottom:0.0em;">[ '+e.target.text+' ]</p><audio autoplay controls id="audioPlayer"><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
+	p.innerHTML = '<p style="padding-bottom:0.0em;">[ '+title+' ]</p><audio autoplay controls id="audioPlayer"><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
   if (sources[0].includes("KinhHanhPhuc")) {
 		var n = parseInt(sources[0].match(/(\d+?)\.ogg/)[1]);
 		if (n < 10) { document.getElementById('audioPlayer').addEventListener('ended', function(){ document.getElementById('KinhHanhPhuc' + (n+1)).click(); }); }
 	}
-	window.scrollTo(0,0); // scroll to top
-});
+	window.scrollTo(0,0); // scroll to top	
+}
 
 // Load phaps from json file and generate related HTML content
 var xmlhttp = new XMLHttpRequest();
@@ -204,15 +208,17 @@ xmlhttp.onreadystatechange = function () {
 			str = ""
 			if (document.selectedPhapIndexes) {
 				selected = document.selectedPhapIndexes.includes(i);
-				str = str+'<a class="selectPhapToggle" phapIndex="'+i+'" style="color:'+(selected?'gray':'white')+'">['+(selected?'x':'+')+']</a>&nbsp;'
+				str = str+'<a class="selectPhapToggle" phapIndex="'+i+'" style="color:'+(!selected?'gray':'white')+'">['+(selected?' ✔':' + ')+']</a>&nbsp;&nbsp;'
 			}
 			elem.innerHTML = str+'<a href="'+data.phaps[i].audio+'">'+data.phaps[i].title+'</a>';
 			if (data.phaps[i]["id"]) { elem.lastElementChild.id = data.phaps[i].id; }
 			ul.appendChild(elem);
 		}
-		// Play random Phap
-		var rand = 3 + Math.round(Math.random() * data.phaps.length - 3);
-		ul.children[rand].lastElementChild.click();
+		// Play random selected Phaps
+		var x,n = document.selectedPhapIndexes.length;
+		while ((x = document.selectedPhapIndexes[Math.round(Math.random()*n)]) < 0){};
+		console.log(x,data.phaps[x]);
+		playPhap(data.phaps[x].audio, data.phaps[x].title);
 	}
 };
 xmlhttp.open("GET", "phaps.json", true);
