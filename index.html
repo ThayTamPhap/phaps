@@ -195,7 +195,7 @@ xmlhttp.onreadystatechange = function () {
 		document.selectedPhapIndexes = data.selected;
 		console.log("Selected phaps indexes: ", document.selectedPhapIndexes);
 		var ul = document.getElementById("thuyetPhap");
-		for (var i = phaps.length-1, elem; i >= 0; i--) {
+		for (var i = phaps.length-2, elem; i >= 0; i--) {
 			elem = document.createElement('li');
 			str = ""
 			if (document.selectedPhapIndexes) {
