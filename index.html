@@ -214,7 +214,7 @@ xmlhttp.onreadystatechange = function () {
 			str = ""
 			if (document.selectedPhapIndexes) {
 				selected = document.selectedPhapIndexes.includes(i);
-				str = str+'<a class="selectPhapToggle" phapIndex="'+i+'" style="color:'+(!selected?'gray':'white')+'">['+(selected?'+':'-')+']</a>&nbsp;&nbsp;'
+				str = str+'<a class="selectPhapToggle" phapIndex="'+i+'" style="color:'+(!selected?'gray':'white')+'">['+(selected?'+':'-')+']</a>&nbsp;'
 			}
 			elem.innerHTML = str+'<a href="'+data.phaps[i].audio+'">'+data.phaps[i].title+'</a>';
 			if (data.phaps[i]["id"]) { elem.lastElementChild.id = data.phaps[i].id; }
