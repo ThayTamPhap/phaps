@@ -134,10 +134,7 @@ function luuAnh() {
 <script>
 var onVuotQuaDeDuoi = false;
 function vuotQuaDeDuoi() {
-	document.querySelectorAll("ul, ol").forEach(function(e) { e.style = "display: none"; });
-	var ul = document.getElementById("vuotQuaDeDuoi"), items=ul.children, i=items.length-1;
-  	// for (; i > 0; i--) { ul.appendChild(items[(Math.random()*(i-1)|0)+1]); }
-	ul.style = "display: true";
+	document.querySelectorAll("ul").forEach(function(e) { e.style = "display: none"; });
   	if (onVuotQuaDeDuoi) {
 		document.getElementById("vuotQuaDeDuoiAudio").click();
 		var a = document.getElementById('audioPlayer');
