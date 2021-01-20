@@ -39,6 +39,8 @@
 		margin-top: 1em;
  		padding-bottom: 1.3em;
 	}
+
+	.selectPhapToggle { font-family: 'Courier New', monospace; cursor: pointer; }
 </style>
 </head><body>
 <div>
@@ -166,11 +168,11 @@ document.addEventListener("click", function (e) {
         console.log(phapIndex, index)
 		if (index == -1) {
 			document.selectedPhapIndexes.push(phapIndex);
-			e.target.text = "[ + ]";
+			e.target.text = "[+]";
 			e.target.style= "cursor:pointer; color:white";
 		} else {
 			document.selectedPhapIndexes.splice(index, 1);
-			e.target.text = "[ - ]";
+			e.target.text = "[-]";
 			e.target.style= "cursor:pointer; color:gray";
 		}
 		console.log(JSON.stringify(document.selectedPhapIndexes));
@@ -212,7 +214,7 @@ xmlhttp.onreadystatechange = function () {
 			str = ""
 			if (document.selectedPhapIndexes) {
 				selected = document.selectedPhapIndexes.includes(i);
-				str = str+'<a class="selectPhapToggle" phapIndex="'+i+'" style="cursor: pointer; color:'+(!selected?'gray':'white')+'">['+(selected?' + ':' - ')+']</a>&nbsp;&nbsp;'
+				str = str+'<a class="selectPhapToggle" phapIndex="'+i+'" style="color:'+(!selected?'gray':'white')+'">['+(selected?'+':'-')+']</a>&nbsp;&nbsp;'
 			}
 			elem.innerHTML = str+'<a href="'+data.phaps[i].audio+'">'+data.phaps[i].title+'</a>';
 			if (data.phaps[i]["id"]) { elem.lastElementChild.id = data.phaps[i].id; }
