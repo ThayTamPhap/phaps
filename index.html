@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="vi-VN"><head><meta charset="utf-8">
+<!DOCTYPE html><html lang="vi-VN">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link id="favicon" rel="icon" type="image/x-icon" href="favicon.png">
 <title>Thoải mái - Thư giãn - Biết mình</title>
@@ -48,18 +50,21 @@
 	}
 	/*blockquote:before { color: #ccc; content: open-quote; font-size: 4em; line-height: 0.1em; margin-right: 0.25em; vertical-align: -0.4em; }*/
 	blockquote p { display: inline; }
-	ul.hilite { background: #400D00; padding-right: 1em; }
+	ul.hilite { background: #400D00; }
+	ul.hilite > li { padding: 0.3em; padding-bottom: 0em; }
 </style>
-</head><body>
+</head>
+<body>
 <div>
-<button id='newQuote' onclick="newQuote()">Lời dạy mới</button>
-<input id="luuAnh" type="button" onclick="luuAnh()" value="Lưu ảnh" />
-<input id="option" type="button" onclick="speakQuoteToggle()" value="Đọc to" />
-<span style="font-size:12px;"> [ <span id="count">59</span> ]</span>
-<div id="quote" style='margin:0 -8px 0 -8px; background-color:#541303; padding:0.6em 0.6em 1em 0.6em; margin-top: 0.5em; margin-bottom:0.5em; border-bottom: 1px; border-bottom-style: dashed; border-bottom-color: #999;'>
-	<h1 style='background-color:#541303; margin:0; margin-bottom: 0.2em;'>Hai pháp thấp hèn: 1. Tính khó dạy: cố chấp, cứng đầu không chấp nhận lời dạy của người trí, dù khuyên đúng cũng không chịu nghe. 2. Gần bạn xấu: thích giao du, kết bạn với những kẻ thiếu đức tin, không có giới, ác tuệ.</h1>
-	<footer><cite style='color:#DDD'>sutamphap.com</cite></footer>
-</div></div>
+	<button id='newQuote' onclick="newQuote()">Lời dạy mới</button>
+	<input id="luuAnh" type="button" onclick="luuAnh()" value="Lưu ảnh" />
+	<input id="option" type="button" onclick="speakQuoteToggle()" value="Đọc to" />
+	<span style="font-size:12px;"> [ <span id="count">59</span> ]</span>
+	<div id="quote" style='margin:0 -8px 0 -8px; background-color:#541303; padding:0.6em 0.6em 1em 0.6em; margin-top: 0.5em; margin-bottom:0.5em; border-bottom: 1px; border-bottom-style: dashed; border-bottom-color: #999;'>
+		<h1 style='background-color:#541303; margin:0; margin-bottom: 0.2em;'>Hai pháp thấp hèn: 1. Tính khó dạy: cố chấp, cứng đầu không chấp nhận lời dạy của người trí, dù khuyên đúng cũng không chịu nghe. 2. Gần bạn xấu: thích giao du, kết bạn với những kẻ thiếu đức tin, không có giới, ác tuệ.</h1>
+		<footer><cite style='color:#DDD'>sutamphap.com</cite></footer>
+	</div>
+</div>
 <div id='playing' style="margin-top:1.1em; margin-bottom:.1em; padding-bottom:0.6em;"><!-- [ <a>&#9658;</a> Chọn để nghe ] --></div>
 <div>
 	<button id="nghePhap" onclick="nghePhap()">Nghe pháp</button>
@@ -105,8 +110,8 @@
 			<p>Luôn nhắc nhở về cái chết để thấy sự trân quý và ý nghĩa của cuộc đời mỏng manh, nó khiến chúng ta động tâm thức tỉnh để tận dụng đầy đủ từng giây phút trong cuộc sống ngắn ngủi này. Đó là sự thật mà tâm dễ duôi thường sợ hãi và né tránh.</p>
 			<p>Quán xét để nhìn thấu bản chất vô thường và khổ tiềm ẩn trong mọi thứ để bớt dính mắc với những thứ đang và sẽ mất đi; vui là ảo ảnh chóng tàn mà đau khổ là sự thật sờ sờ, khổ là kết quả tất yếu. Hãy hỏi mình:</p>
 			<ul class="hilite">
-				<li>Cuối cùng thì cũng để làm gì? Cũng chỉ là 1 cảm giác thoáng qua.</li>
-				<li>Nhưng cái giá phải trả sẽ là gì?</li> 
+				<li>Cuối cùng thì cũng để làm gì?</li>
+				<li>Cũng chỉ là 1 cảm giác thoáng qua. Nhưng cái giá phải trả sẽ là gì?</li> 
 				<li>Hậu quả tệ nhất có thể xảy đến là gì?</li>
 				<li>Có đáng hay không?</li>
 				<li>Bao nhiêu thứ mình đã từng theo đuổi trước đây có thực sự mang lại hạnh phúc như mình vẫn tưởng tượng trước và trong khi làm việc ấy hay không?</li> 
@@ -166,7 +171,7 @@ function luuAnh() {
 <script>
 var onVuotQuaDeDuoi = false;
 function vuotQuaDeDuoi() {
-	document.querySelectorAll("ul").forEach(function(e) { e.style = "display: none"; });
+	document.getElementById("thuyetPhap").style = "display: none";
   	if (onVuotQuaDeDuoi) {
 		document.getElementById("vuotQuaDeDuoiAudio").click();
 		var a = document.getElementById('audioPlayer');
@@ -178,7 +183,6 @@ function vuotQuaDeDuoi() {
 
 var onNghePhap = true;
 function nghePhap() {
-	document.querySelectorAll("ul > ol").forEach(function(e) { e.style = "display: none"; });
 	var ul = document.getElementById("thuyetPhap"), items = ul.children, i=items.length+1;
 	ul.style = "display: true";
 	if (onNghePhap) {
@@ -210,7 +214,6 @@ document.addEventListener("click", function (e) {
 		}
 		return;
 	}
-
 	var url = e.target.href;
 	if (!url) { return; }
 	if (e.target.download) { return; }
