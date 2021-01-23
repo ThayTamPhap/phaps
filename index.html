@@ -38,7 +38,10 @@
 	}
 	#vuotQuaDeDuoi > li {
 		background-color:#541303; border: solid; padding: 1em;
-		margin-top: 1em; padding-bottom: 1.3em;
+		margin: 1em; margin-top: 2em; padding-bottom: 1.3em;
+	}
+	.vqdd {
+		margin: 1em;	
 	}
 	.selectPhapToggle { font-family: 'Courier New', monospace; cursor: pointer; }
 	blockquote {
@@ -48,10 +51,9 @@
 	  padding: 0.5em 10px;
 	  quotes: "\201C""\201D""\2018""\2019";
 	}
-	/*blockquote:before { color: #ccc; content: open-quote; font-size: 4em; line-height: 0.1em; margin-right: 0.25em; vertical-align: -0.4em; }*/
 	blockquote p { display: inline; }
 	ul.hilite { background: #400D00; }
-	ul.hilite > li { padding: 0.3em; padding-bottom: 0em; }
+	ul.hilite > li { padding: 0.3em; padding-bottom: 1em; }
 </style>
 </head>
 <body>
@@ -65,17 +67,21 @@
 		<footer><cite style='color:#DDD'>sutamphap.com</cite></footer>
 	</div>
 </div>
-<div id='playing' style="margin-top:1.1em; margin-bottom:.1em; padding-bottom:0.6em;"><!-- [ <a>&#9658;</a> Chọn để nghe ] --></div>
+<div id='playing' style="margin-top:1.1em; margin-bottom:.1em; padding-bottom:0.6em;"></div>
 <div>
 	<button id="nghePhap" onclick="nghePhap()">Nghe pháp</button>
 	<button onclick="vuotQuaDeDuoi()">Vượt qua dễ duôi</button>
-	<ul id="thuyetPhap" style="list-style-type:none; padding-left: 0; padding-bottom: 0.5em; margin-bottom:1em; border-bottom: 1px; border-bottom-style: dashed; border-bottom-color: #999;">
+	<div id="thuyetPhapContainer">
+	<ul id="thuyetPhap" style="list-style-type:none; padding-left: 0; padding-bottom: 0.5em; margin-bottom:1em;">
 		<li><a href="phaps/HuongDanRaQuetVaThuGianToanThan.ogg?https://sutamphap.com/wp-content/uploads/2019/08/HuongDanRaQuetVaThuGianToanThan.mp3">Thư Giãn</a></li>
 		<li><a href="phaps/tutaptrongCS_ThienTamTu.ogg?https://sutamphap.com/wp-content/uploads/2019/06/tutaptrongCS_ThienTamTu.mp3">Thiền Tâm Từ</a></li>
 		<li><a href="phaps/tutaptrongCS_NiemChet.ogg?https://sutamphap.com/wp-content/uploads/2019/06/tutaptrongCS_NiemChet.mp3">Niệm chết</a></li>
 	</ul>
+	<div style="border-bottom: 1px; border-bottom-style: dashed; border-bottom-color: #999;"></div>
+	<h1>&nbsp;Vượt qua dễ duôi</h1>
+	</div>
 	<ol id="vuotQuaDeDuoi" style="list-style-type:none; padding-left: 0;">
-		<div>
+		<div class="vqdd">
 			<p>Dễ duôi là một chướng ngại lớn nhất trên đường tu tập, cũng như trong sự rèn luyện, vươn lên trong cuộc sống của một con người bình thường. Dễ duôi là hành động theo bản năng, theo bất cứ đòi hỏi nào của tham sân si, của các trạng thái tâm bất thiện, một cách vô điều kiện mà không có ý định kháng cự.</p>
 			<p>Thành công trong cuộc sống và trong tu tập phụ thuộc vào việc mình vượt qua dễ duôi như thế nào. Sau đây là một số cách để giúp chúng ta vượt qua dễ duôi:</p>
 		</div>
@@ -85,7 +91,7 @@
 		</li>
 		<li><i>Gần gũi bậc thiện trí, tiếp xúc thường xuyên với những thứ nhắc nhở mình tinh tấn</i>
 			<p>Đức Phật nói: “Thấy pháp là thấy Như Lai”. Các con là cư sỹ tại gia, không có điều kiện tiếp xúc thường xuyên với các bậc tu hành chân chính đã giác ngộ, nhưng nếu luôn tinh tấn tu tập và có đức tin mạnh mẽ thì cũng coi như ở gần về mặt tinh thần. Nhất là thời bây giờ con có thể nghe pháp ở mọi nơi, mọi lúc, có thể đọc kinh điển, các lời sách tấn, dạy dỗ trên điện thoại. Hãy tận dụng điều đó.</p>
-			<p>Giữ giới, thu thúc, tinh tấn… thì phải có đức tin mới làm được. Con hãy thể hiện đức tin đó bằng hành động cụ thể, nó sẽ làm con tăng trưởng đức tin hơn nữa. Sự nhắc nhở thường xuyên là rất quan trọng, đừng ỷ lại vào kiến thức và ảo tưởng về sức mạnh tinh tấn trong mình. Hãy đặt quanh mình, dán trên tường ở những chỗ mình hay nhìn, những hình ảnh nhắc nhở bản thân như: ảnh Phật, các câu nhắc chánh niệm, hay những câu quote gây động tâm, đặt ảnh màn hình chờ… Con có thể tải chương trình “Tiếng chuông chánh niệm” ở trang sutamphap.com về điện thoại để nó nhắc con mỗi 5 phút, 10 phút.</p>
+			<p>Giữ giới, thu thúc, tinh tấn… thì phải có đức tin mới làm được. Con hãy thể hiện đức tin đó bằng hành động cụ thể, nó sẽ làm con tăng trưởng đức tin hơn nữa. Sự nhắc nhở thường xuyên là rất quan trọng, đừng ỷ lại vào kiến thức và ảo tưởng về sức mạnh tinh tấn trong mình. Hãy đặt quanh mình, dán trên tường ở những chỗ mình hay nhìn, những hình ảnh nhắc nhở bản thân như: ảnh Phật, các câu nhắc chánh niệm, hay những câu quote gây động tâm, đặt ảnh màn hình chờ… Con có thể tải chương trình “Tiếng chuông chánh niệm” ở trang <a href="sutamphap.com">sutamphap.com</a> về điện thoại để nó nhắc con mỗi 5 phút, 10 phút.</p>
 			<p>Ngoài ra, hãy nghe pháp thường xuyên, đó là sự nhắc nhở và sách tấn rất lớn. Nghe 1 lần con không hiểu hết đâu, thực hành rồi nghe lại, lại thấy như mới, hiểu sâu hơn và động tâm ở những câu trước kia mình không cảm nhận được gì. Đấy chính là gần gũi bậc thiện trí con ạ.</p>
 		</li>
 		<li><i>Luyện thói quen trì hoãn, làm chậm mọi việc, dừng lại 1 phút trước khi quyết định làm gì, không bao giờ làm và quyết định khi cảm xúc đang ở đỉnh cao</i>
@@ -124,7 +130,7 @@
 			<p>Bất cứ hành động nào, dù là nhỏ nhất, có khả năng làm chệch hướng hoặc lãng phí nguồn lực (thời gian, năng lượng, sự chú ý, sự nhiệt tâm…) đều phải cắt bỏ.</p>
 			<blockquote>Đừng sợ thất bại, đừng bàn lùi ở trong tâm và hãy tránh xa những kẻ hay bàn lùi. Thường xuyên kiểm điểm và kiên quyết cắt bỏ mọi nhánh rẽ, con đường lớn sẽ ngày càng hiện lên rõ ràng và thông thoáng hơn. Điều chỉ có trong mơ ấy sẽ lại gần hơn với chúng ta từng ngày.</blockquote>
 		</li>
-		<div>
+		<div class="vqdd">
 		<p><b>You have to think anyway, so why not think big?</b></p>
 		<p>Hãy thực hiện tổng hợp tất cả những điều trên. Dễ duôi mạnh hơn chúng ta nhiều lần, không có sức mạnh tổng hợp ấy thì khó mà chống lại được nó. Và ngay cả khi ấy, chúng ta vẫn cần phải có thêm một đồng minh quan trọng nữa là thời gian. Với người kiên nhẫn, thời gian là đồng minh, với người thiếu kiên nhẫn thời gian là kẻ thù.</p>
 		<p>Hãy cố gắng lên con. Chúng ta đang xây tương lai từ những việc làm trong hiện tại. Xây lên lâu đài ước mơ hay cái lều vịt rách nát đều là do tay mình cả, chẳng phải do ông trời hay nghiệp chướng, định mệnh gì hết con ạ. Thầy thật muốn nhìn xem tòa lâu đài ấy của con ra sao trong 10 năm, trong 20 năm nữa – nếu thầy vẫn còn sống đến lúc ấy.	</p>
@@ -171,7 +177,7 @@ function luuAnh() {
 <script>
 var onVuotQuaDeDuoi = false;
 function vuotQuaDeDuoi() {
-	document.getElementById("thuyetPhap").style = "display: none";
+	document.getElementById("thuyetPhapContainer").style = "display: none";
   	if (onVuotQuaDeDuoi) {
 		document.getElementById("vuotQuaDeDuoiAudio").click();
 		var a = document.getElementById('audioPlayer');
@@ -184,7 +190,7 @@ function vuotQuaDeDuoi() {
 var onNghePhap = true;
 function nghePhap() {
 	var ul = document.getElementById("thuyetPhap"), items = ul.children, i=items.length+1;
-	ul.style = "display: true";
+	document.getElementById("thuyetPhapContainer").style = "display: true";
 	if (onNghePhap) {
 		for (; i > 2; i--) { 
 			ul.appendChild(items[(Math.random()*(i-3)|0)+3]); 
