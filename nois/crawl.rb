@@ -100,5 +100,5 @@ for i in 1..79 do
 	name = phap[i][1].split('/')[-1].sub(/\..+/,'')
 	next unless File.exist?("#{name}.ogg") && File.size("#{name}.ogg") > 0
 	#print "{\"title\":\"#{phap[i][0]}\",\"audio\":\"nois/#{name}.ogg?#{phap[i][1]}\"},"
-	puts "\"nois/#{name}.ogg\" to \"#{phap[i][0]}\""
+	puts "\"nois/#{name}.ogg\" to \"#{phap[i][0]}\","
 end
