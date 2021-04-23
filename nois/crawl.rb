@@ -95,12 +95,10 @@ phap[77] = ['Đừng vội vàng (Tố Anh)', 'https://sutamphap.com/wp-content/
 phap[78] = ['Cai nghiện (Tố Anh)', 'https://sutamphap.com/wp-content/uploads/2020/06/thuyetPhap_CaiNghien.m4a']
 phap[79] = ['Vượt qua dễ duôi (Tố Anh)', 'https://sutamphap.com/wp-content/uploads/2020/06/Vuot-qua-de-duoi.m4a']
 
-c = 0
 for i in 1..79 do
 # `wget #{phap[i][1]}`
 	name = phap[i][1].split('/')[-1].sub(/\..+/,'')
 	next unless File.exist?("#{name}.ogg") && File.size("#{name}.ogg") > 0
-	c += 1
-	print "{\"title\":\"#{phap[i][0]}\",\"audio\":\"nois/#{name}.ogg?#{phap[i][1]}\"},"
+	#print "{\"title\":\"#{phap[i][0]}\",\"audio\":\"nois/#{name}.ogg?#{phap[i][1]}\"},"
+	puts "\"nois/#{name}.ogg\" to \"#{phap[i][0]}\""
 end
-puts c
