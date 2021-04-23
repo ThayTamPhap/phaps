@@ -153,10 +153,9 @@ window.onpopstate = function() {
  	newQuote(parseInt(location.hash.replace("#","")));
 }
 function newQuote(qIndex) {
-	document.sortedQuoteId = Math.floor(Math.random() * document.quotes.length);
-	randomQuoteId = document.quotesSortedByLen[document.sortedQuoteId].id;
-	quoteIndex = qIndex ? qIndex : randomQuoteId;
-    quote = String(document.quotes[quoteIndex]).replace(/&.+?;/g, '').replace("<br />", "");
+	quoteIndex = qIndex ? qIndex : Math.floor(Math.random() * document.quotes.length);
+	// console.log(quoteIndex, document.quotes[quoteIndex])
+    quote = document.quotes[quoteIndex].content.replace(/&.+?;/g, '').replace("<br />", "");
     document.querySelector("h1").innerText = quote;
     if (document.getElementById("option").value != "Đọc to") { speakQuote(); }
     location.hash = quoteIndex;
@@ -170,11 +169,11 @@ function speakQuoteToggle() {
 var audio = document.createElement("audio"); audio.autoplay = true;
 function speakQuote(i) {
 	audio.innerHTML = 
-	'<source src="quotes/'+(i || document.sortedQuoteId-1)+'.ogg" />' +
-	'<source src="quotes/'+(i || document.sortedQuoteId-1)+'.mp3" />';
+	'<source src="quotes/'+(i || quoteIndex)+'.ogg" />' +
+	'<source src="quotes/'+(i || quoteIndex)+'.mp3" />';
 }
 function luuAnh() {
-	window.open('quotes/650x/'+quoteIndex+'.png');
+	window.open('quotes/650x/'+document.quotes[quoteIndex].id+'.png');
 }
 </script>
 <script>
@@ -308,7 +307,7 @@ xmlhttp.send();
 // Load thu noi from json file and generate related HTML content
 </script>
 
-<script src="quotes.js"></script>
+<script src="sortedQuotes.js"></script>
 <script>newQuote(); // Init new quote from quotes.js data
 // https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/hash-map-of.html
 function selectedPhaps() {
