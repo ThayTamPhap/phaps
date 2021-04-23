@@ -3,3 +3,4 @@ in.vscode
 go.sum
 workout.boltdb
 *.mp3
+*.m4a
