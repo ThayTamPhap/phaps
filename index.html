@@ -46,10 +46,10 @@
 	.selectPhapToggle { font-family: 'Courier New', monospace; cursor: pointer; }
 	blockquote {
 	  background: #400D00;
-	  border-left: 10px solid #ccc;
+	  /*border-left: 10px solid #ccc;*/
 	  margin: 1.5em 10px;
 	  padding: 0.5em 10px;
-	  quotes: "\201C""\201D""\2018""\2019";
+	  /*quotes: "\201C""\201D""\2018""\2019";*/
 	}
 	blockquote p { display: inline; }
 	ul.hilite { background: rgb(47, 17, 9); }
@@ -72,7 +72,7 @@
 	<button id="nghePhap" onclick="nghePhap()">Nghe pháp</button>
 	<button onclick="ngheThuNoi()">Thư nói</button>
 	<button onclick="vuotQuaDeDuoi()">Vượt qua dễ duôi</button>
-	<div id="thuyetPhapContainer">
+	<div id="thuyetPhapContainer" style="display: none">
 	<ul id="thuyetPhap" style="list-style-type:none; padding-left: 0; padding-bottom: 0.5em; margin-bottom:1em;">
 		<li><a href="phaps/HuongDanRaQuetVaThuGianToanThan.ogg?https://sutamphap.com/wp-content/uploads/2019/08/HuongDanRaQuetVaThuGianToanThan.mp3">Thư Giãn</a></li>
 		<li><a href="phaps/tutaptrongCS_ThienTamTu.ogg?https://sutamphap.com/wp-content/uploads/2019/06/tutaptrongCS_ThienTamTu.mp3">Thiền Tâm Từ</a></li>
@@ -111,7 +111,7 @@
 		</li>
 		<li><i>Thay thế ý định dễ duôi bằng việc làm ngay 1 việc tích cực. Tập thói quen năng động, sử dụng tối đa thời gian, không bao giờ ngồi không</i>
 			<p>Nếu không chủ động làm việc tốt, tâm sẽ luôn có xu hướng làm việc xấu. Việc thay thế thường xuyên như thế sẽ làm cho cuộc sống của mình hướng về tích cực, làm được nhiều việc khó làm và thay đổi số phận.</p>
-			<blockquote><q>Tại sao các bậc Thánh lại là Thánh nhân? Bởi vì các ngài nhẫn việc khó nhẫn, làm việc khó làm, và các ngài vẫn tiếp tục bước đi trong khi lòng luôn thúc giục bảo dừng</q>.</blockquote>
+			<blockquote><Tại sao các bậc Thánh lại là Thánh nhân? Bởi vì các ngài nhẫn việc khó nhẫn, làm việc khó làm, và các ngài vẫn tiếp tục bước đi trong khi lòng luôn thúc giục bảo dừng.</blockquote>
 		 	<p>Đức Phật dạy đừng thấy việc thiện nhỏ mà coi thường không làm, đừng thấy việc ác nhỏ mà làm theo. Thiện hay ác không tự nhiên mà có, do tích lũy dần mà thành. Cuộc đời chúng ta không tự nhiên mà sướng hay khổ, do tích lũy dần việc nhỏ mà nên.</p>
 		</li>
 		<li><i>Niệm chết, quán xét về vô thường và sự khổ. Thấy rõ sự nguy hiểm và các hậu quả của dễ duôi, ở bây giờ và trong tương lai</i>
@@ -135,7 +135,7 @@
 		<div class="vqdd">
 		<p><b>You have to think anyway, so why not think big?</b></p>
 		<p>Hãy thực hiện tổng hợp tất cả những điều trên. Dễ duôi mạnh hơn chúng ta nhiều lần, không có sức mạnh tổng hợp ấy thì khó mà chống lại được nó. Và ngay cả khi ấy, chúng ta vẫn cần phải có thêm một đồng minh quan trọng nữa là thời gian. Với người kiên nhẫn, thời gian là đồng minh, với người thiếu kiên nhẫn thời gian là kẻ thù.</p>
-		<p>Hãy cố gắng lên con. Chúng ta đang xây tương lai từ những việc làm trong hiện tại. Xây lên lâu đài ước mơ hay cái lều vịt rách nát đều là do tay mình cả, chẳng phải do ông trời hay nghiệp chướng, định mệnh gì hết con ạ. Thầy thật muốn nhìn xem tòa lâu đài ấy của con ra sao trong 10 năm, trong 20 năm nữa – nếu thầy vẫn còn sống đến lúc ấy.	</p>
+		<p>Hãy cố gắng lên con. Chúng ta đang xây tương lai từ những việc làm trong hiện tại. Xây lên lâu đài ước mơ hay cái lều vịt rách nát đều là do tay mình cả, chẳng phải do ông trời hay nghiệp chướng, định mệnh gì hết con ạ. Thầy thật muốn nhìn xem tòa lâu đài ấy của con ra sao trong 10 năm, trong 20 năm nữa – nếu thầy vẫn còn sống đến lúc ấy.</p>
 		<p>Với tâm từ của thầy.</p>
 		</div>
 	</ul>
@@ -153,7 +153,8 @@ window.onpopstate = function() {
  	newQuote(parseInt(location.hash.replace("#","")));
 }
 function newQuote(qIndex) {
-	randomQuoteId = document.quotesSortedByLen[Math.floor(Math.random() * 1500)].id;
+	document.sortedQuoteId = Math.floor(Math.random() * document.quotes.length);
+	randomQuoteId = document.quotesSortedByLen[document.sortedQuoteId].id;
 	quoteIndex = qIndex ? qIndex : randomQuoteId;
     quote = String(document.quotes[quoteIndex]).replace(/&.+?;/g, '').replace("<br />", "");
     document.querySelector("h1").innerText = quote;
@@ -169,17 +170,18 @@ function speakQuoteToggle() {
 var audio = document.createElement("audio"); audio.autoplay = true;
 function speakQuote(i) {
 	audio.innerHTML = 
-	'<source src="quotes/mp3/' +(i || quoteIndex)+'.mp3" />' +
-	'<source src="quotes/opus/'+(i || quoteIndex)+'.ogg" />'
+	'<source src="quotes/'+(i || document.sortedQuoteId-1)+'.ogg" />' +
+	'<source src="quotes/'+(i || document.sortedQuoteId-1)+'.mp3" />';
 }
 function luuAnh() {
 	window.open('quotes/650x/'+quoteIndex+'.png');
 }
 </script>
 <script>
-var onVuotQuaDeDuoi = false;
+var onVuotQuaDeDuoi = true;
 function vuotQuaDeDuoi() {
 	document.getElementById("thuyetPhapContainer").style = "display: none";
+	document.getElementById("vuotQuaDeDuoiAudio").style = "display: true";
   	if (onVuotQuaDeDuoi) {
 		document.getElementById("vuotQuaDeDuoiAudio").click();
 		var a = document.getElementById('audioPlayer');
@@ -190,14 +192,15 @@ function vuotQuaDeDuoi() {
 	onNghePhap = false;
 }
 
-var onNghePhap = true;
+var onNghePhap = false;
 function nghePhap() {
 	var ul = document.getElementById("thuyetPhap"), items = ul.children, i=items.length+1;
 	document.getElementById("thuyetPhapContainer").style = "display: true";
+	document.getElementById("vuotQuaDeDuoiAudio").style = "display: none";
 	document.getElementById("thuyetPhap").style = "display: true";
 	document.getElementById("thuNoi").style = "display: none";
 	if (onNghePhap) {
-		for (; i > 2; i--) { 
+		for (; i > 2; i--) {
 			ul.appendChild(items[(Math.random()*(i-3)|0)+3]); 
 		}
 	}
@@ -210,6 +213,7 @@ var onThuNoi = false;
 function ngheThuNoi() {
 	var ul = document.getElementById("thuNoi"), items = ul.children, i=items.length+1;
 	document.getElementById("thuyetPhapContainer").style = "display: true";
+	document.getElementById("vuotQuaDeDuoiAudio").style = "display: none";
 	document.getElementById("thuyetPhap").style = "display: none";
 	document.getElementById("thuNoi").style = "display: true";
 	if (onThuNoi) {
@@ -282,7 +286,7 @@ xmlhttp.onreadystatechange = function () {
 		}
 		// Render nois
 		var ul = document.getElementById("thuNoi");
-		for (var i = data.nois.length-2, elem; i >= 0; i--) {
+		for (var i = 0, elem; i <= data.nois.length-2; i++) {
 			elem = document.createElement('li');
 			elem.innerHTML = '<a href="'+data.nois[i].audio+'">'+data.nois[i].title+'</a>';
 			if (data.nois[i]["id"]) { elem.lastElementChild.id = data.nois[i].id; }
