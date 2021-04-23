@@ -70,6 +70,7 @@
 <div id='playing' style="margin-top:1.1em; margin-bottom:.1em; padding-bottom:0.6em;"></div>
 <div>
 	<button id="nghePhap" onclick="nghePhap()">Nghe pháp</button>
+	<button onclick="ngheThuNoi()">Thư nói</button>
 	<button onclick="vuotQuaDeDuoi()">Vượt qua dễ duôi</button>
 	<div id="thuyetPhapContainer">
 	<ul id="thuyetPhap" style="list-style-type:none; padding-left: 0; padding-bottom: 0.5em; margin-bottom:1em;">
@@ -77,6 +78,7 @@
 		<li><a href="phaps/tutaptrongCS_ThienTamTu.ogg?https://sutamphap.com/wp-content/uploads/2019/06/tutaptrongCS_ThienTamTu.mp3">Thiền Tâm Từ</a></li>
 		<li><a href="phaps/tutaptrongCS_NiemChet.ogg?https://sutamphap.com/wp-content/uploads/2019/06/tutaptrongCS_NiemChet.mp3">Niệm chết</a></li>
 	</ul>
+	<ul id="thuNoi" style="list-style-type:none; padding-left: 0; padding-bottom: 0.5em; margin-bottom:1em; display: none"></ul>
 	<div style="border-bottom: 1px; border-bottom-style: dashed; border-bottom-color: #999;"></div>
 	<h1>&nbsp;Vượt qua dễ duôi</h1>
 	</div>
@@ -184,6 +186,7 @@ function vuotQuaDeDuoi() {
 		a.addEventListener('timeupdate', function(){ if (a.currentTime >= 470) a.pause(); }, false);
 	}
 	onVuotQuaDeDuoi = true;
+	onThuNoi = false;
 	onNghePhap = false;
 }
 
@@ -191,12 +194,31 @@ var onNghePhap = true;
 function nghePhap() {
 	var ul = document.getElementById("thuyetPhap"), items = ul.children, i=items.length+1;
 	document.getElementById("thuyetPhapContainer").style = "display: true";
+	document.getElementById("thuyetPhap").style = "display: true";
+	document.getElementById("thuNoi").style = "display: none";
 	if (onNghePhap) {
 		for (; i > 2; i--) { 
 			ul.appendChild(items[(Math.random()*(i-3)|0)+3]); 
 		}
 	}
 	onNghePhap = true;
+	onThuNoi = false;
+	onVuotQuaDeDuoi = false;
+}
+
+var onThuNoi = false;
+function ngheThuNoi() {
+	var ul = document.getElementById("thuNoi"), items = ul.children, i=items.length+1;
+	document.getElementById("thuyetPhapContainer").style = "display: true";
+	document.getElementById("thuyetPhap").style = "display: none";
+	document.getElementById("thuNoi").style = "display: true";
+	if (onThuNoi) {
+		for (; i > 0; i--) { 
+			ul.appendChild(items[(Math.random()*(i)|0)]); 
+		}
+	}
+	onNghePhap = false;
+	onThuNoi = true;
 	onVuotQuaDeDuoi = false;
 }
 
@@ -258,6 +280,14 @@ xmlhttp.onreadystatechange = function () {
 			if (data.phaps[i]["id"]) { elem.lastElementChild.id = data.phaps[i].id; }
 			ul.appendChild(elem);
 		}
+		// Render nois
+		var ul = document.getElementById("thuNoi");
+		for (var i = data.nois.length-2, elem; i >= 0; i--) {
+			elem = document.createElement('li');
+			elem.innerHTML = '<a href="'+data.nois[i].audio+'">'+data.nois[i].title+'</a>';
+			if (data.nois[i]["id"]) { elem.lastElementChild.id = data.nois[i].id; }
+			ul.appendChild(elem);
+		}		
 		// Play random selected Phaps
 		var n = document.selectedPhapIndexes.length;
 		if (document.selectedPhapIndexes[0] == -1) { document.selectedPhapIndexes.shift(); }
@@ -268,8 +298,10 @@ xmlhttp.onreadystatechange = function () {
 		if (x && data.phaps[x]) { playPhap(data.phaps[x].audio, data.phaps[x].title); }
 	}
 };
-xmlhttp.open("GET", "phaps.json", true);
+xmlhttp.open("GET", "audio.json", true);
 xmlhttp.send();
+
+// Load thu noi from json file and generate related HTML content
 </script>
 
 <script src="quotes.js"></script>

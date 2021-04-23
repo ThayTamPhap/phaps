@@ -1,4 +1,4 @@
-.vscode
+in.vscode
 .DS_Store
 go.sum
 workout.boltdb
