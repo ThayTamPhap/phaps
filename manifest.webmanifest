@@ -1,7 +1,7 @@
 {
   "background_color": "#400D00",
   "description": "sutamphap.com simplified",
-  "display": "fullscreen",
+  "display": "standalone",
   "icons": [
     {
       "src": "dharma-wheel.png",
