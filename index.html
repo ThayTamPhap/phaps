@@ -145,6 +145,7 @@ ul.hilite > li { padding: 0.5em; padding-left: 0px; margin-left: -15px;  }
 <script>
 document.quotes = null;
 var quoteIndex = 830, count = 59, quote = document.querySelector("h1").innerText;
+document.saveQuote = location.search = '?save';
 window.setInterval(function () {
 	count--;
 	document.getElementById("count").innerText = count;
@@ -325,5 +326,6 @@ function luuAnh() {
         downloadQuoteImageLink.click();
     });
 }
+if (document.saveQuote) luuAnh()
 </script>
 </html>
