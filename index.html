@@ -262,13 +262,13 @@ function playPhap(url, title) {
 
 // Load phaps from json file and generate related HTML content
 var xmlhttp = new XMLHttpRequest();
-document.useCookie = (window.location.host != "localhost:3000");
+document.useCookie = (window.location.host == "localhost:3000");
 xmlhttp.onreadystatechange = function () {
 	if (this.readyState == 4 && this.status == 200) {
 		let data = JSON.parse(this.responseText);
 		document.phaps = data.phaps;
-		document.selectedPhapIndexes = !document.useCookie ? data.selected :
-			(document.cookie || "-1").split(',').map(x => parseInt(x));
+		if (document.useCookie)
+		document.selectedPhapIndexes = (document.cookie || "-1").split(',').map(x => parseInt(x));
 		var ul = document.getElementById("thuyetPhap");
 		for (var i = data.phaps.length-2, elem; i >= 0; i--) {
 			elem = document.createElement('li');
