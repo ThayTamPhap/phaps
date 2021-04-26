@@ -186,6 +186,7 @@ phaps.each do |phap|
 	name = media.sub(/\..+/,'')
 	# `wget #{phap[:mp3_url]}` unless File.exist?(media) && File.size(media) > 0
 	# next unless File.exist?("#{name}.ogg") && File.size("#{name}.ogg") > 0
-	# print "{\"title\":\"#{phap[:title]}\",\"audio\":\"nois/#{name}.ogg?#{phap[:mp3_url]}\"},"
-	puts "\"nois/#{name}.ogg\" to \"#{phap[:title]}\","
+	title = phap[:title].gsub(/\(.+\)/,"").strip
+	puts "{\"title\":\"#{title}\",\"audio\":\"nois/#{name}.ogg?#{phap[:mp3_url]}\"},"
+	# puts "\"nois/#{name}.ogg\" to \"#{phap[:title]}\","
 end
