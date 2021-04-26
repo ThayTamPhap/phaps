@@ -171,9 +171,6 @@ function speakQuote(i) {
 	audio.src = "quotes/"+quoteIndex+".mp3";
 	// audio.innerHTML = '<source src="quotes/'+(quoteIndex)+'.ogg" />' + '<source src="quotes/'+(quoteIndex)+'.mp3" />';
 }
-function luuAnh() {
-	window.open('quotes/'+quoteIndex+'.png');
-}
 </script>
 <script>
 var onVuotQuaDeDuoi = true;
@@ -312,6 +309,21 @@ function selectedPhaps() {
 		return `"${phapId}" to "${phap.title}"`;
 	}).join(",\n");
 	console.log(document.ktHash);
+}
+</script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+function luuAnh() {
+	// window.open('quotes/'+quoteIndex+'.png');
+	var container = document.getElementById("quote"); //specific element on page
+	html2canvas(container).then(function(canvas) {
+        var link = document.createElement("a");
+        document.body.appendChild(link);
+        link.download = "html_image.png";
+        link.href = canvas.toDataURL("image/png");
+        link.target = '_blank';
+        link.click();
+    });
 }
 </script>
 </html>
