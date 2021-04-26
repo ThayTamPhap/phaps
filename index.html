@@ -220,10 +220,19 @@ document.addEventListener("click", function (e) {
 
 function playPhap(url, title) {
 	var sources = url.split('?'), p = document.getElementById('playing');
-	p.innerHTML = '<p style="padding-bottom:0.0em;">[ '+title+' ]</p><audio autoplay controls id="audioPlayer"><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
-  if (sources[0].includes("KinhHanhPhuc")) {
+	var ap = document.getElementById("audioPlayer");
+	var newap = (ap == null);
+	if (!newap) {
+		ap.pause();
+		p.removeChild(p.lastChild);
+	}
+	p.innerHTML = '<p style="padding-bottom:0.0em;">[ '+title+' ]</p><audio ' + (newap ? '':'autoplay') + ' controls id="audioPlayer"><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
+
+	ap = document.getElementById("audioPlayer");
+	ap.addEventListener('play', function(){ ap.autoplay = false; });
+  	if (sources[0].includes("KinhHanhPhuc")) {
 		var n = parseInt(sources[0].match(/(\d+?)\.ogg/)[1]);
-		if (n < 10) { document.getElementById('audioPlayer').addEventListener('ended', function(){ document.getElementById('KinhHanhPhuc' + (n+1)).click(); }); }
+		if (n < 10) { ap.addEventListener('ended', function(){ document.getElementById('KinhHanhPhuc' + (n+1)).click(); }); }
 	}
 	window.scrollTo(0,0); // scroll to top
 }
