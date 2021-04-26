@@ -180,7 +180,6 @@ function luuAnh() {
 var onVuotQuaDeDuoi = true;
 function vuotQuaDeDuoi() {
 	document.getElementById("thuyetPhapContainer").style = "display: none";
-	document.getElementById("vuotQuaDeDuoiAudio").style = "display: true";
   	if (onVuotQuaDeDuoi) {
 		document.getElementById("vuotQuaDeDuoiAudio").click();
 		var a = document.getElementById('audioPlayer');
@@ -195,7 +194,6 @@ var onNghePhap = false;
 function nghePhap() {
 	var ul = document.getElementById("thuyetPhap"), items = ul.children, i=items.length+1;
 	document.getElementById("thuyetPhapContainer").style = "display: true";
-	document.getElementById("vuotQuaDeDuoiAudio").style = "display: none";
 	document.getElementById("thuyetPhap").style = "display: true";
 	document.getElementById("thuNoi").style = "display: none";
 	if (onNghePhap) {
@@ -259,7 +257,7 @@ function playPhap(url, title) {
 		var n = parseInt(sources[0].match(/(\d+?)\.ogg/)[1]);
 		if (n < 10) { document.getElementById('audioPlayer').addEventListener('ended', function(){ document.getElementById('KinhHanhPhuc' + (n+1)).click(); }); }
 	}
-	window.scrollTo(0,0); // scroll to top	
+	window.scrollTo(0,0); // scroll to top
 }
 
 // Load phaps from json file and generate related HTML content
@@ -291,12 +289,8 @@ xmlhttp.onreadystatechange = function () {
 			if (data.nois[i]["id"]) { elem.lastElementChild.id = data.nois[i].id; }
 			ul.appendChild(elem);
 		}		
-		// Play random selected Phaps
-		var n = document.selectedPhapIndexes.length;
-		if (document.selectedPhapIndexes[0] == -1) { document.selectedPhapIndexes.shift(); }
-		if (n == 0) { return }
-		console.log("Selected phaps indexes: ", document.selectedPhapIndexes);
-		var x = document.selectedPhapIndexes[Math.round(Math.random()*(n-1))];
+		// Play random phaps
+		var x = Math.round(Math.random()*(document.phaps.length-1));
 		console.log(x,data.phaps[x]);
 		if (x && data.phaps[x]) { playPhap(data.phaps[x].audio, data.phaps[x].title); }
 	}
