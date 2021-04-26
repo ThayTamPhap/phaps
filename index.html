@@ -60,7 +60,7 @@
 <div>
 	<button id='newQuote' onclick="newQuote()">Lời dạy mới</button>
 	<input id="luuAnh" type="button" onclick="luuAnh()" value="Lưu ảnh" />
-	<input id="option" type="button" onclick="speakQuoteToggle()" value="Đọc to" style="display: none"/>
+	<input id="option" type="button" onclick="speakQuoteToggle()" value="Đọc to" style="display: non"/>
 	<span style="font-size:12px;"> [ <span id="count">59</span> ]</span>
 	<div id="quote" style='margin:0 -8px 0 -8px; background-color:#400D00; padding:0.8em 0.6em 1em 1em; margin-top: 1em; margin-bottom:0.5em; border-bottom: 1px; border-bottom-style: dashed; border-bottom-color: #999;'>
 		<h1 style='background-color:#400D00; margin:0; margin-bottom: 0.2em;'>Hai pháp thấp hèn: 1. Tính khó dạy: cố chấp, cứng đầu không chấp nhận lời dạy của người trí, dù khuyên đúng cũng không chịu nghe. 2. Gần bạn xấu: thích giao du, kết bạn với những kẻ thiếu đức tin, không có giới, ác tuệ.</h1>
@@ -154,7 +154,7 @@ window.onpopstate = function() {
 }
 function newQuote(qIndex) {
 	quoteIndex = qIndex ? qIndex : Math.floor(Math.random() * document.quotes.length);
-    quote = document.quotes[quoteIndex].content.replace(/&.+?;/g, '').replace("<br />", "");
+    quote = document.quotes[quoteIndex].replace(/&.+?;/g, '').replace("<br />", "");
     document.querySelector("h1").innerText = quote;
     if (document.getElementById("option").value != "Đọc to") { speakQuote(); }
     location.hash = quoteIndex;
@@ -167,13 +167,12 @@ function speakQuoteToggle() {
 }
 var audio = document.createElement("audio"); audio.autoplay = true;
 function speakQuote(i) {
-	console.log(quoteIndex, document.quotes[quoteIndex], document.quotes.length);
-	qid = document.quotes[quoteIndex].id;
-	audio.innerHTML = '<source src="quotes/mp3/'+(qid)+'.mp3" />' + '<source src="quotes/ogg/'+(qid)+'.ogg" />';
-	// audio.innerHTML = '<source src="quotes/'+(quoteIndex)+'.mp3" />' + '<source src="quotes/'+(quoteIndex)+'.ogg" />';
+	console.log(quoteIndex, document.quotes[quoteIndex], document.quoteIds[quoteIndex]);
+	audio.src = "quotes/"+quoteIndex+".mp3";
+	// audio.innerHTML = '<source src="quotes/'+(quoteIndex)+'.ogg" />' + '<source src="quotes/'+(quoteIndex)+'.mp3" />';
 }
 function luuAnh() {
-	window.open('quotes/650x/'+document.quotes[quoteIndex].id+'.png');
+	window.open('quotes/650x/'+document.quoteIds[quoteIndex]+'.png');
 }
 </script>
 <script>
