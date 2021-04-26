@@ -143,39 +143,6 @@ ul.hilite > li { padding: 0.5em; padding-left: 0px; margin-left: -15px;  }
 </div>
 </body>
 <script>
-document.quotes = null;
-var quoteIndex = 830, count = 59, quote = document.querySelector("h1").innerText;
-document.saveQuote = location.search == '?save';
-window.setInterval(function () {
-	count--;
-	document.getElementById("count").innerText = count;
-	if (count == 0) newQuote();
-}, 1000);
-window.onpopstate = function() {
- 	newQuote(parseInt(location.hash.replace("#","")));
-}
-function newQuote(qIndex) {
-	quoteIndex = parseInt(location.hash.replace("#",""))
-	if (!quoteIndex)
-		quoteIndex = qIndex ? qIndex : Math.floor(Math.random() * document.quotes.length);
-    quote = document.quotes[quoteIndex].replace(/&.+?;/g, '').replace("<br />", "");
-    document.querySelector("h1").innerText = quote;
-    if (document.getElementById("option").value != "Đọc to") { speakQuote(); }
-    location.hash = quoteIndex;
-    count = 59;
-}
-function speakQuoteToggle() {
-	var o = document.getElementById("option");
-	if (o.value == "Đọc to") { o.value = "Tắt tiếng"; if (audio.src) audio.play(); else speakQuote(); }
-	else { o.value = "Đọc to"; audio.pause(); }
-}
-var audio = document.createElement("audio"); audio.autoplay = true;
-function speakQuote(i) {
-	audio.src = "quotes/"+quoteIndex+".mp3";
-	// audio.innerHTML = '<source src="quotes/'+(quoteIndex)+'.ogg" />' + '<source src="quotes/'+(quoteIndex)+'.mp3" />';
-}
-</script>
-<script>
 var onVuotQuaDeDuoi = true;
 function vuotQuaDeDuoi() {
 	document.getElementById("thuyetPhapContainer").style = "display: none";
@@ -298,22 +265,46 @@ xmlhttp.onreadystatechange = function () {
 };
 xmlhttp.open("GET", "audio.json", true);
 xmlhttp.send();
-
-// Load thu noi from json file and generate related HTML content
 </script>
 
 <script src="quotes.js"></script>
-<script>newQuote(); // Init new quote from quotes.js data
-// https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/hash-map-of.html
-function selectedPhaps() {
-	document.ktHash = document.selectedPhapIndexes.map(function (x) {
-		phap = document.phaps[x];
-		phapId = phap.audio.split("?https")[0];
-		return `"${phapId}" to "${phap.title}"`;
-	}).join(",\n");
-	console.log(document.ktHash);
+<script>
+var  quoteIndex, count = 59;
+document.saveQuote = location.search == '?save';
+
+window.setInterval(function () {
+	count--;
+	document.getElementById("count").innerText = count;
+	if (count == 0) newQuote();
+}, 1000);
+
+function newQuote(qIndex) {
+	quoteIndex = qIndex ? qIndex : Math.floor(Math.random() * document.quotes.length);
+    quote = document.quotes[quoteIndex].replace(/&.+?;/g, '').replace("<br />", "");
+    document.querySelector("h1").innerText = quote;
+    if (document.getElementById("option").value != "Đọc to") { speakQuote(); }
+    location.hash = quoteIndex;
+    count = 59;
+}
+
+function speakQuoteToggle() {
+	var o = document.getElementById("option");
+	if (o.value == "Đọc to") { o.value = "Tắt tiếng"; if (audio.src) audio.play(); else speakQuote(); }
+	else { o.value = "Đọc to"; audio.pause(); }
+}
+
+var audio = document.createElement("audio"); audio.autoplay = true;
+function speakQuote(i) {
+	audio.src = "quotes/"+quoteIndex+".mp3";
+	// audio.innerHTML = '<source src="quotes/'+(quoteIndex)+'.ogg" />' + '<source src="quotes/'+(quoteIndex)+'.mp3" />';
+}
+
+newQuote(parseInt(location.hash.replace("#",""))); // Init new quote from quotes.js data
+window.onpopstate = function() {
+ 	newQuote(parseInt(location.hash.replace("#","")));
 }
 </script>
+
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script>
 var downloadQuoteImageLink = document.createElement("a");
@@ -328,6 +319,16 @@ function luuAnh() {
         downloadQuoteImageLink.click();
     });
 }
-if (document.saveQuote) luuAnh()
+if (document.saveQuote) { luuAnh(); }
+
+// https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/hash-map-of.html
+function selectedPhaps() {
+	document.ktHash = document.selectedPhapIndexes.map(function (x) {
+		phap = document.phaps[x];
+		phapId = phap.audio.split("?https")[0];
+		return `"${phapId}" to "${phap.title}"`;
+	}).join(",\n");
+	console.log(document.ktHash);
+}
 </script>
 </html>
