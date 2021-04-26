@@ -291,7 +291,7 @@ xmlhttp.onreadystatechange = function () {
 			ul.appendChild(elem);
 		}		
 		// Play random phaps
-		var x = Math.round(Math.random()*(document.phaps.length-1));
+		var x = Math.round(Math.random()*(document.phaps.length-2));
 		// console.log(x,data.phaps[x]);
 		if (x && data.phaps[x]) { playPhap(data.phaps[x].audio, data.phaps[x].title); }
 	}
