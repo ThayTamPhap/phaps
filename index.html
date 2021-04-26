@@ -313,16 +313,16 @@ function selectedPhaps() {
 </script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script>
+var downloadQuoteImageLink = document.createElement("a");
+document.body.appendChild(downloadQuoteImageLink);
 function luuAnh() {
 	// window.open('quotes/'+quoteIndex+'.png');
 	var container = document.getElementById("quote"); //specific element on page
 	html2canvas(container).then(function(canvas) {
-        var link = document.createElement("a");
-        document.body.appendChild(link);
-        link.download = "html_image.png";
-        link.href = canvas.toDataURL("image/png");
-        link.target = '_blank';
-        link.click();
+        downloadQuoteImageLink.download = quoteIndex+".png";
+        downloadQuoteImageLink.href = canvas.toDataURL("image/png");
+        downloadQuoteImageLink.target = '_blank';
+        downloadQuoteImageLink.click();
     });
 }
 </script>
