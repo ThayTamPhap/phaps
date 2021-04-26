@@ -61,7 +61,7 @@
 <div>
 	<button id='newQuote' onclick="newQuote()">Lời dạy mới</button>
 	<input id="luuAnh" type="button" onclick="luuAnh()" value="Lưu ảnh" />
-	<input id="option" type="button" onclick="speakQuoteToggle()" value="Đọc to" style="display: non"/>
+	<input id="option" type="button" onclick="speakQuoteToggle()" value="Đọc to"/>
 	<span style="font-size:12px;"> [ <span id="count">59</span> ]</span>
 	<div id="quote" style='margin:0 -8px 0 -8px; background-color:#400D00; padding:0.8em 0.6em 1em 1em; margin-top: 1em; margin-bottom:0.5em; border-bottom: 1px; border-bottom-style: dashed; border-bottom-color: #999;'>
 		<h1 style='background-color:#400D00; margin:0; margin-bottom: 0.2em;'>Hai pháp thấp hèn: 1. Tính khó dạy: cố chấp, cứng đầu không chấp nhận lời dạy của người trí, dù khuyên đúng cũng không chịu nghe. 2. Gần bạn xấu: thích giao du, kết bạn với những kẻ thiếu đức tin, không có giới, ác tuệ.</h1>
@@ -179,6 +179,7 @@ function luuAnh() {
 var onVuotQuaDeDuoi = true;
 function vuotQuaDeDuoi() {
 	document.getElementById("thuyetPhapContainer").style = "display: none";
+	document.getElementById("vuotQuaDeDuoi").style = "display: true";
   	if (onVuotQuaDeDuoi) {
 		document.getElementById("vuotQuaDeDuoiAudio").click();
 		var a = document.getElementById('audioPlayer');
@@ -193,6 +194,7 @@ var onNghePhap = false;
 function nghePhap() {
 	var ul = document.getElementById("thuyetPhap"), items = ul.children, i=items.length+1;
 	document.getElementById("thuyetPhapContainer").style = "display: true";
+	document.getElementById("vuotQuaDeDuoi").style = "display: none";
 	document.getElementById("thuyetPhap").style = "display: true";
 	document.getElementById("thuNoi").style = "display: none";
 	if (onNghePhap) {
@@ -209,7 +211,7 @@ var onThuNoi = false;
 function ngheThuNoi() {
 	var ul = document.getElementById("thuNoi"), items = ul.children, i=items.length+1;
 	document.getElementById("thuyetPhapContainer").style = "display: true";
-	document.getElementById("vuotQuaDeDuoiAudio").style = "display: none";
+	document.getElementById("vuotQuaDeDuoi").style = "display: none";
 	document.getElementById("thuyetPhap").style = "display: none";
 	document.getElementById("thuNoi").style = "display: true";
 	if (onThuNoi) {
