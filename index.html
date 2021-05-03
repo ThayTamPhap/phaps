@@ -293,7 +293,8 @@ window.setInterval(function () {
 }, 1000);
 
 function newQuote(qIndex) {
-	if (window.location.host != "localhost:3000") {
+	console.log(location.search);
+	if (location.search != '?poem') {
 		quoteIndex = qIndex ? qIndex : Math.floor(Math.random() * document.quotes.length);
 	} else {	
 		quoteIndex = qIndex ? qIndex : quoteIndex + 1; 
