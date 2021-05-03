@@ -2,8 +2,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="manifest" href="manifest.webmanifest">
-<link id="favicon" rel="icon" type="image/x-icon" href="dharma-wheel.png">
+<link rel="manifest" href="/assets/manifest.webmanifest">
+<link id="favicon" rel="icon" type="image/x-icon" href="/assets/dharma-wheel.png">
 <title>Thoải mái - Thư giãn - Biết mình</title>
 <style>
 button, input { height:2em; font-size:0.9em; font-weight:500; padding-bottom:0.3em; padding-top:0.3em; color:rgb(216, 210, 207); background-color:rgb(39, 46, 48); border-color:rgb(105, 91, 86); -webkit-appearance:none; border-radius:0; }
@@ -277,12 +277,12 @@ xmlhttp.onreadystatechange = function () {
 		if (x && data.phaps[x]) { playPhap(data.phaps[x].audio, data.phaps[x].title); }
 	}
 };
-xmlhttp.open("GET", "audios.json", true);
+xmlhttp.open("GET", "/assets/audios.json", true);
 xmlhttp.send();
 </script>
 
 
-<script src="quotes.js"></script>
+<script src="/assets/quotes.js"></script>
 <script>
 var quoteIndex, count = 59;
 
@@ -320,7 +320,7 @@ window.onpopstate = function() {
 </script>
 
 
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="/assets/html2canvas.min.js"></script>
 <script>
 var downloadQuoteImageLink = document.createElement("a");
 document.body.appendChild(downloadQuoteImageLink);

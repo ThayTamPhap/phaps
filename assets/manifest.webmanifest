@@ -1,0 +1,15 @@
+{
+  "background_color": "#400D00",
+  "description": "sutamphap.com simplified",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "dharma-wheel.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ],
+  "name": "sutamphap.com simplified",
+  "short_name": "STP",
+  "start_url": "index.html"
+}
