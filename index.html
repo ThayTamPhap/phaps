@@ -284,7 +284,7 @@ xmlhttp.send();
 
 <script src="/assets/quotes.js"></script>
 <script>
-var quoteIndex, count = 59;
+var quoteIndex = -1, count = 59;
 
 window.setInterval(function () {
 	count--;
@@ -293,10 +293,20 @@ window.setInterval(function () {
 }, 1000);
 
 function newQuote(qIndex) {
-	quoteIndex = qIndex ? qIndex : Math.floor(Math.random() * document.quotes.length);
+	if (window.location.host != "localhost:3000") {
+		quoteIndex = qIndex ? qIndex : Math.floor(Math.random() * document.quotes.length);
+	} else {	
+		quoteIndex = qIndex ? qIndex : quoteIndex + 1; 
+		for (; quoteIndex < document.quotes.length; quoteIndex++)
+			if (document.quotes[quoteIndex].match(":; ") || 
+				document.quotes[quoteIndex].match(/;\s+([A-ZĐÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌƠỚỜỞỠỢÔỐỒỔỖỘÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴ])/))
+				break;
+		if (quoteIndex == document.quotes.length) quoteIndex = 0;
+	}
     quote = document.quotes[quoteIndex]
     	.replace(":; ", ":\n")
-	    .replace(/;\s+([A-ZĐÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌƠỚỜỞỠỢÔỐỒỔỖỘÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴ])/g, ",\n$1")
+	    .replace(/(\w);\s+([A-Z“ĐÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌƠỚỜỞỠỢÔỐỒỔỖỘÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴ])/g, "$1,\n$2")
+	    .replace(/;\s+([A-Z“ĐÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌƠỚỜỞỠỢÔỐỒỔỖỘÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴ])/g, "\n$1")
     	;
     document.querySelector("h1").innerText = quote;
     if (document.getElementById("option").value != "Đọc to") { speakQuote(); }
