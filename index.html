@@ -284,7 +284,7 @@ xmlhttp.send();
 
 <script src="/assets/quotes.js"></script>
 <script>
-var quoteIndex = -1, count = 59;
+var quoteIndex = Math.floor(Math.random() * document.quotes.length), count = 59;
 
 window.setInterval(function () {
 	count--;
@@ -305,7 +305,7 @@ function newQuote(qIndex) {
 	}
     quote = document.quotes[quoteIndex]
     	.replace(":; ", ":\n")
-	    .replace(/(\w);\s+([A-Z“ĐÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌƠỚỜỞỠỢÔỐỒỔỖỘÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴ])/g, "$1,\n$2")
+	    .replace(/([a-z”đáàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọơớờởỡợôốồổỗộúùủũụưứừửữựýỳỷỹỵ]);\s+([A-Z“ĐÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌƠỚỜỞỠỢÔỐỒỔỖỘÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴ])/g, "$1,\n$2")
 	    .replace(/;\s+([A-Z“ĐÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌƠỚỜỞỠỢÔỐỒỔỖỘÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴ])/g, "\n$1")
     	;
     document.querySelector("h1").innerText = quote;
