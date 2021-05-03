@@ -91,7 +91,7 @@ document.quotes = [
 "Chúng ta cứ nghĩ rằng bản thân mình là quan trọng. Đó là một ảo tưởng.",
 "Chánh niệm thì không khó, cái khó là chánh niệm có liên tục hay không.",
 "Cái gì không giết chết được tôi, sẽ chỉ càng làm cho tôi thêm mạnh mẽ.",
-"4 đức tính của con người đạo đức: Trí tuệ; Chân thật; Xả ly; An tịnh.",
+"4 đức tính của con người đạo đức: Trí tuệ, Chân thật, Xả ly, An tịnh.",
 "Người nào không thực hành Giới_Định_Tuệ người đó không phải là Phật tử.",
 "Hiểu biết người khác là quan trọng để hiểu biết về chính bản thân mình.",
 "Hãy sống với mỗi khoảnh khắc một cách trọn vẹn, và với tất cả trái tim.",

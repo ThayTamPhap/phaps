@@ -294,7 +294,7 @@ window.setInterval(function () {
 
 function newQuote(qIndex) {
 	quoteIndex = qIndex ? qIndex : Math.floor(Math.random() * document.quotes.length);
-    quote = document.quotes[quoteIndex].replace(/&.+?;/g, '').replace("<br />", "");
+    quote = document.quotes[quoteIndex].replace(/&.+?;/g, '').replace("<br />", "").replace(/;\s+([A-ZĐÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌƠỚỜỞỠỢÔỐỒỔỖỘÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴ])/g, "\n$1");
     document.querySelector("h1").innerText = quote;
     if (document.getElementById("option").value != "Đọc to") { speakQuote(); }
     location.hash = quoteIndex;
