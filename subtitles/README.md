@@ -41,8 +41,9 @@ mfa g2p vietnamese_g2p ../nois dict
 conda activate aligner
 mfa thirdparty download
 # mfa align -h # => corpus_directory dictionary_path acoustic_model_path output_directory
+mfa g2p vietnamese_g2p ../nois dict
 mfa align ../nois dict vietnamese .
-cat nois-CHUYENANUONGDUNG.TextGrid
+ls *.TextGrid
 ```
 
 https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner/issues/247#issuecomment-796539284
@@ -52,5 +53,5 @@ you can replace missing phonemes au_T4, au_T6, eu_T5, ieu_T5, oe_T5, uoi2_T2, uo
 ```
 
 
-`ruby textgrid-to-srt.rb > ../nois/CHUYENANUONGDUNG.srt`
+`ruby textgrid-to-srt.rb`
 https://github.com/Aegisub/Aegisub
