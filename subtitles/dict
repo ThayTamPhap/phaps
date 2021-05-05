@@ -1,4 +1,10 @@
-hầy	h ay3_T2
+ăn	a2_T1 n
+uống	ua_T3 ng
+đúng	d2 u1_T3 ng
+con	k o1_T1 n
+thân	th a3_T1 n
+mến	m e2_T3 n
+thầy	th ay3_T2
 rất	r a3_T3 t
 vui	j ui_T1
 khi	kh i_T1
@@ -6,7 +12,6 @@ biết	b ie2_T3 t
 mặc	m a2_T6 k
 dù	j u1_T2
 sinh	x i_T1 nh
-con	k o1_T1 n
 và	j a1_T2
 bận	b a3_T6 n
 rộn	r o2_T6 n
@@ -22,7 +27,6 @@ nhiều	nh ieu_T2
 thay	th ay_T1
 đổi	d2 oi2_T4
 ra	r a1_T1
-thầy	th ay3_T2
 luôn	l ua_T1 n
 tin	t i_T1 n
 tưởng	t ua2_T4 ng
@@ -111,7 +115,6 @@ cực	k u2_T6 k
 kỳ	k i_T2
 điều	d2 ieu_T2
 bản	b a1_T4 n
-thân	th a3_T1 n
 chứng	ch u2_T3 ng
 kiến	k ie2_T3 n
 rồi	r oi2_T2
@@ -121,7 +124,6 @@ tiếp	t ie2_T3 p
 tục	t u1_T6 k
 nhé	nh e1_T3
 khó	kh o1_T3
-đúng	d2 u1_T3 ng
 mình	m i_T2 nh
 tham	th a1_T1 m
 thôi	th oi2_T1
@@ -215,7 +217,6 @@ cứ	k u2_T3
 xe	x e1_T1
 máy	m ay_T3
 nấu	n au3_T3
-ăn	a2_T1 n
 chăm	ch a2_T1 m
 gọi	g oi_T6
 điện	d2 ie2_T6 n
@@ -261,7 +262,6 @@ sắc	x a2_T3 k
 bén	b e1_T3 n
 giúp	j u1_T3 p
 cả	k a1_T4
-uống	ua_T3 ng
 sóc	x o1_T3 k
 sức	x u2_T3 k
 khỏe	kh oe_T4
@@ -417,8 +417,8 @@ cần	k a3_T2 n
 bao	b ao_T1
 gồm	g o2_T2 m
 enzyme	e1_T1 j i_T1 m e1_T1
-vit	j i_T1 t
 vitamin	j t a1_T1 m i_T1 n
+thu	th u1_T1
 bị	b i_T6
 phá	ph a1_T3
 hủy	h uy_T4
@@ -603,7 +603,6 @@ lúa	l ua_T3
 chứa	ch ua2_T3
 dễ	j e2_T5
 hấp	h a3_T3 p
-thu	th u1_T1
 bò	b o1_T2
 hình	h i_T2 nh
 thành	th a1_T2 nh

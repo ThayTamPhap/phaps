@@ -43,20 +43,6 @@ mfa thirdparty download
 # mfa align -h # => corpus_directory dictionary_path acoustic_model_path output_directory
 mfa align ../nois dict vietnamese .
 cat nois-CHUYENANUONGDUNG.TextGrid
-mv nois-CHUYENANUONGDUNG.TextGrid ../nois/CHUYENANUONGDUNG.TextGrid
-```
-
-```zsh
-# brew install praat
-conda activate aligner
-pip install praatio # https://github.com/timmahrt/praatIO
-python
-```
-
-```py
-from praatio import tgio
-tg = tgio.openTextgrid("../nois/CHUYENANUONGDUNG.TextGrid")
-entryList = tg.tierDict["words"].entryList
 ```
 
 https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner/issues/247#issuecomment-796539284
@@ -66,5 +52,5 @@ you can replace missing phonemes au_T4, au_T6, eu_T5, ieu_T5, oe_T5, uoi2_T2, uo
 ```
 
 
-https://sourceforge.net/projects/visualsubsync/files/VisualSubSync/VisualSubSync%201.0.1/
-one of the best supporters for SRT and SSA/ASS subtitle formats. Audio waveform representation is the foundation of this subtitle program. Besides, it will allow you to check for errors, get network suggestions, and use the speed indicators, which can surely improve your subtitles' superiority.
+`ruby textgrid-to-srt.rb > ../nois/CHUYENANUONGDUNG.srt`
+https://github.com/Aegisub/Aegisub
