@@ -47,6 +47,8 @@ mfa align ../nois dict vietnamese .
 
 mfa g2p vietnamese_g2p ../phaps phaps.dict
 mfa align ../phaps phaps.dict vietnamese . -c -d -v --config_path config.yml
+mfa align buocdautapthien_suHieuBietDunDan phaps.dict vietnamese .
+
 ```
 
 `ruby textgrid-to-srt.rb`
