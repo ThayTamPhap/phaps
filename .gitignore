@@ -4,4 +4,6 @@ in.vscode
 *.m4a
 *.wav
 *.TextGrid
+*.lab
+*.srt
 subtitles/unaligned.txt

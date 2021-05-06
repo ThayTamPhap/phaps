@@ -11,7 +11,7 @@ txt = txt.split("intervals: size = ")[1]
 intervals = txt.split(/intervals.+?:/)
 intervals.shift
 
-sents = File.open(lab_filename).read.split(/[\n\s]+/m)
+sents = File.open(lab_filename).read.split(/\s*\n+\s*/m)
 sents.each_with_index do |sent, index|
 	sent = sent.gsub(/[\n\s]+/m, " ").strip
 	words = sent.downcase.split(/[^[:alpha:]]+/)
@@ -37,8 +37,15 @@ end
 
 Dir.glob("*.TextGrid") do |filename|
   name = filename.gsub(".TextGrid", "")
+
+       lab_filename = "../#{name.sub("-","/")}.lab"
   puts srt_filename = "../#{name.sub("-","/")}.srt"
-  lab_filename = "../#{name.sub("-","/")}.lab"
+  next if File.exist?(srt_filename)
+
+       lab_filename = "#{name.sub("-","/")}.lab"
+  puts srt_filename = "#{name.sub("-","/")}.srt"
+  next if File.exist?(srt_filename)
+
   File.open(srt_filename, "wt") do |srt_file|
   	t2s(name, lab_filename, srt_file)
   end

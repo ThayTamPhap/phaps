@@ -1,2 +1,2 @@
-beam: 60
-retry_beam: 150
+beam: 20
+retry_beam: 80
