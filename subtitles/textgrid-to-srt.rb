@@ -11,7 +11,7 @@ txt = txt.split("intervals: size = ")[1]
 intervals = txt.split(/intervals.+?:/)
 intervals.shift
 
-sents = File.open(lab_filename).read.split(/[\n\s]*\.[\n\s]*/m)
+sents = File.open(lab_filename).read.split(/[\n\s]+/m)
 sents.each_with_index do |sent, index|
 	sent = sent.gsub(/[\n\s]+/m, " ").strip
 	words = sent.downcase.split(/[^[:alpha:]]+/)

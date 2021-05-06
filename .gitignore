@@ -1,7 +1,7 @@
 in.vscode
 .DS_Store
-go.sum
-workout.boltdb
 *.mp3
 *.m4a
 *.wav
+*.TextGrid
+subtitles/unaligned.txt
