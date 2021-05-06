@@ -6,4 +6,5 @@ in.vscode
 *.TextGrid
 *.lab
 *.srt
-subtitles/unaligned.txt
+unaligned.txt
+subtitles/phaps/

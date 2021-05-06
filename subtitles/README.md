@@ -47,21 +47,21 @@ mfa align ../nois dict vietnamese .
 
 mfa g2p vietnamese_g2p ../phaps phaps.dict
 mfa align ../phaps phaps.dict vietnamese . -c -d -v --config_path config.yml
-mfa align buocdautapthien_suHieuBietDunDan-0 phaps.dict vietnamese .
-mfa align buocdautapthien_suHieuBietDunDan-1 phaps.dict vietnamese .
-mfa align buocdautapthien_suHieuBietDunDan-2 phaps.dict vietnamese .
-mfa align buocdautapthien_suHieuBietDunDan-3 phaps.dict vietnamese . -c --config_path config.yml
+mfa align phaps/buocdautapthien_suHieuBietDunDan_3 phaps.dict vietnamese phaps -c --config_path config.yml
 ```
 
 `ruby textgrid-to-srt.rb`
 https://github.com/Aegisub/Aegisub
+
+```zsh
+mfa train phaps/buocdautapthien_suHieuBietDunDan phaps.dict phaps/buocdautapthien_suHieuBietDunDan_model
+```
 
 # Problems
 https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner/issues/247#issuecomment-796539284
 ```txt
 You can train your own model instead of reusing the pretrained model. Or,
 you can replace missing phonemes au_T4, au_T6, eu_T5, ieu_T5, oe_T5, uoi2_T2, uoi3_T6, uou_T1, uou_T2, uou_T3 by similar sounding phonemes (for example, same phone but with different tone) in the dictionary file.
-
 ```
 
 https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner/issues/97#issuecomment-460871957
