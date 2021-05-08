@@ -419,8 +419,9 @@ window.onpopstate = function () { initApp('onpopstate'); };
 var downloadQuoteImageLink = document.createElement("a");
 document.body.appendChild(downloadQuoteImageLink);
 function luuAnh() {
+	var filename = location.hash.replace("#","")+".png";
 	html2canvas(document.getElementById("quote")).then(function(canvas) {
-        downloadQuoteImageLink.download = location.hash.replace("#","")+".png";
+        downloadQuoteImageLink.download = filename;
         downloadQuoteImageLink.href = canvas.toDataURL("image/png");
         downloadQuoteImageLink.target = '_blank';
         downloadQuoteImageLink.click();
