@@ -54,6 +54,9 @@ ul.hilite > li { padding: 0.5em; padding-left: 0px; margin-left: -15px;  }
 	a, p, li { font-size: 50px; }
 	#vuotQuaDeDuoi ol { line-height: 60px; }
 }
+:fullscreen #secondHalf {
+	display: none;
+}
 </style>
 </head>
 <body>
@@ -63,12 +66,12 @@ ul.hilite > li { padding: 0.5em; padding-left: 0px; margin-left: -15px;  }
 	<input id="luuAnh" type="button" onclick="luuAnh()" value="Lưu ảnh" />
 	<input id="option" type="button" onclick="speakQuoteToggle()" value="Đọc to"/>
 	<span style="font-size:12px;"> [ <span id="count">59</span> ]</span>
-	<div id="quote" style='margin:0 -8px 0 -8px; background-color:#400D00; padding:0.8em 0.6em 1em 1em; margin-top: 0.5em; margin-bottom:1.5em;'>
+	<div id="quote" onclick="document.documentElement.requestFullscreen();" style='margin:0 -8px 0 -8px; background-color:#400D00; padding:0.8em 0.6em 1em 1em; margin-top: 0.5em; margin-bottom:1.5em;'>
 		<h1 style='background-color:#400D00; margin:0; margin-bottom: 0.2em;'><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></h1>
 		<footer><cite>sutamphap.com</cite></footer>
 	</div>
 </div>
-<div>
+<div id="secondHalf">
 	<button id="nghePhap" onclick="nghePhap()">Nghe pháp</button>
 	<button onclick="ngheThuNoi()">Thư nói</button>
 	<button onclick="vuotQuaDeDuoi()">Vượt qua dễ duôi</button>
@@ -298,7 +301,9 @@ var quoteIndex = Math.floor(Math.random() * document.quotes.length), count = 59;
 
 window.setInterval(function () {
 	var ap = document.getElementById("audioPlayer");
-	if (document.timmingIndex == -1 && ap && !ap.paused) { document.phapPlaying = true; }
+	if (document.timmingIndex == -1 && ap && !ap.paused) { 
+		document.phapPlaying = true;
+	}
 	// console.log(document.phapPlaying, document.timmingIndex);
 	if (document.phapPlaying) {
 		count = 1;
