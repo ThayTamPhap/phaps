@@ -296,8 +296,12 @@ window.setInterval(function () {
 	if (document.phapPlaying) {
 		var ap = document.getElementById("audioPlayer");
 		while (document.timmingIndex < document.timmings.length-1 
-			&& ap.currentTime + 1 >= document.timmings[document.timmingIndex+1]['time']) { 
+			&& ap.currentTime + 1.5 >= document.timmings[document.timmingIndex+1]['time']) { 
 			document.timmingIndex++; 
+		}
+		while (document.timmingIndex > 0
+			&& ap.currentTime < document.timmings[document.timmingIndex]['time']) { 
+			document.timmingIndex--; 
 		}
 		document.querySelector("h1").innerText = document.timmings[document.timmingIndex]['text'];
 		if (ap.currentTime > ap.duration - 100) { phapPlaying = false; }
