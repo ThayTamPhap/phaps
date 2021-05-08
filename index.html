@@ -57,7 +57,7 @@ ul.hilite > li { padding: 0.5em; padding-left: 0px; margin-left: -15px;  }
 :fullscreen #secondHalf {
 	display: none;
 }
-:fullscreen  h1 { line-height: 1.5em; }
+:fullscreen  #quote h1 { line-height: 1.5em; }
 </style>
 </head>
 <body>
@@ -434,7 +434,11 @@ window.onpopstate = function () { initApp('onpopstate'); };
 var downloadQuoteImageLink = document.createElement("a");
 document.body.appendChild(downloadQuoteImageLink);
 function luuAnh() {
+	// document.exitFullscreen();
 	var filename = location.hash.replace("#","")+".png";
+	if (document.fullscreenElement) {
+		document.querySelector("h1").style["line-height"] = "1.5em";
+	}
 	html2canvas(document.getElementById("quote")).then(function(canvas) {
         downloadQuoteImageLink.download = filename;
         downloadQuoteImageLink.href = canvas.toDataURL("image/png");
