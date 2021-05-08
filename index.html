@@ -235,7 +235,9 @@ function playPhap(url, title) {
 		if (n < 10) { ap.addEventListener('ended', function(){ document.getElementById('KinhHanhPhuc' + (n+1)).click(); }); }
 	}
 	window.scrollTo(0,0); // scroll to top
-	if (sources[0].includes("tutaptrongCS_NiemChet")) { document.timmingIndex = 0; }
+
+	document.phapPlaying = false;
+	if (sources[0].includes("tutaptrongCS_NiemChet")) { document.timmingIndex = -1; }
 }
 
 // Load phaps from json file and generate related HTML content
@@ -287,13 +289,10 @@ xmlhttp.send();
 <script>
 var quoteIndex = Math.floor(Math.random() * document.quotes.length), count = 59;
 
-var phapPlaying = false;
 window.setInterval(function () {
-	if (document.timmingIndex == 0) { 
-		phapPlaying = true; 
-		document.querySelector("h1").innerText = document.timmings[document.timmingIndex]['text'];
-	}
-	if (phapPlaying) {
+	if (document.timmingIndex == -1) { document.phapPlaying = true; }
+	// console.log(document.phapPlaying, document.timmingIndex);
+	if (document.phapPlaying) {
 		var ap = document.getElementById("audioPlayer");
 		while (document.timmingIndex < document.timmings.length-1 
 			&& ap.currentTime + 1 >= document.timmings[document.timmingIndex+1]['time']) { 
