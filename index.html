@@ -306,16 +306,20 @@ window.setInterval(function () {
 		document.getElementById('option').value = "Sau >";
 		while (document.timmingIndex < document.timmings.length-1 
 			&& ap.currentTime + 1.5 >= document.timmings[document.timmingIndex+1]['time']) { 
-			document.timmingIndex++; 
+			document.timmingIndex++;
 		}
 		while (document.timmingIndex > 0
 			&& ap.currentTime < document.timmings[document.timmingIndex]['time']) { 
 			document.timmingIndex--; 
 		}
+
 		document.querySelector("h1").innerText = document.timmings[document.timmingIndex]['text'];
 		document.autopopstate = true;
 		location.hash = "tutaptrongCS_NiemChet-" + document.timmingIndex;
 		if (ap.currentTime > ap.duration - 100) { phapPlaying = false; }
+
+		document.getElementById("count").innerText = 
+			Math.round(document.timmings[document.timmingIndex+1]['time'] - ap.currentTime);
 	} else {
 		document.getElementById('newQuote').innerText = "Lời dạy mới";
 		document.getElementById('option').value = "Đọc to";
@@ -385,7 +389,7 @@ function fixTimmingIndex() {
 
 function initApp(from) {
 	// console.log(from, document.autopopstate);
-	
+
 	if (document.autopopstate) {
 		document.autopopstate = false;
 		return;
