@@ -302,8 +302,8 @@ window.setInterval(function () {
 	// console.log(document.phapPlaying, document.timmingIndex);
 	if (document.phapPlaying) {
 		count = 1;
-		document.getElementById('newQuote').innerText = "< Trước";
-		document.getElementById('option').value = "Sau >";
+		document.getElementById('newQuote').innerText = "<< Trước";
+		document.getElementById('option').value = "Sau >>";
 		while (document.timmingIndex < document.timmings.length-1 
 			&& ap.currentTime + 1.5 >= document.timmings[document.timmingIndex+1]['time']) { 
 			document.timmingIndex++;
