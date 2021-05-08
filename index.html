@@ -62,12 +62,12 @@ ul.hilite > li { padding: 0.5em; padding-left: 0px; margin-left: -15px;  }
 	<input id="luuAnh" type="button" onclick="luuAnh()" value="Lưu ảnh" />
 	<input id="option" type="button" onclick="speakQuoteToggle()" value="Đọc to"/>
 	<span style="font-size:12px;"> [ <span id="count">59</span> ]</span>
-	<div id="quote" style='margin:0 -8px 0 -8px; background-color:#400D00; padding:0.8em 0.6em 1em 1em; margin-top: 1em; margin-bottom:0.5em;'>
-		<h1 style='background-color:#400D00; margin:0; margin-bottom: 0.2em;'>Hai pháp thấp hèn: 1. Tính khó dạy: cố chấp, cứng đầu không chấp nhận lời dạy của người trí, dù khuyên đúng cũng không chịu nghe. 2. Gần bạn xấu: thích giao du, kết bạn với những kẻ thiếu đức tin, không có giới, ác tuệ.</h1>
+	<div id='playing' style="margin-top:1.1em; margin-bottom:0em;"></div>
+	<div id="quote" style='margin:0 -8px 0 -8px; background-color:#400D00; padding:0.8em 0.6em 1em 1em; margin-top: 0.1em; margin-bottom:1.5em;'>
+		<h1 style='background-color:#400D00; margin:0; margin-bottom: 0.2em;'><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></h1>
 		<footer><cite>sutamphap.com</cite></footer>
 	</div>
 </div>
-<div id='playing' style="margin-top:1.1em; margin-bottom:.1em; padding-bottom:0.6em;"></div>
 <div>
 	<button id="nghePhap" onclick="nghePhap()">Nghe pháp</button>
 	<button onclick="ngheThuNoi()">Thư nói</button>
@@ -226,7 +226,7 @@ function playPhap(url, title) {
 		ap.pause();
 		p.removeChild(p.lastChild);
 	}
-	p.innerHTML = '<p style="padding-bottom:0.0em;">[ '+title+' ]</p><audio ' + (newap ? '':'autoplay') + ' controls id="audioPlayer"><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
+	p.innerHTML = '<p style="margin-top: 8px; margin-bottom: 3px;">[ '+title+' ]</p><audio ' + (newap ? '':'autoplay') + ' controls id="audioPlayer" style="width:100%"><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
 
 	ap = document.getElementById("audioPlayer");	
 	ap.addEventListener('play', function(){ ap.autoplay = false; });
@@ -237,7 +237,15 @@ function playPhap(url, title) {
 	window.scrollTo(0,0); // scroll to top
 
 	document.phapPlaying = false;
-	if (sources[0].includes("tutaptrongCS_NiemChet")) { document.timmingIndex = -1; }
+	if (sources[0].includes("tutaptrongCS_NiemChet")) { 
+		// console.log(location.hash);
+		if (!location.hash.includes("tutaptrongCS_NiemChet")) { 
+			location.hash = "tutaptrongCS_NiemChet-0"; 
+			document.timmingIndex = -1;
+		} else { 
+			initApp("playPhap");
+		}
+	}
 }
 
 // Load phaps from json file and generate related HTML content
@@ -304,6 +312,7 @@ window.setInterval(function () {
 			document.timmingIndex--; 
 		}
 		document.querySelector("h1").innerText = document.timmings[document.timmingIndex]['text'];
+		location.hash = location.hash.replace(/\d+$/, document.timmingIndex);
 		if (ap.currentTime > ap.duration - 100) { phapPlaying = false; }
 	} else {
 		count--;
@@ -315,7 +324,7 @@ window.setInterval(function () {
 function newQuote(qIndex) {
 	if (location.search != '?poem') {
 		quoteIndex = qIndex ? qIndex : Math.floor(Math.random() * document.quotes.length);
-	} else {	
+	} else {
 		quoteIndex = qIndex ? qIndex : quoteIndex + 1; 
 		for (; quoteIndex < document.quotes.length; quoteIndex++)
 			if (document.quotes[quoteIndex].match(":; ") || 
@@ -330,7 +339,7 @@ function newQuote(qIndex) {
     	;
     document.querySelector("h1").innerText = quote;
     if (document.getElementById("option").value != "Đọc to") { speakQuote(); }
-    location.hash = quoteIndex;
+    location.hash = "quote-" + quoteIndex;
     count = 59;
 }
 
@@ -346,10 +355,30 @@ function speakQuote(i) {
 	// audio.innerHTML = '<source src="quotes/'+(quoteIndex)+'.ogg" />' + '<source src="quotes/'+(quoteIndex)+'.mp3" />';
 }
 
-newQuote(parseInt(location.hash.replace("#",""))); // Init new quote from quotes.js data
-window.onpopstate = function() {
- 	newQuote(parseInt(location.hash.replace("#","")));
+
+function initApp(from) {
+	if (location.hash.includes("#quote-")) {
+		newQuote(parseInt(location.hash.replace("#quote-","")));
+	} else {
+		document.phapPlaying = true;
+		document.timmingIndex = parseInt(location.hash.replace(/#.+?-/,""));
+		if (document.timmingIndex < 0) { document.timmingIndex = 0; }
+		if (document.timmingIndex > document.timmings.length) {
+			document.timmingIndex = document.timmings.length-1;
+		}
+		console.log(from, document.timmingIndex);
+		ap = document.getElementById("audioPlayer");
+		if (ap) {
+			ap.currentTime = document.timmings[document.timmingIndex]['time'];
+			console.log("currentTime", ap.currentTime);
+		}
+	}
 }
+
+initApp('After quotes loaded');
+
+window.onpopstate = initApp;
+
 </script>
 
 
@@ -359,7 +388,7 @@ var downloadQuoteImageLink = document.createElement("a");
 document.body.appendChild(downloadQuoteImageLink);
 function luuAnh() {
 	html2canvas(document.getElementById("quote")).then(function(canvas) {
-        downloadQuoteImageLink.download = quoteIndex+".png";
+        downloadQuoteImageLink.download = location.hash.replace("#","")+".png";
         downloadQuoteImageLink.href = canvas.toDataURL("image/png");
         downloadQuoteImageLink.target = '_blank';
         downloadQuoteImageLink.click();
