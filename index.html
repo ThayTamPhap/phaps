@@ -240,6 +240,7 @@ function playPhap(url, title) {
 	if (sources[0].includes("tutaptrongCS_NiemChet")) { 
 		// console.log(location.hash);
 		if (!location.hash.includes("tutaptrongCS_NiemChet")) { 
+		    document.autopopstate = true;
 			location.hash = "tutaptrongCS_NiemChet-0"; 
 			document.timmingIndex = -1;
 		} else { 
@@ -312,6 +313,7 @@ window.setInterval(function () {
 			document.timmingIndex--; 
 		}
 		document.querySelector("h1").innerText = document.timmings[document.timmingIndex]['text'];
+		document.autopopstate = true;
 		location.hash = location.hash.replace(/\d+$/, document.timmingIndex);
 		if (ap.currentTime > ap.duration - 100) { phapPlaying = false; }
 	} else {
@@ -339,6 +341,7 @@ function newQuote(qIndex) {
     	;
     document.querySelector("h1").innerText = quote;
     if (document.getElementById("option").value != "Đọc to") { speakQuote(); }
+    document.autopopstate = true;
     location.hash = "quote-" + quoteIndex;
     count = 59;
 }
@@ -355,8 +358,15 @@ function speakQuote(i) {
 	// audio.innerHTML = '<source src="quotes/'+(quoteIndex)+'.ogg" />' + '<source src="quotes/'+(quoteIndex)+'.mp3" />';
 }
 
+document.autopopstate = false;
 
 function initApp(from) {
+	console.log(from, document.autopopstate);
+	if (document.autopopstate) {
+		document.autopopstate = false;
+		return;
+	}
+	
 	if (location.hash.includes("#quote-")) {
 		newQuote(parseInt(location.hash.replace("#quote-","")));
 	} else {
@@ -377,7 +387,7 @@ function initApp(from) {
 
 initApp('After quotes loaded');
 
-window.onpopstate = initApp;
+window.onpopstate = function () { initApp('onpopstate'); };
 
 </script>
 
