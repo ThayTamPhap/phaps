@@ -228,13 +228,14 @@ function playPhap(url, title) {
 	}
 	p.innerHTML = '<p style="padding-bottom:0.0em;">[ '+title+' ]</p><audio ' + (newap ? '':'autoplay') + ' controls id="audioPlayer"><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
 
-	ap = document.getElementById("audioPlayer");
+	ap = document.getElementById("audioPlayer");	
 	ap.addEventListener('play', function(){ ap.autoplay = false; });
   	if (sources[0].includes("KinhHanhPhuc")) {
 		var n = parseInt(sources[0].match(/(\d+?)\.ogg/)[1]);
 		if (n < 10) { ap.addEventListener('ended', function(){ document.getElementById('KinhHanhPhuc' + (n+1)).click(); }); }
 	}
 	window.scrollTo(0,0); // scroll to top
+	if (sources[0].includes("tutaptrongCS_NiemChet")) { document.timmingIndex = 0; }
 }
 
 // Load phaps from json file and generate related HTML content
@@ -286,10 +287,25 @@ xmlhttp.send();
 <script>
 var quoteIndex = Math.floor(Math.random() * document.quotes.length), count = 59;
 
+var phapPlaying = false;
 window.setInterval(function () {
-	count--;
-	document.getElementById("count").innerText = count;
-	if (count == 0) newQuote();
+	if (document.timmingIndex == 0) { 
+		phapPlaying = true; 
+		document.querySelector("h1").innerText = document.timmings[document.timmingIndex]['text'];
+	}
+	if (phapPlaying) {
+		var ap = document.getElementById("audioPlayer");
+		while (document.timmingIndex < document.timmings.length-1 
+			&& ap.currentTime + 1 >= document.timmings[document.timmingIndex+1]['time']) { 
+			document.timmingIndex++; 
+		}
+		document.querySelector("h1").innerText = document.timmings[document.timmingIndex]['text'];
+		if (ap.currentTime > ap.duration - 100) { phapPlaying = false; }
+	} else {
+		count--;
+		document.getElementById("count").innerText = count;
+		if (count == 0) newQuote();
+	}
 }, 1000);
 
 function newQuote(qIndex) {
