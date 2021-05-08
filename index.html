@@ -319,9 +319,15 @@ window.setInterval(function () {
 			document.timmingIndex--; 
 		}
 
-		document.querySelector("h1").innerText = document.timmings[document.timmingIndex]['text'];
-		document.autopopstate = true;
-		location.hash = "tutaptrongCS_NiemChet-" + document.timmingIndex;
+		var h1 = document.querySelector("h1");
+		var currText = document.timmings[document.timmingIndex]['text'];
+		if (h1.innerText != currText) { h1.innerText = currText; }
+				
+		if (location.hash != "#tutaptrongCS_NiemChet-" + document.timmingIndex) {
+			document.autopopstate = true;
+			location.hash != "tutaptrongCS_NiemChet-" + document.timmingIndex
+		}
+
 		if (ap.currentTime > ap.duration - 100) { phapPlaying = false; }
 
 		document.getElementById("count").innerText = 
