@@ -305,7 +305,7 @@ window.setInterval(function () {
 		document.getElementById('newQuote').innerText = "<< Trước";
 		document.getElementById('option').value = "Sau >>";
 		while (document.timmingIndex < document.timmings.length-1 
-			&& ap.currentTime + 1.5 >= document.timmings[document.timmingIndex+1]['time']) { 
+			&& ap.currentTime + 1 >= document.timmings[document.timmingIndex+1]['time']) { 
 			document.timmingIndex++;
 		}
 		while (document.timmingIndex > 0
