@@ -323,11 +323,11 @@ window.setInterval(function () {
 	} else {
 		document.getElementById('newQuote').innerText = "Lời dạy mới";
 		document.getElementById('option').value = "Đọc to";
-		count--;
-		document.getElementById("count").innerText = count;
+		count = count - 0.5;
+		document.getElementById("count").innerText = Math.ceil(count);
 		if (count == 0) newQuote();
 	}
-}, 1000);
+}, 500);
 
 function newQuote(qIndex) {
 	if (document.phapPlaying) {
