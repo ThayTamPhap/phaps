@@ -303,6 +303,8 @@ window.setInterval(function () {
 	if (document.timmingIndex == -1) { document.phapPlaying = true; }
 	// console.log(document.phapPlaying, document.timmingIndex);
 	if (document.phapPlaying) {
+		document.getElementById('newQuote').innerText = "< Trước";
+		document.getElementById('option').value = "Sau >";
 		var ap = document.getElementById("audioPlayer");
 		while (document.timmingIndex < document.timmings.length-1 
 			&& ap.currentTime + 1.5 >= document.timmings[document.timmingIndex+1]['time']) { 
@@ -317,6 +319,8 @@ window.setInterval(function () {
 		location.hash = location.hash.replace(/\d+$/, document.timmingIndex);
 		if (ap.currentTime > ap.duration - 100) { phapPlaying = false; }
 	} else {
+		document.getElementById('newQuote').innerText = "Lời dạy mới";
+		document.getElementById('option').value = "Đọc to";
 		count--;
 		document.getElementById("count").innerText = count;
 		if (count == 0) newQuote();
@@ -324,6 +328,13 @@ window.setInterval(function () {
 }, 1000);
 
 function newQuote(qIndex) {
+	if (document.phapPlaying) {
+		document.timmingIndex--;
+		fixTimmingIndex();
+		document.getElementById("audioPlayer").currentTime = 
+			document.timmings[document.timmingIndex]['time'];
+		return;
+	}
 	if (location.search != '?poem') {
 		quoteIndex = qIndex ? qIndex : Math.floor(Math.random() * document.quotes.length);
 	} else {
@@ -347,6 +358,13 @@ function newQuote(qIndex) {
 }
 
 function speakQuoteToggle() {
+	if (document.phapPlaying) {
+		document.timmingIndex++;
+		fixTimmingIndex();
+		document.getElementById("audioPlayer").currentTime = 
+			document.timmings[document.timmingIndex]['time'];
+		return;
+	}
 	var o = document.getElementById("option");
 	if (o.value == "Đọc to") { o.value = "Tắt tiếng"; if (audio.src) audio.play(); else speakQuote(); }
 	else { o.value = "Đọc to"; audio.pause(); }
@@ -360,6 +378,13 @@ function speakQuote(i) {
 
 document.autopopstate = false;
 
+function fixTimmingIndex() {
+	if (document.timmingIndex < 0) { document.timmingIndex = 0; }
+	if (document.timmingIndex > document.timmings.length) {
+		document.timmingIndex = document.timmings.length-1;
+	}
+}
+
 function initApp(from) {
 	console.log(from, document.autopopstate);
 	if (document.autopopstate) {
@@ -372,10 +397,7 @@ function initApp(from) {
 	} else {
 		document.phapPlaying = true;
 		document.timmingIndex = parseInt(location.hash.replace(/#.+?-/,""));
-		if (document.timmingIndex < 0) { document.timmingIndex = 0; }
-		if (document.timmingIndex > document.timmings.length) {
-			document.timmingIndex = document.timmings.length-1;
-		}
+		fixTimmingIndex();
 		console.log(from, document.timmingIndex);
 		ap = document.getElementById("audioPlayer");
 		if (ap) {
