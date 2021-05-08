@@ -58,12 +58,12 @@ ul.hilite > li { padding: 0.5em; padding-left: 0px; margin-left: -15px;  }
 </head>
 <body>
 <div>
+	<div id='playing' style="margin-top:0em; margin-bottom:0.5em;"></div>
 	<button id='newQuote' onclick="newQuote()">Lời dạy mới</button>
 	<input id="luuAnh" type="button" onclick="luuAnh()" value="Lưu ảnh" />
 	<input id="option" type="button" onclick="speakQuoteToggle()" value="Đọc to"/>
 	<span style="font-size:12px;"> [ <span id="count">59</span> ]</span>
-	<div id='playing' style="margin-top:1.1em; margin-bottom:0em;"></div>
-	<div id="quote" style='margin:0 -8px 0 -8px; background-color:#400D00; padding:0.8em 0.6em 1em 1em; margin-top: 0.1em; margin-bottom:1.5em;'>
+	<div id="quote" style='margin:0 -8px 0 -8px; background-color:#400D00; padding:0.8em 0.6em 1em 1em; margin-top: 0.5em; margin-bottom:1.5em;'>
 		<h1 style='background-color:#400D00; margin:0; margin-bottom: 0.2em;'><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></h1>
 		<footer><cite>sutamphap.com</cite></footer>
 	</div>
@@ -238,10 +238,7 @@ function playPhap(url, title) {
 
 	document.phapPlaying = false;
 	if (sources[0].includes("tutaptrongCS_NiemChet")) { 
-		// console.log(location.hash);
 		if (!location.hash.includes("tutaptrongCS_NiemChet")) { 
-		    document.autopopstate = true;
-			location.hash = "tutaptrongCS_NiemChet-0"; 
 			document.timmingIndex = -1;
 		} else { 
 			initApp("playPhap");
@@ -300,12 +297,13 @@ xmlhttp.send();
 var quoteIndex = Math.floor(Math.random() * document.quotes.length), count = 59;
 
 window.setInterval(function () {
-	if (document.timmingIndex == -1) { document.phapPlaying = true; }
+	var ap = document.getElementById("audioPlayer");
+	if (document.timmingIndex == -1 && ap && !ap.paused) { document.phapPlaying = true; }
 	// console.log(document.phapPlaying, document.timmingIndex);
 	if (document.phapPlaying) {
+		count = 1;
 		document.getElementById('newQuote').innerText = "< Trước";
 		document.getElementById('option').value = "Sau >";
-		var ap = document.getElementById("audioPlayer");
 		while (document.timmingIndex < document.timmings.length-1 
 			&& ap.currentTime + 1.5 >= document.timmings[document.timmingIndex+1]['time']) { 
 			document.timmingIndex++; 
@@ -316,7 +314,7 @@ window.setInterval(function () {
 		}
 		document.querySelector("h1").innerText = document.timmings[document.timmingIndex]['text'];
 		document.autopopstate = true;
-		location.hash = location.hash.replace(/\d+$/, document.timmingIndex);
+		location.hash = "tutaptrongCS_NiemChet-" + document.timmingIndex;
 		if (ap.currentTime > ap.duration - 100) { phapPlaying = false; }
 	} else {
 		document.getElementById('newQuote').innerText = "Lời dạy mới";
@@ -386,15 +384,14 @@ function fixTimmingIndex() {
 }
 
 function initApp(from) {
-	console.log(from, document.autopopstate);
+	// console.log(from, document.autopopstate);
+	
 	if (document.autopopstate) {
 		document.autopopstate = false;
 		return;
 	}
 	
-	if (location.hash.includes("#quote-")) {
-		newQuote(parseInt(location.hash.replace("#quote-","")));
-	} else {
+	if (location.hash.includes("#tutaptrongCS_NiemChet-")) {
 		document.phapPlaying = true;
 		document.timmingIndex = parseInt(location.hash.replace(/#.+?-/,""));
 		fixTimmingIndex();
@@ -404,6 +401,8 @@ function initApp(from) {
 			ap.currentTime = document.timmings[document.timmingIndex]['time'];
 			console.log("currentTime", ap.currentTime);
 		}
+	} else {
+		newQuote(parseInt(location.hash.replace("#quote-","")));
 	}
 }
 
