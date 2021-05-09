@@ -264,8 +264,9 @@ function playPhap(url, title) {
 					'time': srt_time_to_sec(m),
 				  	'text': t[1] }
 			});
-			// console.log("GOT SUBTITLES", document.timmings);
-			document.nghepath = sources[0].replace(".ogg","");
+			document.nghepath = sources[0].replace(".ogg","").
+				replace(location.host, "").replace(/http.+?\/\//,"");
+			console.log("GOT SUBTITLES", document.nghepath);
 			if (!location.hash.includes(document.nghepath)) { 
 				document.timmingIndex = -1;
 			} else { 
@@ -352,7 +353,7 @@ window.setInterval(function () {
 				
 		if (location.hash != "#" + document.nghepath + "-" + document.timmingIndex) {
 			document.autopopstate = true;
-			location.hash != document.nghepath + "-" + document.timmingIndex
+			location.hash = document.nghepath + "-" + document.timmingIndex;
 		}
 
 		if (ap.currentTime > ap.duration - 100) { phapPlaying = false; }
