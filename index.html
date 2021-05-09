@@ -225,12 +225,6 @@ document.addEventListener("click", function (e) {
 	playPhap(url, e.target.text);
 });
 
-function srt_time_to_sec(timematch) {
-    return  parseInt(timematch[1]) * 3600 +
-            parseInt(timematch[2]) * 60 + 
-            parseFloat(timematch[3].replace(",","."))
-}
-
 function playPhap(url, title) {
 	var sources = url.split('?'), p = document.getElementById('playing');
 	var ap = document.getElementById("audioPlayer");
@@ -254,16 +248,8 @@ function playPhap(url, title) {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
-		    var intervals = this.responseText.split(/\n\n\d+\n/m);
-
-			document.timmings = intervals.map(function (inter) {
-				m = inter.match(/(\d+):(\d+):(\d+(,\d+)?)\s+\-+/);
-				t = inter.match(/\n[\n\s]*(.+?)[\n\s]*$/);
-				// console.log(inter, t);
-				return { 
-					'time': srt_time_to_sec(m),
-				  	'text': t[1] }
-			});
+			// console.log(this.responseText)
+			document.timmings = JSON.parse(this.responseText).subtitles;
 			document.nghepath = sources[0].replace(".ogg","").
 				replace(location.host, "").replace(/http.+?\/\//,"");
 			console.log("GOT SUBTITLES", document.nghepath);
@@ -274,7 +260,7 @@ function playPhap(url, title) {
 			}
 		}
 	};
-	xmlhttp.open("GET", sources[0].replace(".ogg",".srt"), true);
+	xmlhttp.open("GET", sources[0].replace(".ogg",".json"), true);
 	xmlhttp.send();
 }
 
@@ -478,11 +464,11 @@ function luuAnh() {
 if (location.search == '?save') { luuAnh(); }
 
 function toggleFullscreen() {
-    if (!document.fullscreenElement) {
+    // if (!document.fullscreenElement) {
     	document.documentElement.requestFullscreen();
-    } else {
-    	document.exitFullscreen();
-	}
+    // } else {
+    	// document.exitFullscreen();
+	// }
 }
 
 // https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/hash-map-of.html
