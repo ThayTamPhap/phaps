@@ -5,6 +5,5 @@ in.vscode
 *.wav
 *.TextGrid
 *.lab
-*.srt
 unaligned.txt
 subtitles/phaps/

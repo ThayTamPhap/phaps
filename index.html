@@ -225,6 +225,12 @@ document.addEventListener("click", function (e) {
 	playPhap(url, e.target.text);
 });
 
+function srt_time_to_sec(timematch) {
+    return  parseInt(timematch[1]) * 3600 +
+            parseInt(timematch[2]) * 60 + 
+            parseFloat(timematch[3].replace(",","."))
+}
+
 function playPhap(url, title) {
 	var sources = url.split('?'), p = document.getElementById('playing');
 	var ap = document.getElementById("audioPlayer");
@@ -243,14 +249,32 @@ function playPhap(url, title) {
 	}
 	window.scrollTo(0,0); // scroll to top
 
+
 	document.phapPlaying = false;
-	if (sources[0].includes("tutaptrongCS_NiemChet")) { 
-		if (!location.hash.includes("tutaptrongCS_NiemChet")) { 
-			document.timmingIndex = -1;
-		} else { 
-			initApp("playPhap");
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200) {
+		    var intervals = this.responseText.split(/\n\n\d+\n/m);
+
+			document.timmings = intervals.map(function (inter) {
+				m = inter.match(/(\d+):(\d+):(\d+(,\d+)?)\s+\-+/);
+				t = inter.match(/\n[\n\s]*(.+?)[\n\s]*$/);
+				// console.log(inter, t);
+				return { 
+					'time': srt_time_to_sec(m),
+				  	'text': t[1] }
+			});
+			// console.log("GOT SUBTITLES", document.timmings);
+			document.nghepath = sources[0].replace(".ogg","");
+			if (!location.hash.includes(document.nghepath)) { 
+				document.timmingIndex = -1;
+			} else { 
+				initApp("playPhap");
+			}
 		}
-	}
+	};
+	xmlhttp.open("GET", sources[0].replace(".ogg",".srt"), true);
+	xmlhttp.send();
 }
 
 // Load phaps from json file and generate related HTML content
@@ -270,7 +294,7 @@ xmlhttp.onreadystatechange = function () {
 				selected = document.selectedPhapIndexes.includes(i);
 				str = str+'<a class="selectPhapToggle" phapIndex="'+i+'" style="color:'+(!selected?'gray':'white')+'">['+(selected?'+':'-')+']</a>&nbsp;'
 			}
-			elem.innerHTML = str+'<a  href="'+data.phaps[i].audio+'">'+data.phaps[i].title+'</a>';
+			elem.innerHTML = str+'<a href="'+data.phaps[i].audio+'">'+data.phaps[i].title+'</a>';
 			if (data.phaps[i]["id"]) { elem.lastElementChild.id = data.phaps[i].id; }
 			ul.appendChild(elem);
 		}
@@ -326,9 +350,9 @@ window.setInterval(function () {
 		var currText = document.timmings[document.timmingIndex]['text'];
 		if (h1.innerText != currText) { h1.innerText = currText; }
 				
-		if (location.hash != "#tutaptrongCS_NiemChet-" + document.timmingIndex) {
+		if (location.hash != "#" + document.nghepath + "-" + document.timmingIndex) {
 			document.autopopstate = true;
-			location.hash != "tutaptrongCS_NiemChet-" + document.timmingIndex
+			location.hash != document.nghepath + "-" + document.timmingIndex
 		}
 
 		if (ap.currentTime > ap.duration - 100) { phapPlaying = false; }
@@ -410,7 +434,7 @@ function initApp(from) {
 		return;
 	}
 	
-	if (location.hash.includes("#tutaptrongCS_NiemChet-")) {
+	if (location.hash.includes(document.nghepath)) {
 		document.phapPlaying = true;
 		document.timmingIndex = parseInt(location.hash.replace(/#.+?-/,""));
 		fixTimmingIndex();
