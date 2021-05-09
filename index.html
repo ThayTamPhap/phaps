@@ -321,9 +321,11 @@ window.setInterval(function () {
 	if (document.timmingIndex == -1 && ap && !ap.paused) { 
 		document.phapPlaying = true;
 	}
+
 	// console.log(document.phapPlaying, document.timmingIndex);
 	if (document.phapPlaying) {
-		count = 1;
+
+		count = 3;
 		document.getElementById('newQuote').innerText = "<< Trước";
 		document.getElementById('option').value = "Sau >>";
 		while (document.timmingIndex < document.timmings.length-1 
@@ -344,18 +346,23 @@ window.setInterval(function () {
 			location.hash = document.nghepath + "-" + document.timmingIndex;
 		}
 
-		if (ap.currentTime > ap.duration - 100) { phapPlaying = false; }
+		if (ap.currentTime > ap.duration - 1) { 
+			console.log(ap.currentTime, ap.duration)
+			document.phapPlaying = false; 
+		}
 
 		document.getElementById("count").innerText = 
 			Math.round(document.timmings[document.timmingIndex+1]['time'] - ap.currentTime);
+
 	} else {
+
 		document.getElementById('newQuote').innerText = "Lời dạy mới";
 		if (!"Tắt tiếng|Đọc to".includes(document.getElementById('option').value)) { 
 			document.getElementById('option').value = "Đọc to"; 
 		}
 		count = count - 0.5;
 		document.getElementById("count").innerText = Math.ceil(count);
-		if (count == 0) newQuote();
+		if (count <= 0) newQuote();
 	}
 }, 500);
 
