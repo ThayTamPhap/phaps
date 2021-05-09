@@ -2,7 +2,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="manifest" href="/assets/manifest.webmanifest">
+<link rel="manifest" href="manifest.webmanifest">
 <link id="favicon" rel="icon" type="image/x-icon" href="/assets/dharma-wheel.png">
 <title>Thoải mái - Thư giãn - Biết mình</title>
 <style>
@@ -233,7 +233,7 @@ function playPhap(url, title) {
 		ap.pause();
 		p.removeChild(p.lastChild);
 	}
-	p.innerHTML = '<p style="margin-top: 0.5em; margin-bottom: 0.5em;">[ '+title+' ]</p><audio ' + (newap ? '':'autoplay') + ' controls id="audioPlayer" style="width:100%; background-color:#4c1e18"><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
+	p.innerHTML = '<p style="margin-top: 0.5em; margin-bottom: 0.5em;">[ '+title+' ]</p><audio ' + (newap ? '':'autoplay') + ' controls id="audioPlayer" style="width:100%; border-radius:0px;><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
 
 	ap = document.getElementById("audioPlayer");	
 	ap.addEventListener('play', function(){ ap.autoplay = false; });
