@@ -350,7 +350,9 @@ window.setInterval(function () {
 			Math.round(document.timmings[document.timmingIndex+1]['time'] - ap.currentTime);
 	} else {
 		document.getElementById('newQuote').innerText = "Lời dạy mới";
-		document.getElementById('option').value = "Đọc to";
+		if (!"Tắt tiếng|Đọc to".includes(document.getElementById('option').value)) { 
+			document.getElementById('option').value = "Đọc to"; 
+		}
 		count = count - 0.5;
 		document.getElementById("count").innerText = Math.ceil(count);
 		if (count == 0) newQuote();
@@ -396,8 +398,10 @@ function speakQuoteToggle() {
 		return;
 	}
 	var o = document.getElementById("option");
-	if (o.value == "Đọc to") { o.value = "Tắt tiếng"; if (audio.src) audio.play(); else speakQuote(); }
-	else { o.value = "Đọc to"; audio.pause(); }
+	if (o.value == "Đọc to") { 
+		o.value = "Tắt tiếng";
+		if (audio.src) audio.play(); else speakQuote();
+	} else { o.value = "Đọc to"; audio.pause(); }
 }
 
 var audio = document.createElement("audio"); audio.autoplay = true;
@@ -466,12 +470,20 @@ function luuAnh() {
 if (location.search == '?save') { luuAnh(); }
 
 function toggleFullscreen() {
-    // if (!document.fullscreenElement) {
+    if (!document.fullscreenElement) {
     	document.documentElement.requestFullscreen();
-    // } else {
+    } else {
+    	toggleAp();
     	// document.exitFullscreen();
-	// }
+	}
 }
+
+function toggleAp() {
+	var ap = document.getElementById("audioPlayer");
+	if (ap.paused) ap.play(); else ap.pause();
+}
+
+document.getElementById("quote").addEventListener("dblclick", toggleAp); 
 
 // https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/hash-map-of.html
 function selectedPhaps() {
