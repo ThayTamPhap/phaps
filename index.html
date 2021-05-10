@@ -535,6 +535,34 @@ function toggleFullscreen() {
 	}
 }
 
+const copyToClipboard = str => {
+  const el = document.createElement('textarea');
+  el.value = str;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+};
+
+document.addEventListener("keyup", function(event) {
+	console.log(event.keyCode);
+    if (event.keyCode === 37) {
+    	// arrow left
+    	newQuote();
+
+    } else if (event.keyCode === 39) {
+    	// arrow right
+    	speakQuoteToggle();
+    } else if (event.keyCode === 16) {
+    	// shift
+    	var ap = document.getElementById("audioPlayer");
+    	if (ap.paused) ap.play(); else ap.pause();
+    	copyToClipboard(document.querySelector("h1").innerText);
+	} else if (event.keyCode === 13) {
+		copyToClipboard(document.querySelector("h1").innerText);
+	}
+});
+
 // https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/hash-map-of.html
 function selectedPhaps() {
 	document.ktHash = document.selectedPhapIndexes.map(function (x) {
