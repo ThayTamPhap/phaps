@@ -59,8 +59,11 @@ ul.hilite > li { padding: 0.5em; padding-left: 0px; margin-left: -15px;  }
 
 :fullscreen body { background-color: #400D00; }
 :fullscreen #secondHalf { display: none; }
-:fullscreen #quote h1 { line-height: 1.5em; /*background-color: black;*/ }
-:fullscreen #quote { /*background-color: black;*/ }
+#quote h1 { line-height: 1.5em; }
+#quote .hilite { border-bottom-style: dashed; border-bottom-width: 1.5px; }
+#quote .hilite3 { color: #F4F2E5; }
+#quote .hilite2 { color: #F0EACC; }
+#quote .hilite1 { color: #EEE4B3; }
 </style>
 </head>
 <body>
@@ -315,11 +318,14 @@ xmlhttp.send();
 <script src="/assets/quotes.js"></script>
 <script>
 var quoteIndex = Math.floor(Math.random() * document.quotes.length), count = 59;
+var currTimeIndex = null, currText = null, currWordIndex = null, currWordTimmings = null, currWordTimeIndex = null, hiliteChanged = true;
 
 window.setInterval(function () {
 	var ap = document.getElementById("audioPlayer");
 	if (document.timmingIndex == -1 && ap && !ap.paused) { 
 		document.phapPlaying = true;
+		currentTimeIndex = null;
+		currWordIndex = 0;
 	}
 
 	// console.log(document.phapPlaying, document.timmingIndex);
@@ -334,13 +340,44 @@ window.setInterval(function () {
 		}
 		while (document.timmingIndex > 0
 			&& ap.currentTime < document.timmings[document.timmingIndex]['time']) { 
-			document.timmingIndex--; 
+			document.timmingIndex--;
 		}
 
 		var h1 = document.querySelector("h1");
-		var currText = document.timmings[document.timmingIndex]['text'];
-		if (h1.innerText != currText) { h1.innerText = currText; }
-				
+
+		if (currTimeIndex != document.timmingIndex) {
+			currTimeIndex = document.timmingIndex;		
+			currText = document.timmings[currTimeIndex]['text'];
+			currText = currText.replace(/(\d+)@(.+?)#/mg, "<span id='w$1'>$2</span>");
+			h1.innerHTML = currText;
+			// console.log(currText);
+			currWordTimmings = document.timmings[currTimeIndex]['timmings'];
+			currWordTimeIndex = 0;
+			hiliteChanged = true;
+		}
+
+		while (currWordTimeIndex < currWordTimmings.length-1 
+			&& ap.currentTime > currWordTimmings[currWordTimeIndex][1]) { 
+			currWordTimeIndex++;
+			hiliteChanged = true;
+		}		
+		while (currWordTimeIndex > 0
+			&& ap.currentTime < currWordTimmings[currWordTimeIndex][0]) { 
+			currWordTimeIndex--;
+			hiliteChanged = true;
+		}
+		if (hiliteChanged) {
+			Array.from(h1.getElementsByClassName("hilite")).forEach(function(elem) {
+				hiliteNum = parseInt(elem.className.match(/(\d+)$/)[1]) - 1;
+				// console.log(hiliteNum);
+				elem.className = hiliteNum > 0 ? "hilite hilite"+hiliteNum : "";
+			});
+			// if (currWordTimmings[currWordTimeIndex][0] <= ap.currentTime 
+			// 	&& ap.currentTime <= currWordTimmings[currWordTimeIndex][1]) {
+				document.getElementById("w"+currWordTimeIndex).className = "hilite hilite3";
+			// }
+			hiliteChanged = false;
+		}
 		if (location.hash != "#" + document.nghepath + "-" + document.timmingIndex) {
 			document.autopopstate = true;
 			location.hash = document.nghepath + "-" + document.timmingIndex;
@@ -360,11 +397,11 @@ window.setInterval(function () {
 		if (!"Tắt tiếng|Đọc to".includes(document.getElementById('option').value)) { 
 			document.getElementById('option').value = "Đọc to"; 
 		}
-		count = count - 0.5;
+		count = count - 0.1;
 		document.getElementById("count").innerText = Math.ceil(count);
 		if (count <= 0) newQuote();
 	}
-}, 500);
+}, 100);
 
 function newQuote(qIndex) {
 	if (document.phapPlaying) {
@@ -463,9 +500,6 @@ document.body.appendChild(downloadQuoteImageLink);
 function luuAnh() {
 	// document.exitFullscreen();
 	var filename = location.hash.replace("#","")+".png";
-	if (document.fullscreenElement) {
-		document.querySelector("h1").style["line-height"] = "1.5em";
-	}
 	html2canvas(document.getElementById("quote")).then(function(canvas) {
         downloadQuoteImageLink.download = filename;
         downloadQuoteImageLink.href = canvas.toDataURL("image/png");
