@@ -60,10 +60,10 @@ ul.hilite > li { padding: 0.5em; padding-left: 0px; margin-left: -15px;  }
 :fullscreen body { background-color: #400D00; }
 :fullscreen #secondHalf { display: none; }
 #quote h1 { line-height: 1.5em; }
-#quote .hilite { border-bottom-style: dashed; border-bottom-width: 1.5px; }
-#quote .hilite3 { color: #F4F2E5; }
-#quote .hilite2 { color: #F0EACC; }
-#quote .hilite1 { color: #EEE4B3; }
+#quote .hilite { border-bottom-style: dashed; }
+#quote .hilite3 { color: #F4F2E5; border-bottom-width: 1.5px; }
+#quote .hilite2 { color: #F0EACC; border-bottom-width: 1.5px; }
+#quote .hilite1 { color: #EEE4B3; border-bottom-width: 0px; }
 </style>
 </head>
 <body>
@@ -73,7 +73,7 @@ ul.hilite > li { padding: 0.5em; padding-left: 0px; margin-left: -15px;  }
 	<input id="luuAnh" type="button" onclick="luuAnh()" value="Lưu ảnh" />
 	<input id="option" type="button" onclick="speakQuoteToggle()" value="Đọc to"/>
 	<span style="font-size:12px;"> [ <span id="count">59</span> ]</span>
-	<div id="quote" onclick="toggleFullscreen()" style='margin:0 -8px 0 -8px; padding:0.8em 0.6em 1em 1em; margin-top: 0.5em; margin-bottom:1.5em;'>
+	<div id="quote" style='margin:0 -8px 0 -8px; padding:0.8em 0.6em 1em 1em; margin-top: 0.5em; margin-bottom:1.5em;'>
 		<h1 style='margin:0; margin-bottom: 0.2em;'><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></h1>
 		<footer><cite>sutamphap.com</cite></footer>
 	</div>
@@ -236,7 +236,7 @@ function playPhap(url, title) {
 		ap.pause();
 		p.removeChild(p.lastChild);
 	}
-	p.innerHTML = '<p style="margin-top: 0.5em; margin-bottom: 0.5em;">[ '+title+' ]</p><audio ' + (newap ? '':'autoplay') + ' controls id="audioPlayer" style="width:100%; border-radius:0px;><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
+	p.innerHTML = '<p onclick="toggleFullscreen()" style="margin-top: 0.5em; margin-bottom: 0.5em;">[ '+title+' ]</p><audio ' + (newap ? '':'autoplay') + ' controls id="audioPlayer" style="width:100%; border-radius:0px;><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
 
 	ap = document.getElementById("audioPlayer");	
 	ap.addEventListener('play', function(){ ap.autoplay = false; });
@@ -348,7 +348,8 @@ window.setInterval(function () {
 		if (currTimeIndex != document.timmingIndex) {
 			currTimeIndex = document.timmingIndex;		
 			currText = document.timmings[currTimeIndex]['text'];
-			currText = currText.replace(/(\d+)@(.+?)#/mg, "<span id='w$1'>$2</span>");
+			currText = currText.replace(/(\d+)@(.+?)#/mg, 
+				"<span id=\"w$1\" onclick=\"seekToWord($1)\">$2</span>");
 			h1.innerHTML = currText;
 			// console.log(currText);
 			currWordTimmings = document.timmings[currTimeIndex]['timmings'];
@@ -369,12 +370,18 @@ window.setInterval(function () {
 		if (hiliteChanged) {
 			Array.from(h1.getElementsByClassName("hilite")).forEach(function(elem) {
 				hiliteNum = parseInt(elem.className.match(/(\d+)$/)[1]) - 1;
-				// console.log(hiliteNum);
 				elem.className = hiliteNum > 0 ? "hilite hilite"+hiliteNum : "";
 			});
 			// if (currWordTimmings[currWordTimeIndex][0] <= ap.currentTime 
 			// 	&& ap.currentTime <= currWordTimmings[currWordTimeIndex][1]) {
-				document.getElementById("w"+currWordTimeIndex).className = "hilite hilite3";
+				var activeWord = document.getElementById("w"+currWordTimeIndex);
+				activeWord.className = "hilite hilite3";
+				if ((activeWord = activeWord.previousSibling) 
+					&& (activeWord = activeWord.previousSibling)) 
+					{ activeWord.className = "hilite hilite2"; }
+				if (activeWord && (activeWord = activeWord.previousSibling) 
+					&& (activeWord = activeWord.previousSibling)) 
+					{ activeWord.className = "hilite hilite1"; }
 			// }
 			hiliteChanged = false;
 		}
@@ -397,11 +404,21 @@ window.setInterval(function () {
 		if (!"Tắt tiếng|Đọc to".includes(document.getElementById('option').value)) { 
 			document.getElementById('option').value = "Đọc to"; 
 		}
-		count = count - 0.1;
+		count = count - 0.2;
 		document.getElementById("count").innerText = Math.ceil(count);
 		if (count <= 0) newQuote();
 	}
-}, 100);
+}, 200);
+
+function seekToWord(wordIndex) {
+	// console.log(wordIndex);
+	var quote = document.getElementById("quote");
+	Array.from(quote.getElementsByClassName("hilite")).forEach(elem => elem.className = "");
+	var ap = document.getElementById("audioPlayer");
+	ap.currentTime = currWordTimmings[wordIndex][0];
+	// if (ap.paused) ap.play(); else ap.pause();
+}
+
 
 function newQuote(qIndex) {
 	if (document.phapPlaying) {
@@ -500,7 +517,9 @@ document.body.appendChild(downloadQuoteImageLink);
 function luuAnh() {
 	// document.exitFullscreen();
 	var filename = location.hash.replace("#","")+".png";
-	html2canvas(document.getElementById("quote")).then(function(canvas) {
+	var quote = document.getElementById("quote");
+	Array.from(quote.getElementsByClassName("hilite")).forEach(elem => elem.className = "");
+	html2canvas(quote).then(function(canvas) {
         downloadQuoteImageLink.download = filename;
         downloadQuoteImageLink.href = canvas.toDataURL("image/png");
         downloadQuoteImageLink.target = '_blank';
@@ -511,20 +530,13 @@ function luuAnh() {
 if (location.search == '?save') { luuAnh(); }
 
 function toggleFullscreen() {
+
     if (!document.fullscreenElement) {
     	document.documentElement.requestFullscreen();
     } else {
-    	toggleAp();
-    	// document.exitFullscreen();
+    	document.exitFullscreen();
 	}
 }
-
-function toggleAp() {
-	var ap = document.getElementById("audioPlayer");
-	if (ap.paused) ap.play(); else ap.pause();
-}
-
-document.getElementById("quote").addEventListener("dblclick", toggleAp); 
 
 // https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/hash-map-of.html
 function selectedPhaps() {
