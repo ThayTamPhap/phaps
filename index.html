@@ -236,7 +236,7 @@ function playPhap(url, title) {
 		ap.pause();
 		p.removeChild(p.lastChild);
 	}
-	p.innerHTML = '<p onclick="toggleFullscreen()" style="margin-top: 0.5em; margin-bottom: 0.5em;">[ '+title+' ]</p><audio ' + (newap ? '':'autoplay') + ' controls id="audioPlayer" style="width:100%; border-radius:0px;><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
+	p.innerHTML = '<p onclick="toggleFullscreen()" style="margin-top: 0.5em; margin-bottom: 0.5em;">[ '+title+' ]</p><audio ' + (newap ? '':'autoplay') + ' controls id="audioPlayer" style="width:100%; border-radius:0px;"><source src="'+sources[0]+'" /><source src="'+sources[1]+'" />Lỗi</audio>';
 
 	ap = document.getElementById("audioPlayer");	
 	ap.addEventListener('play', function(){ ap.autoplay = false; });
@@ -300,7 +300,8 @@ xmlhttp.onreadystatechange = function () {
 		}
 
 		if (location.search == '?vqdd') { 
-			playPhap("nois/Vuot-qua-de-duoi.ogg?https://sutamphap.com/wp-content/uploads/2021/03/Vuot-qua-de-duoi.mp3", "Vượt qua dễ duôi"); 
+			playPhap("phaps/vqdd-sample.ogg?phaps/vqdd-sample.mp3", "Vượt qua dễ duôi"); 
+			// playPhap("nois/Vuot-qua-de-duoi.ogg?https://sutamphap.com/wp-content/uploads/2021/03/Vuot-qua-de-duoi.mp3", "Vượt qua dễ duôi"); 
 			return;
 		}
 
@@ -346,7 +347,10 @@ window.setInterval(function () {
 		var h1 = document.querySelector("h1");
 
 		if (currTimeIndex != document.timmingIndex) {
-			currTimeIndex = document.timmingIndex;		
+			currTimeIndex = document.timmingIndex;
+
+			console.log(currTimeIndex, document.timmings[currTimeIndex]);
+
 			currText = document.timmings[currTimeIndex]["html"];
 			if (!currText) {
 				currText = document.timmings[currTimeIndex]['text'];
@@ -509,7 +513,7 @@ function initApp(from) {
 initApp('After quotes loaded');
 
 window.onpopstate = function () { 
-	document.autopopstate = false; 
+	// document.autopopstate = false; 
 	initApp('onpopstate'); 
 };
 

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi-VN">
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+  #audioPlayer { position: fixed; margin-top: -10px; }
+  p { margin-top: 1em; font-size: 14pt; padding: .5em; border-style: dotted; border-width: 1px; }
+  i { display: block; color: #aaa; }  
+</style>
+ </head>
+<body>
+  <audio autoplay controls id="audioPlayer" style="width:100%;">
+    <source src="phaps/vqdd.mp3" />Lỗi</audio>
+  <br />
+</body>
+
+<script>
+var ap = document.getElementById("audioPlayer");
+var subsCount, currSubIndex, currKey;
+
+function resetsubsCount() {
+  save('subsCount', '');
+}
+function saveSubsCount(value) {
+  subsCount = value;
+  save('subsCount', subsCount);
+}
+function loadSubsCount() {
+  return subsCount = parseInt(load('subsCount'));
+}
+function load(key) {
+  return window.sessionStorage.getItem(key);
+}
+function save(key, value) {
+  window.sessionStorage.setItem(key, value);
+}
+
+function saveTime(i, value) {
+  console.log(i, value);
+  save(`time${i}`, value);
+}
+function saveText(i, value) {
+  save(`text${i}`, value);
+}
+
+function loadTime(i) {
+  return parseInt(load(`time${i}`));
+}
+function loadText(i) {
+  return load(`text${i}`);
+}
+
+if (loadSubsCount()) {
+    genSubs();
+
+} else {
+
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      txt = this.responseText;
+      initSubs(txt);
+      genSubs();
+    }
+  };
+  xmlhttp.open("GET", "phaps/vqdd.lab", true);
+  xmlhttp.send();
+}
+
+function initSubs(txt) {
+  var sents = txt.split(/(?:\s*(?:\n|\.)\s*)+/);
+  saveSubsCount(sents.length);
+  var time = 0.0;
+  for (var i = 0; i < sents.length; i++) {
+    if (i > 0) { time = time + sents[i-1].split(/\s+/).length / 2.0; }
+    saveTime(i, time);
+    saveText(i, sents[i]);
+  }
+}
+
+function genSubs() {
+  for (var el, time, text, i = 0; i < subsCount; i++) {
+    el = document.createElement('p');
+    el.contentEditable = "true";
+    el.innerHTML = `<i>${loadTime(i)}</i>${loadText(i)}`;
+    el.id = i;
+    el.addEventListener("click", playSub);
+    el.addEventListener("focus", updateSub);
+    document.body.appendChild(el);
+  }
+}
+
+
+/* - - - - */ 
+
+
+function updateSub(event) {
+  if /* tab, `/~ */ (currKey === 9 || currKey === 192) {
+    currKey = null;
+    var time = ap.currentTime;
+    document.getElementById(currSubIndex).children[0].innerHTML = time;
+    saveTime(currSubIndex, time);
+  }
+}
+
+function playSub(event) {
+  var index = parseInt(this.id);
+  if (currSubIndex != index) {
+    currSubIndex = index;
+    var time = parseFloat(loadTime(currSubIndex));
+    ap.currentTime = time;
+    console.log('currSubIndex', currSubIndex, ', time', time);
+  } else {
+  }
+}
+
+document.addEventListener("keydown", function(event) {
+  currKey = event.keyCode;
+  console.log('currKey', currKey);
+  if        /* ctrl  */ (currKey === 17) {
+
+      event.preventDefault();
+      updateSub();
+
+  } else if /* esc   */ (currKey === 27) {
+
+      ap.currentTime = ap.currentTime + 5;
+
+  } else if /* alt   */ (currKey === 18) {
+
+      if (ap.paused) ap.play(); else ap.pause();
+
+  } else if /* tab   */ (currKey ===  9) {
+
+      event.preventDefault();
+      nextSub();
+
+  } else if /* `/~   */ (currKey === 192) {
+
+      ap.currentTime = ap.currentTime - 5;
+
+  } else if /* enter */ (currKey === 13) {
+    // copyToClipboard("he he");
+
+  } else if /* a-z   */ (currKey >= 65 && currKey <= 90) {
+    ap.pause();
+  }
+});
+
+function nextSub() {
+  if (currSubIndex < subsCount - 1) { 
+    currSubIndex++;  
+    document.getElementById(currSubIndex).focus();
+  }
+}
+
+const copyToClipboard = str => {
+  const el = document.createElement('textarea');
+  el.value = str;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+};
+</script>
+</html>
