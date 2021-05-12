@@ -28,6 +28,7 @@ function saveSubsCount(value) {
 function loadSubsCount() {
   return subsCount = parseInt(load('subsCount'));
 }
+
 function load(key) {
   return window.sessionStorage.getItem(key);
 }
@@ -36,18 +37,41 @@ function save(key, value) {
 }
 
 function saveTime(i, value) {
-  console.log(i, value);
   save(`time${i}`, value);
+  var el = document.getElementById(i);
+  if (el) el.children[0].innerHTML = value;
+}
+function loadTime(i) {
+  return parseFloat(load(`time${i}`));
+}
+function loadMaxTime(i) {
+  return parseFloat(load(`maxtime${i}`));
+}
+
+function saveTextIndex(i) {
+  saveText(i, document.getElementById(i).innerHTML.replace(/<i.+i>/,''));
 }
 function saveText(i, value) {
   save(`text${i}`, value);
-}
-
-function loadTime(i) {
-  return parseInt(load(`time${i}`));
+  save(`maxtime${i}`, loadTime(i)+estimateDuration(value, 1.8));
 }
 function loadText(i) {
   return load(`text${i}`);
+}
+function estimateDuration(txt, speed) {
+  return txt.split(/\s+/).length / (speed || 2.0);
+}
+function saveAll() {
+  for (var i = 0; i < subsCount; i++) {
+    saveTextIndex(i);
+  }
+}
+function export() {
+  var str = "";
+  for (var i = 0; i < subsCount; i++) {
+    str = str + `${loadTime(i)} ${loadText(i)}\n`;
+  }
+  console.log(str);
 }
 
 if (loadSubsCount()) {
@@ -72,7 +96,7 @@ function initSubs(txt) {
   saveSubsCount(sents.length);
   var time = 0.0;
   for (var i = 0; i < sents.length; i++) {
-    if (i > 0) { time = time + sents[i-1].split(/\s+/).length / 2.0; }
+    if (i > 0) { time = time + estimateDuration(sents[i-1]); }
     saveTime(i, time);
     saveText(i, sents[i]);
   }
@@ -88,20 +112,22 @@ function genSubs() {
     el.addEventListener("focus", updateSub);
     document.body.appendChild(el);
   }
+  currSubIndex = parseInt(load('currSubIndex'));
+  if (!isNaN(currSubIndex) && currSubIndex != null) {
+    console.log('currSubIndex', currSubIndex);
+    document.getElementById(currSubIndex).focus();
+  }
 }
 
 
 /* - - - - */ 
 
-
-function updateSub(event) {
-  if /* tab, `/~ */ (currKey === 9 || currKey === 192) {
-    currKey = null;
-    var time = ap.currentTime;
-    document.getElementById(currSubIndex).children[0].innerHTML = time;
-    saveTime(currSubIndex, time);
-  }
-}
+ap.ontimeupdate = function() {
+  var maxTime = loadMaxTime(currSubIndex);
+  var currTime = ap.currentTime;
+  if (maxTime - currTime < 8) maxTime = currTime + 8;
+  if (ap.currentTime >= maxTime) ap.pause();
+};
 
 function playSub(event) {
   var index = parseInt(this.id);
@@ -109,9 +135,28 @@ function playSub(event) {
     currSubIndex = index;
     var time = parseFloat(loadTime(currSubIndex));
     ap.currentTime = time;
-    console.log('currSubIndex', currSubIndex, ', time', time);
+    console.log('currSubIndex', currSubIndex, ', time', time, 'maxTime', loadMaxTime(currSubIndex));
   } else {
   }
+}
+
+function updateSub() {
+  save('currSubIndex', currSubIndex);
+  if /* tab, ctrl */ (currKey === 9 || currKey === 17) {
+    var time = ap.currentTime;
+    console.log('currSubIndex', currSubIndex, 'currentTime', time);
+    saveTime(currSubIndex, time);
+    if (currKey ===  9) saveTextIndex(currSubIndex - 1);
+    else saveTextIndex(currSubIndex);
+    currKey = null;
+  }
+}
+
+function seekCurrTime(delta) {
+  var time = loadTime(currSubIndex) + delta;
+  saveTime(currSubIndex, time);
+  ap.currentTime = time;
+  ap.play();
 }
 
 document.addEventListener("keydown", function(event) {
@@ -119,31 +164,36 @@ document.addEventListener("keydown", function(event) {
   console.log('currKey', currKey);
   if        /* ctrl  */ (currKey === 17) {
 
-      event.preventDefault();
-      updateSub();
+      ap.currentTime = loadTime(currSubIndex);
+      ap.play();
 
   } else if /* esc   */ (currKey === 27) {
 
-      ap.currentTime = ap.currentTime + 5;
+      seekCurrTime(0.3);
+
+  } else if /* `/~   */ (currKey === 192) {
+
+      event.preventDefault();
+      seekCurrTime(-0.3);
 
   } else if /* alt   */ (currKey === 18) {
 
-      if (ap.paused) ap.play(); else ap.pause();
+      if (ap.paused) ap.play(); else {
+        ap.currentTime = ap.currentTime - 3;
+        ap.pause();
+      }
 
   } else if /* tab   */ (currKey ===  9) {
 
       event.preventDefault();
       nextSub();
 
-  } else if /* `/~   */ (currKey === 192) {
-
-      ap.currentTime = ap.currentTime - 5;
-
-  } else if /* enter */ (currKey === 13) {
-    // copyToClipboard("he he");
+  } else if /*command*/ (currKey === 224) {
+    
 
   } else if /* a-z   */ (currKey >= 65 && currKey <= 90) {
-    ap.pause();
+
+      ap.pause();
   }
 });
 
@@ -153,14 +203,5 @@ function nextSub() {
     document.getElementById(currSubIndex).focus();
   }
 }
-
-const copyToClipboard = str => {
-  const el = document.createElement('textarea');
-  el.value = str;
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
-};
 </script>
 </html>
