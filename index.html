@@ -160,7 +160,7 @@ function vuotQuaDeDuoi() {
   	if (onVuotQuaDeDuoi) {
 		document.getElementById("vuotQuaDeDuoiAudio").click();
 		var a = document.getElementById('audioPlayer');
-		a.addEventListener('timeupdate', function(){ if (a.currentTime >= 470) a.pause(); }, false);
+		a.addEventListener('timeupdate', function(){ if (a.currentTime >= 470) a.pause(); }, false); // 7.8 mins
 	}
 	onVuotQuaDeDuoi = true;
 	onThuNoi = false;
@@ -347,12 +347,17 @@ window.setInterval(function () {
 
 		if (currTimeIndex != document.timmingIndex) {
 			currTimeIndex = document.timmingIndex;		
-			currText = document.timmings[currTimeIndex]['text'];
-			currText = currText.replace(/(\d+)@(.*?)#/g, 
-				`<span id="w$1" onclick="seekToWord($1)">$2</span>`);
-			currText = currText.replace(/\n/g, "<br/>");
+			currText = document.timmings[currTimeIndex]["html"];
+			if (!currText) {
+				currText = document.timmings[currTimeIndex]['text'];
+				currText = currText.replace(/(\d+)@(.*?)#/g, 
+					`<span id="w$1" onclick="seekToWord($1)">$2</span>`);
+				currText = currText.replace(/\n/g, "<br/>");
+				// cache for nextTime use
+				document.timmings[currTimeIndex]["html"] = currText;
+			}
 			h1.innerHTML = currText;
-			console.log(currText);
+			// console.log(currText);
 			currWordTimmings = document.timmings[currTimeIndex]['timmings'];
 			currWordTimeIndex = 0;
 			hiliteChanged = true;
