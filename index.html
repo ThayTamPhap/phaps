@@ -368,7 +368,7 @@ window.setInterval(function () {
 			currWordTimeIndex++;
 			hiliteChanged = true;
 		}		
-		while (currWordTimeIndex > 0
+		while (currWordTimeIndex > 0 && currWordTimmings[currWordTimeIndex][0] >= 0
 			&& ap.currentTime < currWordTimmings[currWordTimeIndex][0]) { 
 			currWordTimeIndex--;
 			hiliteChanged = true;
@@ -484,7 +484,7 @@ function fixTimmingIndex() {
 }
 
 function initApp(from) {
-	// console.log(from, document.autopopstate);
+	console.log(from, document.autopopstate);
 
 	if (document.autopopstate) {
 		document.autopopstate = false;
@@ -508,7 +508,10 @@ function initApp(from) {
 
 initApp('After quotes loaded');
 
-window.onpopstate = function () { initApp('onpopstate'); };
+window.onpopstate = function () { 
+	document.autopopstate = false; 
+	initApp('onpopstate'); 
+};
 
 </script>
 
