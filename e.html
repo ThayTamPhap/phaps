@@ -4,23 +4,56 @@
 <meta charset="utf-8">
 <style type="text/css">
   #audioPlayer { position: fixed; margin-top: -10px; }
-  p { margin-top: 1em; font-size: 14pt; padding: .5em; border-style: dotted; border-width: 1px; }
-  i { display: block; color: #aaa; }  
+  
+  div { margin-top: 0.5em; font-size: 14pt; padding: .3em; color: #ccc; }
+  
+  p { padding-top: 0.5em; padding-bottom: 0.5em; margin: 0.1em; 
+      border-style: dotted; border-width: 1px; }
+  
+  p.edited { color: #666; }
+  
+  p:focus { color: #000; border: 0px; border-style: none; color: #112699; }
+  
+  i { font-size: 12pt; color: #aaa; }
 </style>
  </head>
 <body>
-  <audio autoplay controls id="audioPlayer" style="width:100%;">
-    <source src="phaps/vqdd.mp3" />Lỗi</audio>
+  <audio controls id="audioPlayer" style="width:100%;">
+  </audio>
+  <a></a>
   <br />
 </body>
 
 <script>
+var phapname = location.search.replace("?", "")
+console.log('phapname', phapname);
+
 var ap = document.getElementById("audioPlayer");
+ap.innerHTML = `<source src="${phapname}.ogg" /><source src="${phapname}.mp3" />`
+
 var subsCount, currSubIndex, currKey;
 
-function resetsubsCount() {
-  save('subsCount', '');
+
+if (phapname == load('phapname')) {
+    console.log("Found cached data");
+    genSubs();
+
+} else {
+  save('phapname', phapname);
+
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      txt = this.responseText;
+      initSubs(txt);
+      genSubs();
+    }
+  };
+  xmlhttp.open("GET", phapname+".lab", true);
+  xmlhttp.send();
 }
+
+
 function saveSubsCount(value) {
   subsCount = value;
   save('subsCount', subsCount);
@@ -35,11 +68,20 @@ function load(key) {
 function save(key, value) {
   window.sessionStorage.setItem(key, value);
 }
-
+function markEditedIndex(i) {
+  save(`edited${i}`, true);
+}
+function isEditedIndex(i) {
+  return load(`edited${i}`) === 'true';
+}
 function saveTime(i, value) {
   save(`time${i}`, value);
+  markEditedIndex(i);
   var el = document.getElementById(i);
-  if (el) el.children[0].innerHTML = value;
+  if (el) {
+    el.previousSibling.innerHTML = value;
+    el.className = 'edited';
+  }
 }
 function loadTime(i) {
   return parseFloat(load(`time${i}`));
@@ -66,36 +108,33 @@ function saveAll() {
     saveTextIndex(i);
   }
 }
-function export() {
+function result() {
   var str = "";
   for (var i = 0; i < subsCount; i++) {
     str = str + `${loadTime(i)} ${loadText(i)}\n`;
   }
-  console.log(str);
+  var a = document.querySelector("a");
+  var file = new Blob([str], {type: 'text/plain'});
+  a.href = URL.createObjectURL(file);
+  a.download = phapname.split("/")[1] + '.lrc';
+  a.click();
+  // console.log(str);
 }
 
-if (loadSubsCount()) {
-    genSubs();
-
-} else {
-
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      txt = this.responseText;
-      initSubs(txt);
-      genSubs();
-    }
-  };
-  xmlhttp.open("GET", "phaps/vqdd.lab", true);
-  xmlhttp.send();
-}
 
 function initSubs(txt) {
-  var sents = txt.split(/(?:\s*(?:\n|\.)\s*)+/);
+  var sents = [];
+  var splits = txt.split(/(\s*(?:\n|\.)\s*)+/);
+  var n = splits.length/2, i = 0;
+  for (; i < n; i = i + 2) {
+    sents.push(splits[i] + splits[i+1].replace(/\n/g,'\\'))
+  }
+  if (i < splits.length - 1) {
+    sents.push(splits[i+1]);
+  }
   saveSubsCount(sents.length);
   var time = 0.0;
-  for (var i = 0; i < sents.length; i++) {
+  for (n = sents.length, i = 0; i < n; i++) {
     if (i > 0) { time = time + estimateDuration(sents[i-1]); }
     saveTime(i, time);
     saveText(i, sents[i]);
@@ -103,14 +142,20 @@ function initSubs(txt) {
 }
 
 function genSubs() {
-  for (var el, time, text, i = 0; i < subsCount; i++) {
-    el = document.createElement('p');
-    el.contentEditable = "true";
-    el.innerHTML = `<i>${loadTime(i)}</i>${loadText(i)}`;
-    el.id = i;
-    el.addEventListener("click", playSub);
-    el.addEventListener("focus", updateSub);
-    document.body.appendChild(el);
+  loadSubsCount();
+  for (var p, div, time, text, i = 0; i < subsCount; i++) {
+    div = document.createElement('div');
+    div.innerHTML = `<i>${loadTime(i)}</i>`;
+    div.onclick = function() { console.log(this.children[1].focus()); };
+    p = document.createElement('p');
+    p.contentEditable = "true";
+    p.innerHTML = loadText(i);
+    p.id = i;
+    p.className = isEditedIndex(i) ? 'edited' : '';
+    p.addEventListener("click", playSub);
+    p.addEventListener("focus", updateSub);
+    div.appendChild(p);
+    document.body.appendChild(div);
   }
   currSubIndex = parseInt(load('currSubIndex'));
   if (!isNaN(currSubIndex) && currSubIndex != null) {
