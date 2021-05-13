@@ -495,7 +495,7 @@ function initApp(from) {
 		return;
 	}
 	
-	if (location.hash.includes(document.nghepath)) {
+	if (document.nghepath && location.hash.includes(document.nghepath)) {
 		document.phapPlaying = true;
 		document.timmingIndex = parseInt(location.hash.replace(/#.+?-/,""));
 		fixTimmingIndex();
