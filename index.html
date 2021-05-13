@@ -158,9 +158,10 @@ function vuotQuaDeDuoi() {
 	document.getElementById("thuyetPhapContainer").style = "display: none";
 	document.getElementById("vuotQuaDeDuoi").style = "display: true";
   	if (onVuotQuaDeDuoi) {
-		document.getElementById("vuotQuaDeDuoiAudio").click();
-		var a = document.getElementById('audioPlayer');
-		a.addEventListener('timeupdate', function(){ if (a.currentTime >= 470) a.pause(); }, false); // 7.8 mins
+		playPhap("phaps/vqdd.ogg?phaps/vqdd.mp3", "Vượt qua dễ duôi (Thầy dặn)");
+		// document.getElementById("vuotQuaDeDuoiAudio").click();
+		// var a = document.getElementById('audioPlayer');
+		// a.addEventListener('timeupdate', function(){ if (a.currentTime >= 470) a.pause(); }, false); // 7.8 mins
 	}
 	onVuotQuaDeDuoi = true;
 	onThuNoi = false;
@@ -300,8 +301,7 @@ xmlhttp.onreadystatechange = function () {
 		}
 
 		if (location.search == '?vqdd') { 
-			playPhap("phaps/vqdd-sample.ogg?phaps/vqdd-sample.mp3", "Vượt qua dễ duôi"); 
-			// playPhap("nois/Vuot-qua-de-duoi.ogg?https://sutamphap.com/wp-content/uploads/2021/03/Vuot-qua-de-duoi.mp3", "Vượt qua dễ duôi"); 
+			playPhap("nois/Vuot-qua-de-duoi.ogg?https://sutamphap.com/wp-content/uploads/2021/03/Vuot-qua-de-duoi.mp3", "Vượt qua dễ duôi"); 
 			return;
 		}
 
