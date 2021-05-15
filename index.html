@@ -356,7 +356,7 @@ window.setInterval(function () {
 				currText = document.timmings[currTimeIndex]['text'];
 				currText = currText.replace(/(\d+)@(.*?)#/g, 
 					`<span id="w$1" onclick="seekToWord($1)">$2</span>`);
-				currText = currText.replace(/\n/g, "<br/>");
+				currText = currText.replace(/\\n/g, "<br/>").replace(/[\n|\\]/g, "<br/>");
 				// cache for nextTime use
 				document.timmings[currTimeIndex]["html"] = currText;
 			}
