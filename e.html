@@ -7,14 +7,14 @@
   .header audio#audioPlayer { width: 100%; float: left; }
   .header a { color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.3em 1em; margin-left: 3px; float: right; margin-right: 15px; }
   
-  div { margin-top: 0.5em; font-size: 14pt; padding: .3em; color: #ccc; }
+  div { margin-top: 0.5em; font-size: 14pt; padding: .3em; color: #888; }
   
   p { padding-top: 0.5em; padding-bottom: 0.5em; margin: 0.1em; 
       border-style: dotted; border-width: 1px; }
   
-  p.edited { color: #666; }
+  p.edited { color: #000; }
   
-  p:focus { color: #000; border: 0px; border-style: none; color: #112699; }
+  p:focus { border: 0px; border-style: none; color: #112699; }
   
   i { font-size: 12pt; color: #aaa; }
 </style>
@@ -25,7 +25,7 @@
     <a href="?" id="downloadButton">SAVE</a>
   </div>
   <a id="lrcDownload"></a>
-  <br />
+  <br /><br /><br />
 </body>
 
 <script src="assets/localforage.min.js"></script>
@@ -85,17 +85,17 @@ async function loadSubsCount() {
   return subsCount = parseInt(await load('subsCount'));
 }
 function markEditedIndex(i) {
-  save(`edited${i}`, true);
+  save(`edited${i}`, 'true');
 }
 async function isEditedIndex(i) {
-  return await load(`edited${i}`) === 'true';
+  return await load(`edited${i}`) == 'true';
 }
 function saveTime(i, value) {
   save(`time${i}`, value);
   markEditedIndex(i);
   var el = document.getElementById(i);
   if (el) {
-    el.previousSibling.innerHTML = value;
+    el.previousSibling.innerHTML = `${i}: ${value}`;
     el.className = 'edited';
   }
 }
@@ -263,26 +263,28 @@ function spellSpecialWords(txt) {
 
 async function genSubs() {
   await loadSubsCount();
+  currSubIndex = parseInt(await load('currSubIndex'));
+  if (isNaN(currSubIndex) || currSubIndex < 0) currSubIndex = 0;
+
   for (var p, div, time, text, i = 0; i < subsCount; i++) {
     div = document.createElement('div');
     div.innerHTML = `<i>${i}: ${await loadTime(i)}</i>`;
-    div.onclick = function() { console.log(this.children[1].focus()); };
+    div.onclick = function() { this.children[1].focus(); };
     p = document.createElement('p');
     p.contentEditable = "true";
     p.innerHTML = spellSpecialWords(await loadText(i));
     p.id = i;
-    p.className = isEditedIndex(i) ? 'edited' : '';
+    p.className = await isEditedIndex(i) ? 'edited' : '';
     // if p is click then p will get focus
     p.addEventListener("click", playSub);
     p.addEventListener("focus", updateSub);
     p.addEventListener("blur", saveCurrentText);
     div.appendChild(p);
     document.body.appendChild(div);
-  }
-  currSubIndex = parseInt(await load('currSubIndex'));
-  if (!isNaN(currSubIndex) && currSubIndex != null) {
-    console.log('currSubIndex', currSubIndex);
-    document.getElementById(currSubIndex).focus();
+    if (currSubIndex == i) {
+      p.focus();
+      console.log('currSubIndex', currSubIndex);
+    }
   }
 }
 
