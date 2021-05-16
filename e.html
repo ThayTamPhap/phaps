@@ -261,14 +261,19 @@ function spellSpecialWords(txt) {
   });
 }
 
+function focusAndScrollIntoViewSubIndex(index) {
+  var p = document.getElementById(index);
+  p.focus();
+  p.scrollIntoView();
+}
+
 async function genSubs() {
   await loadSubsCount();
-  currSubIndex = parseInt(await load('currSubIndex'));
-  if (isNaN(currSubIndex) || currSubIndex < 0) currSubIndex = 0;
-
+  currSubIndex = -1;
   for (var p, div, time, text, i = 0; i < subsCount; i++) {
     div = document.createElement('div');
-    div.innerHTML = `<i>${i}: ${await loadTime(i)}</i>`;
+    time = await loadTime(i);
+    div.innerHTML = `<i>${i}: ${time}</i>`;
     div.onclick = function() { this.children[1].focus(); };
     p = document.createElement('p');
     p.contentEditable = "true";
@@ -281,8 +286,9 @@ async function genSubs() {
     p.addEventListener("blur", saveCurrentText);
     div.appendChild(p);
     document.body.appendChild(div);
-    if (currSubIndex == i) {
-      p.focus();
+
+    if (currSubIndex < 0 && time == 0 && (currSubIndex = i-1) >= 0) {
+      focusAndScrollIntoViewSubIndex(currSubIndex);
       console.log('currSubIndex', currSubIndex);
     }
   }
@@ -295,32 +301,50 @@ function saveCurrentText() {
   saveTextIndex(parseInt(this.id));
 }
 
-async function playSub() {
-  var index = parseInt(this.id);
+function saveCurrSubIndex(index) {
+  save('currSubIndex', currSubIndex = index);
+}
+
+async function playSubIndex(index) {
+  var time = await loadTime(index);
+  if (time != 0) { 
+    ap.currentTime = time;
+    ap.play();
+  }  
+}
+
+async function playSub(index) {
+  if (typeof index == 'number') {
+    // Force to play sub index
+  playSubIndex(index)
+    return;
+  }
+
+  index = parseInt(this.id);
+  console.log('currSubIndex', currSubIndex, 'index', index, 'currKey', currKey);
   if (currSubIndex != index) {
-    currSubIndex = index;
-    var time = await loadTime(currSubIndex);
-    if (time != 0) { 
-      ap.currentTime = time; 
-      ap.play();
-    }
+    saveCurrSubIndex(index);
+    playSubIndex(currSubIndex);
   }  else { 
+    // Click on current sub, will pause audio (to edit text)
     ap.pause(); 
   }
 }
 
 function updateSub() {
-  save('currSubIndex', currSubIndex);
-  var jumpKeysPressed = (currKey == 'Enter');
+  saveTextIndex(currSubIndex - 1);
+  saveTextIndex(currSubIndex);
 
-  if (jumpKeysPressed || currKey == 'Slash') {
+  if (currKey == 'Enter' || currKey == 'Slash') {  
+    saveCurrSubIndex(currSubIndex);
     var time = ap.currentTime;
+    saveTime(currSubIndex, time);  
     console.log('currSubIndex', currSubIndex, 'currentTime', time);
-    saveTime(currSubIndex, time);
-    if (jumpKeysPressed) saveTextIndex(currSubIndex - 1);
-    else saveTextIndex(currSubIndex);
-    currKey = null;
+
+  } else if (currKey == 'Tab') {
+    playSub(currSubIndex);
   }
+  currKey = null;
 }
 
 async function seekCurrTime(delta) {
@@ -332,8 +356,8 @@ async function seekCurrTime(delta) {
 
 document.addEventListener("keydown", async function(event) {
   currKey = event.code;
-  // console.log(`KeyboardEvent: key='${event.key}' | code='${event.code}'`);
-  console.log('currKey', currKey);
+  console.log(`KeyboardEvent: key='${event.key}' | code='${event.code}'`);
+  // console.log('currKey', currKey);
 
   switch(currKey) {
     case 'Slash':
@@ -364,6 +388,11 @@ document.addEventListener("keydown", async function(event) {
       break;
 
     case 'Enter':
+      event.preventDefault();
+      nextSub();
+      break;
+
+    case 'Tab':
       event.preventDefault();
       nextSub();
       break;
