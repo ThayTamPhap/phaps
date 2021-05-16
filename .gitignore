@@ -5,6 +5,3 @@ in.vscode
 *.wav
 *.TextGrid
 *.lab
-unaligned.txt
-subtitles/phaps/
-e.html

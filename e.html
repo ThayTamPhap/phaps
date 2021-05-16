@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi-VN">
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+  .header { position: fixed; margin-top: -10px; width: 100%; }
+  .header audio#audioPlayer { width: 88%; }
+  .header a { width: 12%; color: blue; border-width: 1px; border-style: solid; padding: 2px; }
+  
+  div { margin-top: 0.5em; font-size: 14pt; padding: .3em; color: #ccc; }
+  
+  p { padding-top: 0.5em; padding-bottom: 0.5em; margin: 0.1em; 
+      border-style: dotted; border-width: 1px; }
+  
+  p.edited { color: #666; }
+  
+  p:focus { color: #000; border: 0px; border-style: none; color: #112699; }
+  
+  i { font-size: 12pt; color: #aaa; }
+</style>
+ </head>
+<body>
+  <div class="header">
+    <audio controls id="audioPlayer"></audio>
+    <a href="?" id="downloadButton">SAVE</a>
+  </div>
+  <a id="lrcDownload"></a>
+  <br />
+</body>
+
+<script src="assets/localforage.min.js"></script>
+
+<script>
+
+document.getElementById("downloadButton").addEventListener("click", function(e) {
+  e.preventDefault();
+  z();
+});
+
+var phapname = location.search.replace("?", "")
+console.log('phapname', phapname);
+// var store = localforage.createInstance({ name: phapname });
+function finalKey(key) {
+  return phapname + "_" + key; 
+}
+async function load(key) {
+  return await localforage.getItem(finalKey(key));
+}
+function save(key, value) {
+  localforage.setItem(finalKey(key), value);
+}
+
+
+var ap = document.getElementById("audioPlayer");
+ap.innerHTML = `<source src="${phapname}.ogg" /><source src="${phapname}.mp3" />`
+
+var subsCount, currSubIndex, currKey;
+var expanding = false;
+loadSubsCount().then(function () {
+  if (!isNaN(subsCount) && subsCount > 0 && !expanding) {
+    console.log("Use cached data to gen subs");
+    genSubs();
+
+  } else {
+    save('phapname', phapname);
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        txt = this.responseText;
+        initSubs(txt).then(genSubs);
+      }
+    };
+    xmlhttp.open("GET", phapname+".lab", true);
+    xmlhttp.send();
+  }
+});
+
+
+function saveSubsCount(value) {
+  subsCount = value;
+  save('subsCount', subsCount);
+}
+async function loadSubsCount() {
+  return subsCount = parseInt(await load('subsCount'));
+}
+function markEditedIndex(i) {
+  save(`edited${i}`, true);
+}
+async function isEditedIndex(i) {
+  return await load(`edited${i}`) === 'true';
+}
+function saveTime(i, value) {
+  save(`time${i}`, value);
+  markEditedIndex(i);
+  var el = document.getElementById(i);
+  if (el) {
+    el.previousSibling.innerHTML = value;
+    el.className = 'edited';
+  }
+}
+async function loadTime(i) {
+  return parseFloat(await load(`time${i}`));
+}
+
+function saveTextIndex(i) {
+  saveText(i, document.getElementById(i).innerHTML.replace(/<i.+i>/,''));
+}
+function saveText(i, value) {
+  save(`text${i}`, value);
+}
+async function loadText(i) {
+  return await load(`text${i}`);
+}
+function saveAll() {
+  for (var i = 0; i < subsCount; i++) {
+    saveTextIndex(i);
+  }
+}
+async function z() {
+  var str = "";
+  for (var i = 0; i < subsCount; i++) {
+    var timeI = await loadTime(i), timeI1 = await loadTime(i+1);
+    if (timeI > timeI1) {
+      console.log("ERROR: time of line", i, '> time of line', i + 1);
+      // throw 'Timming-order error!';
+    }
+    str = str + `${timeI} ${await loadText(i)}\n`;
+  }
+  // console.log(str);
+  var a = document.getElementById("lrcDownload");
+  var file = new Blob([str], {type: 'text/plain'});
+  a.href = URL.createObjectURL(file);
+  a.download = phapname.split("/")[1] + '.lrc';
+  a.click();
+}
+
+
+const IDEAL_LINE_CHARS = 45*5;
+const MAX_LINE_CHARS = 60*5;
+const MIN_LINE_CHARS = 22*5;
+
+async function initSubs(txt) {
+  var sents = [], sent;
+  var splits = txt.split(/((?:[\n\.\?]\s*)+)/gm); splits.push("");
+  
+  while (splits.length >= 2) {
+    sent = splits.shift() + splits.shift();
+    sent = sent.replace(/\n/gm,'\\').replace(/\s+/gm," ");
+    sent = sent.replace(/^\s+/m,"").replace(/\s+$/m,"");
+    sents.push(sent);
+  }
+
+  
+  splits = []; var n, i, m, phrases, k, s;
+  
+  for (n=sents.length, i=0; i < n; i++) {
+  
+    m = sents[i].length;
+    console.log('Sent',i,'length is',m);
+
+    if (m > IDEAL_LINE_CHARS) {
+      phrases = sents[i].split(/(\s*(?:[,;:\.\?\\]\s*)+)/gm); 
+      phrases.push("");
+      sent = "", k = 0;
+      while (k < MIN_LINE_CHARS && phrases.length >= 2) {
+        sent = sent + (s = phrases.shift()) + phrases.shift();
+        k = k + s.length;
+      }
+
+      splits.push(sent);
+      console.log('splited to:', sent);
+
+      if (phrases.length > 0) {
+        sents[i] = phrases.join("");
+        console.log('... remain is:', sents[i]);
+        i--;
+      }
+
+    } else 
+    if ( m < MIN_LINE_CHARS && i < n-1 
+        && m+sents[i+1].length <= MAX_LINE_CHARS ) {
+
+      console.log('merged length', m+sents[i+1].length, '< max length', MAX_LINE_CHARS);
+      sents[i+1] = sents[i]+' '+sents[i+1];      
+      console.log('... merged to sents[i+1]', sents[i+1]);
+
+    } else if ( m < MIN_LINE_CHARS && i > 0 
+        && m+sents[i-1].length <= MAX_LINE_CHARS ) {
+
+      sents[i] = splits.pop()+' '+sents[i];
+      splits.push(sents[i]);
+      console.log('... merged to sents[i]', sents[i]);
+    
+    } else {
+      
+      splits.push(sents[i]);
+    }
+  } // for
+
+  var n = 0, time;
+  if (expanding) do {
+      time = await loadTime(++n);
+    } while (!isNaN(time) && time > 0);
+
+  splits.push("./.");
+  for (i = 0; i < splits.length; i++) {
+    saveTime(n, 0);
+    saveText(n, splits[i]);
+    n++;
+  }
+  saveSubsCount(n);
+}
+
+function spellNumber(x) {
+  // console.log(`spellNumber "${x}"`)
+  var prefix, md, mdd;
+
+  if (md = x.match(/^(\d)(\d\d)$/)) {
+    prefix = `${md[1]} trăm`;
+
+    if (md[2] == '00')
+      return prefix;
+
+    if (mdd = md[2].match(/^0(\d)$/))
+        return `${prefix} lẻ ${mdd[1]}`
+
+    return `${prefix} ${spellNumber(md[2])}`
+  }
+
+  if (md = x.match(/^(\d)(\d)$/)) {
+    prefix = md[1] == '1' ? 'mười' : md[1];
+    if (md[2] == '0')
+      return `${prefix} mươi`
+
+    if (md[2] == '4')
+      return `${prefix} tư`
+
+    if (md[2] == '5')
+      return `${prefix} lăm`
+
+    return `${md[1]} ${md[2]}`
+  }
+
+  return x;
+}
+
+function spellSpecialWords(txt) {
+  var z;
+  return txt.replace(/\s\d+%?\s/gi, function (x) {
+    z = x;
+    x = x.trim();
+    // Just return 0-9,10
+    if (x.match(/^(\d|10)$/)) { return z; }
+   
+    if (md = x.match(/^(\d+)%$/))
+      return ` |{${spellNumber(md[1])} phần trăm|${x}| `;
+    
+    // Default is number
+    return ` |${spellNumber(x)}|${x}| `;
+  });
+}
+
+async function genSubs() {
+  await loadSubsCount();
+  for (var p, div, time, text, i = 0; i < subsCount; i++) {
+    div = document.createElement('div');
+    div.innerHTML = `<i>${i}: ${await loadTime(i)}</i>`;
+    div.onclick = function() { console.log(this.children[1].focus()); };
+    p = document.createElement('p');
+    p.contentEditable = "true";
+    p.innerHTML = spellSpecialWords(await loadText(i));
+    p.id = i;
+    p.className = isEditedIndex(i) ? 'edited' : '';
+    // if p is click then p will get focus
+    p.addEventListener("click", playSub);
+    p.addEventListener("focus", updateSub);
+    p.addEventListener("blur", saveCurrentText);
+    div.appendChild(p);
+    document.body.appendChild(div);
+  }
+  currSubIndex = parseInt(await load('currSubIndex'));
+  if (!isNaN(currSubIndex) && currSubIndex != null) {
+    console.log('currSubIndex', currSubIndex);
+    document.getElementById(currSubIndex).focus();
+  }
+}
+
+
+/* - - - - */ 
+
+function saveCurrentText() {
+  saveTextIndex(parseInt(this.id));
+}
+
+async function playSub() {
+  var index = parseInt(this.id);
+  if (currSubIndex != index) {
+    currSubIndex = index;
+    var time = await loadTime(currSubIndex);
+    if (time != 0) { 
+      ap.currentTime = time; 
+      ap.play();
+    }
+  }  else { 
+    ap.pause(); 
+  }
+}
+
+function updateSub() {
+  save('currSubIndex', currSubIndex);
+  var jumpKeysPressed = (currKey == 'Enter');
+
+  if (jumpKeysPressed || currKey == 'Slash') {
+    var time = ap.currentTime;
+    console.log('currSubIndex', currSubIndex, 'currentTime', time);
+    saveTime(currSubIndex, time);
+    if (jumpKeysPressed) saveTextIndex(currSubIndex - 1);
+    else saveTextIndex(currSubIndex);
+    currKey = null;
+  }
+}
+
+async function seekCurrTime(delta) {
+  var time = await loadTime(currSubIndex) + delta;
+  saveTime(currSubIndex, time);
+  ap.currentTime = time;
+  ap.play();
+}
+
+document.addEventListener("keydown", async function(event) {
+  currKey = event.code;
+  // console.log(`KeyboardEvent: key='${event.key}' | code='${event.code}'`);
+  console.log('currKey', currKey);
+
+  switch(currKey) {
+    case 'Slash':
+      event.preventDefault();
+      updateSub();
+      break;
+
+    case 'ControlLeft':
+      ap.currentTime = await loadTime(currSubIndex);
+      ap.play();
+      break;
+
+    case 'Escape':
+      seekCurrTime(0.15);
+      break;
+
+    case 'Backquote':
+      event.preventDefault();
+      seekCurrTime(-0.15);
+      break;
+
+    case 'AltLeft':
+      event.preventDefault();
+      if (ap.paused) ap.play(); else {
+        ap.currentTime = ap.currentTime - 2;
+        ap.pause();
+      }
+      break;
+
+    case 'Enter':
+      event.preventDefault();
+      nextSub();
+      break;
+
+    case 'AltRight':
+      event.preventDefault();
+      ap.currentTime = ap.currentTime + 5;
+      break;
+
+    case 'OSRight':
+      ap.currentTime = ap.currentTime - 5;
+      break;
+
+    case 'Minus':
+      break
+
+    case 'Equal':
+      break
+
+    default:
+      if (await loadTime(currSubIndex)!= 0) { ap.pause(); }
+  }
+});
+
+const pasteToCurrentEditableCursor = str => {
+  document.execCommand('inserttext', false, str);
+};
+
+
+function nextSub() {
+  // console.log('nextSub', currKey);
+  if (currSubIndex < subsCount - 1) { 
+    currSubIndex++;  
+    document.getElementById(currSubIndex).focus();
+  }
+}
+</script>
+</html>
