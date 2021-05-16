@@ -254,7 +254,7 @@ function spellSpecialWords(txt) {
     if (x.match(/^(\d|10)$/)) { return z; }
    
     if (md = x.match(/^(\d+)%$/))
-      return ` |{${spellNumber(md[1])} phần trăm|${x}| `;
+      return ` |${spellNumber(md[1])} phần trăm|${x}| `;
     
     // Default is number
     return ` |${spellNumber(x)}|${x}| `;
