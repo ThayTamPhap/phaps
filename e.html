@@ -9,7 +9,7 @@
 
   .header { position: fixed; width: 100%; height: 4em; }
   .header audio#audioPlayer { width: 20%; float: left; height: 25px; }
-  .header a { width: 13%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.5em 0em; margin-left: 3px; float: right; margin-right: 15px; text-align: center; text-decoration: none; }
+  .header a { width: 11%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.5em 0em; margin-left: 3px; float: right; margin-right: 5px; text-align: center; text-decoration: none; }
   
   div { margin-top: 0.5em; padding: .3em; color: #888; }
   
@@ -26,9 +26,10 @@
 <body>
   <div class="header">
     <audio controls id="audioPlayer"></audio>
-    <a href="" onclick="event.code='Enter'; handleKeyPress(event);">Enter</a>
     <a href="" onclick="ap.currentTime -= 2; ap.play(); event.preventDefault();
       document.getElementById(currSubIndex).focus();">-2s</a>
+    <a href="" onclick="event.code='Enter'; handleKeyPress(event);" style="margin-right:15px;">Enter</a>
+    <a href="" onclick="event.code='Slash'; event.key='/';handleKeyPress(event);">/</a>
     <a href="" onclick="event.code='ControlLeft'; handleKeyPress(event);event.preventDefault();
       document.getElementById(currSubIndex).focus();")><<</a>
     <a href="?" id="downloadButton">Save</a>
