@@ -150,10 +150,21 @@ async function z() {
   // console.log(str);
   var a = document.getElementById("lrcDownload");
   var file = new Blob([str], {type: 'text/plain'});
+  copyToClipboard(str);
   a.href = URL.createObjectURL(file);
   a.download = phapname.split("/")[1] + '.lrc';
+  a.target = '_blank';
   a.click();
 }
+
+const copyToClipboard = str => {
+  const el = document.createElement('textarea');
+  el.value = str;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+};
 
 
 const IDEAL_LINE_CHARS = 45*5;
