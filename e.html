@@ -282,7 +282,7 @@ async function genSubs() {
     p.className = await isEditedIndex(i) ? 'edited' : '';
     // if p is click then p will get focus
     p.addEventListener("click", playSub);
-    p.addEventListener("focus", updateSub);
+    p.addEventListener("focus", playAndUpdateSub);
     p.addEventListener("blur", saveCurrentText);
     div.appendChild(p);
     document.body.appendChild(div);
@@ -313,13 +313,7 @@ async function playSubIndex(index) {
   }  
 }
 
-async function playSub(index) {
-  if (typeof index == 'number') {
-    // Force to play sub index
-  playSubIndex(index)
-    return;
-  }
-
+async function playSub() {
   index = parseInt(this.id);
   console.log('currSubIndex', currSubIndex, 'index', index, 'currKey', currKey);
   if (currSubIndex != index) {
@@ -331,18 +325,15 @@ async function playSub(index) {
   }
 }
 
-function updateSub() {
+function playAndUpdateSub() {
   saveTextIndex(currSubIndex - 1);
   saveTextIndex(currSubIndex);
 
   if (currKey == 'Enter' || currKey == 'Slash') {  
     saveCurrSubIndex(currSubIndex);
-    var time = ap.currentTime;
-    saveTime(currSubIndex, time);  
-    console.log('currSubIndex', currSubIndex, 'currentTime', time);
-
-  } else if (currKey == 'Tab') {
-    playSub(currSubIndex);
+    saveTime(currSubIndex, ap.currentTime);
+  } else {
+    playSubIndex(currSubIndex);
   }
   currKey = null;
 }
@@ -361,8 +352,9 @@ document.addEventListener("keydown", async function(event) {
 
   switch(currKey) {
     case 'Slash':
+      if (event.key != '/') { return; }
       event.preventDefault();
-      updateSub();
+      playAndUpdateSub();
       break;
 
     case 'ControlLeft':
@@ -381,10 +373,8 @@ document.addEventListener("keydown", async function(event) {
 
     case 'AltLeft':
       event.preventDefault();
-      if (ap.paused) ap.play(); else {
-        ap.currentTime = ap.currentTime - 2;
-        ap.pause();
-      }
+      ap.currentTime = ap.currentTime - 2;
+      ap.play();
       break;
 
     case 'Enter':
@@ -406,14 +396,20 @@ document.addEventListener("keydown", async function(event) {
       ap.currentTime = ap.currentTime - 5;
       break;
 
-    case 'Minus':
+    case 'ArrowUp':
       break
 
-    case 'Equal':
+    case 'ArrowDown':
+      break
+
+    case 'ArrowLeft':
+      break
+
+    case 'ArrowRight':
       break
 
     default:
-      if (await loadTime(currSubIndex)!= 0) { ap.pause(); }
+      if (await loadTime(currSubIndex) != 0) { ap.pause(); }
   }
 });
 
@@ -423,7 +419,6 @@ const pasteToCurrentEditableCursor = str => {
 
 
 function nextSub() {
-  // console.log('nextSub', currKey);
   if (currSubIndex < subsCount - 1) { 
     currSubIndex++;  
     document.getElementById(currSubIndex).focus();
