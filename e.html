@@ -257,7 +257,7 @@ function spellNumber(x) {
 
 function spellSpecialWords(txt) {
   var z;
-  return txt.replace(/\s\d+%?\s/gi, function (x) {
+  return txt.replace(/\s\d+%?[\s,.]/gi, function (x) {
     z = x;
     x = x.trim();
     // Just return 0-9,10
