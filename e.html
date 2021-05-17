@@ -2,12 +2,16 @@
 <html lang="vi-VN">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link id="favicon" rel="icon" type="image/x-icon" href="/assets/dharma-wheel.png">
 <style type="text/css">
-  .header { position: fixed; width: 100%; }
-  .header audio#audioPlayer { width: 100%; float: left; }
-  .header a { color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.3em 1em; margin-left: 3px; float: right; margin-right: 15px; }
+  body, div, p, a { font-family: Arial, Helvetica, sans-serif; font-size: 18px; }
+
+  .header { position: fixed; width: 100%; height: 4em; }
+  .header audio#audioPlayer { width: 28%; float: left; }
+  .header a { width: 13%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.5em 0em; margin-left: 3px; float: right; margin-right: 15px; text-align: center; text-decoration: none; }
   
-  div { margin-top: 0.5em; font-size: 14pt; padding: .3em; color: #888; }
+  div { margin-top: 0.5em; padding: .3em; color: #888; }
   
   p { padding-top: 0.5em; padding-bottom: 0.5em; margin: 0.1em; 
       border-style: dotted; border-width: 1px; }
@@ -22,7 +26,10 @@
 <body>
   <div class="header">
     <audio controls id="audioPlayer"></audio>
-    <a href="?" id="downloadButton">SAVE</a>
+    <a href="#" onclick="handleKeyPress({code:'Enter'})">Enter</a>
+    <a href="#" onclick="handleKeyPress({code:'AltLeft'})">-2s</a>
+    <a href="#" onclick="handleKeyPress({code:'ControlLeft'})><<</a>
+    <a href="?" id="downloadButton">Save</a>
   </div>
   <a id="lrcDownload"></a>
   <br /><br /><br />
@@ -307,7 +314,7 @@ function saveCurrSubIndex(index) {
 
 async function playSubIndex(index) {
   var time = await loadTime(index);
-  if (time != 0) { 
+  if (time != 0 || index == 0) { 
     ap.currentTime = time;
     ap.play();
   }  
@@ -345,7 +352,9 @@ async function seekCurrTime(delta) {
   ap.play();
 }
 
-document.addEventListener("keydown", async function(event) {
+document.addEventListener("keydown", handleKeyPress);
+
+async function handleKeyPress(event) {
   currKey = event.code;
   console.log(`KeyboardEvent: key='${event.key}' | code='${event.code}'`);
   // console.log('currKey', currKey);
@@ -353,7 +362,7 @@ document.addEventListener("keydown", async function(event) {
   switch(currKey) {
     case 'Slash':
       if (event.key != '/') { return; }
-      event.preventDefault();
+      if (event.preventDefault) event.preventDefault();
       playAndUpdateSub();
       break;
 
@@ -367,28 +376,28 @@ document.addEventListener("keydown", async function(event) {
       break;
 
     case 'Backquote':
-      event.preventDefault();
+      if (event.preventDefault) event.preventDefault();
       seekCurrTime(-0.15);
       break;
 
     case 'AltLeft':
-      event.preventDefault();
+      if (event.preventDefault) event.preventDefault();
       ap.currentTime = ap.currentTime - 2;
       ap.play();
       break;
 
     case 'Enter':
-      event.preventDefault();
+      if (event.preventDefault) event.preventDefault();
       nextSub();
       break;
 
     case 'Tab':
-      event.preventDefault();
+      if (event.preventDefault) event.preventDefault();
       nextSub();
       break;
 
     case 'AltRight':
-      event.preventDefault();
+      if (event.preventDefault) event.preventDefault();
       ap.currentTime = ap.currentTime + 5;
       break;
 
@@ -411,7 +420,7 @@ document.addEventListener("keydown", async function(event) {
     default:
       if (await loadTime(currSubIndex) != 0) { ap.pause(); }
   }
-});
+}
 
 const pasteToCurrentEditableCursor = str => {
   document.execCommand('inserttext', false, str);
