@@ -7,8 +7,8 @@
 <style type="text/css">
   body, div, p, a { font-family: Arial, Helvetica, sans-serif; font-size: 18px; }
 
-  .header { position: fixed; left: 0; bottom: 0; width: 100%; }
-  .header audio#audioPlayer { width: 20%; float: left; height: 25px; }
+  .header { position: fixed; left: 0; bottom: 0; width: 100%; background-color: hsla(89, 43%, 51%, 0.3); }
+  .header audio#audioPlayer { width: 0%; float: left; height: 25px; }
   .header a { width: 11%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.5em 0em; margin-left: 3px; float: right; margin-right: 5px; text-align: center; text-decoration: none; }
   
   div { margin-top: 0.5em; padding: .3em; color: #888; }
@@ -27,12 +27,12 @@
   <div class="header">
     <audio controls id="audioPlayer"></audio>
     <a href="" onclick="ap.currentTime -= 2; ap.play(); event.preventDefault();
-      document.getElementById(currSubIndex).focus();">-2s</a>
-    <a href="" onclick="event.code='Enter'; handleKeyPress(event);" style="margin-right:15px;">Enter</a>
+      document.getElementById(currSubIndex).focus();" style="float:left;">-2s</a>
+    <a href="" onclick="event.code='Enter'; handleKeyPress(event);"style="margin-right:15px;">Enter</a>
     <a href="" onclick="event.code='Slash'; event.key='/';handleKeyPress(event);
       document.getElementById(currSubIndex).focus();">/</a>
     <a href="" onclick="event.code='ControlLeft'; handleKeyPress(event);event.preventDefault();
-      document.getElementById(currSubIndex).focus();")><<</a>
+      document.getElementById(currSubIndex).focus();" style="float:left;"><<</a>
     <a href="?" id="downloadButton">Save</a>
   </div>
   <a id="lrcDownload"></a>
