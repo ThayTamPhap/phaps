@@ -26,14 +26,17 @@
 <body>
   <div class="header">
     <audio controls id="audioPlayer"></audio>
+
     <a href="" onclick="ap.currentTime -= 2; ap.play(); event.preventDefault();
       document.getElementById(currSubIndex).focus();" style="float:left;">-2s</a>
-    <a href="" onclick="event.code='Enter'; handleKeyPress(event);"style="margin-right:15px;">Enter</a>
-    <a href="" onclick="event.code='Slash'; event.key='/';handleKeyPress(event);
-      document.getElementById(currSubIndex).focus();">/</a>
     <a href="" onclick="event.code='ControlLeft'; handleKeyPress(event);event.preventDefault();
       document.getElementById(currSubIndex).focus();" style="float:left;"><<</a>
-    <a href="?" id="downloadButton">Save</a>
+    <a href="?" id="downloadButton" style="float:left;">Save</a>
+
+    <a href="" onclick="event.code='Enter'; handleKeyPress(event);"style="margin-right:15px;">Ent</a>
+    <a href="" onclick="event.code='Slash'; event.key='/';handleKeyPress(event);
+      document.getElementById(currSubIndex).focus();">/</a>
+    <a href="" onclick="this.innerHTML = ap.paused ? ap.play()&&'||' : ap.pause()||'>'; event.preventDefault(); document.getElementById(currSubIndex).focus();">></a>
   </div>
   <a id="lrcDownload"></a>
 </body>
