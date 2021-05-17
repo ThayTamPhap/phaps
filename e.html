@@ -8,7 +8,7 @@
   body, div, p, a { font-family: Arial, Helvetica, sans-serif; font-size: 18px; }
 
   .header { position: fixed; width: 100%; height: 4em; }
-  .header audio#audioPlayer { width: 28%; float: left; }
+  .header audio#audioPlayer { width: 20%; float: left; height: 25px; }
   .header a { width: 13%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.5em 0em; margin-left: 3px; float: right; margin-right: 15px; text-align: center; text-decoration: none; }
   
   div { margin-top: 0.5em; padding: .3em; color: #888; }
@@ -61,7 +61,7 @@ function save(key, value) {
 
 
 var ap = document.getElementById("audioPlayer");
-ap.innerHTML = `<source src="${phapname}.ogg" /><source src="${phapname}.mp3" />`
+ap.innerHTML = `<source src="${phapname}.mp3"/><source src="${phapname}.ogg"/>`
 
 var subsCount, currSubIndex, currKey;
 var expanding = false;
