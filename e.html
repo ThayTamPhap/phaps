@@ -26,9 +26,11 @@
 <body>
   <div class="header">
     <audio controls id="audioPlayer"></audio>
-    <a href="#" onclick="handleKeyPress({code:'Enter'})">Enter</a>
-    <a href="#" onclick="handleKeyPress({code:'AltLeft'})">-2s</a>
-    <a href="#" onclick="handleKeyPress({code:'ControlLeft'})><<</a>
+    <a href="" onclick="event.code='Enter'; handleKeyPress(event);">Enter</a>
+    <a href="" onclick="ap.currentTime -= 2; ap.play(); event.preventDefault();
+      document.getElementById(currSubIndex).focus();">-2s</a>
+    <a href="" onclick="event.code='ControlLeft'; handleKeyPress(event);event.preventDefault();
+      document.getElementById(currSubIndex).focus();")><<</a>
     <a href="?" id="downloadButton">Save</a>
   </div>
   <a id="lrcDownload"></a>
@@ -339,7 +341,7 @@ function playAndUpdateSub() {
   if (currKey == 'Enter' || currKey == 'Slash') {  
     saveCurrSubIndex(currSubIndex);
     saveTime(currSubIndex, ap.currentTime);
-  } else {
+  } else if ((index = parseInt(this.id)) != currSubIndex) {
     playSubIndex(currSubIndex);
   }
   currKey = null;
@@ -362,7 +364,7 @@ async function handleKeyPress(event) {
   switch(currKey) {
     case 'Slash':
       if (event.key != '/') { return; }
-      if (event.preventDefault) event.preventDefault();
+      event.preventDefault();
       playAndUpdateSub();
       break;
 
@@ -376,28 +378,28 @@ async function handleKeyPress(event) {
       break;
 
     case 'Backquote':
-      if (event.preventDefault) event.preventDefault();
+      event.preventDefault();
       seekCurrTime(-0.15);
       break;
 
     case 'AltLeft':
-      if (event.preventDefault) event.preventDefault();
+      event.preventDefault();
       ap.currentTime = ap.currentTime - 2;
       ap.play();
       break;
 
     case 'Enter':
-      if (event.preventDefault) event.preventDefault();
+      event.preventDefault();
       nextSub();
       break;
 
     case 'Tab':
-      if (event.preventDefault) event.preventDefault();
+      event.preventDefault();
       nextSub();
       break;
 
     case 'AltRight':
-      if (event.preventDefault) event.preventDefault();
+      event.preventDefault();
       ap.currentTime = ap.currentTime + 5;
       break;
 
