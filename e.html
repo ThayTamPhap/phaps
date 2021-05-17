@@ -36,7 +36,8 @@
     <a href="" onclick="event.code='Enter'; handleKeyPress(event);"style="margin-right:15px;">Ent</a>
     <a href="" onclick="event.code='Slash'; event.key='/';handleKeyPress(event);
       document.getElementById(currSubIndex).focus();">/</a>
-    <a href="" onclick="this.innerHTML = ap.paused ? ap.play()&&'||' : ap.pause()||'>'; event.preventDefault(); document.getElementById(currSubIndex).focus();">></a>
+    <a href="" id="playPauseBtn" onclick="this.innerHTML = ap.paused ? ap.play()&&'||' : ap.pause()||'>'; event.preventDefault(); document.getElementById(currSubIndex).focus();">></a>
+    <span id='currentTime' style="float:right;padding:0.5em 0.5em;color:blue;background-color:#ccc;">0:00</span>
   </div>
   <a id="lrcDownload"></a>
 </body>
@@ -44,7 +45,6 @@
 <script src="assets/localforage.min.js"></script>
 
 <script>
-
 document.getElementById("downloadButton").addEventListener("click", function(e) {
   e.preventDefault();
   z();
@@ -66,6 +66,13 @@ function save(key, value) {
 
 var ap = document.getElementById("audioPlayer");
 ap.innerHTML = `<source src="${phapname}.mp3"/><source src="${phapname}.ogg"/>`
+ap.ontimeupdate = function() {
+  document.getElementById('playPauseBtn').innerHTML = ap.paused ? '>' : '||';
+  var seconds = ap.currentTime;
+  var minutes = Math.floor(seconds / 60);
+  seconds = Math.round(seconds - minutes * 60);
+  document.getElementById('currentTime').innerHTML = `${minutes}:${seconds<9?'0':''}${seconds}`;
+};
 
 var subsCount, currSubIndex, currKey;
 var expanding = false;
