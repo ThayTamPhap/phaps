@@ -49,7 +49,7 @@
 </body>
 
 <script src="assets/localforage.min.js"></script>
-
+<script src="assets/words_secs.js"></script>
 <script>
 document.getElementById("downloadButton").addEventListener("click", function(e) {
   e.preventDefault();
@@ -365,7 +365,8 @@ async function playSubIndex(index, delta = 0) {
   }  
 }
 
-var secondsPerWord = 0.3;
+const defaultSecondsPerWord = 0.3;
+var secondsPerWord = defaultSecondsPerWord;
 async function estimateSecondsPerWord(index) {
   if (await loadTime(index + 1) > 0) { index++; }
 
@@ -382,25 +383,34 @@ async function estimateSecondsPerWord(index) {
   return secondsPerWord;
 }
 
+const notWordRegex = /[\s\,\.\<\>\;\:\/\?\|\\\[\]\{\}\`\~\!\@\#\$\%\^\&\*\(\)\_\+\-\=“”…‘’]+/gm
 async function getDelta(index) {
   var q = document.getElementById(index).innerText;
   q = q.substr(0, window.getSelection().anchorOffset);
-  
-  var words = q.split(/\s+/);
+  q = q.toLocaleLowerCase();
+  var words = q.split(notWordRegex);
+
+  var delta1 = 0;
+  if (words.length > 0) {
+    words.forEach(function(w) {
+      delta1 += document.words_secs[w] || defaultSecondsPerWord;
+    });
+    delta1 += (q.split(END_PHRASE_AND_SENT_REGEX).length - 1)*defaultSecondsPerWord*0.8;
+    delta1 += (q.split(END_SENT_REGEX).length - 1)*defaultSecondsPerWord*0.8;
+  }
+  console.log('index', index, 'words.length', words.length, 'delta1', delta1);
+
   var wordsCount = words.length - 2;
   if (words.pop() == "") wordsCount--;
   if (words.length > 20) wordsCount -= words.length / 10;
   if (words.length > 40) wordsCount -= words.length / 20;
-
   wordsCount += (q.split(END_PHRASE_AND_SENT_REGEX).length - 1)*0.3;
   wordsCount += (q.split(END_SENT_REGEX).length - 1)*0.5;
-
   if (wordsCount < 0) wordsCount = 0;
+  var delta2 = wordsCount == 0 ? 0 : wordsCount * (await estimateSecondsPerWord(index));
+  console.log('wordsCount', wordsCount, 'delta2', delta2);
 
-  var delta = wordsCount == 0 ? 0 : wordsCount * (await estimateSecondsPerWord(index));
-  console.log('index', index, 'words.length', words.length, 
-    'wordsCount', wordsCount, 'delta', delta);
-  return delta;
+  return delta1 > delta2 ? delta1 : delta2;
 }
 
 async function playSub() {
