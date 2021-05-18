@@ -307,14 +307,7 @@ xmlhttp.onreadystatechange = function () {
 		}
 
 		// document.getElementById("tutaptrongCS_NiemChet").click();
-		var subtitles =['phaps/buocdautapthien_ThaiDoDung',
-'phaps/tutaptrongCS_ThienAc',
-'phaps/tutaptrongCS_tuPhanBien',
-'phaps/thuyetPhap_cuocSongLaDeSuDung',
-'phaps/tutaptrongCS_ViecQuanTrong',
-'phaps/tutaptrongCS_NiemChet',
-'phaps/tutaptrongCS_benhCuaNguoiTu'];
-		var chosen = subtitles[Math.round(Math.random()*(subtitles.length-1))];
+		var chosen = data.subtitled[Math.round(Math.random()*(data.subtitled.length-1))];
 
 		document.phaps.forEach(function (phap) {
 			if (phap.audio.includes(chosen)) {
