@@ -391,7 +391,7 @@ var adjustedDelta = 0;
 async function getDelta(index) {
   var p = document.getElementById(index);
   var q = p.innerText;
-    
+
   q = q.substr(0, getCaretPosition(p));
   q = q.toLocaleLowerCase();
   var words = q.split(notWordRegex);
@@ -414,10 +414,11 @@ async function getDelta(index) {
   }
   
   console.log('index', index, 'words.length', words.length, 'delta1', delta1, 
-    'wordsCount', wordsCount, 'delta2', delta2);
+    'wordsCount', wordsCount, 'delta2', delta2, 'adjustedDelta', adjustedDelta);
 
   var delta = (delta1 + delta2) / 2;
-  return delta + adjustedDelta;
+  delta += adjustedDelta;
+  return delta < 0 ? 0 : delta;
 }
 
 async function playSub() {
