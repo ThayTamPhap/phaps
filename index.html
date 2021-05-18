@@ -256,6 +256,7 @@ function playPhap(url, title) {
 		if (this.readyState == 4 && this.status == 200) {
 			// console.log(this.responseText)
 			document.timmings = JSON.parse(this.responseText).subtitles;
+			document.timmings[0]['time'] = 0;
 			document.nghepath = sources[0].replace(".ogg","").
 				replace(location.host, "").replace(/http.+?\/\//,"");
 			console.log("GOT SUBTITLES", document.nghepath);
