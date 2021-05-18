@@ -296,17 +296,16 @@ function spellNumber(x) {
 
 function spellSpecialWords(txt) {
   var z;
-  return txt.replace(/\s\d+%?/gi, function (x) {
+  return txt.replace(/\d+%?/gi, function (x) {
     z = x;
-    x = x.trim();
     // Just return 0-9,10
     if (x.match(/^(\d|10)$/)) { return z; }
    
     if (md = x.match(/^(\d+)%$/))
-      return ` |${spellNumber(md[1])} phần trăm|${x}|`;
+      return `|${spellNumber(md[1])} phần trăm|${x}|`;
     
     // Default is number
-    return ` |${spellNumber(x)}|${x}|`;
+    return `|${spellNumber(x)}|${x}|`;
   });
 }
 
