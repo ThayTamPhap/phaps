@@ -130,7 +130,7 @@ async function loadTime(i) {
 }
 
 function saveTextIndex(i) {
-  saveText(i, document.getElementById(i).innerHTML.replace(/<i.+i>/,''));
+  saveText(i, document.getElementById(i).innerText);
 }
 function saveText(i, value) {
   save(`text${i}`, value);
@@ -379,7 +379,7 @@ async function estimateSecondsPerWord(index) {
 }
 
 async function getDelta(index) {
-  var q = await loadText(index);
+  var q = document.getElementById(index).innerText;
   q = q.substr(0, window.getSelection().anchorOffset);
   
   var words = q.split(/\s+/);
@@ -388,8 +388,8 @@ async function getDelta(index) {
   if (words.length > 20) wordsCount -= words.length / 10;
   if (words.length > 40) wordsCount -= words.length / 20;
 
-  wordsCount -= (q.split(",").length - 1);
-  wordsCount -= (q.split(".").length - 1)*1.5;
+  wordsCount -= (q.split(",").length - 1)*0.5;
+  wordsCount -= (q.split(".").length - 1)*1.0;
 
   if (wordsCount < 0) wordsCount = 0;
 
