@@ -252,6 +252,7 @@ function spellNumber(x) {
   // console.log(`spellNumber "${x}"`)
   var prefix, md, mdd;
 
+  // xxx
   if (md = x.match(/^(\d)(\d\d)$/)) {
     prefix = `${md[1]} trăm`;
 
@@ -264,14 +265,23 @@ function spellNumber(x) {
     return `${prefix} ${spellNumber(md[2])}`
   }
 
+  // xx
   if (md = x.match(/^(\d)(\d)$/)) {
+    if (x == '10') return 'mười'
+
+    // 1x => mười x (11,11,..,19)
+    // 2x => 2 x (2x,..,9x)
     prefix = md[1] == '1' ? 'mười' : md[1];
+
+    // x0 => x mươi
     if (md[2] == '0')
       return `${prefix} mươi`
 
+    // x4 => x tư
     if (md[2] == '4')
       return `${prefix} tư`
 
+    // x5 => x năm
     if (md[2] == '5')
       return `${prefix} lăm`
 
@@ -341,22 +351,57 @@ function saveCurrSubIndex(index) {
   save('currSubIndex', currSubIndex = index);
 }
 
-async function playSubIndex(index) {
+
+async function playSubIndex(index, delta = 0) {
   var time = await loadTime(index);
   if (time != 0 || index == 0) { 
-    ap.currentTime = time;
+    ap.currentTime = time + delta;
     ap.play();
   }  
 }
 
+var secondsPerWord = 0.3;
+async function estimateSecondsPerWord(index) {
+  if (index > 0) {
+    e = await loadTime(index);
+    if (e <= 0) return secondsPerWord;
+    
+    b = await loadTime(index-1);
+    if (b <= 0 || b >= e) return secondsPerWord;
+    
+    q = await loadText(index-1);
+
+    x = (e - b) / q.split(/\s+/).length;
+    secondsPerWord = (x <= 0.36) ? x : secondsPerWord;
+    console.log('New secondsPerWord:', secondsPerWord);
+  }
+  return secondsPerWord;
+}
+async function getDelta(index) {
+  var q = await loadText(index);
+  q = q.substr(0, window.getSelection().anchorOffset);
+  
+  var words = q.split(/\s+/);
+  var wordsCount = words.length - 2;
+  if (words.pop() == "") wordsCount--;
+  if (words.length > 20) wordsCount -= wordsCount / 5;
+  if (words.length > 40) wordsCount -= wordsCount / 8;
+  if (words.length < 0) wordsCount = 0;
+
+  var delta = wordsCount * (await estimateSecondsPerWord(index));
+  console.log('index', index, 'words.length', words.length, 'wordsCount', wordsCount, 'delta', delta);
+  return delta;
+}
+
 async function playSub() {
-  index = parseInt(this.id);
-  console.log('currSubIndex', currSubIndex, 'index', index, 'currKey', currKey);
+  var index = parseInt(this.id);
+
   if (currSubIndex != index) {
     saveCurrSubIndex(index);
     playSubIndex(currSubIndex);
   }  else { 
     // Click on current sub, will pause audio (to edit text)
+    ap.currentTime = (await loadTime(index)) + (await getDelta(index));
     ap.pause(); 
   }
 }
