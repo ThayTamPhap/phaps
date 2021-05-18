@@ -298,16 +298,17 @@ function spellNumber(x) {
 
 function spellSpecialWords(txt) {
   var z;
-  return txt.replace(/\s\d+%?/gi, function (x) {
+  // e.g: 100 or 100% not end with |
+  return txt.replace(/\d+%?(?<!\|)/gi, function (x) {
     z = x;
     // Just return 0-9,10
     if (x.match(/^(\d|10)$/)) { return z; }
    
     if (md = x.match(/^(\d+)%$/))
-      return ` |${spellNumber(md[1])} phần trăm|${x}|`;
+      return `|${spellNumber(md[1])} phần trăm|${x}|`;
     
     // Default is number
-    return ` |${spellNumber(x)}|${x}|`;
+    return `|${spellNumber(x)}|${x}|`;
   });
 }
 
