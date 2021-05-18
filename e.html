@@ -138,12 +138,14 @@ function saveText(i, value) {
 async function loadText(i) {
   return await load(`text${i}`);
 }
-function saveAll() {
+async function saveAll() {
   for (var i = 0; i < subsCount; i++) {
-    saveTextIndex(i);
+    await saveTextIndex(i);
   }
 }
 async function z() {
+  await saveAll();
+
   var str = "";
   for (var i = 0; i < subsCount; i++) {
     var timeI = await loadTime(i), timeI1 = await loadTime(i+1);
