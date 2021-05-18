@@ -76,7 +76,7 @@ ap.ontimeupdate = function() {
   var seconds = ap.currentTime;
   var minutes = Math.floor(seconds / 60);
   seconds = Math.round(seconds - minutes * 60);
-  document.getElementById('playPauseBtn').innerHTML = `${minutes}:${seconds<9?'0':''}${seconds}`;
+  document.getElementById('playPauseBtn').innerHTML = `${minutes}:${seconds<=9?'0':''}${seconds}`;
 };
 
 var subsCount, currSubIndex, currKey;
