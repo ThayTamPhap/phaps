@@ -389,28 +389,27 @@ async function getDelta(index) {
   q = q.substr(0, window.getSelection().anchorOffset);
   q = q.toLocaleLowerCase();
   var words = q.split(notWordRegex);
+  
+  var wordsCount = words.length - 2;
+  if (words.pop() == "") wordsCount--;
+  // Too short para always return 0 to make it point to the beginning of the sent
+  if (wordsCount <= 0) return 0;
+  if (words.length > 20) wordsCount -= words.length / 10;
+  if (words.length > 40) wordsCount -= words.length / 20;
+  var breakCount1 = q.split(END_PHRASE_AND_SENT_REGEX).length - 1;
+  var breakCount2 = q.split(END_SENT_REGEX).length - 1;
+  wordsCount += breakCount1*0.3 + breakCount2*0.5;
+  var delta2 = wordsCount * (await estimateSecondsPerWord(index));
 
   var delta1 = 0;
   if (words.length > 0) {
-    words.forEach(function(w) {
-      delta1 += document.words_secs[w] || defaultSecondsPerWord;
-    });
-    delta1 += (q.split(END_PHRASE_AND_SENT_REGEX).length - 1)*defaultSecondsPerWord*0.8;
-    delta1 += (q.split(END_SENT_REGEX).length - 1)*defaultSecondsPerWord*0.8;
+    words.forEach(w => delta1 += document.words_secs[w]||defaultSecondsPerWord);
+    delta1 += (breakCount1+breakCount2)*defaultSecondsPerWord*0.8;
   }
-  console.log('index', index, 'words.length', words.length, 'delta1', delta1);
-
-  var wordsCount = words.length - 2;
-  if (words.pop() == "") wordsCount--;
-  if (words.length > 20) wordsCount -= words.length / 10;
-  if (words.length > 40) wordsCount -= words.length / 20;
-  wordsCount += (q.split(END_PHRASE_AND_SENT_REGEX).length - 1)*0.3;
-  wordsCount += (q.split(END_SENT_REGEX).length - 1)*0.5;
-  if (wordsCount < 0) wordsCount = 0;
-  var delta2 = wordsCount == 0 ? 0 : wordsCount * (await estimateSecondsPerWord(index));
-  console.log('wordsCount', wordsCount, 'delta2', delta2);
-
-  return delta1 > delta2 ? delta1 : delta2;
+  
+  console.log('index', index, 'words.length', words.length, 'delta1', delta1, 
+    'wordsCount', wordsCount, 'delta2', delta2);
+  return (delta1 + delta2) / 2;
 }
 
 async function playSub() {
