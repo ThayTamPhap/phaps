@@ -157,7 +157,7 @@ async function z() {
   var file = new Blob([str], {type: 'text/plain'});
   copyToClipboard(str);
   a.href = URL.createObjectURL(file);
-  a.download = phapname.split("/")[1] + '.lrc';
+  a.download = phapname.split("/")[1] + '.txt';
   a.target = '_blank';
   a.click();
 }
