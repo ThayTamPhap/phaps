@@ -305,10 +305,22 @@ xmlhttp.onreadystatechange = function () {
 			return;
 		}
 
-		document.getElementById("tutaptrongCS_NiemChet").click();
-		// Play random phaps
-		// var x = Math.round(Math.random()*(document.phaps.length-2));
-		// if (x && data.phaps[x]) { playPhap(data.phaps[x].audio, data.phaps[x].title); }
+		// document.getElementById("tutaptrongCS_NiemChet").click();
+		var subtitles =['phaps/buocdautapthien_ThaiDoDung',
+'phaps/tutaptrongCS_ThienAc',
+'phaps/tutaptrongCS_tuPhanBien',
+'phaps/thuyetPhap_cuocSongLaDeSuDung',
+'phaps/tutaptrongCS_ViecQuanTrong',
+'phaps/tutaptrongCS_NiemChet',
+'phaps/tutaptrongCS_benhCuaNguoiTu'];
+		var chosen = subtitles[Math.round(Math.random()*(subtitles.length-1))];
+
+		document.phaps.forEach(function (phap) {
+			if (phap.audio.includes(chosen)) {
+				playPhap(phap.audio, phap.title);
+				return;
+			}
+		});
 	}
 };
 xmlhttp.open("GET", "/assets/audios.json", true);
