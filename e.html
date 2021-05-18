@@ -378,6 +378,7 @@ async function estimateSecondsPerWord(index) {
   }
   return secondsPerWord;
 }
+
 async function getDelta(index) {
   var q = await loadText(index);
   q = q.substr(0, window.getSelection().anchorOffset);
@@ -403,7 +404,7 @@ async function playSub() {
   }  else { 
     // Click on current sub, will pause audio (to edit text)
     ap.currentTime = (await loadTime(index)) + (await getDelta(index));
-    ap.pause(); 
+    ap.play();
   }
 }
 
