@@ -390,8 +390,8 @@ async function getDelta(index) {
   if (words.length > 20) wordsCount -= words.length / 10;
   if (words.length > 40) wordsCount -= words.length / 20;
 
-  wordsCount -= (q.split(",").length - 1)*0.5;
-  wordsCount -= (q.split(".").length - 1)*1.0;
+  wordsCount += (q.split(",").length - 1)*0.5;
+  wordsCount += (q.split(".").length - 1)*1.0;
 
   if (wordsCount < 0) wordsCount = 0;
 
