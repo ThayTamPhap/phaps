@@ -386,8 +386,8 @@ async function getDelta(index) {
   var words = q.split(/\s+/);
   var wordsCount = words.length - 2;
   if (words.pop() == "") wordsCount--;
-  if (words.length > 20) wordsCount -= wordsCount / 5;
-  if (words.length > 40) wordsCount -= wordsCount / 8;
+  if (words.length > 20) wordsCount -= wordsCount / 9;
+  if (words.length > 40) wordsCount -= wordsCount / 15;
   if (words.length < 0) wordsCount = 0;
 
   var delta = wordsCount * (await estimateSecondsPerWord(index));
