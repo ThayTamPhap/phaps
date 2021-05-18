@@ -363,19 +363,18 @@ async function playSubIndex(index, delta = 0) {
 
 var secondsPerWord = 0.3;
 async function estimateSecondsPerWord(index) {
-  if (index > 0) {
-    e = await loadTime(index);
-    if (e <= 0) return secondsPerWord;
-    
-    b = await loadTime(index-1);
-    if (b <= 0 || b >= e) return secondsPerWord;
-    
-    q = await loadText(index-1);
+  if (await loadTime(index + 1) > 0) { index++; }
 
-    x = (e - b) / q.split(/\s+/).length;
-    secondsPerWord = (x <= 0.36) ? x : secondsPerWord;
-    console.log('New secondsPerWord:', secondsPerWord);
-  }
+  if (index == 0) { return secondsPerWord; }
+  q = await loadText(index - 1);
+  b = await loadTime(index - 1);
+  e = await loadTime(index);
+  if (b == 0 || b >= e) { return secondsPerWord; }
+
+  x = (e - b) / q.split(/\s+/).length;
+  secondsPerWord = (x <= 0.36) ? x : secondsPerWord;
+  console.log('New secondsPerWord:', secondsPerWord);
+
   return secondsPerWord;
 }
 
@@ -384,10 +383,10 @@ async function getDelta(index) {
   q = q.substr(0, window.getSelection().anchorOffset);
   
   var words = q.split(/\s+/);
-  var wordsCount = words.length - 1;
+  var wordsCount = words.length - 2;
   if (words.pop() == "") wordsCount--;
-  if (words.length > 20) wordsCount -= wordsCount / 10;
-  if (words.length > 40) wordsCount -= wordsCount / 20;
+  if (words.length > 20) wordsCount -= words.length / 10;
+  if (words.length > 40) wordsCount -= words.length / 20;
 
   if (wordsCount < 0) wordsCount = 0;
 
