@@ -7,10 +7,14 @@
 <style type="text/css">
   body, div, p, a { font-family: Arial, Helvetica, sans-serif; font-size: 18px; }
 
-  .header { position: fixed; left: 0; bottom: 0; width: 100%; background-color: hsla(89, 43%, 51%, 0.3); }
+  .header { position: fixed; left: 0; bottom: 0; width: 100%; background-color: hsla(89, 43%, 51%, 0.5); }
+
   .header audio#audioPlayer { width: 0%; float: left; height: 25px; }
-  .header a { width: 11%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.5em 0em; margin-left: 3px; float: right; margin-right: 5px; text-align: center; text-decoration: none; }
-  
+
+  .header a, #currentTime, #downloadButton { width: 14%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.5em 0em; float: right; margin-right: 5px; text-align: center; text-decoration: none; }
+
+  #downloadButton { position: fixed; top: 4px; right: 0; }
+
   div { margin-top: 0.5em; padding: .3em; color: #888; }
   
   p { padding-top: 0.5em; padding-bottom: 0.5em; margin: 0.1em; 
@@ -27,18 +31,20 @@
   <div class="header">
     <audio controls id="audioPlayer"></audio>
 
-    <a href="" onclick="ap.currentTime -= 2; ap.play(); event.preventDefault();
-      document.getElementById(currSubIndex).focus();" style="float:left;">-2s</a>
-    <a href="" onclick="event.code='ControlLeft'; handleKeyPress(event);event.preventDefault();
+    <a href="" onclick="ap.currentTime -= 3; ap.play(); event.preventDefault();
+      document.getElementById(currSubIndex).focus();" style="float:left;">-3s</a>
+    <a href="" onclick="event.code='Backquote';handleKeyPress(event);event.preventDefault();
       document.getElementById(currSubIndex).focus();" style="float:left;"><<</a>
-    <a href="?" id="downloadButton" style="float:left;">Save</a>
+    <a href="" onclick="event.code='Escape';handleKeyPress(event);event.preventDefault();
+      document.getElementById(currSubIndex).focus();" style="float:left;">>></a>
 
     <a href="" onclick="event.code='Enter'; handleKeyPress(event);"style="margin-right:15px;">Ent</a>
     <a href="" onclick="event.code='Slash'; event.key='/';handleKeyPress(event);
       document.getElementById(currSubIndex).focus();">/</a>
-    <a href="" id="playPauseBtn" onclick="this.innerHTML = ap.paused ? ap.play()&&'||' : ap.pause()||'>'; event.preventDefault(); document.getElementById(currSubIndex).focus();">></a>
-    <span id='currentTime' style="float:right;padding:0.5em 0.5em;color:blue;background-color:#ccc;">0:00</span>
+    <a href="" id="playPauseBtn" onclick="ap.paused ? ap.play() : ap.pause();
+      event.preventDefault(); document.getElementById(currSubIndex).focus();">></a>
   </div>
+  <a href="?" id="downloadButton" style="float:left;">Save</a>
   <a id="lrcDownload"></a>
 </body>
 
@@ -67,11 +73,10 @@ function save(key, value) {
 var ap = document.getElementById("audioPlayer");
 ap.innerHTML = `<source src="${phapname}.mp3"/><source src="${phapname}.ogg"/>`
 ap.ontimeupdate = function() {
-  document.getElementById('playPauseBtn').innerHTML = ap.paused ? '>' : '||';
   var seconds = ap.currentTime;
   var minutes = Math.floor(seconds / 60);
   seconds = Math.round(seconds - minutes * 60);
-  document.getElementById('currentTime').innerHTML = `${minutes}:${seconds<9?'0':''}${seconds}`;
+  document.getElementById('playPauseBtn').innerHTML = `${minutes}:${seconds<9?'0':''}${seconds}`;
 };
 
 var subsCount, currSubIndex, currKey;
