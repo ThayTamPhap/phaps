@@ -360,6 +360,7 @@ function saveCurrSubIndex(index) {
 
 
 async function playSubIndex(index, delta = 0) {
+  if (delta == 0) adjustedDelta = 0;
   var time = await loadTime(index);
   if (time != 0 || index == 0) { 
     ap.currentTime = time + delta;
@@ -386,6 +387,7 @@ async function estimateSecondsPerWord(index) {
 }
 
 const notWordRegex = /[\s\,\.\<\>\;\:\/\?\|\\\[\]\{\}\`\~\!\@\#\$\%\^\&\*\(\)\_\+\-\=“”…‘’]+/gm
+var adjustedDelta = 0;
 async function getDelta(index) {
   var q = document.getElementById(index).innerText;
   q = q.substr(0, window.getSelection().anchorOffset);
@@ -411,7 +413,9 @@ async function getDelta(index) {
   
   console.log('index', index, 'words.length', words.length, 'delta1', delta1, 
     'wordsCount', wordsCount, 'delta2', delta2);
-  return (delta1 + delta2) / 2;
+
+  var delta = (delta1 + delta2) / 2;
+  return delta + adjustedDelta;
 }
 
 async function playSub() {
@@ -487,6 +491,7 @@ async function handleKeyPress(event) {
         seekCurrTime(0.15);
       } else {
         ap.currentTime += 3;
+        adjustedDelta += 3;
         ap.play();
       }      
       break;
@@ -497,6 +502,7 @@ async function handleKeyPress(event) {
         seekCurrTime(-0.15);
       } else {
         ap.currentTime -= 3;
+        adjustedDelta -= 3;
         ap.play();
       }
       break;
