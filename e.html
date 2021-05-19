@@ -325,7 +325,7 @@ async function genSubs() {
     div = document.createElement('div');
     time = await loadTime(i);
     div.innerHTML = `<i>${i}: ${time}</i>`;
-    div.onclick = function() { this.children[1].focus(); };
+    // div.onclick = function() { this.children[1].focus(); };
     p = document.createElement('p');
     p.contentEditable = "true";
     p.innerHTML = spellSpecialWords(await loadText(i));
@@ -399,9 +399,9 @@ function adjustDeltas(x) {
   adjustedDeltas = adjustedDeltas.slice(0, currPos + 1);
 }
 
-function blinkCurPos() {
+function blinkCurPos(pos) {
   let sel = window.getSelection();  
-  var currPos = sel.anchorOffset;
+  var currPos = typeof pos == 'number' ? pos : sel.anchorOffset;
   var currP = document.getElementById(currSubIndex);
   var txt = currP.firstChild.textContent;
   var b = currPos, e = currPos+1, n = txt.length;
@@ -426,7 +426,7 @@ function blinkCurPos() {
       sel.collapse(currP.firstChild, currPos);
     }
     if (++count > 3) { clearInterval(interval); }
-  }, 150);
+  }, 100);
 }
 
 function getCurrPosStr() {
@@ -489,6 +489,7 @@ async function playSub() {
     resetAdjustedDeltas();
     saveCurrSubIndex(index);
     playSubIndex(currSubIndex);
+    blinkCurPos(0);
   }  else { 
     // Click on current sub
     playCurrPos();
