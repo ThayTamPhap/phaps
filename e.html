@@ -399,12 +399,41 @@ function adjustDeltas(x) {
   adjustedDeltas = adjustedDeltas.slice(0, currPos + 1);
 }
 
+function blinkCurPos() {
+  let sel = window.getSelection();  
+  var currPos = sel.anchorOffset;
+  var currP = document.getElementById(currSubIndex);
+  var txt = currP.firstChild.textContent;
+  var b = currPos, e = currPos+1, n = txt.length;
+  while (txt[b] != ' ' && b > 0) b--; if (b < 0) b = 0;
+  while (txt[e] != ' ' && e < n) e++; if (e > n) e = n;
+  
+
+  let range = new Range();
+  range.setStart(currP.firstChild, b+1);
+  range.setEnd(currP.firstChild, e);
+  sel.removeAllRanges();
+  sel.addRange(range);
+
+  let count = 1;
+  let interval = window.setInterval(function() {
+    if (count % 2 == 0) {
+      range.setStart(currP.firstChild, b+1);
+      range.setEnd(currP.firstChild, e);
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } else {
+      sel.collapse(currP.firstChild, currPos);
+    }
+    if (++count > 3) { clearInterval(interval); }
+  }, 150);
+}
+
 function getCurrPosStr() {
   var currP = document.getElementById(currSubIndex);
   var currInnerText = currP.innerText;
-  // Reset HTML to plain text to select correct cursor position
-  // currP.innerHTML = currInnerText;
-  return currInnerText.substr(0, window.getSelection().anchorOffset);
+  lastCurrPos = window.getSelection().anchorOffset;
+  return currInnerText.substr(0, lastCurrPos);
 }
 
 async function getCurrDelta() {
@@ -463,6 +492,7 @@ async function playSub() {
   }  else { 
     // Click on current sub
     playCurrPos();
+    blinkCurPos();
   }
 }
 
@@ -488,6 +518,21 @@ async function seekCurrTime(delta) {
 
 document.addEventListener("keydown", handleKeyPress);
 
+var lastCurrPos = 0;
+function resetTextAndPos() {
+    // Reset HTML to plain text to select correct cursor position
+    var currP = document.getElementById(currSubIndex);
+    var currInnerText = currP.innerText;
+    currP.innerHTML = currInnerText;
+    
+    console.log('currInnerText.length', currInnerText.length, 'lastCurrPos', lastCurrPos);
+    
+    var sel = window.getSelection();
+    /* https://javascript.info/selection-range#selecting-the-text-partially */
+    // If node is a text node, then offset must be the position in its text.
+    sel.collapse(currP.firstChild, lastCurrPos);
+}
+
 async function handleKeyPress(event) {
   currKey = event.code;
   console.log(`KeyboardEvent: key='${event.key}' | code='${event.code}'`);
@@ -502,6 +547,8 @@ async function handleKeyPress(event) {
 
     case 'ControlLeft':
       playCurrPos();
+      resetTextAndPos();
+      blinkCurPos();
       break;
 
     case 'AltLeft':
