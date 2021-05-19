@@ -498,7 +498,7 @@ async function playSub() {
 }
 
 function playAndUpdateSub() {
-  saveTextIndex(currSubIndex - 1);
+  if (currSubIndex > 1) saveTextIndex(currSubIndex - 1);
   saveTextIndex(currSubIndex);
 
   if (currKey == 'Enter' || currKey == 'Slash') {  
