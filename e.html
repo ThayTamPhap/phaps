@@ -555,7 +555,7 @@ async function handleKeyPress(event) {
 
     case 'AltLeft':
       event.preventDefault();
-      ap.paused ? ap.play() : ap.pause();
+      if (ap.paused) { ap.currentTime -= 0.8; ap.play(); } else { ap.pause(); };
       break;
 
     case 'Enter':
