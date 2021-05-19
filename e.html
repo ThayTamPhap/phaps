@@ -410,7 +410,7 @@ function blinkCurPos(pos) {
   
 
   let range = new Range();
-  range.setStart(currP.firstChild, b+1);
+  range.setStart(currP.firstChild, b == 0 ? 0 : b+1);
   range.setEnd(currP.firstChild, e);
   sel.removeAllRanges();
   sel.addRange(range);
@@ -418,7 +418,7 @@ function blinkCurPos(pos) {
   let count = 1;
   let interval = window.setInterval(function() {
     if (count % 2 == 0) {
-      range.setStart(currP.firstChild, b+1);
+      range.setStart(currP.firstChild, b == 0 ? 0 : b+1);
       range.setEnd(currP.firstChild, e);
       sel.removeAllRanges();
       sel.addRange(range);
@@ -426,7 +426,7 @@ function blinkCurPos(pos) {
       sel.collapse(currP.firstChild, currPos);
     }
     if (++count > 3) { clearInterval(interval); }
-  }, 100);
+  }, 60);
 }
 
 function getCurrPosStr() {
