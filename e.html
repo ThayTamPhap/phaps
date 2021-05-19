@@ -370,8 +370,7 @@ async function playSubIndex(index, delta = 0) {
 const defaultSecondsPerWord = 0.3;
 var secondsPerWord = defaultSecondsPerWord;
 async function estimateSecondsPerWord(index) {
-  if (await loadTime(index + 1) > 0) { index--; }
-
+  // if (await loadTime(index + 1) > 0) { index++; }
   if (index == 0) { return secondsPerWord; }
   q = await loadText(index - 1);
   b = await loadTime(index - 1);
