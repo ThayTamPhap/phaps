@@ -592,7 +592,7 @@ async function handleKeyPress(event) {
 async function adjust(x) {
   let delta = await getCurrDelta();
   var time = await loadTime(currSubIndex) + delta;
-  if (delta == 0 && currPos <= 3) {
+  if (delta == 0 && lastCurrPos < 3)
     time += 0.15 * x;
     saveTime(currSubIndex, time);
   } else {
@@ -606,7 +606,7 @@ async function adjust(x) {
 
 
 const pasteToCurrentEditableCursor = str => {
-  document.execCommand('inserttext', false, str);
+p  document.execCommand('inserttext', false, str);
 };
 
 
