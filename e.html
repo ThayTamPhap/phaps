@@ -121,7 +121,7 @@ function saveTime(i, value) {
   markEditedIndex(i);
   var el = document.getElementById(i);
   if (el) {
-    el.previousSibling.innerHTML = `${i}: ${value}`;
+    el.previousSibling.innerHTML = `${i}: ${secondsToTime(value)}`;
     el.className = 'edited';
   }
 }
@@ -324,7 +324,7 @@ async function genSubs() {
   for (var p, div, time, text, i = 0; i < subsCount; i++) {
     div = document.createElement('div');
     time = await loadTime(i);
-    div.innerHTML = `<i>${i}: ${time}</i>`;
+    div.innerHTML = `<i>[${i}] ${secondsToTime(time)}</i>`;
     // div.onclick = function() { this.children[1].focus(); };
     p = document.createElement('p');
     p.contentEditable = "true";
@@ -604,6 +604,20 @@ async function adjust(x) {
   blinkCurPos();
 }
 
+function twoDigitsFormat(d) {
+  return `${d <= 9 ? '0' : ''}${d}`
+}
+
+function secondsToTime(s) {
+  let minutes = Math.floor(s / 60);
+  s -= minutes*60;
+  let seconds = Math.floor(s);
+  let remains = s - seconds;
+  remains = Math.round(remains * 100);
+  return `${twoDigitsFormat(minutes)}:${twoDigitsFormat(seconds)}.${twoDigitsFormat(remains)}`
+}/*
+  secondsToTime(60)
+*/
 
 const pasteToCurrentEditableCursor = str => {
   document.execCommand('inserttext', false, str);
