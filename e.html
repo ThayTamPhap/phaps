@@ -488,11 +488,11 @@ async function playSub() {
     // First click on sub
     resetAdjustedDeltas();
     saveCurrSubIndex(index);
-    playSubIndex(currSubIndex);
+    await playSubIndex(currSubIndex);
     blinkCurPos(0);
   }  else { 
     // Click on current sub
-    playCurrPos();
+    await playCurrPos();
     blinkCurPos();
   }
 }
@@ -504,17 +504,10 @@ function playAndUpdateSub() {
   if (currKey == 'Enter' || currKey == 'Slash') {  
     saveCurrSubIndex(currSubIndex);
     saveTime(currSubIndex, ap.currentTime);
-  } else if ((index = parseInt(this.id)) != currSubIndex) {
+  } else if (parseInt(this.id) != currSubIndex) {
     playSubIndex(currSubIndex);
   }
   currKey = null;
-}
-
-async function seekCurrTime(delta) {
-  var time = await loadTime(currSubIndex) + delta;
-  saveTime(currSubIndex, time);
-  ap.currentTime = time;
-  ap.play();
 }
 
 document.addEventListener("keydown", handleKeyPress);
@@ -547,7 +540,7 @@ async function handleKeyPress(event) {
       break;
 
     case 'ControlLeft':
-      playCurrPos();
+      await playCurrPos();
       resetTextAndPos();
       blinkCurPos();
       break;
@@ -569,24 +562,12 @@ async function handleKeyPress(event) {
 
     case 'AltRight':
       event.preventDefault();
-      if (await getCurrDelta() <= 0) {
-        seekCurrTime(0.15);
-      } else {
-        adjustDeltas(2);
-        ap.currentTime += 2;
-        ap.play();
-      }      
+      adjust(+1);
       break;
 
     case 'OSRight':
       event.preventDefault();
-      if (await getCurrDelta() <= 0) {
-        seekCurrTime(-0.15);
-      } else {
-        adjustDeltas(-2);
-        ap.currentTime -= 2;
-        ap.play();
-      }
+      adjust(-1);
       break;
 
     case 'ArrowUp':
@@ -605,6 +586,22 @@ async function handleKeyPress(event) {
       if (await loadTime(currSubIndex) != 0) { ap.pause(); }
   }
 }
+
+async function adjust(x) {
+  let delta = await getCurrDelta();
+  var time = await loadTime(currSubIndex) + delta;
+  if (delta == 0 && currPos <= 3) {
+    time += 0.15 * x;
+    saveTime(currSubIndex, time);
+  } else {
+    adjustDeltas(2 * x);
+    time += 2 * x;
+  }  
+  ap.currentTime = time;
+  ap.play();
+  blinkCurPos();
+}
+
 
 const pasteToCurrentEditableCursor = str => {
   document.execCommand('inserttext', false, str);
