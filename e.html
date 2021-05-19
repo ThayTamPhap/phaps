@@ -32,7 +32,7 @@
     <audio controls id="audioPlayer"></audio>
 
     <a href="" onclick="event.code='ControlLeft';handleKeyPress(event);event.preventDefault();
-      document.getElementById(currSubIndex).focus();" style="float:left;">=></a>
+      document.getElementById(currSubIndex).focus();" style="float:left;">>|</a>
     <a href="" onclick="event.code='OSRight';handleKeyPress(event);event.preventDefault();
       document.getElementById(currSubIndex).focus();" style="float:left;"><<</a>
     <a href="" onclick="event.code='AltRight';handleKeyPress(event);event.preventDefault();
@@ -343,8 +343,8 @@ async function genSubs() {
       console.log('currSubIndex', currSubIndex);
     }
   }
-  document.body.appendChild(document.createElement('<br>'));
-  document.body.appendChild(document.createElement('<br>'));
+  document.body.appendChild(document.createElement('br'));
+  document.body.appendChild(document.createElement('br'));
 }
 
 
@@ -360,7 +360,6 @@ function saveCurrSubIndex(index) {
 
 
 async function playSubIndex(index, delta = 0) {
-  if (delta == 0) adjustedDelta = 0;
   var time = await loadTime(index);
   if (time != 0 || index == 0) { 
     ap.currentTime = time + delta;
@@ -387,17 +386,35 @@ async function estimateSecondsPerWord(index) {
 }
 
 const notWordRegex = /[\s\,\.\<\>\;\:\/\?\|\\\[\]\{\}\`\~\!\@\#\$\%\^\&\*\(\)\_\+\-\=“”…‘’]+/gm
-var adjustedDelta = 0;
-async function getDelta(index) {
-  var p = document.getElementById(index);
-  var q = p.innerText;
 
-  q = q.substr(0, getCaretPosition(p));
+var adjustedDeltas = [];
+function resetAdjustedDeltas() {
+  adjustedDeltas = [];
+}
+
+function adjustDeltas(x) {
+  var currPos = getCurrPosStr().length;
+  var ad = adjustedDeltas[currPos];
+  adjustedDeltas[currPos] = (ad == undefined ? 0 : ad) + x;
+  adjustedDeltas = adjustedDeltas.slice(0, currPos + 1);
+}
+
+function getCurrPosStr() {
+  var currP = document.getElementById(currSubIndex);
+  var currInnerText = currP.innerText;
+  // Reset HTML to plain text to select correct cursor position
+  // currP.innerHTML = currInnerText;
+  return currInnerText.substr(0, window.getSelection().anchorOffset);
+}
+
+async function getCurrDelta() {
+  var q = getCurrPosStr();
   q = q.toLocaleLowerCase();
+  var currPos = q.length;
   var words = q.split(notWordRegex);
   
   var wordsCount = words.length - 2;
-  if (words.pop() == "") wordsCount--;
+  if (words[words.length - 1] == "") { wordsCount--; }
   // Too short para always return 0 to make it point to the beginning of the sent
   if (wordsCount <= 0) return 0;
   if (words.length > 20) wordsCount -= words.length / 10;
@@ -405,7 +422,7 @@ async function getDelta(index) {
   var breakCount1 = q.split(END_PHRASE_AND_SENT_REGEX).length - 1;
   var breakCount2 = q.split(END_SENT_REGEX).length - 1;
   wordsCount += breakCount1*0.3 + breakCount2*0.5;
-  var delta2 = wordsCount * (await estimateSecondsPerWord(index));
+  var delta2 = wordsCount * (await estimateSecondsPerWord(currSubIndex));
 
   var delta1 = 0;
   if (words.length > 0) {
@@ -413,24 +430,39 @@ async function getDelta(index) {
     delta1 += (breakCount1+breakCount2)*defaultSecondsPerWord*0.8;
   }
   
-  console.log('index', index, 'words.length', words.length, 'delta1', delta1, 
-    'wordsCount', wordsCount, 'delta2', delta2, 'adjustedDelta', adjustedDelta);
-
   var delta = (delta1 + delta2) / 2;
-  delta += adjustedDelta;
+  var n = adjustedDeltas.length - 1;
+  if (n > currPos) n = currPos;
+  for (var ad, i = 0; i <= n; i++) { 
+    ad = adjustedDeltas[i]
+    if (ad != 0 && ad != undefined) {
+      delta += ad;
+      console.log("adjustedDeltas[",i,"] = ", ad);
+    }
+  };
+
+  console.log('currSub:', currSubIndex, ', words.length', words.length, 'delta1', delta1, 
+    'wordsCount', wordsCount, 'delta2', delta2, 'currPos', currPos, 'adjustedDeltas.length', adjustedDeltas.length, 'delta', delta);
+
   return delta < 0 ? 0 : delta;
+}
+
+async function playCurrPos() {
+    ap.currentTime = (await loadTime(currSubIndex)) + (await getCurrDelta());
+    ap.play();
 }
 
 async function playSub() {
   var index = parseInt(this.id);
 
   if (currSubIndex != index) {
+    // First click on sub
+    resetAdjustedDeltas();
     saveCurrSubIndex(index);
     playSubIndex(currSubIndex);
   }  else { 
-    // Click on current sub, will pause audio (to edit text)
-    ap.currentTime = (await loadTime(index)) + (await getDelta(index));
-    ap.play();
+    // Click on current sub
+    playCurrPos();
   }
 }
 
@@ -469,8 +501,7 @@ async function handleKeyPress(event) {
       break;
 
     case 'ControlLeft':
-      ap.currentTime = await loadTime(currSubIndex);
-      ap.play();
+      playCurrPos();
       break;
 
     case 'AltLeft':
@@ -490,22 +521,22 @@ async function handleKeyPress(event) {
 
     case 'AltRight':
       event.preventDefault();
-      if (await getDelta(currSubIndex) <= 0) {
+      if (await getCurrDelta() <= 0) {
         seekCurrTime(0.15);
       } else {
-        ap.currentTime += 3;
-        adjustedDelta += 3;
+        adjustDeltas(2);
+        ap.currentTime += 2;
         ap.play();
       }      
       break;
 
     case 'OSRight':
       event.preventDefault();
-      if (await getDelta(currSubIndex) <= 0) {
+      if (await getCurrDelta() <= 0) {
         seekCurrTime(-0.15);
       } else {
-        ap.currentTime -= 3;
-        adjustedDelta -= 3;
+        adjustDeltas(-2);
+        ap.currentTime -= 2;
         ap.play();
       }
       break;
