@@ -602,8 +602,8 @@ async function adjust(x) {
     time += 0.15 * x;
     saveTime(currSubIndex, time);
   } else {
-    adjustDeltas(2 * x);
-    time += 2 * x;
+    adjustDeltas(1.5 * x);
+    time += 1.5 * x;
   }  
   ap.currentTime = time;
   ap.play();
