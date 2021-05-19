@@ -17,12 +17,12 @@
 
   div { margin-top: 0.5em; padding: .3em; color: #888; }
   
-  .p { padding-top: 0.5em; padding-bottom: 0.5em; margin: 0.1em; 
+  p { padding-top: 0.5em; padding-bottom: 0.5em; margin: 0.1em; 
       border-style: dotted; border-width: 1px; }
   
-  .p.edited { color: #000; }
+  p.edited { color: #000; }
   
-  .p:focus { border: 0px; border-style: none; color: #112699; }
+  p:focus { border: 0px; border-style: none; color: #112699; }
   
   i { font-size: 12pt; color: #aaa; }
 </style>
@@ -326,11 +326,11 @@ async function genSubs() {
     time = await loadTime(i);
     div.innerHTML = `<i>${i}: ${time}</i>`;
     div.onclick = function() { this.children[1].focus(); };
-    p = document.createElement('div');
+    p = document.createElement('p');
     p.contentEditable = "true";
     p.innerHTML = spellSpecialWords(await loadText(i));
     p.id = i;
-    p.className = await isEditedIndex(i) ? 'edited p' : 'p';
+    p.className = await isEditedIndex(i) ? 'edited' : '';
     // if p is click then p will get focus
     p.addEventListener("click", playSub);
     p.addEventListener("focus", playAndUpdateSub);
