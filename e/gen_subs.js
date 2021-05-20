@@ -104,10 +104,12 @@ async function genSubs() {
     time = await loadTime(i);
     div.innerHTML = `<i>[${i}] ${secondsToTime(time)}</i>`;
     p = document.createElement('p');
-    p.contentEditable = "true";
     p.innerHTML = spellSpecialWords(await loadText(i));
     p.id = i;
-    p.className = await isEditedIndex(i) ? 'edited' : '';
+    if (await isEditedIndex(i)) {
+      p.contentEditable = "true";
+      p.className = 'edited';
+    }
     // if p is click then p will get focus
     p.addEventListener("click", playSub);
     p.addEventListener("focus", playAndUpdateSub);

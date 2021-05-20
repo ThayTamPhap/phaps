@@ -1,6 +1,7 @@
 // Click a sub will call playSub()
 async function playSub() {
   var index = parseInt(this.id);
+  if (!(await isEditedIndex(index))) return;
 
   if (currSubIndex != index) {
     // First click on sub
@@ -16,16 +17,23 @@ async function playSub() {
 }
 
 // Whenever a sub get focused (click, tab, enter) will call playAndUpdateSub()
-function playAndUpdateSub() {
+async function playAndUpdateSub() {
   console.log("currSubIndex", currSubIndex);
   if (currSubIndex >  1) saveTextIndex(currSubIndex - 1);
   if (currSubIndex >= 0) saveTextIndex(currSubIndex);
 
-  if (currKey == 'Enter' || currKey == 'Slash') {  
-    saveCurrSubIndex(currSubIndex);
-    saveTime(currSubIndex, ap.currentTime);
-  } else if (parseInt(this.id) != currSubIndex) {
-    playSubIndex(currSubIndex);
+  switch (currKey) {
+    case 'Enter':
+      saveCurrSubIndex(currSubIndex);
+      saveTime(currSubIndex, ap.currentTime);
+      break;
+
+    case 'Slash':
+      let delta = await getCurrDelta();
+      if (delta == 0 && lastCurrPos < 5) {
+        saveTime(currSubIndex, ap.currentTime);
+      }
+      break
   }
   currKey = null;
 }
@@ -34,6 +42,7 @@ function playAndUpdateSub() {
 document.addEventListener("keydown", handleKeyPress);
 async function handleKeyPress(event) {
   currKey = event.code;
+  if (currKey == 'MetaRight') currKey = 'OSRight';
   console.log(`KeyboardEvent: key='${event.key}' | code='${event.code}'`);
   // console.log('currKey', currKey);
 
@@ -95,7 +104,7 @@ async function handleKeyPress(event) {
 async function adjust(x) {
   let delta = await getCurrDelta();
   var time = await loadTime(currSubIndex) + delta;
-  if (delta == 0 && lastCurrPos < 3) {
+  if (delta == 0 && lastCurrPos < 5) {
     time += 0.15 * x;
     saveTime(currSubIndex, time);
   } else {
@@ -107,9 +116,14 @@ async function adjust(x) {
   blinkCurPos();
 }
 
-function nextSub() {
-  if (currSubIndex < subsCount - 1) { 
-    currSubIndex++;  
-    document.getElementById(currSubIndex).focus();
+async function nextSub() {
+  if (currSubIndex >= subsCount - 1) return;
+  let nextSubIsEdited = await isEditedIndex(currSubIndex+1);
+  if ( ( nextSubIsEdited && currKey == 'Tab') 
+    || (!nextSubIsEdited && currKey == 'Enter')) {
+    currSubIndex++;
+    let p = document.getElementById(currSubIndex);
+    p.contentEditable = true;
+    p.focus();
   }
 }

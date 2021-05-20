@@ -19,17 +19,13 @@ async function loadSubsCount() {
   return subsCount = parseInt(await load('subsCount'));
 }
 
-function markEditedIndex(i) {
-  save(`edited${i}`, 'true');
-}
-
 async function isEditedIndex(i) {
-  return await load(`edited${i}`) == 'true';
+  let time = await loadTime(i);
+  return !isNaN(time) && (time != 0 || i  == 0);
 }
 
 function saveTime(i, value) {
   save(`time${i}`, value);
-  markEditedIndex(i);
   var el = document.getElementById(i);
   if (el) {
     el.previousSibling.innerHTML = `${i}: ${secondsToTime(value)}`;
