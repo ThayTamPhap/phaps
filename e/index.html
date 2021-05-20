@@ -33,45 +33,32 @@
 
     <a href="" onclick="event.code='ControlLeft';handleKeyPress(event);event.preventDefault();
       document.getElementById(currSubIndex).focus();" style="float:left;">>|</a>
+
     <a href="" onclick="event.code='OSRight';handleKeyPress(event);event.preventDefault();
       document.getElementById(currSubIndex).focus();" style="float:left;"><<</a>
+
     <a href="" onclick="event.code='AltRight';handleKeyPress(event);event.preventDefault();
       document.getElementById(currSubIndex).focus();" style="float:left;">>></a>
 
     <a href="" onclick="event.code='Enter'; handleKeyPress(event);"style="margin-right:15px;">Ent</a>
+
     <a href="" onclick="event.code='Slash'; event.key='/';handleKeyPress(event);
       document.getElementById(currSubIndex).focus();">/</a>
+
     <a href="" id="playPauseBtn" onclick="ap.paused ? ap.play() : ap.pause();
       event.preventDefault(); document.getElementById(currSubIndex).focus();">></a>
   </div>
-  <a href="?" id="downloadButton" style="float:left;">Save</a>
-  <a id="lrcDownload"></a>
+
+  <a href="?" id="downloadButton" style="float:left;">Save</a>  
 </body>
 
-<script src="assets/localforage.min.js"></script>
-<script src="assets/words_secs.js"></script>
+<script src="/assets/localforage.min.js"></script>
+<script src="storage.js"></script>
+<script src="download.js"></script>
 <script>
-document.getElementById("downloadButton").addEventListener("click", function(e) {
-  e.preventDefault();
-  z();
-});
-
-var phapname = location.search.replace("?", "")
-console.log('phapname', phapname);
-// var store = localforage.createInstance({ name: phapname });
-function finalKey(key) {
-  return phapname + "_" + key; 
-}
-async function load(key) {
-  return await localforage.getItem(finalKey(key));
-}
-function save(key, value) {
-  localforage.setItem(finalKey(key), value);
-}
-
 
 var ap = document.getElementById("audioPlayer");
-ap.innerHTML = `<source src="${phapname}.mp3"/><source src="${phapname}.ogg"/>`
+ap.innerHTML = `<source src="/${phapname}.ogg"/>`
 ap.ontimeupdate = function() {
   var seconds = ap.currentTime;
   var minutes = Math.floor(seconds / 60);
@@ -80,15 +67,15 @@ ap.ontimeupdate = function() {
     `${minutes}:${seconds<=9?'0':''}${seconds}`;
 };
 
-var subsCount, currSubIndex, currKey;
+var currSubIndex, currKey;
 var expanding = false;
+
 loadSubsCount().then(function () {
   if (!isNaN(subsCount) && subsCount > 0 && !expanding) {
     console.log("Use cached data to gen subs");
     genSubs();
 
   } else {
-    save('phapname', phapname);
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -101,78 +88,6 @@ loadSubsCount().then(function () {
     xmlhttp.send();
   }
 });
-
-
-function saveSubsCount(value) {
-  subsCount = value;
-  save('subsCount', subsCount);
-}
-async function loadSubsCount() {
-  return subsCount = parseInt(await load('subsCount'));
-}
-function markEditedIndex(i) {
-  save(`edited${i}`, 'true');
-}
-async function isEditedIndex(i) {
-  return await load(`edited${i}`) == 'true';
-}
-function saveTime(i, value) {
-  save(`time${i}`, value);
-  markEditedIndex(i);
-  var el = document.getElementById(i);
-  if (el) {
-    el.previousSibling.innerHTML = `${i}: ${secondsToTime(value)}`;
-    el.className = 'edited';
-  }
-}
-async function loadTime(i) {
-  return parseFloat(await load(`time${i}`));
-}
-
-function saveTextIndex(i) {
-  saveText(i, document.getElementById(i).innerText);
-}
-function saveText(i, value) {
-  save(`text${i}`, value);
-}
-async function loadText(i) {
-  return await load(`text${i}`);
-}
-async function saveAll() {
-  for (var i = 0; i < subsCount; i++) {
-    await saveTextIndex(i);
-  }
-}
-async function z() {
-  await saveAll();
-
-  var str = "";
-  for (var i = 0; i < subsCount; i++) {
-    var timeI = await loadTime(i), timeI1 = await loadTime(i+1);
-    if (timeI > timeI1) {
-      console.log("ERROR: time of line", i, '> time of line', i + 1);
-      // throw 'Timming-order error!';
-    }
-    str = str + `${timeI} ${await loadText(i)}\n`;
-  }
-  // console.log(str);
-  var a = document.getElementById("lrcDownload");
-  var file = new Blob([str], {type: 'text/plain'});
-  copyToClipboard(str);
-  a.href = URL.createObjectURL(file);
-  a.download = phapname.split("/")[1] + '.txt';
-  a.target = '_blank';
-  a.click();
-}
-
-const copyToClipboard = str => {
-  const el = document.createElement('textarea');
-  el.value = str;
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
-};
 
 
 const IDEAL_LINE_CHARS = 45*5;
@@ -357,14 +272,6 @@ async function genSubs() {
 
 /* - - - - */ 
 
-function saveCurrentText() {
-  saveTextIndex(parseInt(this.id));
-}
-
-function saveCurrSubIndex(index) {
-  save('currSubIndex', currSubIndex = index);
-}
-
 
 async function playSubIndex(index, delta = 0) {
   var time = await loadTime(index);
@@ -460,10 +367,7 @@ async function getCurrDelta() {
 
   var delta1 = 0;
   if (words.length > 0) {
-    words.forEach(w => { 
-      // console.log("words_secs[", w, "]", document.words_secs[w]);
-      return delta1 += document.words_secs[w]||defaultSecondsPerWord; 
-    });
+    words.forEach(w => delta1 += document.wordsSecs[w]||defaultSecondsPerWord);
     delta1 += (breakCount1+breakCount2)*defaultSecondsPerWord*0.8;
   }
   
@@ -638,4 +542,5 @@ function nextSub() {
 }
 
 </script>
+<script src="words_secs.js"></script>
 </html>
