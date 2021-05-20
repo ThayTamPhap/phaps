@@ -39,10 +39,12 @@ console.assert(secsToMSAR(61.543).toString()==="1,1,54");
 console.assert(secsToMSAR(3661.543).toString()==="61,1,54");
 
 function secondsToTime(s) {
+  return `${Math.floor(s)}.${Math.floor(s*1000%1000)}`;
   let a = secondsToMinutesAndSecondsAndRemains(s);
   return `${twoDigitsFmt(a[0])}:${twoDigitsFmt(a[1])}.${twoDigitsFmt(a[2])}`
 }
-console.assert(secondsToTime(61.543).toString()==="01:01.54");
+console.assert(secondsToTime(61.545563).toString()==="61.545");
+// console.assert(secondsToTime(61.543).toString()==="01:01.54");
 
 function spellSpecialWords(txt) {
   // e.g: 100 or 100% not end with |
