@@ -13,6 +13,22 @@ const expanding = false;
 const phapname = location.search.replace("?", "");
 console.log('phapname', phapname);
 
+
+function twoDigitsFormat(d) {
+  return `${d <= 9 ? '0' : ''}${d}`
+}
+
+function secondsToTime(s) {
+  let minutes = Math.floor(s / 60);
+  s -= minutes*60;
+  let seconds = Math.floor(s);
+  let remains = s - seconds;
+  remains = Math.round(remains * 100);
+  return `${twoDigitsFormat(minutes)}:${twoDigitsFormat(seconds)}.${twoDigitsFormat(remains)}`
+}/*
+  secondsToTime(60)
+*/
+
 function spellSpecialWords(txt) {
   // e.g: 100 or 100% not end with |
   return txt.replace(SPECIAL_WORDS_REGEX, function (x) {

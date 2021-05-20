@@ -26,324 +26,45 @@
   
   i { font-size: 12pt; color: #aaa; }
 </style>
- </head>
+</head>
 <body>
   <div class="header">
     <audio controls id="audioPlayer"></audio>
 
-    <a href="" onclick="event.code='ControlLeft';handleKeyPress(event);event.preventDefault();
-      document.getElementById(currSubIndex).focus();" style="float:left;">>|</a>
+    <a href="" onclick="
+      event.code='ControlLeft';handleKeyPress(event); event.preventDefault();
+      document.getElementById(currSubIndex).focus();" style="float:left;"> >| </a>
 
-    <a href="" onclick="event.code='OSRight';handleKeyPress(event);event.preventDefault();
-      document.getElementById(currSubIndex).focus();" style="float:left;"><<</a>
+    <a href="" onclick="
+      event.code='OSRight';handleKeyPress(event); event.preventDefault();
+      document.getElementById(currSubIndex).focus();" style="float:left;"> << </a>
 
-    <a href="" onclick="event.code='AltRight';handleKeyPress(event);event.preventDefault();
-      document.getElementById(currSubIndex).focus();" style="float:left;">>></a>
+    <a href="" onclick="
+      event.code='AltRight';handleKeyPress(event); event.preventDefault();
+      document.getElementById(currSubIndex).focus();" style="float:left;"> >> </a>
 
-    <a href="" onclick="event.code='Enter'; handleKeyPress(event);"style="margin-right:15px;">Ent</a>
+    <a href="" onclick="event.code='Enter'; handleKeyPress(event);
+      "style="margin-right:15px;"> Ent </a>
 
-    <a href="" onclick="event.code='Slash'; event.key='/';handleKeyPress(event);
-      document.getElementById(currSubIndex).focus();">/</a>
+    <a href="" onclick="
+      event.code='Slash'; event.key='/'; handleKeyPress(event);
+      document.getElementById(currSubIndex).focus();"> / </a>
 
-    <a href="" id="playPauseBtn" onclick="ap.paused ? ap.play() : ap.pause();
-      event.preventDefault(); document.getElementById(currSubIndex).focus();">></a>
+    <a href="" id="playPauseBtn" onclick="
+      ap.paused ? ap.play() : ap.pause(); event.preventDefault(); 
+      document.getElementById(currSubIndex).focus();"> > </a>
   </div>
 
   <a href="?" id="downloadButton" style="float:left;">Save</a>  
 </body>
-
 <script src="/assets/localforage.min.js"></script>
 <script src="globals_helpers.js"></script>
 <script src="storage.js"></script>
 <script src="gen_subs.js"></script>
-<script>
-
-var ap = document.getElementById("audioPlayer");
-ap.innerHTML = `<source src="/${phapname}.ogg"/>`
-ap.ontimeupdate = function() {
-  var seconds = ap.currentTime;
-  var minutes = Math.floor(seconds / 60);
-  seconds = Math.round(seconds - minutes * 60);
-  document.getElementById('playPauseBtn').innerHTML = 
-    `${minutes}:${seconds<=9?'0':''}${seconds}`;
-};
-
-
-
-
-/* - - - - */ 
-
-
-async function playSubIndex(index, delta = 0) {
-  var time = await loadTime(index);
-  if (time != 0 || index == 0) { 
-    ap.currentTime = time + delta;
-    ap.play();
-  }  
-}
-
-const defaultSecondsPerWord = 0.3;
-var secondsPerWord = defaultSecondsPerWord;
-async function estimateSecondsPerWord(index) {
-  if (index == 0) { return secondsPerWord; }
-  q = await loadText(index - 1);
-  b = await loadTime(index - 1);
-  e = await loadTime(index);
-  if (b == 0 || b >= e) { return secondsPerWord; }
-
-  x = (e - b) / q.split(/\s+/).length;
-  secondsPerWord = (x <= 0.36) ? x : secondsPerWord;
-  console.log('New secondsPerWord:', secondsPerWord);
-
-  return secondsPerWord;
-}
-
-const notWordRegex = /[\s\,\.\<\>\;\:\/\?\|\\\[\]\{\}\`\~\!\@\#\$\%\^\&\*\(\)\_\+\-\=“”…‘’]+/gm
-
-var adjustedDeltas = [];
-function resetAdjustedDeltas() {
-  adjustedDeltas = [];
-}
-
-function adjustDeltas(x) {
-  var currPos = getCurrPosStr().length;
-  var ad = adjustedDeltas[currPos];
-  adjustedDeltas[currPos] = (ad == undefined ? 0 : ad) + x;
-  adjustedDeltas = adjustedDeltas.slice(0, currPos + 1);
-}
-
-function blinkCurPos(pos) {
-  let sel = window.getSelection();  
-  var currPos = typeof pos == 'number' ? pos : sel.anchorOffset;
-  var currP = document.getElementById(currSubIndex);
-  var txt = currP.firstChild.textContent;
-  var b = currPos, e = currPos+1, n = txt.length;
-  while (txt[b] != ' ' && b > 0) b--; if (b < 0) b = 0;
-  while (txt[e] != ' ' && e < n) e++; if (e > n) e = n;
-  
-
-  let range = new Range();
-  range.setStart(currP.firstChild, b == 0 ? 0 : b+1);
-  range.setEnd(currP.firstChild, e);
-  sel.removeAllRanges();
-  sel.addRange(range);
-
-  let count = 1;
-  let interval = window.setInterval(function() {
-    if (count % 2 == 0) {
-      range.setStart(currP.firstChild, b == 0 ? 0 : b+1);
-      range.setEnd(currP.firstChild, e);
-      sel.removeAllRanges();
-      sel.addRange(range);
-    } else {
-      sel.collapse(currP.firstChild, currPos);
-    }
-    if (++count > 3) { clearInterval(interval); }
-  }, 80);
-}
-
-function getCurrPosStr() {
-  var currP = document.getElementById(currSubIndex);
-  var currInnerText = currP.innerText;
-  lastCurrPos = window.getSelection().anchorOffset;
-  return currInnerText.substr(0, lastCurrPos);
-}
-
-async function getCurrDelta() {
-  var q = getCurrPosStr();
-  q = q.toLocaleLowerCase();
-  var currPos = q.length;
-  var words = q.split(notWordRegex);
-  
-  var wordsCount = words.length - 2;
-  if (words[words.length - 1] == "") { wordsCount--; }
-  // Too short string always return 0 to make it point to the beginning of the sent
-  if (wordsCount <= 0) return 0;
-  if (words.length > 20) wordsCount -= words.length / 10;
-  if (words.length > 40) wordsCount -= words.length / 20;
-  var breakCount1 = q.split(END_PHRASE_AND_SENT_REGEX).length - 1;
-  var breakCount2 = q.split(END_SENT_REGEX).length - 1;
-  wordsCount += breakCount1*0.3 + breakCount2*0.5;
-  var delta2 = wordsCount * (await estimateSecondsPerWord(currSubIndex));
-
-  var delta1 = 0;
-  if (words.length > 0) {
-    words.forEach(w => delta1 += document.wordsSecs[w]||defaultSecondsPerWord);
-    delta1 += (breakCount1+breakCount2)*defaultSecondsPerWord*0.8;
-  }
-  
-  var delta = (delta1 + delta2) / 2;
-  var n = adjustedDeltas.length - 1;
-  if (n > currPos) n = currPos;
-  for (var ad, i = 0; i <= n; i++) { 
-    ad = adjustedDeltas[i]
-    if (ad != 0 && ad != undefined) {
-      delta += ad;
-      console.log("adjustedDeltas[",i,"] = ", ad);
-    }
-  };
-
-  console.log('currSub:', currSubIndex, ', words.length', words.length, 'delta1', delta1, 
-    'wordsCount', wordsCount, 'delta2', delta2, 'currPos', currPos, 'adjustedDeltas.length', adjustedDeltas.length, 'delta', delta);
-
-  return delta < 0 ? 0 : delta;
-}
-
-async function playCurrPos() {
-    ap.currentTime = (await loadTime(currSubIndex)) + (await getCurrDelta());
-    ap.play();
-}
-
-async function playSub() {
-  var index = parseInt(this.id);
-
-  if (currSubIndex != index) {
-    // First click on sub
-    resetAdjustedDeltas();
-    saveCurrSubIndex(index);
-    await playSubIndex(currSubIndex);
-    blinkCurPos(0);
-  }  else { 
-    // Click on current sub
-    await playCurrPos();
-    blinkCurPos();
-  }
-}
-
-function playAndUpdateSub() {
-  if (currSubIndex > 1) saveTextIndex(currSubIndex - 1);
-  saveTextIndex(currSubIndex);
-
-  if (currKey == 'Enter' || currKey == 'Slash') {  
-    saveCurrSubIndex(currSubIndex);
-    saveTime(currSubIndex, ap.currentTime);
-  } else if (parseInt(this.id) != currSubIndex) {
-    playSubIndex(currSubIndex);
-  }
-  currKey = null;
-}
-
-document.addEventListener("keydown", handleKeyPress);
-
-var lastCurrPos = 0;
-function resetTextAndPos() {
-    // Reset HTML to plain text to select correct cursor position
-    var currP = document.getElementById(currSubIndex);
-    var currInnerText = currP.innerText;
-    currP.innerHTML = currInnerText;
-    
-    console.log('currInnerText.length', currInnerText.length, 'lastCurrPos', lastCurrPos);
-    
-    var sel = window.getSelection();
-    /* https://javascript.info/selection-range#selecting-the-text-partially */
-    // If node is a text node, then offset must be the position in its text.
-    sel.collapse(currP.firstChild, lastCurrPos);
-}
-
-async function handleKeyPress(event) {
-  currKey = event.code;
-  console.log(`KeyboardEvent: key='${event.key}' | code='${event.code}'`);
-  // console.log('currKey', currKey);
-
-  switch(currKey) {
-    case 'Slash':
-      if (event.key != '/') { return; }
-      event.preventDefault();
-      playAndUpdateSub();
-      break;
-
-    case 'ControlLeft':
-      await playCurrPos();
-      resetTextAndPos();
-      blinkCurPos();
-      break;
-
-    case 'AltLeft':
-      event.preventDefault();
-      if (ap.paused) { ap.currentTime -= 0.8; ap.play(); } else { ap.pause(); };
-      break;
-
-    case 'Enter':
-      event.preventDefault();
-      nextSub();
-      break;
-
-    case 'Tab':
-      event.preventDefault();
-      nextSub();
-      break;
-
-    case 'AltRight':
-      event.preventDefault();
-      adjust(+1);
-      break;
-
-    case 'OSRight':
-      event.preventDefault();
-      adjust(-1);
-      break;
-
-    case 'ArrowUp':
-      break
-
-    case 'ArrowDown':
-      break
-
-    case 'ArrowLeft':
-      break
-
-    case 'ArrowRight':
-      break
-
-    default:
-      if (await loadTime(currSubIndex) != 0) { ap.pause(); }
-  }
-}
-
-async function adjust(x) {
-  let delta = await getCurrDelta();
-  var time = await loadTime(currSubIndex) + delta;
-  if (delta == 0 && lastCurrPos < 3) {
-    time += 0.15 * x;
-    saveTime(currSubIndex, time);
-  } else {
-    adjustDeltas(1.5 * x);
-    time += 1.5 * x;
-  }  
-  ap.currentTime = time;
-  ap.play();
-  blinkCurPos();
-}
-
-function twoDigitsFormat(d) {
-  return `${d <= 9 ? '0' : ''}${d}`
-}
-
-function secondsToTime(s) {
-  let minutes = Math.floor(s / 60);
-  s -= minutes*60;
-  let seconds = Math.floor(s);
-  let remains = s - seconds;
-  remains = Math.round(remains * 100);
-  return `${twoDigitsFormat(minutes)}:${twoDigitsFormat(seconds)}.${twoDigitsFormat(remains)}`
-}/*
-  secondsToTime(60)
-*/
-
-const pasteToCurrentEditableCursor = str => {
-  document.execCommand('inserttext', false, str);
-};
-
-
-function nextSub() {
-  if (currSubIndex < subsCount - 1) { 
-    currSubIndex++;  
-    document.getElementById(currSubIndex).focus();
-  }
-}
-
-</script>
-
+<script src="audio_player.js"></script>
+<script src="cursor_helpers.js"></script>
+<script src="estimators.js"></script>
+<script src="event_handlers.js"></script>
 <script src="download.js"></script>
 <script src="words_secs.js"></script>
 </html>
