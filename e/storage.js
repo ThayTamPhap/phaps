@@ -1,8 +1,3 @@
-const phapname = location.search.replace("?", "");
-console.log('phapname', phapname);
-// var store = localforage.createInstance({ name: phapname });
-var subsCount;
-
 function finalKey(key) {
   return phapname + "_" + key; 
 }
