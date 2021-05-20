@@ -47,13 +47,12 @@ function spellSpecialWords(txt) {
     return `|${spellNumber(m[1])}|${m[1]}|${m[2]}`;
   });
 } 
-/*
-spellSpecialWords("100%|") == "100%|"
-spellSpecialWords("100%") == "|1 trăm phần trăm|100%|"
-spellSpecialWords("10") == "10"
-spellSpecialWords("10|") == "10|"
-spellSpecialWords("15q") == "|mười lăm|15|q"
-*/
+console.assert(spellSpecialWords("100%|") == "100%|");
+console.assert(spellSpecialWords("100%") == "|1 trăm phần trăm|100%|");
+console.assert(spellSpecialWords("10") == "10");
+console.assert(spellSpecialWords("10|") == "10|");
+console.assert(spellSpecialWords("15q") == "|mười lăm|15|q");
+console.assert(spellSpecialWords("12") == "|mười hai|12|");
 
 
 function spellNumber(x) {
@@ -81,19 +80,19 @@ function spellNumber(x) {
     // 2x => 2 x (2x,..,9x)
     prefix = md[1] == '1' ? 'mười' : md[1];
 
-    // x0 => x mươi
-    if (md[2] == '0')
-      return `${prefix} mươi`
-
-    // x4 => x tư
-    if (md[2] == '4')
-      return `${prefix} tư`
-
-    // x5 => x năm
-    if (md[2] == '5')
-      return `${prefix} lăm`
-
-    return `${md[1]} ${md[2]}`
+    switch (md[2]) {
+      case '0': return `${prefix} mươi`;
+      case '1': return `${prefix} một`;
+      case '2': return `${prefix} hai`;
+      case '3': return `${prefix} ba`;
+      case '4': return `${prefix} tư`;
+      case '5': return `${prefix} lăm`;
+      case '6': return `${prefix} sáu`;
+      case '7': return `${prefix} bảy`;
+      case '8': return `${prefix} tám`;
+      case '9': return `${prefix} chín`;
+      default:  return `${prefix} ${md[2]}`;
+    }
   }
 
   return x;

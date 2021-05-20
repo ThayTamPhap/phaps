@@ -17,8 +17,9 @@ async function playSub() {
 
 // Whenever a sub get focused (click, tab, enter) will call playAndUpdateSub()
 function playAndUpdateSub() {
-  if (currSubIndex > 1) saveTextIndex(currSubIndex - 1);
-  saveTextIndex(currSubIndex);
+  console.log("currSubIndex", currSubIndex);
+  if (currSubIndex >  1) saveTextIndex(currSubIndex - 1);
+  if (currSubIndex >= 0) saveTextIndex(currSubIndex);
 
   if (currKey == 'Enter' || currKey == 'Slash') {  
     saveCurrSubIndex(currSubIndex);

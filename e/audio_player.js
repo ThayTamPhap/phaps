@@ -11,6 +11,7 @@ ap.ontimeupdate = function() {
 
 async function playSubIndex(index, delta = 0) {
   var time = await loadTime(index);
+  if (isNaN(time)) return;
   if (time != 0 || index == 0) { 
     ap.currentTime = time + delta;
     ap.play();
