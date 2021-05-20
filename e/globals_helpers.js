@@ -17,6 +17,11 @@ console.log('phapname', phapname);
 function twoDigitsFmt(d) {
   return `${d <= 9 ? '0' : ''}${d}`
 }
+console.assert(twoDigitsFmt( 0)==='00');
+console.assert(twoDigitsFmt( 9)==='09');
+console.assert(twoDigitsFmt(10)==='10');
+console.assert(twoDigitsFmt(19380)==='19380');
+
 
 function secondsToMinutesAndSecondsAndRemains(s) {
   let minutes = Math.floor(s / 60);
@@ -26,11 +31,18 @@ function secondsToMinutesAndSecondsAndRemains(s) {
   remains = Math.round(remains * 100);
   return [minutes, seconds, remains];
 }
+const secsToMSAR = secondsToMinutesAndSecondsAndRemains;
+console.assert(secsToMSAR( 0).toString()==="0,0,0");
+console.assert(secsToMSAR(60).toString()==="1,0,0");
+console.assert(secsToMSAR(61).toString()==="1,1,0");
+console.assert(secsToMSAR(61.543).toString()==="1,1,54");
+console.assert(secsToMSAR(3661.543).toString()==="61,1,54");
 
 function secondsToTime(s) {
   let a = secondsToMinutesAndSecondsAndRemains(s);
   return `${twoDigitsFmt(a[0])}:${twoDigitsFmt(a[1])}.${twoDigitsFmt(a[2])}`
 }
+console.assert(secondsToTime(61.543).toString()==="01:01.54");
 
 function spellSpecialWords(txt) {
   // e.g: 100 or 100% not end with |
@@ -48,7 +60,7 @@ function spellSpecialWords(txt) {
   });
 } 
 console.assert(spellSpecialWords("100%|") == "100%|");
-console.assert(spellSpecialWords("100%") == "|1 trăm phần trăm|100%|");
+console.assert(spellSpecialWords("100%") == "|một trăm phần trăm|100%|");
 console.assert(spellSpecialWords("10") == "10");
 console.assert(spellSpecialWords("10|") == "10|");
 console.assert(spellSpecialWords("15q") == "|mười lăm|15|q");
@@ -61,13 +73,13 @@ function spellNumber(x) {
 
   // xxx
   if (md = x.match(/^(\d)(\d\d)$/)) {
-    prefix = `${md[1]} trăm`;
+    prefix = `${spellNumber(md[1])} trăm`;
 
     if (md[2] == '00')
       return prefix;
 
     if (mdd = md[2].match(/^0(\d)$/))
-        return `${prefix} lẻ ${mdd[1]}`
+        return `${prefix} lẻ ${spellNumber(mdd[1])}`
 
     return `${prefix} ${spellNumber(md[2])}`
   }
@@ -78,22 +90,30 @@ function spellNumber(x) {
 
     // 1x => mười x (11,11,..,19)
     // 2x => 2 x (2x,..,9x)
-    prefix = md[1] == '1' ? 'mười' : md[1];
+    prefix = md[1] == '1' ? 'mười' : spellNumber(md[1]);
 
     switch (md[2]) {
       case '0': return `${prefix} mươi`;
-      case '1': return `${prefix} một`;
-      case '2': return `${prefix} hai`;
-      case '3': return `${prefix} ba`;
       case '4': return `${prefix} tư`;
       case '5': return `${prefix} lăm`;
-      case '6': return `${prefix} sáu`;
-      case '7': return `${prefix} bảy`;
-      case '8': return `${prefix} tám`;
-      case '9': return `${prefix} chín`;
-      default:  return `${prefix} ${md[2]}`;
+      default:  return `${prefix} ${spellNumber(md[2])}`;
     }
   }
 
-  return x;
+  // x
+  switch (x) {
+    case '0': return `không`;
+    case '1': return `một`;
+    case '2': return `hai`;
+    case '3': return `ba`;
+    case '4': return `bốn`;
+    case '5': return `năm`;
+    case '6': return `sáu`;
+    case '7': return `bảy`;
+    case '8': return `tám`;
+    case '9': return `chín`;
+  }
 }
+console.assert(spellNumber("15") == "mười lăm");
+console.assert(spellNumber("12") == "mười hai");
+console.assert(spellNumber("102") == "một trăm lẻ hai");
