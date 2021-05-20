@@ -1,17 +1,27 @@
-document.getElementById("downloadButton").addEventListener("click", z);
+document.getElementById("downloadButton").addEventListener("click", saveTextGrid);
   
 const downloadLink = document.createElement("a");
 document.body.appendChild(downloadLink);
 
-async function z(event) {
+function textGridInterval(index, xmin, xmax, text) {
+    return `
+            intervals [${index + 1}]:
+            xmin = ${xmin}
+            xmax = ${xmax}
+            text = "${text}"
+`}
+
+async function saveTextGrid(event) {
     event.preventDefault();
     await saveAll();
 
-    var str = "";
-    for (var i = 0; i < subsCount; i++) {
-        str = str + `${await loadTime(i)} ${await loadText(i)}\n`;
-    }
-    copyToClipboard(str);
+    var str = textGridHeader(ap.duration, subsCount);
+    var xmin = 0, xmax = 0;
+    for (var n = subsCount-1, i = 0; i < n; i++) {
+        xmin = xmax;
+        xmax = await loadTime(i+1);
+        str += textGridInterval(i, xmin, xmax, await loadText(i));
+    }   str += textGridInterval(n, xmax, ap.duration, await loadText(n));
 
     var file = new Blob([str], {type: 'text/plain'});
     downloadLink.href = URL.createObjectURL(file);
@@ -20,11 +30,20 @@ async function z(event) {
     downloadLink.click();
 }
 
-const copyToClipboard = str => {
-    const el = document.createElement('textarea');
-    el.value = str;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-};
+function textGridHeader(xmax, size) {
+return `File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0
+xmax = ${xmax}
+tiers? <exists>
+size = 1
+item []:
+    item [1]:
+        class = "IntervalTier"
+        name = "segments"
+        xmin = 0
+        xmax = ${xmax}
+        intervals: size = ${size}
+`
+}
