@@ -3,11 +3,9 @@ ap.innerHTML = `<source src="/${phapname}.ogg"/>`
 
 
 ap.ontimeupdate = function() {
-  var seconds = ap.currentTime;
-  var minutes = Math.floor(seconds / 60);
-  seconds = Math.round(seconds - minutes * 60);
+  let a = secondsToMinutesAndSecondsAndRemains(ap.currentTime);
   document.getElementById('playPauseBtn').innerHTML = 
-    `${minutes}:${seconds<=9?'0':''}${seconds}`;
+    `${twoDigitsFmt(a[0])}:${twoDigitsFmt(a[1])}`;
 };
 
 

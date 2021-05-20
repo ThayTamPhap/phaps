@@ -14,20 +14,23 @@ const phapname = location.search.replace("?", "");
 console.log('phapname', phapname);
 
 
-function twoDigitsFormat(d) {
+function twoDigitsFmt(d) {
   return `${d <= 9 ? '0' : ''}${d}`
 }
 
-function secondsToTime(s) {
+function secondsToMinutesAndSecondsAndRemains(s) {
   let minutes = Math.floor(s / 60);
   s -= minutes*60;
   let seconds = Math.floor(s);
   let remains = s - seconds;
   remains = Math.round(remains * 100);
-  return `${twoDigitsFormat(minutes)}:${twoDigitsFormat(seconds)}.${twoDigitsFormat(remains)}`
-}/*
-  secondsToTime(60)
-*/
+  return [minutes, seconds, remains];
+}
+
+function secondsToTime(s) {
+  let a = secondsToMinutesAndSecondsAndRemains(s);
+  return `${twoDigitsFmt(a[0])}:${twoDigitsFmt(a[1])}.${twoDigitsFmt(a[2])}`
+}
 
 function spellSpecialWords(txt) {
   // e.g: 100 or 100% not end with |
