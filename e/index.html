@@ -11,9 +11,9 @@
 
   .header audio#audioPlayer { width: 0%; float: left; height: 25px; }
 
-  .header a, #currentTime, #downloadButton { width: 16%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.8em 0em; float: right; margin-right: 5px; text-align: center; text-decoration: none; }
+  .header a, #currentTime, #downloadButton { width: 15%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.8em 0em; float: right; margin-right: 5px; text-align: center; text-decoration: none; }
 
-  #downloadButton { position: fixed; top: 4px; right: 0; width: 3em; }
+  #downloadButton { position: fixed; top: 10px; right: 0; width: 3em; padding: 0.3em 0; }
 
   div { margin-top: 0.5em; padding: .3em; color: #888; }
   
@@ -33,7 +33,7 @@
 
     <a href="" onclick="
       event.code='ControlLeft';handleKeyPress(event); event.preventDefault();
-      document.getElementById(currSubIndex).focus();" style="float:left;"> >| </a>
+      document.getElementById(currSubIndex).focus();" style="float:left;width:20%;"> >| </a>
 
     <a href="" onclick="
       event.code='OSRight';handleKeyPress(event); event.preventDefault();
@@ -44,7 +44,7 @@
       document.getElementById(currSubIndex).focus();" style="float:left;"> >> </a>
 
     <a href="" onclick="event.code='Enter'; handleKeyPress(event);
-      "style="margin-right:10px; width:22%;"> Next </a>
+      "style="margin-right:10px;width:20%;"> Next </a>
 
     <a href="" id="playPauseBtn" onclick="
       ap.paused ? ap.play() : ap.pause(); event.preventDefault(); 
