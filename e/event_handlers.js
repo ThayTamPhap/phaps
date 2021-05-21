@@ -77,14 +77,17 @@ async function handleKeyPress(event) {
     case 'Enter':
       event.preventDefault();
       if (cooldown > 0) return;
-      nextSub();
-      cooldown = 3; // 3 seconds
-      let interval = setInterval(()=>(--cooldown==0) && clearInterval(interval), 1000);
+      if (currSubIndex < subsCount-1) { 
+        document.getElementById(++currSubIndex).focus();
+        cooldown = 3; let inter=setInterval(()=>(--cooldown==0) && clearInterval(inter),1000);
+      }
       break;
 
     case 'Tab':
       event.preventDefault();
-      nextSub();
+      if (await isEditedIndex(currSubIndex+1)) { 
+        document.getElementById(++currSubIndex).focus();
+      }
       break;
 
     case 'AltRight':
@@ -115,10 +118,4 @@ async function adjust(x) {
   ap.currentTime = time;
   ap.play();
   blinkCurPos();
-}
-
-async function nextSub() {
-  if (currSubIndex >= subsCount - 1) return;
-  if (currKey != 'Enter' && !await isEditedIndex(currSubIndex+1)) return;
-  document.getElementById(++currSubIndex).focus();
 }
