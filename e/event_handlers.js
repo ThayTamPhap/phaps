@@ -119,6 +119,6 @@ async function adjust(x) {
 
 async function nextSub() {
   if (currSubIndex >= subsCount - 1) return;
-  if (! await isEditedIndex(currSubIndex+1)) return;
+  if (currKey != 'Enter' && !await isEditedIndex(currSubIndex+1)) return;
   document.getElementById(++currSubIndex).focus();
 }
