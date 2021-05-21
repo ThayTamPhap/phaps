@@ -1,4 +1,7 @@
-document.getElementById("downloadButton").addEventListener("click", saveTextGrid);
+document.getElementById("downloadButton").addEventListener("click", function (event) {
+    event.preventDefault();
+    saveTextGrid();
+});
   
 const downloadLink = document.createElement("a");
 document.body.appendChild(downloadLink);
@@ -12,7 +15,6 @@ function textGridInterval(index, xmin, xmax, text) {
 `}
 
 async function saveTextGrid(event) {
-    event.preventDefault();
     await saveAll();
 
     var str = textGridHeader(ap.duration, subsCount);

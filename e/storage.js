@@ -42,6 +42,9 @@ function saveTextIndex(i) {
 }
 
 function saveText(i, value) {
+  value = value.replace(/\s+[,.;:\?|\\`~!“”‘’]/g, x => x.replace(/\s+/g,"")+" ");
+  value = value.replace(/^\s+/,"").replace(/\s+$/,"")
+  value = value.replace(/\s+/g," ")
   save(`text${i}`, value);
 }
 
