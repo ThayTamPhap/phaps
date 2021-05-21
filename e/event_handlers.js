@@ -125,6 +125,6 @@ async function nextSub() {
     currSubIndex++;
     let p = document.getElementById(currSubIndex);
     p.contentEditable = true;
-    p.focus();
+    p.click();
   }
 }
