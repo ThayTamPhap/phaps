@@ -119,8 +119,9 @@ async function adjust(x) {
 async function nextSub() {
   if (currSubIndex >= subsCount - 1) return;
   let nextSubIsEdited = await isEditedIndex(currSubIndex+1);
-  if ( ( nextSubIsEdited && currKey == 'Tab') 
-    || (!nextSubIsEdited && currKey == 'Enter')) {
+  let nextNextSubEdited = currSubIndex >= subsCount - 1 || await isEditedIndex(currSubIndex+2);
+  if ( (currKey == 'Tab' && nextSubIsEdited) 
+    || (currKey == 'Enter' && (!nextSubIsEdited || !nextNextSubEdited)) ) {
     currSubIndex++;
     let p = document.getElementById(currSubIndex);
     p.contentEditable = true;
