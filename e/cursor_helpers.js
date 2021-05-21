@@ -10,7 +10,7 @@ function getCurrPosStr() {
 function resetTextAndPos() {
     // Reset HTML to plain text to select correct cursor position
     var currP = document.getElementById(currSubIndex);
-    var currInnerText = currP.innerText;
+    var currInnerText = normalizeText(currP.innerText);
     currP.innerHTML = currInnerText;
     
     console.log('currInnerText.length', currInnerText.length, 'lastCurrPos', lastCurrPos);

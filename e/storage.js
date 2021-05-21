@@ -38,14 +38,20 @@ async function loadTime(i) {
 }
 
 function saveTextIndex(i) {
-  saveText(i, document.getElementById(i).innerText);
+  var p = document.getElementById(i)
+  var txt = normalizeText(p.innerText);
+  p.innerHTML = txt;
+  saveText(i, txt);
+}
+
+function normalizeText(value) {
+  value = value.replace(/\s+[,.;:\?|\\`~!“”‘’]/g, x => x.replace(/\s+/g,"")+" ");
+  value = value.replace(/^\s+/,"").replace(/\s+$/,"")
+  return value.replace(/\s+/g," ")
 }
 
 function saveText(i, value) {
-  value = value.replace(/\s+[,.;:\?|\\`~!“”‘’]/g, x => x.replace(/\s+/g,"")+" ");
-  value = value.replace(/^\s+/,"").replace(/\s+$/,"")
-  value = value.replace(/\s+/g," ")
-  save(`text${i}`, value);
+  save(`text${i}`, normalizeText(value));
 }
 
 async function loadText(i) {
