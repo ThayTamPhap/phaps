@@ -106,8 +106,7 @@ async function genSubs() {
     p = document.createElement('p');
     p.innerHTML = spellSpecialWords(await loadText(i));
     p.id = i;
-    p.contentEditable = "true";
-    if (await isEditedIndex(i) || i == 0) {
+    if (await isEditedIndex(i) || i <= 1) {
       p.contentEditable = "true";
       p.className = 'edited';
     }

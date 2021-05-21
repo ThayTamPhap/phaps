@@ -21,7 +21,7 @@ async function loadSubsCount() {
 
 async function isEditedIndex(i) {
   let time = await loadTime(i);
-  return !isNaN(time) && (time != 0 || i  == 0);
+  return !isNaN(time) && (time != 0 || i  <= 1);
 }
 
 function saveTime(i, value) {
@@ -38,7 +38,7 @@ async function loadTime(i) {
 }
 
 function saveTextIndex(i) {
-  var p = document.getElementById(i)
+  var p = document.getElementById(i);
   var txt = normalizeText(p.innerText);
   p.innerHTML = txt;
   saveText(i, txt);

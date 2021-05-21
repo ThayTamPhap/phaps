@@ -34,7 +34,7 @@ async function playAndUpdateSub() {
       ap.play();
       blinkCurPos(0);
       if (currSubIndex < subsCount - 1) {
-        // document.getElementById(currSubIndex+1).contentEditable = true;
+        document.getElementById(currSubIndex+1).contentEditable = true;
       }
       break;
 
@@ -119,12 +119,6 @@ async function adjust(x) {
 
 async function nextSub() {
   if (currSubIndex >= subsCount - 1) return;
-  let nextSubIsEdited = await isEditedIndex(currSubIndex+1);
-  if ( (currKey == 'Tab' && nextSubIsEdited) 
-    || currKey == 'Enter') {
-    currSubIndex++;
-    let p = document.getElementById(currSubIndex);
-    // p.contentEditable = true;
-    p.focus();
-  }
+  if (! await isEditedIndex(currSubIndex+1)) return;
+  document.getElementById(++currSubIndex).focus();
 }
