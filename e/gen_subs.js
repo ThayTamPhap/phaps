@@ -119,9 +119,9 @@ async function genSubs() {
 
     if (currSubIndex < 0 && time == 0 && (currSubIndex = i-1) >= 0) {
       focusAndScrollIntoViewSubIndex(currSubIndex);
-      console.log('currSubIndex', currSubIndex);
+      // console.log('currSubIndex', currSubIndex);
     }
   }
-  document.body.appendChild(document.createElement('br'));
-  document.body.appendChild(document.createElement('br'));
+  document.body.append("<br>");
+  document.body.append("<br>");
 }
