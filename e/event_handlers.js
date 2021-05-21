@@ -21,9 +21,10 @@ async function playSub() {
 // Whenever a sub get focused (click, tab, enter) will call playAndUpdateSub()
 async function playAndUpdateSub() {
   console.log("currSubIndex", currSubIndex);
-  // Save recent's text
+  // Save recent edited text
   if (currSubIndex >  1) saveTextIndex(currSubIndex - 1);
   if (currSubIndex >= 0) saveTextIndex(currSubIndex);
+  if (currSubIndex < subsCount - 1) saveTextIndex(currSubIndex + 1);
 
   switch (currKey) {
     case 'Enter':
