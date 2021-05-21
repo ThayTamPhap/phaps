@@ -40,8 +40,12 @@ async function getCurrDelta(wholeSent = false) {
 
     q = document.getElementById(currSubIndex).innerText;
     currPos = q.length;
-    if (currPos == wholeSentLength) {
-      console.log('wholeSentDelta (cached)', wholeSentDelta);
+    
+    var ratio = currPos / wholeSentLength;
+    if (Math.abs(1 - ratio) < 0.1) { // 10% diff
+      var newEst = ratio*wholeSentDelta;
+      console.log('wholeSentDelta (cached)', wholeSentDelta, 
+        'ratio', ratio, 'newEst', newEst);
       return wholeSentDelta;
     }
     wholeSentLength = currPos;
