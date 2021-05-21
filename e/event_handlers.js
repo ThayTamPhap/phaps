@@ -50,6 +50,7 @@ async function playAndUpdateSub() {
 
 
 document.addEventListener("keydown", handleKeyPress);
+var cooldown = 0;
 async function handleKeyPress(event) {
   currKey = event.code;
   if (currKey == 'MetaRight') currKey = 'OSRight';
@@ -71,7 +72,10 @@ async function handleKeyPress(event) {
 
     case 'Enter':
       event.preventDefault();
+      if (cooldown > 0) return;
       nextSub();
+      cooldown = 3; // 3 seconds
+      let interval = setInterval(()=>(--cooldown==0) && clearInterval(interval), 1000);
       break;
 
     case 'Tab':
