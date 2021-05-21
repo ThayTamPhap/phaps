@@ -2,7 +2,7 @@
 async function playSub() {
   var index = parseInt(this.id);
   // Click on not edited sub have no effect
-  // , only Enter / Next can change sub's timing and make it edited 
+  // , only enter can change sub's timing and make it edited 
   if (!(await isEditedIndex(index))) return;
 
   if (currSubIndex != index) {
@@ -32,9 +32,9 @@ async function playAndUpdateSub() {
       saveTime(currSubIndex, ap.currentTime);
       maxPlayTime = ap.currentTime + await getCurrDelta('Whole sentence');
       ap.play();
-      // blinkCurPos(0);
+      blinkCurPos(0);
       if (currSubIndex < subsCount - 1) {
-        document.getElementById(currSubIndex+1).contentEditable = true;
+        // document.getElementById(currSubIndex+1).contentEditable = true;
       }
       break;
 
@@ -124,7 +124,7 @@ async function nextSub() {
     || currKey == 'Enter') {
     currSubIndex++;
     let p = document.getElementById(currSubIndex);
-    p.contentEditable = true;
+    // p.contentEditable = true;
     p.focus();
   }
 }
