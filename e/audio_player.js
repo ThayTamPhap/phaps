@@ -15,7 +15,7 @@ async function playCurrSubIndex(delta = 0) {
   if (isNaN(time)) return;
   if (time != 0 || currSubIndex == 0) {
     ap.currentTime = time + delta;
-    maxPlayTime = time + await getCurrDelta('Whole sentence') + delta / 3;
+    maxPlayTime = time + await getCurrDelta('Whole sentence');
     ap.play();
   }  
 }

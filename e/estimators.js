@@ -30,10 +30,29 @@ function adjustDeltas(x) {
   adjustedDeltas = adjustedDeltas.slice(0, currPos + 1);
 }
 
+
+var wholeSentLength = -1; wholeSentDelta = 0;
 async function getCurrDelta(wholeSent = false) {
-  var q = !wholeSent ? getCurrPosStr() : document.getElementById(currSubIndex).innerText;
+  
+  var q, currPos;
+
+  if (wholeSent) {
+
+    q = document.getElementById(currSubIndex).innerText;
+    currPos = q.length;
+    if (currPos == wholeSentLength) {
+      console.log('wholeSentDelta (cached)', wholeSentDelta);
+      return wholeSentDelta;
+    }
+    wholeSentLength = currPos;
+
+  } else {
+
+    q = getCurrPosStr();
+    currPos = q.length;
+  }
+
   q = q.toLocaleLowerCase();
-  var currPos = q.length;
   var words = q.split(notWordRegex);
   
   var wordsCount = words.length - 2;
@@ -64,11 +83,13 @@ async function getCurrDelta(wholeSent = false) {
     }
   };
 
-  if (wholeSent) delta = delta*1.3 + 2; // for gap between 2 sentences
-
-  console.log('currSub:', currSubIndex, ', words.length', words.length, 'delta1', delta1, 
-    'wordsCount', wordsCount, 'delta2', delta2, 'currPos', currPos, 'adjustedDeltas.length', 
-    adjustedDeltas.length, 'wholeSent', wholeSent, 'delta', delta);
+  if (wholeSent) {
+    delta = delta*1.3 + 3; // buffer more to ensure to reach next sent
+    wholeSentDelta = delta;
+    console.log(wholeSent, words.length, delta1, delta2, delta);
+  } else console.log('currSub:', currSubIndex, ', words.length', words.length, 
+    'delta1', delta1, 'wordsCount', wordsCount, 'delta2', delta2, 'currPos', currPos, 
+    'adjustedDeltas.length', adjustedDeltas.length, 'delta', delta);
 
   return delta < 0 ? 0 : delta;
 }

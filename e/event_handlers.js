@@ -36,6 +36,9 @@ async function playAndUpdateSub() {
     case 'Tab':
       await playCurrSubIndex();
       blinkCurPos(0);
+      maxPlayTime = currSubIndex >= subsCount ? 
+        qp.duration : 
+        await loadTime(currSubIndex+1);
       break;
 
     default:
