@@ -45,7 +45,7 @@ function saveTextIndex(i) {
 }
 
 function normalizeText(value) {
-  value = value.replace(/\s+[,.;:\?|\\`~!“”‘’]/g, x => x.replace(/\s+/g,"")+" ");
+  value = value.replace(/\s+[,.;:\?\\`~!“”‘’]/g, x => x.replace(/\s+/g,"")+" ");
   value = value.replace(/^\s+/,"").replace(/\s+$/,"")
   return value.replace(/\s+/g," ")
 }
