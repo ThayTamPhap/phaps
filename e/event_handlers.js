@@ -1,6 +1,8 @@
 // Click a sub will call playSub()
 async function playSub() {
   var index = parseInt(this.id);
+  // Click on not edited sub have no effect
+  // , only Enter / Next can change sub's timing and make it edited 
   if (!(await isEditedIndex(index))) return;
 
   if (currSubIndex != index) {
@@ -19,6 +21,7 @@ async function playSub() {
 // Whenever a sub get focused (click, tab, enter) will call playAndUpdateSub()
 async function playAndUpdateSub() {
   console.log("currSubIndex", currSubIndex);
+  // Save recent's text
   if (currSubIndex >  1) saveTextIndex(currSubIndex - 1);
   if (currSubIndex >= 0) saveTextIndex(currSubIndex);
 
@@ -26,14 +29,16 @@ async function playAndUpdateSub() {
     case 'Enter':
       saveCurrSubIndex(currSubIndex);
       saveTime(currSubIndex, ap.currentTime);
+      blinkCurPos(0);
       break;
 
-    case 'Slash':
-      let delta = await getCurrDelta();
-      if (delta == 0 && lastCurrPos < 5) { saveTime(currSubIndex, ap.currentTime); }
+    case 'Tab':
       blinkCurPos(0);
-      break
+      break;
+
+    default:
   }
+
   currKey = null;
 }
 
@@ -46,11 +51,6 @@ async function handleKeyPress(event) {
   // console.log('currKey', currKey);
 
   switch(currKey) {
-    case 'Slash':
-      if (event.key != '/') { return; }
-      event.preventDefault();
-      playAndUpdateSub();
-      break;
 
     case 'ControlLeft':
       await playCurrPos();
@@ -83,6 +83,7 @@ async function handleKeyPress(event) {
       adjust(-1);
       break;
 
+    // Move cursor up, down, left, right will not pause the audio
     case 'ArrowUp':
       break
 
@@ -123,6 +124,6 @@ async function nextSub() {
     currSubIndex++;
     let p = document.getElementById(currSubIndex);
     p.contentEditable = true;
-    p.click();
+    p.focus();
   }
 }
