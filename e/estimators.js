@@ -88,7 +88,7 @@ async function getCurrDelta(wholeSent = false) {
   };
 
   if (wholeSent) {
-    delta = delta*1.3 + 3; // buffer more to ensure to reach next sent
+    delta = delta*1.35 + 3.5; // buffer more to ensure to reach next sent
     wholeSentDelta = delta;
     console.log(wholeSent, words.length, delta1, delta2, delta);
   } else console.log('currSub:', currSubIndex, ', words.length', words.length, 
