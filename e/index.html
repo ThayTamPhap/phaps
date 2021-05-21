@@ -7,11 +7,11 @@
 <style type="text/css">
   body, div, p, a { font-family: Arial, Helvetica, sans-serif; font-size: 18px; }
 
-  .header { position: fixed; left: 0; bottom: 0; width: 100%; background-color: hsla(89, 43%, 51%, 0.5); }
+  .header { position: fixed; left: 0; bottom: 0; width: 100%; background-color: hsla(89, 43%, 51%, 0.5); padding: 0 0 0 .3em; }
 
   .header audio#audioPlayer { width: 0%; float: left; height: 25px; }
 
-  .header a, #currentTime, #downloadButton { width: 14%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.5em 0em; float: right; margin-right: 5px; text-align: center; text-decoration: none; }
+  .header a, #currentTime, #downloadButton { width: 16%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.5em 0em; float: right; margin-right: 5px; text-align: center; text-decoration: none; }
 
   #downloadButton { position: fixed; top: 4px; right: 0; width: 3em; }
 
@@ -44,7 +44,7 @@
       document.getElementById(currSubIndex).focus();" style="float:left;"> >> </a>
 
     <a href="" onclick="event.code='Enter'; handleKeyPress(event);
-      "style="margin-right:15px; width:25%;"> Next </a>
+      "style="margin-right:10px; width:22%;"> Next </a>
 <!-- 
     <a href="" onclick="
       event.code='Slash'; event.key='/'; handleKeyPress(event);
