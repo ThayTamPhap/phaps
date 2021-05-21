@@ -78,7 +78,9 @@ async function handleKeyPress(event) {
       event.preventDefault();
       if (cooldown > 0) return;
       if (currSubIndex < subsCount-1) { 
-        document.getElementById(++currSubIndex).focus();
+        p = document.getElementById(++currSubIndex);
+        p.contentEditable = true;
+        p.focus(); // p.scrollIntoView();
         cooldown = 3; let inter=setInterval(()=>(--cooldown==0) && clearInterval(inter),1000);
       }
       break;

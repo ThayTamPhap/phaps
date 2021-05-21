@@ -28,6 +28,7 @@ function adjustDeltas(x) {
   var ad = adjustedDeltas[currPos];
   adjustedDeltas[currPos] = (ad == undefined ? 0 : ad) + x;
   adjustedDeltas = adjustedDeltas.slice(0, currPos + 1);
+  wholeSentLength = -1;
 }
 
 
