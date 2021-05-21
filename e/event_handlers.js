@@ -9,7 +9,7 @@ async function playSub() {
     // First click on sub
     resetAdjustedDeltas();
     saveCurrSubIndex(index);
-    await playSubIndex(currSubIndex);
+    await playCurrSubIndex();
     blinkCurPos(0);
   }  else { 
     // Click on current sub
@@ -33,7 +33,7 @@ async function playAndUpdateSub() {
       break;
 
     case 'Tab':
-      await playSubIndex(currSubIndex);
+      await playCurrSubIndex();
       blinkCurPos(0);
       break;
 

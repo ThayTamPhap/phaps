@@ -30,8 +30,8 @@ function adjustDeltas(x) {
   adjustedDeltas = adjustedDeltas.slice(0, currPos + 1);
 }
 
-async function getCurrDelta() {
-  var q = getCurrPosStr();
+async function getCurrDelta(wholeSent = false) {
+  var q = !wholeSent ? getCurrPosStr() : document.getElementById(currSubIndex).innerText;
   q = q.toLocaleLowerCase();
   var currPos = q.length;
   var words = q.split(notWordRegex);
@@ -64,8 +64,11 @@ async function getCurrDelta() {
     }
   };
 
+  if (wholeSent) delta = delta*1.3 + 2; // for gap between 2 sentences
+
   console.log('currSub:', currSubIndex, ', words.length', words.length, 'delta1', delta1, 
-    'wordsCount', wordsCount, 'delta2', delta2, 'currPos', currPos, 'adjustedDeltas.length', adjustedDeltas.length, 'delta', delta);
+    'wordsCount', wordsCount, 'delta2', delta2, 'currPos', currPos, 'adjustedDeltas.length', 
+    adjustedDeltas.length, 'wholeSent', wholeSent, 'delta', delta);
 
   return delta < 0 ? 0 : delta;
 }
