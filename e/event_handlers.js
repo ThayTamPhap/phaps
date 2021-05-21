@@ -33,6 +33,7 @@ async function playAndUpdateSub() {
       break;
 
     case 'Tab':
+      await playSubIndex(currSubIndex);
       blinkCurPos(0);
       break;
 
