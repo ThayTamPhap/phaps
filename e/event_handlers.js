@@ -26,13 +26,13 @@ async function playAndUpdateSub() {
     case 'Enter':
       saveCurrSubIndex(currSubIndex);
       saveTime(currSubIndex, ap.currentTime);
+      blinkCurPos(0);
       break;
 
     case 'Slash':
       let delta = await getCurrDelta();
-      if (delta == 0 && lastCurrPos < 5) {
-        saveTime(currSubIndex, ap.currentTime);
-      }
+      if (delta == 0 && lastCurrPos < 5) { saveTime(currSubIndex, ap.currentTime); }
+      blinkCurPos(0);
       break
   }
   currKey = null;
