@@ -45,10 +45,15 @@ function saveTextIndex(i) {
 }
 
 function normalizeText(value) {
-  value = value.replace(/\s+[,.;:\?\\`~!“”‘’]/g, x => x.replace(/\s+/g,"")+" ");
-  value = value.replace(/^\s+/,"").replace(/\s+$/,"")
-  return value.replace(/\s+/g," ")
+  value = value.replace("...","…").replace(" \""," “").replace("\" ","”");
+  value = value.replace(/[[{(]\s+/g, x => " "+x.replace(/\s+/g,""));
+  value = value.replace(/\s+[\]})\,\.;:?\!…]/g, x => x.replace(/\s+/g,"")+" ");
+  value = value.replace(/\s+[\]})\,\.;:?\!…]/g, x => x.replace(/\s+/g,"")+" ");
+  value = value.replace(/^\s+/,"").replace(/\s+$/,"");
+  return  value.replace(/\s+/g," ");
 }
+console.assert(normalizeText("  d  . ") === "d.");
+console.assert(normalizeText("  d { d f   fd !}  d ,   f .   ") === "d {d f fd!} d, f.");
 
 function saveText(i, value) {
   save(`text${i}`, normalizeText(value));
