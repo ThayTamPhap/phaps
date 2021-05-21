@@ -119,7 +119,7 @@ async function nextSub() {
   if (currSubIndex >= subsCount - 1) return;
   let nextSubIsEdited = await isEditedIndex(currSubIndex+1);
   if ( (currKey == 'Tab' && nextSubIsEdited) 
-    || (currKey == 'Enter') {
+    || currKey == 'Enter') {
     currSubIndex++;
     let p = document.getElementById(currSubIndex);
     p.contentEditable = true;
