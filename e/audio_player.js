@@ -11,6 +11,7 @@ ap.ontimeupdate = function() {
 
 
 async function playCurrSubIndex(delta = 0) {
+  if (selectedText.length > 0) { ap.pause(); return; }
   var time = await loadTime(currSubIndex);
   if (isNaN(time)) return;
   if (time != 0 || currSubIndex == 0) {

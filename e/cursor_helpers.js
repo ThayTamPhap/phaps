@@ -21,8 +21,19 @@ function resetTextAndPos() {
     sel.collapse(currP.firstChild, lastCurrPos);
 }
 
+var selectedText = "";
 function blinkCurPos(pos) {
-  let sel = window.getSelection();  
+
+  let sel = window.getSelection(); 
+  selectedText = sel.getRangeAt(0).toString();
+
+  console.log('\n\nblinkCurPos():\nselectedText', sel.getRangeAt(0).toString());
+
+  if (selectedText.length > 0) {
+    ap.pause();
+    return;
+  }
+
   var currPos = typeof pos == 'number' ? pos : sel.anchorOffset;
   var currP = document.getElementById(currSubIndex);
   var txt = currP.firstChild.textContent;
@@ -39,6 +50,12 @@ function blinkCurPos(pos) {
 
   let count = 1;
   let interval = window.setInterval(function() {
+    if (selectedText.length > 0) {
+      ap.pause();
+      clearInterval(interval);
+      return;
+    }
+
     if (count % 2 == 0) {
       range.setStart(currP.firstChild, b == 0 ? 0 : b+1);
       range.setEnd(currP.firstChild, e);
