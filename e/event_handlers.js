@@ -29,6 +29,7 @@ async function playAndUpdateSub() {
     case 'Enter':
       saveCurrSubIndex(currSubIndex);
       saveTime(currSubIndex, ap.currentTime);
+      ap.play();
       blinkCurPos(0);
       break;
 
