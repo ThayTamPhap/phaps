@@ -33,6 +33,9 @@ async function playAndUpdateSub() {
       maxPlayTime = ap.currentTime + await getCurrDelta('Whole sentence');
       ap.play();
       blinkCurPos(0);
+      if (currSubIndex < subsCount - 1) {
+        document.getElementById(currSubIndex+1).contentEditable = true;
+      }
       break;
 
     case 'Tab':
