@@ -89,19 +89,6 @@ async function handleKeyPress(event) {
       adjust(-1);
       break;
 
-    // Move cursor up, down, left, right will not pause the audio
-    case 'ArrowUp':
-      break
-
-    case 'ArrowDown':
-      break
-
-    case 'ArrowLeft':
-      break
-
-    case 'ArrowRight':
-      break
-
     default:
       if (await loadTime(currSubIndex) != 0) { ap.pause(); }
   }
