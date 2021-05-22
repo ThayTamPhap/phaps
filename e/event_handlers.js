@@ -31,7 +31,7 @@ async function playAndUpdateSub() {
       saveCurrSubIndex(currSubIndex);
       saveTime(currSubIndex, ap.currentTime);
       maxPlayTime = ap.currentTime + await getCurrDelta('Whole sentence');
-      ap.play();
+      apPlay();
       blinkCurPos(0);
       if (currSubIndex < subsCount - 1) {
         document.getElementById(currSubIndex+1).contentEditable = true;
@@ -89,7 +89,7 @@ async function handleKeyPress(event) {
 
     case 'AltLeft':
       event.preventDefault();
-      if (ap.paused) { ap.currentTime -= 0.8; await ap.play(); } else { ap.pause(); };
+      if (ap.paused) { ap.currentTime -= 0.8; await apPlay(); } else { ap.pause(); };
       break;
 
     case 'Backspace':
@@ -152,7 +152,17 @@ async function handleKeyPress(event) {
       break;
 
     default:
-      if (await loadTime(currSubIndex) != 0 && !ap.paused) ap.pause(); // setTimeout(()=>ap.pause(), 900);
+      if (await loadTime(currSubIndex) != 0 && !ap.paused && !goingToPause) {  
+      ap.pause();
+      return;
+      goingToPause = true;
+      setTimeout(() => {
+        if (goingToPause) {
+          ap.pause();
+          goingToPause = false;
+        }
+      }, 900);
+    }
   }
 }
 
@@ -175,6 +185,6 @@ async function adjust(x) {
     time = normalizeTime(time);
   }  
   ap.currentTime = time;
-  await ap.play();
+  await apPlay();
   blinkCurPos();
 }

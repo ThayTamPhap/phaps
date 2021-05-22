@@ -17,10 +17,14 @@ async function playCurrSubIndex(delta = 0) {
   if (time != 0 || currSubIndex == 0) {
     ap.currentTime = time + delta;
     maxPlayTime = time + await getCurrDelta('Whole sentence');
-    await ap.play();
+    await apPlay();
   }  
 }
 
+async function apPlay() {
+  goingToPause = false;
+  await ap.play();  
+}
 
 async function playCurrPos() {
   playCurrSubIndex(await getCurrDelta());

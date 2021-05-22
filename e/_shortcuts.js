@@ -2,11 +2,11 @@
 \\d+d 	\\d+ ngày
 \\d+h 	\\d+ giờ
 \\d+ng 	\\d+ người
+\\d+o 	\\d+ tuổi
 \\d+p 	\\d+ phút
 \\d+t 	\\d+ tiếng
 \\d+y 	\\d+ năm
 ad 		Ấn Độ
-hn 		Hà Nội
 bg  	bây giờ
 bt 		bình thường
 bv 		bởi vì
@@ -15,6 +15,7 @@ cl 		chất lượng
 cn 		chánh niệm
 cng  	con người
 cnt 	con người ta  
+cs 		cuộc sống
 cta 	chúng ta
 ctt 	chánh tinh tấn
 cvt 	chính vì thế
@@ -33,6 +34,7 @@ h?, 	hiểu không,
 h?. 	hiểu không.
 hk  	hiểu không
 hl 		hoặc là
+hn 		Hà Nội
 k   	không
 kc 		kích cỡ
 kd  	không được
