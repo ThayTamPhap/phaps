@@ -23,12 +23,13 @@ _shortcuts.split("\n").map(x => {
 
 
 function normalizeText(value) {
+  value = value.replace("...","…").replace(" \""," “").replace("\" ","”");
+  value = value.replace(/[ ]/," ")
+
   value = convertShortcuts(value);
   value = spellSpecialWords(value);
 
-  value = value.replace("...","…").replace(" \""," “").replace("\" ","”");
   value = value.replace(/[[{(]\s+/g, x => " "+x.replace(/\s+/g,""));
-
   // ("  d { d f   fd !}  d ,   f .  H? ")==="d {d f fd!} d, f. Hiểu không?"
   value = value.replace(/\s+[\]})\,\.;:?\!…]/g, x => x.replace(/\s+/g,"")+" ");
   value = value.replace(/\s+[\]})\,\.;:?\!…]/g, x => x.replace(/\s+/g,"")+" ");
@@ -128,9 +129,14 @@ function convertShortcuts(txt) {
   return txt = txt.replace(typingShortcutsRegex, x => {
     var splits = x.split(/(\s?)(.+)/);
     // console.log("Found:", x, splits);
-    return splits[1] + splits[2][0] + 
-      typingShortcuts[splits[2].toLowerCase()].substr(1,);
+    let k = splits[2];
+    let v = typingShortcuts[k.toLowerCase()];
+
+    return splits[1] + (k[0]===k[0].toLowerCase() ? v 
+      : v[0].toUpperCase() + v.substr(1,));
   });
 }
+console.assert(convertShortcuts('Bg')==='Bây giờ');
 console.assert(convertShortcuts('bg')==='bây giờ');
+console.assert(convertShortcuts('Vào thờidp cũng ')==='Đức Phật');
 console.assert(convertShortcuts('Bg chúng ta nc về nx cn đang ở đây')==='Bây giờ chúng ta nói chuyện về những con người đang ở đây');
