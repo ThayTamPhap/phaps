@@ -7,10 +7,13 @@
 \\d+t 	\\d+ tiếng
 \\d+y 	\\d+ năm
 ad 		Ấn Độ
-bg  	bây giờ
+bog  	bao giờ
 bt 		bình thường
 bv 		bởi vì
 bvl 	bởi vì là
+byg  	bây giờ
+cd 		cúng dường
+ck 		chánh kiến
 cl 		chất lượng
 cn 		chánh niệm
 cng  	con người
@@ -48,29 +51,44 @@ kth		kích thước
 kti 	kiếm tiền
 ktr		kiểm tra
 lbv 	là bởi vì
+lp 		làm phước
+lpcd 	làm phước cúng dường
 lv 		làm việc
 mng 	mọi người
 nc  	nói chuyện
 ng  	người
 ngt 	người ta
 ngta 	người ta
+nh 		nhưng
 nm 		nhưng mà
 nt 		như thế
 nta 	người ta
+m 		mình
+ntn 	như thế nào
 ntno 	như thế nào
 ntny 	như thế này
+nts 	nên tại sao
 nv 		như vậy
+trc 	trước
 nvl 	như vậy là
-nx  	những
+nx 		những
+pb 		phước báu
+pt 		phát triển
 qd 		quy định
 qtd 	quyết định
+qđ 		quyết định
 rl  	rất là
 rln 	rất là nhiều
 rn 		rất nhiều
+sp 		số phận
 tg  	thời gian
+tn 		thế nào
 tnm 	thế nhưng mà
+ts 		tại sao
 tst 	tính toán
 tt  	tinh tấn
+ttj 	tu tập
+ttp 	tu tập
 vd 		ví dụ
 vdn 	ví dụ như
 vdnl 	ví dụ như là

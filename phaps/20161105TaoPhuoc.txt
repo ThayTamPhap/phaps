@@ -1,0 +1,324 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0
+xmax = 2676.1385
+tiers? <exists>
+size = 1
+item []:
+    item [1]:
+        class = "IntervalTier"
+        name = "segments"
+        xmin = 0
+        xmax = 2676.1385
+        intervals: size = 62
+
+            intervals [1]:
+            xmin = 0
+            xmax = 45.96764899999995
+            text = "Từ năm ngoái đến năm nay mới có 1 lễ dâng y nữa."
+
+            intervals [2]:
+            xmin = 45.96764899999995
+            xmax = 67.345028
+            text = "Đối với các vị sư thì mỗi lễ dâng y sau hạ này là đánh dấu thêm một tuổi hạ. Các vị sư là tính tuổi theo thời gian tu chứ không tính theo cái thời gian bố mẹ sinh ra."
+
+            intervals [3]:
+            xmin = 67.345028
+            xmax = 93.39852300000004
+            text = "Tuổi, tuổi hạ, tuổi tu. Người nào tu lâu hơn thì người ấy lớn hơn. Chứ không tính già hơn là lớn hơn. Vì thế nên là có những vị sư 7 mấy 8 mấy tuổi vẫn còn đảnh lễ mới có 2 mươi mấy bởi vì tu sau."
+
+            intervals [4]:
+            xmin = 93.39852300000004
+            xmax = 130.575205
+            text = "Đức Phật quy định như thế là bởi vì có lí do. Vào thời Đức Phật cũng nhiều, nhiều người ở gia đình xong mới đi tu. Thế thì nhiều người cứ cậy mình lớn tuổi, tu sau thế nhưng mà vào thì cứ thích là chỉ đạo những người khác."
+
+            intervals [5]:
+            xmin = 130.575205
+            xmax = 152.59708899999998
+            text = "Chính vì thế nên là Đức Phật mới quy định là cái thứ tự của chư tăng là dựa vào cái số năm tu hành, cái tuổi hạ chứ không phải là tuổi ngoài đời. Mỗi một mùa hạ, thế là sau một mùa ba tháng an cư kiết hạ là tính là thêm 1 tuổi."
+
+            intervals [6]:
+            xmin = 152.59708899999998
+            xmax = 185.784497
+            text = "Bởi vì cái 3 tháng ấy ở bên Ấn Độ ấy là 3 cái tháng từ tháng 6 đến tháng 9 thì mưa rất là nhiều, mưa suốt ngày. Trời mưa như thế thì chư Tăng không thể nào mà đi lại được. Đi lại thì dẫm vào các con vật nó ra rất là nhiều, chết rất là nhiều. Thứ 2 là lầy lội, ẩm ướt, đi ra nó rất là khó. Chính vì thế Đức Phật mới nói rằng là 3 tháng mùa mưa là chư tăng là ở một chỗ."
+
+            intervals [7]:
+            xmin = 185.784497
+            xmax = 208.718764
+            text = "Ở yên một chỗ.\ Tu ở một nơi đó thôi. Sau khi hết 3 tháng mùa mưa thì mới đi chỗ khác, hoặc là đi du hành. Thế nên 3 tháng đó thì được gọi là 1 hạ. Thì hạ năm nay đến hạ sang năm là tròn 1 năm. Thì tức là tròn thêm 1 cái tuổi hạ nữa."
+
+            intervals [8]:
+            xmin = 208.718764
+            xmax = 223.8901
+            text = "Cư sỹ thì không tính tuổi hạ như thế. Cư sỹ có người tu 5 mười năm nhưng mà chẳng bằng 1 người mới tu có mấy tháng cả. Do mức độ tinh tấn khác nhau."
+
+            intervals [9]:
+            xmin = 223.8901
+            xmax = 249.022979
+            text = "Khi nhuộm một tấm vải ấy là cái thời gian nhuộm càng lâu thì, nước càng nóng thì cái tấm vải nó càng ăn màu nhiều hơn. Tu cũng như thế, thời gian tu càng lâu, tu càng tinh tấn thì cái chất tu nó càng đậm hơn. Nên cái thời gian tu nó rất là quan trọng."
+
+            intervals [10]:
+            xmin = 249.022979
+            xmax = 281.00384600000007
+            text = "Giống như cái tấm vải nó ngấm màu ấy, tu phải có thời gian chứ không phải là, các cái vấn đề khác cũng, nó nó vẫn cần phải có 1 thời gian. Thì thời gian đây không phải như chúng ta là năm, ví dụ như thế này. 1 người tinh tấn và tu tập tốt ấy thì một ngày của họ có thể giá trị bằng 5 ngày, 10 ngày của (người bình) người tu không tinh tấn."
+
+            intervals [11]:
+            xmin = 281.00384600000007
+            xmax = 323.106353
+            text = "Chánh niệm cũng như thế, tính thời gian như vậy. Ví dụ như là, trong vòng 1 tiếng đồng hồ là mình chánh niệm được |sáu mươi|60| lần, mỗi phút mình chánh niệm 1 lần, tính là |sáu mươi|60| lần. Thì có người khác thì trong vòng 1 tiếng chỉ chánh niệm được 5 lần thôi, mỗi 5 lần nhớ ra chánh niệm. Như vậy là cái thời gian của cái người |sáu mươi|60| lần kia người ấy sẽ, người ta sẽ hơn, hơn cái người mà, mà chánh niệm 5 lần trong 1 tiếng là, thời gian là gấp |mười hai|12| lần. Gấp |mười hai|12| lần."
+
+            intervals [12]:
+            xmin = 323.106353
+            xmax = 328.98761800000005
+            text = "Do vậy là cái thời gian sống, tức là thời gian tu của người ta sẽ gấp |mười hai|12| lần cái người mà chánh niệm chỉ có 5 lần 1 tiếng."
+
+            intervals [13]:
+            xmin = 328.98761800000005
+            xmax = 342.077087
+            text = "Như vậy là 1 năm cái người tu tích cực kia có thể bằng là bao nhiêu, bằng |mười hai|12| năm của cái người tu bình thường."
+
+            intervals [14]:
+            xmin = 342.077087
+            xmax = 354.916021
+            text = "Do vậy chất lượng là nó phụ thuộc vào cái, cái độ miên mật, độ liên tục hay không."
+
+            intervals [15]:
+            xmin = 354.916021
+            xmax = 356.317551
+            text = "Tâm chúng ta cũng thế."
+
+            intervals [16]:
+            xmin = 356.317551
+            xmax = 360.480603
+            text = "Chất lượng tâm của chúng ta là phụ thuộc vào chất lượng của chánh niệm."
+
+            intervals [17]:
+            xmin = 360.480603
+            xmax = 375.9733890000001
+            text = "Thông thường thì chúng ta không tận dụng hết cái thời gian mà phước báu nó cho mình sống trên cuộc đời. Ví dụ mình sống |sáu mươi|60| năm, thế nhưng mà trong đó |hai mươi|20| năm mình ngủ rồi. |hai mươi|20| năm mình ngủ.\"
+
+            intervals [18]:
+            xmin = 375.9733890000001
+            xmax = 391.80070300000006
+            text = "Ngoài số thời gian còn lại thì 1 phần lớn thời gian mình dùng để đi làm việc kiếm tiền. 1 phần không nhỏ thời gian khác nữa dùng để ăn uống, tắm rửa."
+
+            intervals [19]:
+            xmin = 391.80070300000006
+            xmax = 396.82594400000005
+            text = "Quanh đi quẩn lại nếu mà chia nhỏ cái thời gian thì mình thấy có rất là ít."
+
+            intervals [20]:
+            xmin = 396.82594400000005
+            xmax = 410.707101
+            text = "Thế sống bằng cách nào? Thời gian ngủ là không tính rồi. Thời gian ngủ thì là ai cũng mất rồi tất nhiên là người có tu tập có chánh niệm thì người ta ngủ ít, hơn cái thời gian sống người ta được nhiều hơn cái người mà suốt ngày ngủ li bì."
+
+            intervals [21]:
+            xmin = 410.707101
+            xmax = 417.749848
+            text = "1 người mà chánh niệm tốt 1 người mà tâm tỉnh táo thì có thể 1 đêm người ta chỉ cần 4 tiếng, 5 tiếng thôi."
+
+            intervals [22]:
+            xmin = 417.749848
+            xmax = 420.552682
+            text = "Còn 1 người bình thường như chúng ta thì cần 8 tiếng."
+
+            intervals [23]:
+            xmin = 420.552682
+            xmax = 427.89628
+            text = "Như vậy là, là bình thường nếu mà có chánh niệm chúng ta chỉ ngủ 10, 10 năm trong cuộc đời."
+
+            intervals [24]:
+            xmin = 427.89628
+            xmax = 431.984457
+            text = "Người bình thường ngủ |hai mươi|20| năm, như vậy là mình có thêm 10 năm sống."
+
+            intervals [25]:
+            xmin = 431.984457
+            xmax = 445.50739300000004
+            text = "Thế khi mà không có chánh niệm tức là không có chánh niệm tức là không biết mình, không tỉnh thức thì là chúng ta ngồi đây nhưng mà tâm chúng ta chạy đi tận đâu đâu ấy, về tận Hà Nội hoặc đi đâu đấy."
+
+            intervals [26]:
+            xmin = 445.50739300000004
+            xmax = 450.478573
+            text = "Thế là chúng ta quên mất mình đang ngồi đây. Đang đi xe máy mà quên mất mình đi xe máy."
+
+            intervals [27]:
+            xmin = 450.478573
+            xmax = 457.062951
+            text = "Thì cái thời gian đó không tính là thời gian sống, thời gian đó chỉ là thời gian tồn tại thôi."
+
+            intervals [28]:
+            xmin = 457.062951
+            xmax = 462.346135
+            text = "Không tính là thời gian sống. Bởi mình có thực sự biết mình đang sống đâu."
+
+            intervals [29]:
+            xmin = 462.346135
+            xmax = 471.721803
+            text = "Mình sống như một cái máy thôi, giống như một con rô bốt làm việc ấy, nó chỉ là 1 cái máy làm việc còn tâm nó không ở đây. Tức là tâm nó không biết cái thân mình."
+
+            intervals [30]:
+            xmin = 471.721803
+            xmax = 492.097759
+            text = "Tâm nó không biết thân mình.\\ Như vậy cái thời gian đó cũng không tính là thời gian sống. Như vậy chỉ khi nào là mình ý thức về bản thân mình, mình biết mình đang sống, mình biết mình đang làm, đang nói, ý thức được bản thân mình, trọn vẹn như thế thì đó là thời gian sống."
+
+            intervals [31]:
+            xmin = 492.097759
+            xmax = 500.310646
+            text = "|sáu mươi|60| năm trừ đi |hai mươi|20| năm ngủ, |bốn mươi|40| năm, |bốn mươi|40| năm còn lại thời gian sống tính bao nhiêu?"
+
+            intervals [32]:
+            xmin = 500.310646
+            xmax = 511.77671
+            text = "Rất là ít, nếu mà không tu tập thời gian sống của chúng ta cực kỳ ít. Có khi chỉ 1 vài năm thôi. Nhớ chưa? Chất lượng cuộc sống của chúng ta rất là thấp."
+
+            intervals [33]:
+            xmin = 511.77671
+            xmax = 526.920018
+            text = "Ai cũng muốn sống lâu, lúc nằm trên giường bệnh thì chả ai muốn chết cả. Thế nhưng mà trong khi chúng ta đang sống nguây nguẩy ở đây thì chúng ta lại, lại dành rất nhiều thời gian để mà chết. Hoàn toàn không sống."
+
+            intervals [34]:
+            xmin = 526.920018
+            xmax = 533.680427
+            text = "Do vậy nên là thay vì chúng ta cố gắng sống đến hơn |một trăm|100| tuổi thì chúng ta chánh niệm nhiều hơn."
+
+            intervals [35]:
+            xmin = 533.680427
+            xmax = 544.785371
+            text = "Chúng ta tận dụng cái thời gian mình được sống nhiều hơn. Thì như vậy là chúng ta có thể sống được đến, cái thời gian của chúng ta có thể tính được như là 1 người sống đến |ba trăm|300| tuổi."
+
+            intervals [36]:
+            xmin = 544.785371
+            xmax = 546.641035
+            text = "Và khi chúng ta có chánh niệm chất lượng cuộc sống của chúng ta nó nâng cao rất là nhiều."
+
+            intervals [37]:
+            xmin = 546.641035
+            xmax = 571.442497
+            text = "Trước có 1 bài pháp Thầy nói ấy, khi chúng ta có chánh niệm, thì chúng ta, tầm mức tâm linh của chúng ta cao hơn. Cuộc sống của chúng ta cao hơn. Giống như chúng ta bước vào cái thế giới thượng lưu. Khi chúng ta không có chánh niệm thì chúng ta cư xử theo bản năng."
+
+            intervals [38]:
+            xmin = 571.442497
+            xmax = 589.810348
+            text = "Do vậy nên cuộc sống của chúng ta gần với con vật hơn, bản năng hơn. Và như vậy là trong 1 vài năm sống đó thì lại phần lớn thời gian đó lại thuộc về cái cuộc sống của con vật chứ không phải cuộc sống của con người."
+
+            intervals [39]:
+            xmin = 589.810348
+            xmax = 618.382988
+            text = "Khi nào chúng ta bản năng tức là chúng ta sống cùng với con vật rồi. Con vật bản năng rất là mạnh, đấy là cái đặc điểm của cái thế giới loài vật. Con người là những người có khả năng suy nghĩ ra quyết định và lựa chọn thiện và ác. Do vậy là trong 1 số năm ngắn ngủi còn lại đó thì 1 phần không nhỏ trong đó là chúng ta sống cuộc sống của con vật và chỉ 1 phần rất nhỏ trong đó chúng ta thực sự sống cái cuộc sống của con người."
+
+            intervals [40]:
+            xmin = 618.382988
+            xmax = 639.730936
+            text = "Thực sự sống cuộc sống của 1 người thượng lưu. Còn đâu là chúng ta thiên về cuộc sống hạ lưu. Do vậy nên tu tập là vô cùng quan trọng. Tu tập chánh niệm nó làm cho mình tận dụng cuộc sống của mình, chúng ta, cuộc sống của chúng ta chất lượng cao hơn."
+
+            intervals [41]:
+            xmin = 639.730936
+            xmax = 657.939038
+            text = "Chúng ta phát triển hơn về mặt tâm linh. Chúng ta tận dụng được cuộc sống 1 cách đầy đủ. Chúng ta là 1 cuộc sống thượng lưu, cuộc sống của 1 con người thực sự, chứ không phải là cuộc sống của nửa người nửa vật như chúng ta bình thường không có chánh niệm chúng ta vẫn sống."
+
+            intervals [42]:
+            xmin = 657.939038
+            xmax = 670.778452
+            text = "Chúng ta mới biết rằng khi mà 1 con vật biến thành 1 con người thì phước báu nó lớn thế nào."
+
+            intervals [43]:
+            xmin = 670.778452
+            xmax = 682.851532
+            text = "Phước báu rất là lớn, đúng không? Thì mới từ 1 con vật biến thành 1 con người được. Chánh niệm làm cho chúng ta thoát khỏi cái cư xử bản năng tức là thoát khỏi cái cư xử hành vi của con vật."
+
+            intervals [44]:
+            xmin = 682.851532
+            xmax = 692.792864
+            text = "Và chúng ta biến thành hành vi của con người. Thế nên tại sao tu tập chánh niệm, tu tập chánh kiến nó là cái phước báu lớn nhất."
+
+            intervals [45]:
+            xmin = 692.792864
+            xmax = 702.514678
+            text = "1 cái phước báu đủ khiến cho chúng ta ngay trong kiếp sống hiện tại này thoát khỏi cái số phận của con vật, và trở thành cuộc sống của con người."
+
+            intervals [46]:
+            xmin = 702.514678
+            xmax = 713.125699
+            text = "Cái phước báu nó rất là lớn.// 1 năm có 1 ngày trong lễ dâng y chúng ta đến chúng ta dâng cúng chúng ta làm phước, cúng dường."
+
+            intervals [47]:
+            xmin = 713.125699
+            xmax = 721.743383
+            text = "Thì cái phước báu cúng dường đó cũng chưa biết bao giờ nó mới trổ, có thể đến tận kiếp sau nó mới trổ, có thể tới tận kiếp sau nó mới trổ."
+
+            intervals [48]:
+            xmin = 721.743383
+            xmax = 736.542853
+            text = "Mà ngay cả cái phước đó cũng không đảm bảo là mình sẽ được làm người. Có rất nhiều người có phước nhưng mà do, cũng làm phước rất nhiều, nhưng mà do tâm bất thiện, khi chết đi thì sinh ra làm con vật."
+
+            intervals [49]:
+            xmin = 736.542853
+            xmax = 751.526461
+            text = "Nên là có những con chó ở phương tây ấy là nó được thừa kế hàng mấy triệu đô la. Nó có bác sĩ riêng, nó được ăn uống rất là ngon lành. Nó thậm chí còn có nhiều tiền hơn cả con người chúng ta.//"
+
+            intervals [50]:
+            xmin = 751.526461
+            xmax = 759.893626
+            text = "Bởi vì con chó ấy có phước, thế nhưng mà nó vẫn là con chó nó không thể là con người được."
+
+            intervals [51]:
+            xmin = 759.893626
+            xmax = 778.073563
+            text = "Chúng ta làm phước thật là nhiều mà tâm chúng ta không có tu thì cái phước đó có thể là trổ ra cho chúng ta được khoẻ mạnh, được hưởng thụ nhiều, thế nhưng mà nó không đảm bảo cho chúng ta là sẽ trở thành 1 con người hoặc là cao hơn con người nữa."
+
+            intervals [52]:
+            xmin = 778.073563
+            xmax = 787.767666
+            text = "Bây giờ có ai đánh đổi không, dù mình đang rất nghèo rất khổ nhưng mà có ai đánh đổi cái nghèo cái khổ đó để trở thành 1 con chó mà được ăn ngon mặc đẹp không?"
+
+            intervals [53]:
+            xmin = 787.767666
+            xmax = 796.579719
+            text = "Chắc chắn là không ai đánh đổi đúng không. Cũng như thế thôi, nếu mà không khác gì bảo chúng ta đánh đổi tu để chỉ đi làm phước."
+
+            intervals [54]:
+            xmin = 796.579719
+            xmax = 806.986942
+            text = "Chỉ đi làm phước không tu thì chúng ta cũng y hệt là chúng ta chỉ tìm kiếm cái việc ăn ngon mặc đẹp, mà không tìm kiếm cái cuộc sống của con người."
+
+            intervals [55]:
+            xmin = 806.986942
+            xmax = 816.400019
+            text = "Cuộc sống của thế giới thượng lưu và thậm chí còn cao hơn cả con người.//"
+
+            intervals [56]:
+            xmin = 816.400019
+            xmax = 827.135489
+            text = "Trong tất cả các loại phước báu thì phước báu tu tập là phước báu lớn nhất."
+
+            intervals [57]:
+            xmin = 827.135489
+            xmax = 843.276907
+            text = "Tu tập nghĩa là gì? Tu tập nghĩa là chúng ta tránh điều ác làm điều thiện. Để cho tâm chúng ta ngày càng trí tuệ hơn ngày càng thiện lành hơn. Ngày càng thoát ra khỏi đau khổ hơn. Đó là tu tập.//"
+
+            intervals [58]:
+            xmin = 843.276907
+            xmax = 854.088612
+            text = "Muốn tránh điều ác làm điều thiện thì trước hết là chúng ta phải biết mình đang làm điều thiện hay ác. Chúng ta phải biết mình đang làm gì. Cái khả năng biết mình đang làm gì đó gọi là chánh niệm."
+
+            intervals [59]:
+            xmin = 854.088612
+            xmax = 866.741201
+            text = "Đó là, trước khi chúng ta sửa mình thì ít nhất chúng ta phải biết mình đang làm gì. Và điều thứ 2 chúng ta biết rằng cái việc mình đang làm nó là thiện hay là ác."
+
+            intervals [60]:
+            xmin = 866.741201
+            xmax = 868.507576
+            text = "Nó làm cho mình khổ hay làm cho mình vui."
+
+            intervals [61]:
+            xmin = 868.507576
+            xmax = 908.982934
+            text = "Do vậy chánh niệm vô cùng quan trọng. Và nó cho chúng ta biết mình đang làm gì. Mà chúng ta biết được cái điều này là thiện hay ác."
+
+            intervals [62]:
+            xmin = 908.982934
+            xmax = 2676.1385
+            text = ""

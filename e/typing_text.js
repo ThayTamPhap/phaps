@@ -148,7 +148,7 @@ function convertShortcuts(txt) {
       : v[0].toUpperCase() + v.substr(1,));
   });
 }
-console.assert(convertShortcuts('Bg')==='Bây giờ');
-console.assert(convertShortcuts('bg')==='bây giờ');
+console.assert(convertShortcuts('Byg')==='Bây giờ');
+console.assert(convertShortcuts('byg')==='bây giờ');
 console.assert(convertShortcuts('323d')==='323 ngày');
-console.assert(convertShortcuts('Bg chúng ta nc về nx cng đang ở đây')==='Bây giờ chúng ta nói chuyện về những con người đang ở đây');
+console.assert(convertShortcuts('Byg chúng ta nc về nx cng đang ở đây')==='Bây giờ chúng ta nói chuyện về những con người đang ở đây');
