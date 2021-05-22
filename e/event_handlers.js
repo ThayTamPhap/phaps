@@ -86,7 +86,7 @@ async function handleKeyPress(event) {
   currKey = event.code;
   let logStr = `keydown: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
 
-  console.log(logStr);
+  // console.log(logStr);
   // alert(logStr);
 
   // key mapping for different systems
