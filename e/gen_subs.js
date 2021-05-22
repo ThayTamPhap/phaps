@@ -1,4 +1,4 @@
-loadSubsCount().then(function () {
+loadSubsCount().then(async function () {
 
   if (!isNaN(subsCount) && subsCount > 0 && !expanding) {
     console.log("Use cached data to gen subs");
@@ -8,6 +8,9 @@ loadSubsCount().then(function () {
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
+      if (this.status == 404) {
+        if (!textGridLoaded) loadTextGrid();
+      } else
       if (this.readyState == 4 && this.status == 200) {
         txt = this.responseText;
         initSubs(txt).then(genSubs);
@@ -17,6 +20,39 @@ loadSubsCount().then(function () {
     xmlhttp.send();
   }
 });
+
+var textGridLoaded = false;
+function loadTextGrid() {
+  textGridLoaded = true;
+  
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      txt = this.responseText;
+      initTextGrid(txt);
+      genSubs();
+    }
+  };
+  xmlhttp.open("GET", `/${phapname}.txt`, true);
+  xmlhttp.send();
+}
+
+function initTextGrid(txt) {
+  txt = txt.split("intervals: size = ")[1];
+  let intervals = txt.split(/intervals.+?:/);
+  intervals = intervals.slice(1,);
+
+  var time, text;
+  intervals.forEach((inter, i) => {
+    time = inter.match(/xmin = ([\d\.]+)/)[1]
+    text = inter.match(/text = "(.*)"/)[1]
+
+    saveTime(i, time);
+    saveText(i, text);
+
+  });
+  saveSubsCount(intervals.length);
+}
 
 async function initSubs(txt) {
   var sents = [], sent;
@@ -117,7 +153,8 @@ async function genSubs() {
     div.appendChild(p);
     document.body.appendChild(div);
 
-    if (currSubIndex < 0 && time == 0 && (currSubIndex = i-1) >= 0) {
+    if (currSubIndex < 0 && time == 0 && i-1 >= 0) {
+      currSubIndex = i - 1;
       focusAndScrollIntoViewSubIndex(currSubIndex);
       // console.log('currSubIndex', currSubIndex);
     }
