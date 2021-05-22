@@ -16,6 +16,9 @@ _shortcuts.split("\n").map(x => {
   let splits = x.split(/^(\S+)\s+/);
   // console.log(splits);
   if (splits.length < 2) return "-=-=-"; // any nonsense string
+  if (typingShortcuts[splits[1]]) {
+    console.log("WARNING", splits[1], "shortcut is duplicated.");
+  }
   typingShortcuts[splits[1]] = splits[2];
   return splits[1].replace("?", "\\?").replace(".", "\\.");
 
@@ -138,5 +141,4 @@ function convertShortcuts(txt) {
 }
 console.assert(convertShortcuts('Bg')==='Bây giờ');
 console.assert(convertShortcuts('bg')==='bây giờ');
-console.assert(convertShortcuts('Vào thờidp cũng ')==='Đức Phật');
 console.assert(convertShortcuts('Bg chúng ta nc về nx cn đang ở đây')==='Bây giờ chúng ta nói chuyện về những con người đang ở đây');

@@ -130,7 +130,7 @@ async function handleKeyPress(event) {
       break;
 
     default:
-      if (await loadTime(currSubIndex) != 0) setTimeout(()=>ap.pause(), 100);
+      if (await loadTime(currSubIndex) != 0) setTimeout(()=>ap.pause(), 390);
   }
 }
 

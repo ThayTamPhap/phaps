@@ -10,10 +10,14 @@ function getCurrPosStr() {
 function resetTextAndPos() {
     // Reset HTML to plain text to select correct cursor position
     var currP = document.getElementById(currSubIndex);
+    let isEndOfSent = currP.innerText.length <= lastCurrPos;
+    
     var currInnerText = normalizeText(currP.innerText);
     currP.innerHTML = currInnerText;
     
-    console.log('currInnerText.length', currInnerText.length, 'lastCurrPos', lastCurrPos);
+    let n = currInnerText.length;
+    console.log('currInnerText.length', n, 'lastCurrPos', lastCurrPos);
+    if (isEndOfSent || lastCurrPos > n) lastCurrPos = n;
     
     var sel = window.getSelection();
     /* https://javascript.info/selection-range#selecting-the-text-partially */
