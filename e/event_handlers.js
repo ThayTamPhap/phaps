@@ -74,14 +74,41 @@ async function handleKeyPress(event) {
       if (ap.paused) { ap.currentTime -= 0.8; ap.play(); } else { ap.pause(); };
       break;
 
+    case 'Backspace':
+      if (currSubIndex > 0 && currSubIndex == subsCount - 1 
+        && document.getElementById(currSubIndex).innerText=="") {
+        document.body.removeChild(document.getElementById(currSubIndex).parentNode);
+        document.getElementById(--currSubIndex).focus();
+        saveSubsCount(--subsCount);
+      }
+      break;
+
     case 'Enter':
       event.preventDefault();
       if (cooldown > 0) return;
+
       if (currSubIndex < subsCount-1) { 
-        p = document.getElementById(++currSubIndex);
+
+        let p = document.getElementById(++currSubIndex);
         p.contentEditable = true;
         p.focus(); // p.scrollIntoView();
-        cooldown = 3; let inter=setInterval(()=>(--cooldown==0) && clearInterval(inter),1000);
+        // cooldown=2; let inter=setInterval(()=>(--cooldown==0) && clearInterval(inter),1000);
+
+      } else {
+
+        let div = document.createElement('div');
+        let p = document.createElement('p');
+        div.innerHTML = `<i>[${++currSubIndex}] ${secondsToTime(0)}</i>`;
+        p.id = currSubIndex;
+        p.contentEditable = "true";
+        p.className = 'edited';
+        p.addEventListener("click", playSub);
+        p.addEventListener("focus", playAndUpdateSub);
+        p.addEventListener("blur", saveCurrentText);
+        div.appendChild(p);
+        document.body.appendChild(div);
+        p.focus();
+        saveSubsCount(++subsCount);
       }
       break;
 
@@ -103,7 +130,7 @@ async function handleKeyPress(event) {
       break;
 
     default:
-      if (await loadTime(currSubIndex) != 0) { ap.pause(); }
+      if (await loadTime(currSubIndex) != 0) setTimeout(()=>ap.pause(), 100);
   }
 }
 

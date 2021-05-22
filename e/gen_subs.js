@@ -122,6 +122,4 @@ async function genSubs() {
       // console.log('currSubIndex', currSubIndex);
     }
   }
-  document.body.append("<br>");
-  document.body.append("<br>");
 }
