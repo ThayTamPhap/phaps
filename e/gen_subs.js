@@ -29,15 +29,14 @@ function loadTextGrid() {
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       txt = this.responseText;
-      initTextGrid(txt);
-      genSubs();
+      initTextGrid(txt).then(genSubs);
     }
   };
   xmlhttp.open("GET", `/${phapname}.txt`, true);
   xmlhttp.send();
 }
 
-function initTextGrid(txt) {
+async function initTextGrid(txt) {
   txt = txt.split("intervals: size = ")[1];
   let intervals = txt.split(/intervals.+?:/);
   intervals = intervals.slice(1,);
@@ -47,11 +46,11 @@ function initTextGrid(txt) {
     time = inter.match(/xmin = ([\d\.]+)/)[1]
     text = inter.match(/text = "(.*)"/)[1]
 
-    saveTime(i, time);
-    saveText(i, text);
+    await saveTime(i, time);
+    await saveText(i, text);
 
   });
-  saveSubsCount(intervals.length);
+  await saveSubsCount(intervals.length);
 }
 
 async function initSubs(txt) {
@@ -119,11 +118,11 @@ async function initSubs(txt) {
 
   splits.push("./.");
   for (i = 0; i < splits.length; i++) {
-    saveTime(n, 0);
-    saveText(n, splits[i]);
+    await saveTime(n, 0);
+    await saveText(n, splits[i]);
     n++;
   }
-  saveSubsCount(n);
+  await saveSubsCount(n);
 }
 
 function focusAndScrollIntoViewSubIndex(index) {
