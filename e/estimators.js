@@ -19,16 +19,13 @@ async function estimateSecondsPerWord(index) {
 const notWordRegex = /[\s\,\.\<\>\;\:\/\?\|\\\[\]\{\}\`\~\!\@\#\$\%\^\&\*\(\)\_\+\-\=“”…‘’]+/gm;
 var adjustedDeltas = [];
 
-function resetAdjustedDeltas() {
-  adjustedDeltas = [];
-}
-
 function adjustDeltas(x) {
   var currPos = getCurrPosStr().length;
   var ad = adjustedDeltas[currPos];
   adjustedDeltas[currPos] = (ad == undefined ? 0 : ad) + x;
   adjustedDeltas = adjustedDeltas.slice(0, currPos + 1);
-  wholeSentLength = -1;
+  wholeSentLength = -1; // reset to re-estimate wholeSentLength
+  saveCurrAdjustedDeltas();
 }
 
 
@@ -39,10 +36,10 @@ async function getCurrDelta(wholeSent = false) {
 
   if (wholeSent) {
 
+    if (currSubIndex == subsCount - 1) return 180;
     q = document.getElementById(currSubIndex).innerText;
     currPos = q.length;
-
-    if (currPos < 10) return 60;
+    if (currPos < 10) return 90;
     
     var ratio = currPos / wholeSentLength;
     if (Math.abs(1 - ratio) < 0.1) { // 10% diff

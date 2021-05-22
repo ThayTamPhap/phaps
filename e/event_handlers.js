@@ -7,8 +7,8 @@ async function playSub() {
 
   if (currSubIndex != index) {
     // First click on sub
-    resetAdjustedDeltas();
     saveCurrSubIndex(index);
+    loadCurrAdjustedDeltas();
     await playCurrSubIndex();
     blinkCurPos(0);
   }  else { 

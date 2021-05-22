@@ -44,17 +44,6 @@ function saveTextIndex(i) {
   saveText(i, txt);
 }
 
-function normalizeText(value) {
-  value = value.replace("...","…").replace(" \""," “").replace("\" ","”");
-  value = value.replace(/[[{(]\s+/g, x => " "+x.replace(/\s+/g,""));
-  value = value.replace(/\s+[\]})\,\.;:?\!…]/g, x => x.replace(/\s+/g,"")+" ");
-  value = value.replace(/\s+[\]})\,\.;:?\!…]/g, x => x.replace(/\s+/g,"")+" ");
-  value = value.replace(/^\s+/,"").replace(/\s+$/,"");
-  return  value.replace(/\s+/g," ");
-}
-console.assert(normalizeText("  d  . ") === "d.");
-console.assert(normalizeText("  d { d f   fd !}  d ,   f .   ") === "d {d f fd!} d, f.");
-
 function saveText(i, value) {
   save(`text${i}`, normalizeText(value));
 }
@@ -73,6 +62,18 @@ function saveCurrentText() {
   saveTextIndex(parseInt(this.id));
 }
 
-function saveCurrSubIndex(index) {
-  save('currSubIndex', currSubIndex = index);
+function saveCurrSubIndex(i) {
+  save('currSubIndex', currSubIndex = i);
+}
+
+function saveCurrAdjustedDeltas() {
+  let txt = adjustedDeltas.join(',');
+  save(`adjustedDeltas${currSubIndex}`, txt);
+  return txt;
+}
+
+async function loadCurrAdjustedDeltas() {
+  let txt = await load(`adjustedDeltas${currSubIndex}`);
+  if (txt === null) return adjustedDeltas = [];
+  return adjustedDeltas = txt.split(',').map(x => x === "" ? 0 : parseFloat(x));
 }
