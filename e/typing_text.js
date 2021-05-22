@@ -33,8 +33,8 @@ function normalizeText(value) {
   value = value.replace(/\s+[\]})\,\.;:?\!…]/g, x => x.replace(/\s+/g,"")+" ");
   value = value.replace(/\s+[\]})\,\.;:?\!…]/g, x => x.replace(/\s+/g,"")+" ");
 
-  // ".  hom nay" => ". Hom nay"
-  value = value.replace(/[.?!]\s+\S/g, x => 
+  // "g g.  hom nay") === "G g. Hom nay"
+  value = value.replace(/(^|[.?!])\s*\S/g, x => 
       x.substr(0,x.length-1)+x[x.length-1].toUpperCase());
 
   // Strip begin, and end spacings and strim in-between spacings
@@ -43,10 +43,10 @@ function normalizeText(value) {
 
   return value;
 }
-console.assert(normalizeText("x .  x , x : x ] x } x )  x  …  x !  x ?  ") === "x. X, x: x] x} x) x… x! X?");
-console.assert(normalizeText(".  hom nay")===". Hom nay");
-console.assert(normalizeText("  d  . ")==="d.");
-console.assert(normalizeText("  d { d f   fd !}  d ,   f .  H? ")==="d {d f fd!} d, f. Hiểu không?");
+console.assert(normalizeText("x .  x , x : x ] x } x )  x  …  x !  x ?  ") === "X. X, x: x] x} x) x… x! X?");
+console.assert(normalizeText("g g.  hom nay") === "G g. Hom nay");
+console.assert(normalizeText("  d  . ")==="D.");
+console.assert(normalizeText("  d { d f   fd !}  d ,   f .  H? ")==="D {d f fd!} d, f. Hiểu không?");
 
 
 function spellSpecialWords(txt) {
