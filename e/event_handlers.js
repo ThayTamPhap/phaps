@@ -55,39 +55,53 @@ async function playAndUpdateSub() {
 
 document.addEventListener("keyup", handleKeyUp);
 
-async function handleKeyUp(event) {
+async function handleKeyUp(event, blinkCurPos) {
   currKey = event.code;
   switch(currKey) {
     case 'Space':
       let currPos = window.getSelection().anchorOffset;
       let n = document.getElementById(currSubIndex).innerText.replace("\s+$","").length;
       console.log("Space keyup:", 'currPos', currPos, 'n', n);
+
       if ( currPos >= n-1) {
         lastCurrPos = 999999;
         resetTextAndPos(" ");
       }
+
       await playCurrPos();
+      if ( blinkCurPos ) { blinkCurPos(); }
       break;
 
     default:
   }
 }
 
+// Android's keyCode: enter = 13; others are all 229
 document.addEventListener("keydown", handleKeyPress);
 var cooldown = 0;
+
 async function handleKeyPress(event) {
   currKey = event.code;
+  let logStr = `keydown: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
+
+  console.log(logStr);
+  // alert(logStr);
+
+  // key mapping for different systems
   if (currKey == 'MetaRight') currKey = 'OSRight';
-  console.log(`keydown: key='${event.key}' | code='${event.code}'`);
-  // console.log('currKey', currKey);
+  if (currKey == '' && (event.key == 'Backspace' || event.keyCode == 8)) currKey = 'Backspace';
+  if (currKey == '' && (event.key == 'Enter' || event.keyCode == 13)) {
+    event.code = 'Space';
+    handleKeyUp(event, "blinkCurPos");
+    return;
+  }
 
   switch(currKey) {
 
     case 'ControlLeft':
       event.preventDefault();
-      document.getElementById(currSubIndex).focus();
-      lastCurrPos = 999999;
-      resetTextAndPos();
+      p = document.getElementById(currSubIndex); p.focus();
+      window.getSelection().collapse(p.firstChild, lastCurrPos);
       await playCurrPos();
       blinkCurPos();
       break;
