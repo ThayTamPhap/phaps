@@ -145,11 +145,13 @@ async function handleKeyPress(event) {
 
     case 'AltRight':
       event.preventDefault();
+      document.getElementById(currSubIndex).focus();
       adjust(+1);
       break;
 
     case 'OSRight':
       event.preventDefault();
+      document.getElementById(currSubIndex).focus();
       adjust(-1);
       break;
 
