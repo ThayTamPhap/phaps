@@ -1,6 +1,5 @@
-`brew install sox opus-tools mp3splt`
-
 # MP3 to Opus (optimized for speech)
+`brew install sox opus-tools mp3splt`
 `sox speech.mp3 -t s16 --rate 32000 -c 1 - | opusenc --downmix-mono --bitrate 12 --raw-rate 32000 --raw-bits 16 --raw-chan 1 - speech.opus`
 
 
