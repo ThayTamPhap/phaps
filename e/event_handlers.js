@@ -69,7 +69,9 @@ async function handleKeyUp(event, blink) {
       }
 
       await playCurrPos();
-      if ( blink ) { blinkCurPos(); }
+      if (event.key == 'Enter' || event.keyCode == 13) { 
+        blinkCurPos(); 
+      }
       break;
 
     default:
@@ -93,7 +95,7 @@ async function handleKeyPress(event) {
   if (currKey == '' && (event.key == 'Enter' || event.keyCode == 13)) {
     event.preventDefault();
     event.code = 'Space';
-    handleKeyUp(event, "blinkCurPos");
+    handleKeyUp(event);
     return;
   }
 
