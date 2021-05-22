@@ -1,4 +1,5 @@
 _shortcuts = `
+ad 	Ấn Độ
 bg  bây giờ
 bv 	bởi vì
 bvl bởi vì là
@@ -15,6 +16,9 @@ dg  đúng
 dk  điều kiện
 dp  Đức Phật
 h?  hiểu không?
+rn 	rất nhiều
+rln rất là nhiều
+rl  rất là
 h?, hiểu không,
 h?. hiểu không.
 k   không

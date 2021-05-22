@@ -69,9 +69,15 @@ async function handleKeyPress(event) {
       blinkCurPos();
       break;
 
+    case 'Slash':
+      lastCurrPos = 999999;
+      resetTextAndPos();
+      ap.currentTime -= 0.8; await ap.play();
+      break;
+
     case 'AltLeft':
       event.preventDefault();
-      if (ap.paused) { ap.currentTime -= 0.8; ap.play(); } else { ap.pause(); };
+      if (ap.paused) { ap.currentTime -= 0.8; await ap.play(); } else { ap.pause(); };
       break;
 
     case 'Backspace':
@@ -153,6 +159,6 @@ async function adjust(x) {
     time = normalizeTime(time);
   }  
   ap.currentTime = time;
-  ap.play();
+  await ap.play();
   blinkCurPos();
 }
