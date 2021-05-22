@@ -133,6 +133,7 @@ async function handleKeyPress(event) {
         p.contentEditable = true;
         p.focus(); // p.scrollIntoView();
         saveCurrSubIndex(currSubIndex);
+        lastCurrPos = 0;
         cooldown=2; let inter=setInterval(()=>(--cooldown==0) && clearInterval(inter),1000);
 
       } else {
