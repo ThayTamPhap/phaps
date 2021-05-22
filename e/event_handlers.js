@@ -91,6 +91,7 @@ async function handleKeyPress(event) {
   if (currKey == 'MetaRight') currKey = 'OSRight';
   if (currKey == '' && (event.key == 'Backspace' || event.keyCode == 8)) currKey = 'Backspace';
   if (currKey == '' && (event.key == 'Enter' || event.keyCode == 13)) {
+    event.preventDefault();
     event.code = 'Space';
     handleKeyUp(event, "blinkCurPos");
     return;
