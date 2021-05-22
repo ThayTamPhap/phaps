@@ -134,15 +134,23 @@ async function handleKeyPress(event) {
   }
 }
 
+function normalizeTime(time) {
+  if (time > ap.duration) return ap.duration;
+  if (time < 0) return 0;
+  return time;
+}
+
 async function adjust(x) {
   let delta = await getCurrDelta();
   var time = await loadTime(currSubIndex) + delta;
   if (delta == 0 && lastCurrPos < 5) {
     time += 0.15 * x;
+    time = normalizeTime(time);
     saveTime(currSubIndex, time);
   } else {
     adjustDeltas(1.5 * x);
     time += 1.5 * x;
+    time = normalizeTime(time);
   }  
   ap.currentTime = time;
   ap.play();

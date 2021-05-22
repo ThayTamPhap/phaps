@@ -41,6 +41,8 @@ async function getCurrDelta(wholeSent = false) {
 
     q = document.getElementById(currSubIndex).innerText;
     currPos = q.length;
+
+    if (currPos < 10) return 60;
     
     var ratio = currPos / wholeSentLength;
     if (Math.abs(1 - ratio) < 0.1) { // 10% diff

@@ -28,7 +28,7 @@ function saveTime(i, value) {
   save(`time${i}`, value);
   var el = document.getElementById(i);
   if (el) {
-    el.previousSibling.innerHTML = `${i}: ${secondsToTime(value)}`;
+    el.previousSibling.innerHTML = `[${i}] ${secondsToTime(value)}`;
     el.className = 'edited';
   }
 }
