@@ -24,7 +24,7 @@ loadSubsCount().then(async function () {
 var textGridLoaded = false;
 function loadTextGrid() {
   textGridLoaded = true;
-  
+  console.log("Load TextGrid ...")
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
