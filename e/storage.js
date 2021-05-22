@@ -6,8 +6,8 @@ async function load(key) {
   return await localforage.getItem(finalKey(key));
 }
 
-function save(key, value) {
-  localforage.setItem(finalKey(key), value);
+async function save(key, value) {
+  await localforage.setItem(finalKey(key), value);
 }
 
 function saveSubsCount(value) {
@@ -24,8 +24,8 @@ async function isEditedIndex(i) {
   return !isNaN(time) && (time != 0 || i  <= 1);
 }
 
-function saveTime(i, value) {
-  save(`time${i}`, value);
+async function saveTime(i, value) {
+  await save(`time${i}`, value);
   var el = document.getElementById(i);
   if (el) {
     el.previousSibling.innerHTML = `[${i}] ${secondsToTime(value)}`;
@@ -44,8 +44,8 @@ function saveTextIndex(i) {
   saveText(i, txt);
 }
 
-function saveText(i, value) {
-  save(`text${i}`, normalizeText(value));
+async function saveText(i, value) {
+  await save(`text${i}`, normalizeText(value));
 }
 
 async function loadText(i) {

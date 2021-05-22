@@ -42,14 +42,14 @@ async function initTextGrid(txt) {
   intervals = intervals.slice(1,);
 
   var time, text;
-  intervals.forEach((inter, i) => {
+  for (var inter, i = 0; i < intervals.length; i++) {
+    inter = intervals[i];
     time = inter.match(/xmin = ([\d\.]+)/)[1]
     text = inter.match(/text = "(.*)"/)[1]
 
     await saveTime(i, time);
     await saveText(i, text);
-
-  });
+  }
   await saveSubsCount(intervals.length);
 }
 
