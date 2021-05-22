@@ -55,7 +55,7 @@ async function playAndUpdateSub() {
 
 document.addEventListener("keyup", handleKeyUp);
 
-async function handleKeyUp(event, blinkCurPos) {
+async function handleKeyUp(event, blink) {
   currKey = event.code;
   switch(currKey) {
     case 'Space':
@@ -69,7 +69,7 @@ async function handleKeyUp(event, blinkCurPos) {
       }
 
       await playCurrPos();
-      if ( blinkCurPos ) { blinkCurPos(); }
+      if ( blink ) { blinkCurPos(); }
       break;
 
     default:
