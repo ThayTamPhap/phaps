@@ -53,12 +53,30 @@ async function playAndUpdateSub() {
 }
 
 
+document.addEventListener("keyup", async function (event) {
+  currKey = event.code;
+  switch(currKey) {
+    case 'Space':
+      let currPos = window.getSelection().anchorOffset;
+      let n = document.getElementById(currSubIndex).innerText.replace("\s+$","").length;
+      console.log("Space keyup:", 'currPos', currPos, 'n', n);
+      if ( currPos >= n-1) {
+        lastCurrPos = 999999;
+        resetTextAndPos(" ");
+      }
+      await playCurrPos();
+      break;
+
+    default:
+  }
+});
+
 document.addEventListener("keydown", handleKeyPress);
 var cooldown = 0;
 async function handleKeyPress(event) {
   currKey = event.code;
   if (currKey == 'MetaRight') currKey = 'OSRight';
-  console.log(`KeyboardEvent: key='${event.key}' | code='${event.code}'`);
+  console.log(`keydown: key='${event.key}' | code='${event.code}'`);
   // console.log('currKey', currKey);
 
   switch(currKey) {
@@ -67,13 +85,6 @@ async function handleKeyPress(event) {
       await playCurrPos();
       resetTextAndPos();
       blinkCurPos();
-      break;
-
-    case 'Slash':
-      event.preventDefault();
-      lastCurrPos = 999999;
-      resetTextAndPos();
-      ap.currentTime -= 0.8; await ap.play();
       break;
 
     case 'AltLeft':
@@ -137,8 +148,11 @@ async function handleKeyPress(event) {
       adjust(-1);
       break;
 
+    case 'Space':
+      break;
+
     default:
-      if (await loadTime(currSubIndex) != 0 && !ap.paused) setTimeout(()=>ap.pause(), 500);
+      if (await loadTime(currSubIndex) != 0 && !ap.paused) ap.pause(); // setTimeout(()=>ap.pause(), 900);
   }
 }
 

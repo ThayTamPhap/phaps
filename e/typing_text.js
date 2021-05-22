@@ -13,14 +13,18 @@ var typingShortcuts = {};
 const typingShortcutsRegex = new RegExp('(^|\\s)(?:' + 
 _shortcuts.split("\n").map(x => {
 
-  let splits = x.split(/^(\S+)\s+/);
-  // console.log(splits);
+  let splits = x.split(/^(\S+)\s+/); // console.log(splits);
   if (splits.length < 2) return "-=-=-"; // any nonsense string
-  if (typingShortcuts[splits[1]]) {
-    console.log("WARNING", splits[1], "shortcut is duplicated.");
+
+  let k = splits[1];
+  let v = splits[2];
+  
+  if (typingShortcuts[k]) { 
+    console.log("\n\n!!! WARNING", k, "shortcut is duplicated.\n\n"); 
   }
-  typingShortcuts[splits[1]] = splits[2];
-  return splits[1].replace("?", "\\?").replace(".", "\\.");
+
+  typingShortcuts[k] = v;  
+  return k.replace("?", "\\?").replace(".", "\\.");
 
 }).slice(1,).join("|")+')(?=[\\s!?.,;:|\\]})]|$)', 'gi'); 
 
@@ -132,8 +136,13 @@ function convertShortcuts(txt) {
   return txt = txt.replace(typingShortcutsRegex, x => {
     var splits = x.split(/(\s?)(.+)/);
     // console.log("Found:", x, splits);
-    let k = splits[2];
+    let k = splits[2], md;
     let v = typingShortcuts[k.toLowerCase()];
+    if (md = k.match(/(^\d+)/)) { 
+      k = k.replace(/^\d+/, "\\d+");
+      v = typingShortcuts[k].replace("\\d+", md[1]);
+    }
+    // console.log(k, '=>', v); // k: 323d
 
     return splits[1] + (k[0]===k[0].toLowerCase() ? v 
       : v[0].toUpperCase() + v.substr(1,));
@@ -141,4 +150,5 @@ function convertShortcuts(txt) {
 }
 console.assert(convertShortcuts('Bg')==='Bây giờ');
 console.assert(convertShortcuts('bg')==='bây giờ');
-console.assert(convertShortcuts('Bg chúng ta nc về nx cn đang ở đây')==='Bây giờ chúng ta nói chuyện về những con người đang ở đây');
+console.assert(convertShortcuts('323d')==='323 ngày');
+console.assert(convertShortcuts('Bg chúng ta nc về nx cng đang ở đây')==='Bây giờ chúng ta nói chuyện về những con người đang ở đây');

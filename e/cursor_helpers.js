@@ -7,13 +7,13 @@ function getCurrPosStr() {
   return currInnerText.substr(0, lastCurrPos);
 }
 
-function resetTextAndPos() {
+function resetTextAndPos(suffix="") {
     // Reset HTML to plain text to select correct cursor position
     var currP = document.getElementById(currSubIndex);
     let isEndOfSent = currP.innerText.length <= lastCurrPos;
     
-    var currInnerText = normalizeText(currP.innerText);
-    currP.innerHTML = currInnerText;
+    var currInnerText = normalizeText(currP.innerText)+suffix;
+    currP.innerHTML = currInnerText + (suffix == " " ? "&nbsp;" : suffix);
     
     let n = currInnerText.length;
     console.log('currInnerText.length', n, 'lastCurrPos', lastCurrPos);

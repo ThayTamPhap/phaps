@@ -122,4 +122,7 @@ async function genSubs() {
       // console.log('currSubIndex', currSubIndex);
     }
   }
+  if (currSubIndex < 0) {
+    focusAndScrollIntoViewSubIndex(currSubIndex = subsCount-1);
+  }
 }
