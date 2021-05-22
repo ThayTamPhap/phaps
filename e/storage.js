@@ -39,7 +39,7 @@ async function loadTime(i) {
 
 function saveTextIndex(i) {
   var p = document.getElementById(i);
-  var txt = normalizeText(p.innerText);
+  var txt = p.innerText;
   p.innerHTML = txt;
   saveText(i, txt);
 }
