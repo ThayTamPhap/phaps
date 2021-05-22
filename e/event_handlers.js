@@ -145,13 +145,15 @@ async function handleKeyPress(event) {
 
     case 'AltRight':
       event.preventDefault();
-      document.getElementById(currSubIndex).focus();
+      p = document.getElementById(currSubIndex); p.focus();
+      window.getSelection().collapse(p.firstChild, lastCurrPos);
       adjust(+1);
       break;
 
     case 'OSRight':
       event.preventDefault();
-      document.getElementById(currSubIndex).focus();
+      p = document.getElementById(currSubIndex); p.focus();
+      window.getSelection().collapse(p.firstChild, lastCurrPos);
       adjust(-1);
       break;
 
