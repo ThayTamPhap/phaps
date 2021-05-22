@@ -16,6 +16,7 @@ cd 		cúng dường
 ck 		chánh kiến
 cl 		chất lượng
 cn 		chánh niệm
+blm 	ba-la-mật
 cng  	con người
 cnt 	con người ta  
 cs 		cuộc sống

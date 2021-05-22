@@ -181,14 +181,6 @@ async function handleKeyPress(event) {
     default:
       if (await loadTime(currSubIndex) != 0 && !ap.paused && !goingToPause) {  
       ap.pause();
-      return;
-      goingToPause = true;
-      setTimeout(() => {
-        if (goingToPause) {
-          ap.pause();
-          goingToPause = false;
-        }
-      }, 900);
     }
   }
 }
