@@ -41,8 +41,8 @@ function normalizeText(value) {
   value = value.replace(/\s+[\]})\,\.;:?\!…]/g, x => x.replace(/\s+/g,"")+" ");
   value = value.replace(/\s+[\]})\,\.;:?\!…]/g, x => x.replace(/\s+/g,"")+" ");
 
-  // "g g.  hom nay") === "G g. Hom nay"
-  value = value.replace(/(^|[.?!])\s*\S/g, x => 
+  // "g g.  hom \nay") === "G g. Hom \Nay"
+  value = value.replace(/(^|[.?!\\])\s*\S/g, x => 
       x.substr(0,x.length-1)+x[x.length-1].toUpperCase());
 
   // Strip begin, and end spacings and strim in-between spacings
