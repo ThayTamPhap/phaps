@@ -70,6 +70,7 @@ async function handleKeyPress(event) {
       break;
 
     case 'Slash':
+      event.preventDefault();
       lastCurrPos = 999999;
       resetTextAndPos();
       ap.currentTime -= 0.8; await ap.play();
@@ -98,7 +99,8 @@ async function handleKeyPress(event) {
         let p = document.getElementById(++currSubIndex);
         p.contentEditable = true;
         p.focus(); // p.scrollIntoView();
-        // cooldown=2; let inter=setInterval(()=>(--cooldown==0) && clearInterval(inter),1000);
+        saveCurrSubIndex(currSubIndex);
+        cooldown=2; let inter=setInterval(()=>(--cooldown==0) && clearInterval(inter),1000);
 
       } else {
 

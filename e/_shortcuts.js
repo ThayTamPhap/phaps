@@ -16,11 +16,10 @@ dg  đúng
 dk  điều kiện
 dp  Đức Phật
 h?  hiểu không?
-rn 	rất nhiều
-rln rất là nhiều
-rl  rất là
 h?, hiểu không,
 h?. hiểu không.
+hk  hiểu không
+hl 	hoặc là
 k   không
 kd  không được
 kdj không được
@@ -38,6 +37,9 @@ ntn như thế nào
 nx  những
 qd 	quy định
 qtd quyết định
+rl  rất là
+rln rất là nhiều
+rn 	rất nhiều
 tg  thời gian
 tnm thế nhưng mà
 tt  tính toán
