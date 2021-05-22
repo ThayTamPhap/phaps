@@ -84,8 +84,11 @@ async function handleKeyPress(event) {
   switch(currKey) {
 
     case 'ControlLeft':
-      await playCurrPos();
+      event.preventDefault();
+      document.getElementById(currSubIndex).focus();
+      lastCurrPos = 999999;
       resetTextAndPos();
+      await playCurrPos();
       blinkCurPos();
       break;
 

@@ -32,23 +32,22 @@
     <audio controls id="audioPlayer"></audio>
 
     <a href="" onclick="
-      event.preventDefault();event.code='Space';handleKeyUp(event);
+      event.preventDefault();event.code='ControlLeft';handleKeyPress(event);
       document.getElementById(currSubIndex).focus();" style="float:left;width:20%;"> >| </a>
 
     <a href="" onclick="
-      event.preventDefault();event.code='OSRight';handleKeyPress(event);
+      event.code='OSRight';handleKeyPress(event); event.preventDefault();
       document.getElementById(currSubIndex).focus();" style="float:left;"> << </a>
 
     <a href="" onclick="
-      event.preventDefault();event.code='AltRight';handleKeyPress(event);
+      event.code='AltRight';handleKeyPress(event); event.preventDefault();
       document.getElementById(currSubIndex).focus();" style="float:left;"> >> </a>
 
-    <a href="" onclick="
-      event.preventDefault();event.code='Enter';handleKeyPress(event);
+    <a href="" onclick="event.code='Enter'; handleKeyPress(event); event.preventDefault();
       "style="margin-right:10px;width:20%;"> Next </a>
 
     <a href="" id="playPauseBtn" onclick="
-      event.preventDefault(); ap.paused ? apPlay() : ap.pause(); 
+      ap.paused ? apPlay() : ap.pause(); event.preventDefault(); 
       document.getElementById(currSubIndex).focus();"> > </a>
   </div>
 
