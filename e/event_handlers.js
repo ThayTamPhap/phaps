@@ -53,7 +53,9 @@ async function playAndUpdateSub() {
 }
 
 
-document.addEventListener("keyup", async function (event) {
+document.addEventListener("keyup", handleKeyUp);
+
+async function handleKeyUp(event) {
   currKey = event.code;
   switch(currKey) {
     case 'Space':
@@ -69,7 +71,7 @@ document.addEventListener("keyup", async function (event) {
 
     default:
   }
-});
+}
 
 document.addEventListener("keydown", handleKeyPress);
 var cooldown = 0;
