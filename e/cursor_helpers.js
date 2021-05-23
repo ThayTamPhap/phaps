@@ -17,17 +17,21 @@ function resetTextAndPos() {
     let isEndOfSent = currInnerText.length <= lastCurrPos;
     
     let normText = normalizeText(currInnerText.substr(0, lastCurrPos));
-    currInnerText = normText + currInnerText.substr(lastCurrPos,);
-    currP.innerHTML = currInnerText;
-    
     lastCurrPos = normText.length;
-    let n = currInnerText.length;
-    console.log('currInnerText.length', n, 'lastCurrPos', lastCurrPos);
-    if (isEndOfSent || lastCurrPos > n) lastCurrPos = n;
+
+    currInnerText = normText + currInnerText.substr(lastCurrPos,);
     
+    let n = currInnerText.length;
+    // console.log('currInnerText.length', n, 'lastCurrPos', lastCurrPos);
+    
+    if (currInnerText[n - 1] == " ") {
+     currInnerText = currInnerText.substr(0, n-1) + "&nbsp;";
+    }
+    currP.innerHTML = currInnerText;
+
     /* https://javascript.info/selection-range#selecting-the-text-partially */
     // If node is a text node, then offset must be the position in its text.
-    console.log('currInnerText.length', n, 'lastCurrPos', lastCurrPos);
+    // if (isEndOfSent || lastCurrPos > n) lastCurrPos = n;
     sel.collapse(currP.firstChild, lastCurrPos);
 }
 
