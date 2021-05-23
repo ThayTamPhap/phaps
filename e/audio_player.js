@@ -21,6 +21,8 @@ async function playCurrSubIndex(delta = 0) {
   }  
 }
 
+var goingToPause = false;
+
 async function apPlay() {
   goingToPause = false;
   await ap.play();  
