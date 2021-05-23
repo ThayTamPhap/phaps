@@ -31,7 +31,7 @@ function blinkCurPos(pos) {
   let sel = window.getSelection(); 
   selectedText = sel.getRangeAt(0).toString();
 
-  console.log('\n\nblinkCurPos():\nselectedText', sel.getRangeAt(0).toString());
+  console.log('linkCurPos():\nselectedText', sel.getRangeAt(0).toString());
 
   if (selectedText.length > 0) {
     ap.pause();

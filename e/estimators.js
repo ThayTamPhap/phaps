@@ -10,8 +10,8 @@ async function estimateSecondsPerWord(index) {
 
   x = (e - b) / q.split(/\s+/).length;
   secondsPerWord = (x <= 0.36) ? x : secondsPerWord;
-  console.log('New secondsPerWord:', secondsPerWord);
   secondsPerWord = keepTwoDigitsAfterPeriod(secondsPerWord);
+  console.log('secondsPerWord:', secondsPerWord);
   return secondsPerWord;
 }
 
