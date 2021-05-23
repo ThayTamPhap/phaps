@@ -7,21 +7,27 @@ function getCurrPosStr() {
   return currInnerText.substr(0, lastCurrPos);
 }
 
-function resetTextAndPos(suffix="") {
+function resetTextAndPos() {
     // Reset HTML to plain text to select correct cursor position
+    var sel = window.getSelection();
     var currP = document.getElementById(currSubIndex);
-    let isEndOfSent = currP.innerText.length <= lastCurrPos;
+    var currInnerText = currP.innerText;
+
+    lastCurrPos = sel.anchorOffset;
+    let isEndOfSent = currInnerText.length <= lastCurrPos;
     
-    var currInnerText = normalizeText(currP.innerText)+suffix;
-    currP.innerHTML = currInnerText + (suffix == " " ? "&nbsp;" : suffix);
+    let normText = normalizeText(currInnerText.substr(0, lastCurrPos));
+    currInnerText = normText + currInnerText.substr(lastCurrPos,);
+    currP.innerHTML = currInnerText;
     
+    lastCurrPos = normText.length;
     let n = currInnerText.length;
     console.log('currInnerText.length', n, 'lastCurrPos', lastCurrPos);
     if (isEndOfSent || lastCurrPos > n) lastCurrPos = n;
     
-    var sel = window.getSelection();
     /* https://javascript.info/selection-range#selecting-the-text-partially */
     // If node is a text node, then offset must be the position in its text.
+    console.log('currInnerText.length', n, 'lastCurrPos', lastCurrPos);
     sel.collapse(currP.firstChild, lastCurrPos);
 }
 
@@ -43,7 +49,7 @@ function blinkCurPos(pos) {
   var currPos = typeof pos == 'number' ? pos : sel.anchorOffset;
   var txt = currP.firstChild ? currP.firstChild.textContent : "";
   var b = currPos, e = currPos+1, n = txt.length;
-  
+
   while (txt[b] != ' ' && b > 0) b--; if (b < 0) b = 0;
   while (txt[e] != ' ' && e < n) e++; if (e > n) e = n;
   

@@ -58,21 +58,9 @@ document.addEventListener("keyup", handleKeyUp);
 async function handleKeyUp(event, blink) {
   lastCurrPos = window.getSelection().anchorOffset;
 
-  switch(event.code) {
-    case 'Space':
-      let n = document.getElementById(currSubIndex).innerText.replace("\s+$","").length;
-      if ( lastCurrPos >= n-1) {
-        lastCurrPos = 999999;
-        resetTextAndPos(" ");
-      }
-
-      await playCurrPos();
-      if (event.key == 'Enter' || event.keyCode == 13) { 
-        blinkCurPos(); 
-      }
-      break;
-
-    default:
+  if (event.code == 'Space') {
+    resetTextAndPos();
+    await playCurrPos();
   }
 }
 
@@ -153,6 +141,7 @@ async function handleKeyPress(event) {
       event.preventDefault();
       p = document.getElementById(currSubIndex); p.focus();
       try { window.getSelection().collapse(p.firstChild, lastCurrPos); } catch { }
+      resetTextAndPos();
       await playCurrPos();
       blinkCurPos();
       break;
