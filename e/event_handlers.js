@@ -101,14 +101,6 @@ async function handleKeyPress(event) {
 
   switch(currKey) {
 
-    case 'ControlLeft':
-      event.preventDefault();
-      p = document.getElementById(currSubIndex); p.focus();
-      window.getSelection().collapse(p.firstChild, lastCurrPos);
-      await playCurrPos();
-      blinkCurPos();
-      break;
-
     case 'AltLeft':
       event.preventDefault();
       if (ap.paused) { ap.currentTime -= 0.8; await apPlay(); } else { ap.pause(); };
@@ -161,17 +153,27 @@ async function handleKeyPress(event) {
       }
       break;
 
+    /* ControlLeft = play, AltRight = forward, OSRight = backward */
+
+    case 'ControlLeft':
+      event.preventDefault();
+      p = document.getElementById(currSubIndex); p.focus();
+      try { window.getSelection().collapse(p.firstChild, lastCurrPos); } catch { }
+      await playCurrPos();
+      blinkCurPos();
+      break;
+
     case 'AltRight':
       event.preventDefault();
       p = document.getElementById(currSubIndex); p.focus();
-      window.getSelection().collapse(p.firstChild, lastCurrPos);
+      try { window.getSelection().collapse(p.firstChild, lastCurrPos); } catch { }
       adjust(+1);
       break;
 
     case 'OSRight':
       event.preventDefault();
       p = document.getElementById(currSubIndex); p.focus();
-      window.getSelection().collapse(p.firstChild, lastCurrPos);
+      try { window.getSelection().collapse(p.firstChild, lastCurrPos); } catch { }
       adjust(-1);
       break;
 
