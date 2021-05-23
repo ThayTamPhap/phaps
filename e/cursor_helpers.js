@@ -40,13 +40,15 @@ function blinkCurPos(pos) {
 
   var currPos = typeof pos == 'number' ? pos : sel.anchorOffset;
   var currP = document.getElementById(currSubIndex);
+  if (!currP.firstChild) { return; }
+
   var txt = currP.firstChild ? currP.firstChild.textContent : "";
   var b = currPos, e = currPos+1, n = txt.length;
   while (txt[b] != ' ' && b > 0) b--; if (b < 0) b = 0;
   while (txt[e] != ' ' && e < n) e++; if (e > n) e = n;
   
 
-  let range = new Range();
+  let range = new Range();  
   range.setStart(currP.firstChild, b == 0 ? 0 : b+1);
   range.setEnd(currP.firstChild, e);
   sel.removeAllRanges();

@@ -11,7 +11,7 @@ async function estimateSecondsPerWord(index) {
   x = (e - b) / q.split(/\s+/).length;
   secondsPerWord = (x <= 0.36) ? x : secondsPerWord;
   console.log('New secondsPerWord:', secondsPerWord);
-
+  secondsPerWord = keepTwoDigitsAfterPeriod(secondsPerWord);
   return secondsPerWord;
 }
 
@@ -87,13 +87,17 @@ async function getCurrDelta(wholeSent = false) {
     }
   };
 
+  delta  = keepTwoDigitsAfterPeriod(delta);
+  delta1 = keepTwoDigitsAfterPeriod(delta1);
+  delta2 = keepTwoDigitsAfterPeriod(delta2);
+
   if (wholeSent) {
-    delta = delta*1.35 + 3.5; // buffer more to ensure to reach next sent
+    delta = keepTwoDigitsAfterPeriod(delta*1.35 + 3.5); // buffer more to ensure to reach next sent
     wholeSentDelta = delta;
     console.log(wholeSent, words.length, delta1, delta2, delta);
-  } else console.log('currSub:', currSubIndex, ', words.length', words.length, 
+  } else console.log('currSub:', currSubIndex, 'words', words.length, 
     'delta1', delta1, 'wordsCount', wordsCount, 'delta2', delta2, 'currPos', currPos, 
-    'adjustedDeltas.length', adjustedDeltas.length, 'delta', delta);
+    'adjustedDeltas', adjustedDeltas.length, 'delta', delta);
 
   return delta < 0 ? 0 : delta;
 }

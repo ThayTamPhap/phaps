@@ -15,6 +15,10 @@ const phapname = location.search.replace("?","").split(".")[0];
 console.log('phapname', phapname);
 
 
+function keepTwoDigitsAfterPeriod(f) {
+  return Math.round(f * 100) / 100;
+}
+
 function twoDigitsFmt(d) {
   return `${d <= 9 ? '0' : ''}${d}`
 }

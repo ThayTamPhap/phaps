@@ -78,17 +78,17 @@ async function handleKeyUp(event, blink) {
   }
 }
 
-// Android's keyCode: enter = 13; others are all 229
+
+// Android's keyCode: enter = 13; backspace = 8; others are all 229
 document.addEventListener("keydown", handleKeyPress);
 var cooldown = 0;
 
 async function handleKeyPress(event) {
-  currKey = event.code;
-  let logStr = `keydown: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
-
+  // let logStr = `keydown: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
   // console.log(logStr);
   // alert(logStr);
 
+  currKey = event.code;
   // key mapping for different systems
   if (currKey == 'MetaRight') currKey = 'OSRight';
   if (currKey == '' && (event.key == 'Backspace' || event.keyCode == 8)) currKey = 'Backspace';
