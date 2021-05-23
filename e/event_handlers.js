@@ -177,9 +177,8 @@ async function handleKeyPress(event) {
       break;
 
     default:
-      if (await loadTime(currSubIndex) != 0 && !ap.paused && !goingToPause) {  
-      ap.pause();
-    }
+      lastCurrPos = window.getSelection().anchorOffset;
+      if (await loadTime(currSubIndex) != 0 && !ap.paused) { ap.pause(); }
   }
 }
 
