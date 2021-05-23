@@ -77,8 +77,18 @@ async function handleKeyPress(event) {
   currKey = event.code;
   // key mapping for different systems
   if (currKey == 'MetaRight') { currKey = 'OSRight'; }
-  if (currKey == '' && (event.key == 'Backspace' || event.keyCode == 8)) { currKey = 'Backspace'; }
-  if (currKey == '' && (event.key == 'Enter' || event.keyCode == 13)) { currKey = 'Enter'; }
+  if (currKey == '' && (event.key == 'Backspace' || event.keyCode == 8)) { 
+    currKey = 'Backspace'; 
+  }
+  
+  // Enter for Android
+  if (currKey == '' && (event.key == 'Enter' || event.keyCode == 13)) { 
+    event.preventDefault();
+    resetTextAndPos(" ");
+    await playCurrPos();
+    // blinkCurPos();
+    return;
+  }
 
 
   switch(currKey) {
