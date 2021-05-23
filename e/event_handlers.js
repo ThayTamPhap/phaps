@@ -56,14 +56,12 @@ async function playAndUpdateSub() {
 document.addEventListener("keyup", handleKeyUp);
 
 async function handleKeyUp(event, blink) {
-  currKey = event.code;
-  switch(currKey) {
-    case 'Space':
-      let currPos = window.getSelection().anchorOffset;
-      let n = document.getElementById(currSubIndex).innerText.replace("\s+$","").length;
-      console.log("Space keyup:", 'currPos', currPos, 'n', n);
+  lastCurrPos = window.getSelection().anchorOffset;
 
-      if ( currPos >= n-1) {
+  switch(event.code) {
+    case 'Space':
+      let n = document.getElementById(currSubIndex).innerText.replace("\s+$","").length;
+      if ( lastCurrPos >= n-1) {
         lastCurrPos = 999999;
         resetTextAndPos(" ");
       }
@@ -177,7 +175,6 @@ async function handleKeyPress(event) {
       break;
 
     default:
-      lastCurrPos = window.getSelection().anchorOffset;
       if (await loadTime(currSubIndex) != 0 && !ap.paused) { ap.pause(); }
   }
 }

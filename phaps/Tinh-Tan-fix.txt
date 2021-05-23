@@ -1,0 +1,134 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0
+xmax = 5312.664
+tiers? <exists>
+size = 1
+item []:
+    item [1]:
+        class = "IntervalTier"
+        name = "segments"
+        xmin = 0
+        xmax = 5312.664
+        intervals: size = 24
+
+            intervals [1]:
+            xmin = 0
+            xmax = 2.92604
+            text = "Ngày hôm nay có tinh tấn được không?"
+
+            intervals [2]:
+            xmin = 2.92604
+            xmax = 17.829426
+            text = "Thế được rồi. Tâm của chúng ta lưu manh lắm. Khi bắt đầu yên ổn một chút là nó nghĩ cách hưởng thụ."
+
+            intervals [3]:
+            xmin = 17.829426
+            xmax = 37.400979
+            text = "Tâm rất là lưu manh nên là phải hết sức cảnh giác. Khi chúng ta mệt mỏi ở ngoài kia, chúng ta chỉ mong được đến, chúng ta được nghỉ ngơi, chúng ta hết mệt mỏi chúng ta được yên bình, chánh niệm, tu tập, gì gì gì gì đó."
+
+            intervals [4]:
+            xmin = 37.400979
+            xmax = 45.480757
+            text = "Thế khi được một chút chút rồi là nó bắt đầu vẽ ra việc, nó không bao giờ chịu ngồi yên đâu."
+
+            intervals [5]:
+            xmin = 45.480757
+            xmax = 60.903602
+            text = "Rất nhiều người ốm đau bệnh tật ấy, coi như là sợ lắm, tuân thủ ăn uống nghiêm ngặt lắm sống sạch sống lành lắm thì khi khỏi bệnh xong lại y hệt như thế, người ta quên ngay lập tức."
+
+            intervals [6]:
+            xmin = 60.903602
+            xmax = 74.393036
+            text = "Con người ta rất là dễ quên, tính dễ duôi là bản chất của tất cả mọi người nằm ở trong tâm của tất cả mọi người. Nên phải hết sức cẩn thận."
+
+            intervals [7]:
+            xmin = 74.393036
+            xmax = 84.535516
+            text = "Phải hết sức cảnh giác với nó. Ba la mật, có một loại ba la mật gọi là tinh tấn ba-la-mật."
+
+            intervals [8]:
+            xmin = 84.535516
+            xmax = 101.335803
+            text = "Ba-la-mật tức là các phẩm chất, các phẩm chất tâm linh cực kỳ cần thiết để giúp cho chúng ta phát triển. Đắc đạo được hay không là phải có đủ ba-la-mật."
+
+            intervals [9]:
+            xmin = 101.335803
+            xmax = 116.104267
+            text = "Một cái xe mà muốn chạy đến đích là phải có đủ xăng. Ba-la-mật nó là những phẩm chất tâm linh. Có 10 loại ba-la-mật [ko nghe rõ] tinh tấn ba la mật."
+
+            intervals [10]:
+            xmin = 116.104267
+            xmax = 126.9868
+            text = "Trong 10 cái loại đức rất quan trọng, cái loại phẩm chất rất quan trọng để quyết định con người ta cái trình độ phát triển tâm linh của người ta đến đâu."
+
+            intervals [11]:
+            xmin = 126.9868
+            xmax = 137.973845
+            text = "Trình độ cao thấp của con người, cái tiềm năng con người này phát triển và có thể đắc đạo được hay không ấy nó có 1 cái đức tính gọi là tinh tấn."
+
+            intervals [12]:
+            xmin = 137.973845
+            xmax = 159.675353
+            text = "Tinh tấn nghĩa là chăm chỉ, chăm chỉ nỗ lực thì gọi là tinh tấn. Cai ba-la-mật ấy mọi người còn thiếu nhiều lắm. Trong cái xã hội ngày nay càng thiếu."
+
+            intervals [13]:
+            xmin = 159.675353
+            xmax = 170.958716
+            text = "Tinh tấn rất là quan trọng và đấy là 1 đức tính mà chúng ta cần phải rèn luyện không phải tự nhiên mà nó có."
+
+            intervals [14]:
+            xmin = 170.958716
+            xmax = 180.426536
+            text = "Nhất là bây giờ cái gì cũng đầy đủ nên là chúng ta rất ít khi sử dụng, rất ít khi phát triển cái đức tính đó."
+
+            intervals [15]:
+            xmin = 180.426536
+            xmax = 189.879831
+            text = "Trẻ con bây giờ nó khác trẻ con ngày xưa lắm. Nó được chiều chuộng đủ mọi thứ, nó không cần phải cố gắng."
+
+            intervals [16]:
+            xmin = 189.879831
+            xmax = 202.241351
+            text = "Thế nên là chúng nó không phát triển được cái đức tính tinh tấn. Chúng ta cũng thế thôi, những cái thế hệ sau này dù sao nó vẫn thuận lợi hơn rất là nhiều."
+
+            intervals [17]:
+            xmin = 202.241351
+            xmax = 207.788288
+            text = "Trẻ con vất vả là vất vả kiểu khác, vất vả là bởi vì bố mẹ ép. Đúng không?"
+
+            intervals [18]:
+            xmin = 207.788288
+            xmax = 222.053683
+            text = "Chúng ta cứ ép nó phải đi, phải đi làm lụng cho nên chúng ta mới ép phải học, chúng ta ép nó làm theo ý mình. À rồi chúng nó buộc phải gồng lên để mà chống cự với sức ép đó, đối phó với nó.\\"
+
+            intervals [19]:
+            xmin = 222.053683
+            xmax = 233.294266
+            text = "Chứ không phải như là trẻ con mà ở những nơi khó khăn hoặc là thời ngày xưa là luôn phải tự lo cho bản thân mình."
+
+            intervals [20]:
+            xmin = 233.294266
+            xmax = 249.416974
+            text = "Trẻ con bây giờ đến tận 10 tuổi hơn 10 tuổi bố mẹ vẫn phải chăm lo cho từng li từng tí. Không biết làm những cái việc mà chăm lo cho bản thân mình, không hề biết. Điều đó rất là nguy hiểm.\\"
+
+            intervals [21]:
+            xmin = 249.416974
+            xmax = 280.180036
+            text = "Việc chăm bẵm quá thì rất trở nên rất là yếu ớt. 1 cái cây chúng ta biết cây giá đỗ (giá đỗ) không? Làm giá đỗ ấy! Cho thật nhiều nước vào, thậm chí cho cả thuốc kích thích vào. Xong rồi đậy kín vào để ra một chỗ tối, mấy ngày nó lên dài ngoằng nhưng mà rất là yếu ớt. Còn, cái giá đỗ ấy vứt ra ngoài không bao giờ sống được."
+
+            intervals [22]:
+            xmin = 280.180036
+            xmax = 291.967577
+            text = "Nó rất là yếu ớt. Hoặc là những cái cây mà trong bóng tối chúng ta thấy nó loằng ngoằng lắm nhưng mà trong nó xanh mướt ra nó rất là yếu, còn mấy cây cỏ dại ngoài kia cứ nhổ nó lại mọc lại."
+
+            intervals [23]:
+            xmin = 291.967577
+            xmax = 304.484743
+            text = "Nó còn sót 1 tí nó cũng mọc lại, chỗ nào nó cũng mọc, ở trong cái kẽ đá nó cũng mọc được. Cái sức sống nó rất là mạnh mẽ bởi vì nó được tôi luyện ở trong khó khăn."
+
+            intervals [24]:
+            xmin = 304.484743
+            xmax = 5312.664
+            text = "Con người mà được chăm bẵm, được nuôi"
