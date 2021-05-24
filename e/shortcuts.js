@@ -7,7 +7,10 @@
 \\d+t 	\\d+ tiếng
 \\d+y 	\\d+ năm
 vn      Việt Nam
+dt      đối tượng
 pv      phục vụ
+trtg    truyền thống
+trth    truyền thừa
 ad 	Ấn Độ
 bog  	bao giờ
 bt 	bình thường
