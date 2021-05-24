@@ -7,6 +7,7 @@
 \\d+p    \\d+ phút
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
+bn    bao nhiêu
 td    thay đổi
 lt    lập tức
 nlt   ngay lậl tức
