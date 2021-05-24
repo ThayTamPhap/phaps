@@ -90,7 +90,9 @@ nvl   như vậy là
 nx    những
 p     Phật
 pb    phước báu
+pc    phước
 ph    Pháp
+pn    phiền não
 pt    phát triển
 pv    phục vụ
 qd    quy định
