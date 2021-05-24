@@ -1,4 +1,7 @@
-https://vietnameseaccent.com/
+## Qwerty keyboard distance to fix mis-typing on mobile virtual keyboard
+
+
+## https://vietnameseaccent.com/
 
 Automatically inserting accent marks for Vietnamese words.
 The free Web interface supports text up to 1000 characters.
@@ -8,6 +11,8 @@ The free Web interface supports text up to 1000 characters.
 "trong cuộc sống chúng ta phải biết trân trọng những điều nhỏ nhặt nhất, có lẽ là không nên làm gi cả""
 
 view-source:https://vietnameseaccent.com/static/diacriticsmarker/insert_diacritics.js
+
+## Replacements
 
 j => gi
 f => ph
