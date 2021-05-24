@@ -79,7 +79,9 @@ function blinkCurPos(pos) {
     return;
   }
 
+  // use lastCurrPos since click on virtual button reset curpos to 0
   var currPos = typeof pos == 'number' ? pos : lastCurrPos;
+
   if (currPos >= currP.innerText) return;
 
   var txt = currP.firstChild ? currP.firstChild.textContent : "";
