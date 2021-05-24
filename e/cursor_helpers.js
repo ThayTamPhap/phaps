@@ -72,14 +72,14 @@ function blinkCurPos(pos) {
   let sel = window.getSelection(); 
   selectedText = sel.getRangeAt(0).toString();
 
-  console.log('linkCurPos():\nselectedText', sel.getRangeAt(0).toString());
+  console.log('linkCurPos():\nselectedText', selectedText);
 
   if (selectedText.length > 0) {
     ap.pause();
     return;
   }
 
-  var currPos = typeof pos == 'number' ? pos : lastCurrPos;
+  var currPos = typeof pos == 'number' ? pos : window.getSelection().anchorOffset;
   var txt = currP.firstChild ? currP.firstChild.textContent : "";
   var b = currPos, e = currPos+1, n = txt.length;
 
