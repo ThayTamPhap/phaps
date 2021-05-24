@@ -1,10 +1,14 @@
 var lastCurrPos = 0;
 
+function saveLastCursor(from="") {
+  lastCurrPos = window.getSelection().anchorOffset;
+  console.log(`\nsaveLastCursor(${from} => ${lastCurrPos}\n`);
+}
+
 function getCurrPosStr() {
   var currP = document.getElementById(currSubIndex);
   var currInnerText = currP.innerText;
-  // lastCurrPos = window.getSelection().anchorOffset;
-  return currInnerText.substr(0, lastCurrPos);
+  return currInnerText.substr(0, window.getSelection().anchorOffset);
 }
 
 function capitalizeFirstCharOf(sent) {

@@ -56,7 +56,7 @@ async function playAndUpdateSub() {
 document.addEventListener("keyup", handleKeyUp);
 
 async function handleKeyUp(event, blink) {
-  lastCurrPos = window.getSelection().anchorOffset;
+  saveLastCursor('handleKeyUp');
 
   if (event.code == 'Space') {
     resetTextAndPos();
@@ -151,8 +151,7 @@ async function handleKeyPress(event) {
 
     case 'ControlLeft':
       event.preventDefault();
-      p = document.getElementById(currSubIndex); p.focus();
-      try { window.getSelection().collapse(p.firstChild, lastCurrPos); } catch { }
+      getCursorback();
       resetTextAndPos();
       await playCurrPos();
       blinkCurPos();
@@ -160,16 +159,16 @@ async function handleKeyPress(event) {
 
     case 'AltRight':
       event.preventDefault();
-      p = document.getElementById(currSubIndex); p.focus();
-      try { window.getSelection().collapse(p.firstChild, lastCurrPos); } catch { }
+      getCursorback();
       adjust(+1);
+      blinkCurPos();
       break;
 
     case 'OSRight':
       event.preventDefault();
-      p = document.getElementById(currSubIndex); p.focus();
-      try { window.getSelection().collapse(p.firstChild, lastCurrPos); } catch { }
+      getCursorback();
       adjust(-1);
+      blinkCurPos();
       break;
 
     case 'Space':
@@ -178,6 +177,12 @@ async function handleKeyPress(event) {
     default:
       if (await loadTime(currSubIndex) != 0 && !ap.paused) { ap.pause(); }
   }
+}
+
+function getCursorback() {
+  p = document.getElementById(currSubIndex); p.focus();
+  console.log("\nlastCurrPos:", lastCurrPos);
+  window.getSelection().collapse(p.firstChild, lastCurrPos);
 }
 
 function normalizeTime(time) {
@@ -200,5 +205,4 @@ async function adjust(x) {
   }  
   ap.currentTime = time;
   await apPlay();
-  blinkCurPos();
 }
