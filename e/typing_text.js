@@ -29,10 +29,10 @@ _shortcuts.split("\n").map(x => {
 }).slice(1,).join("|")+')(?=[\\s!?.,;:|\\]})])', 'gi'); 
 
 
-function normalizeText(value) {
+function normalizeText(value, completeSent=true) {
   value = value.replace("...","…").replace(" \""," “").replace("\" ","”");
   value = value.replace(/[ ]/," ")
-  value = convertShortcuts(value);
+  value = convertShortcuts(value, completeSent);
 
   value = spellSpecialWords(value);
 
@@ -134,8 +134,11 @@ console.assert(spellNumber("12") == "mười hai");
 console.assert(spellNumber("102") == "một trăm lẻ hai");
 
 
-function convertShortcuts(txt) {
-  txt = (txt + " ").replace(typingShortcutsRegex, x => {
+function convertShortcuts(txt, completeSent=true) {
+  
+  if (completeSent) { txt = (txt + " "); }
+
+  txt = txt.replace(typingShortcutsRegex, x => {
     var splits = x.split(/(\s?)(.+)/);
     // console.log("Found:", x, splits);
     let k = splits[2], md;
@@ -145,13 +148,14 @@ function convertShortcuts(txt) {
       v = typingShortcuts[k].replace("\\d+", md[1]);
     }
     // console.log(k, '=>', v); // k: 323d
-
     return splits[1] + (k[0]===k[0].toLowerCase() ? v 
       : v[0].toUpperCase() + v.substr(1,));
   });
-  return txt.slice(0, txt.length - 1);
+
+  return completeSent ? txt.slice(0, txt.length - 1) : txt;
 }
-console.assert(convertShortcuts('Byg')==='Bây giờ');
+
+console.assert(convertShortcuts('Byg',false)==='Byg');
 console.assert(convertShortcuts('byg')==='bây giờ');
 console.assert(convertShortcuts('323d')==='323 ngày');
 console.assert(convertShortcuts('Byg chúng ta nc về nx cng đang ở đây')==='Bây giờ chúng ta nước về những con người đang ở đây');

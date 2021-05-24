@@ -34,7 +34,9 @@ function resetTextAndPos(suffix="") {
     if (suffix && currInnerText[lastCurrPos-1] != " ") suffix = " ";
     else suffix = "";
 
-    let normText = normalizeText(currInnerText.substr(0, lastCurrPos)) + suffix;
+    let isEndOfSent = lastCurrPos >= currInnerText.length;
+    let normText = 
+      normalizeText(currInnerText.substr(0, lastCurrPos), isEndOfSent) + suffix;
     let remain = currInnerText.substr(lastCurrPos,);
     currInnerText = normText + remain;
     lastCurrPos = normText.length;

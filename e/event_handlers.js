@@ -86,6 +86,7 @@ async function handleKeyPress(event) {
     event.preventDefault();
     resetTextAndPos(" ");
     await playCurrPos();
+    p = document.getElementById(currSubIndex); p.focus();
     if (event.code == '') { blinkCurPos(); } // blinkCurPos for Android
     return;
   }
