@@ -113,14 +113,13 @@ async function handleKeyPress(event) {
       event.preventDefault();
       if (cooldown > 0) {
         getCursorback();
-        return;
+        break;
       }
 
       if (currSubIndex < subsCount-1) { 
 
         let p = document.getElementById(++currSubIndex);
         p.contentEditable = true;
-        if (p.innerText === "") p.innerHTML = "&nbsp;";
         p.focus();
         p.scrollIntoView();
         saveCurrSubIndex(currSubIndex);
@@ -138,7 +137,6 @@ async function handleKeyPress(event) {
         p.addEventListener("click", playSub);
         p.addEventListener("focus", playAndUpdateSub);
         p.addEventListener("blur", saveCurrentText);
-        if (p.innerText === "") p.innerHTML = "&nbsp;";
         div.appendChild(p);
         document.body.appendChild(div);
         p.focus();
