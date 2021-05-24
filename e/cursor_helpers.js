@@ -79,7 +79,7 @@ function blinkCurPos(pos) {
     return;
   }
 
-  var currPos = typeof pos == 'number' ? pos : window.getSelection().anchorOffset;
+  var currPos = typeof pos == 'number' ? pos : lastCurrPos;
   if (currPos >= currP.innerText) return;
 
   var txt = currP.firstChild ? currP.firstChild.textContent : "";
