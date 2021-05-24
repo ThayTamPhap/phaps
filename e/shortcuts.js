@@ -101,7 +101,7 @@ pn    phiền não
 pt    phát triển
 pv    phục vụ
 qd    quy định
-qtd   quyết định
+qt    quan trọng
 qđ    quyết định
 rl    rất là
 rln   rất là nhiều
