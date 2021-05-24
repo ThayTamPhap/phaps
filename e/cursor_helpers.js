@@ -2,7 +2,7 @@ var lastCurrPos = 0;
 
 function saveLastCursor(from="") {
   lastCurrPos = window.getSelection().anchorOffset;
-  console.log(`\nsaveLastCursor(${from} => ${lastCurrPos}\n`);
+  console.log(`\n\nsaveLastCursor(${from}) => ${lastCurrPos}\n\n`);
 }
 
 function getCurrPosStr() {
@@ -34,7 +34,7 @@ function resetTextAndPos(suffix="") {
     var currP = document.getElementById(currSubIndex);
     var currInnerText = currP.innerText;
 
-    lastCurrPos = sel.anchorOffset;    
+    // lastCurrPos = sel.anchorOffset;    
     if (suffix && currInnerText[lastCurrPos-1] != " ") suffix = " ";
     else suffix = "";
 

@@ -13,6 +13,7 @@ async function playSub() {
     blinkCurPos(0);
   }  else { 
     // Click on current sub
+    saveLastCursor('playSub: Click on current sub');
     await playCurrPos();
     blinkCurPos();
   }
