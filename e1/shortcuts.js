@@ -7,6 +7,9 @@
 \\d+p    \\d+ phút
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
+td    thay đổi
+lt    lập tức
+nlt   ngay lậl tức
 bd    bắt đầu
 hb    hiểu biết
 chk   chánh kiến
