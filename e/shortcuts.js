@@ -6,6 +6,7 @@
 \\d+p 	\\d+ phút
 \\d+t 	\\d+ tiếng
 \\d+y 	\\d+ năm
+xd      xứng đáng
 vn      Việt Nam
 dt      đối tượng
 pv      phục vụ
