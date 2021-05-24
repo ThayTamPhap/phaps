@@ -111,7 +111,10 @@ async function handleKeyPress(event) {
 
     case 'Enter':
       event.preventDefault();
-      if (cooldown > 0) return;
+      if (cooldown > 0) {
+        getCursorback();
+        return;
+      }
 
       if (currSubIndex < subsCount-1) { 
 
