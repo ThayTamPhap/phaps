@@ -81,12 +81,12 @@ async function handleKeyPress(event) {
     currKey = 'Backspace'; 
   }
   
-  // Enter for Android
+  
   if (event.key == 'Enter' || event.keyCode == 13) { 
     event.preventDefault();
     resetTextAndPos(" ");
     await playCurrPos();
-    if (event.keyCode == 13) { blinkCurPos(); }
+    if (event.code == '') { blinkCurPos(); } // blinkCurPos for Android
     return;
   }
 
