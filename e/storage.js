@@ -37,15 +37,15 @@ async function loadTime(i) {
   return parseFloat(await load(`time${i}`));
 }
 
-function saveTextIndex(i) {
+async function saveTextIndex(i) {
   var p = document.getElementById(i);
-  var txt = p.innerText;
-  p.innerHTML = txt;
-  saveText(i, txt);
+  p.innerHTML = await saveText(i, p.innerText);
 }
 
 async function saveText(i, value) {
-  await save(`text${i}`, normalizeText(value));
+  value = normalizeText(value);
+  await save(`text${i}`, value);
+  return value;
 }
 
 async function loadText(i) {

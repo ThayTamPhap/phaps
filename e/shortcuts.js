@@ -16,13 +16,14 @@ bvl   bởi vì là
 byg   bây giờ
 cd    cái đó
 cgd   cúng dường
+cht   chư Tăng
 ck    chánh kiến
 cl    chất lượng
 cn    chánh niệm
 cng   con người
 cnt   con người ta  
 cs    cuộc sống
-cT    chư Tăng
+ct    có thể
 cta   chúng ta
 ctt   chánh tinh tấn
 cvt   chính vì thế
