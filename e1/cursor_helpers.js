@@ -19,9 +19,9 @@ function autoCapitalizedFirstCharOf(p, auto=false) {
   let yesDoIt = (p.id == "0");
   if (yesDoIt === false) {
     let pp = p.parentNode.previousSibling.lastChild;
-    let lastPpChar = pp.firstChild.textContent.slice(-1);
-    yesDoIt = ".?!\\/".includes(lastPpChar);
+    yesDoIt = pp.firstChild.textContent.match(/[.?!\\/]\s*$/);
   }
+  console.log('yesDoIt', yesDoIt);
   if (auto && yesDoIt) {
     p.innerHTML = capitalizeFirstCharOf(p.innerText);
   }
