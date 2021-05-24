@@ -198,16 +198,17 @@ function normalizeTime(time) {
 
 async function adjust(x) {
   let delta = await getCurrDelta();
-  var time = await loadTime(currSubIndex) + delta;
+  var _time = await loadTime(currSubIndex) + delta, time;
   if (delta == 0 && lastCurrPos < 5) {
-    time += 0.15 * x;
+    time = _time + 0.15 * x;
     time = normalizeTime(time);
     saveTime(currSubIndex, time);
   } else {
     adjustDeltas(1.5 * x);
-    time += 1.5 * x;
+    time = _time + 1.5 * x;
     time = normalizeTime(time);
-  }  
+  }
+  console.log(`Adjust ap.currentTime`, time - _time);
   ap.currentTime = time;
   await apPlay();
 }
