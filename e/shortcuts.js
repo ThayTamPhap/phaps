@@ -33,11 +33,11 @@ d?,   đúng không,
 d?.   đúng không.
 dc    được
 dd    dễ duôi
-dđ    đắc đạo
 dg    đúng
 dk    điều kiện
 dp    Đức Phật
 dt    đối tượng
+dđ    đắc đạo
 gth   giải thích
 gtt   giải thoát
 h?    hiểu không?
@@ -84,9 +84,9 @@ nts   nên tại sao
 nv    như vậy
 nvl   như vậy là
 nx    những
-P     Tăng
+p     Phật
 pb    phước báu
-Ph    Pháp
+ph    Pháp
 pt    phát triển
 pv    phục vụ
 qd    quy định
@@ -96,10 +96,11 @@ rl    rất là
 rln   rất là nhiều
 rn    rất nhiều
 sp    số phận
-T     Tăng
-TB    Tam Bảo
+t     Tăng
+tb    Tam Bảo
 tg    thời gian
 th    thầy
+tht   thông tin
 tn    thế nào
 tnm   thế nhưng mà
 trc   trước
