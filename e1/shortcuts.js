@@ -7,6 +7,7 @@
 \\d+p    \\d+ phút
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
+tl    thì là
 hd    hành động
 phuoc phước
 phc   phước
