@@ -185,8 +185,10 @@ async function handleKeyPress(event) {
 }
 
 function getCursorback() {
-  p = document.getElementById(currSubIndex); p.focus();
+  let p = document.getElementById(currSubIndex); p.focus();
   console.log("\nlastCurrPos:", lastCurrPos);
+  let n = p.innerText.length;
+  if (lastCurrPos > n) lastCurrPos = n;
   window.getSelection().collapse(p.firstChild, lastCurrPos);
 }
 
