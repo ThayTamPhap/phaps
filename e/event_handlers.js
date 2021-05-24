@@ -161,21 +161,21 @@ async function handleKeyPress(event) {
       getCursorback();
       resetTextAndPos();
       await playCurrPos();
-      blinkCurPos();
+      // blinkCurPos();
       break;
 
     case 'AltRight':
       event.preventDefault();
       getCursorback();
       adjust(+1);
-      blinkCurPos();
+      // blinkCurPos();
       break;
 
     case 'OSRight':
       event.preventDefault();
       getCursorback();
       adjust(-1);
-      blinkCurPos();
+      // blinkCurPos();
       break;
 
     case 'Space':
