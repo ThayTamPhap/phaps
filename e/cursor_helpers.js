@@ -80,6 +80,8 @@ function blinkCurPos(pos) {
   }
 
   var currPos = typeof pos == 'number' ? pos : window.getSelection().anchorOffset;
+  if (currPos >= currP.innerText) return;
+
   var txt = currP.firstChild ? currP.firstChild.textContent : "";
   var b = currPos, e = currPos+1, n = txt.length;
 
