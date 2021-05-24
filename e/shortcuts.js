@@ -1,4 +1,3 @@
-
 /**/_shortcuts = `
 \\d+d    \\d+ ngày
 \\d+h    \\d+ giờ
@@ -7,33 +6,22 @@
 \\d+p    \\d+ phút
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
-bn    bao nhiêu
-td    thay đổi
-lt    lập tức
-nlt   ngay lậl tức
-bd    bắt đầu
-hb    hiểu biết
-chk   chánh kiến
-tak   tà kiến
-st    sự thật
-cbi   chuẩn bị
-tl    thì là
-hd    hành động
-phuoc phước
-phc   phước
-hh    hồi hướng
 ad    Ấn Độ
+bd    bắt đầu
 bg    bao giờ
 blm   ba-la-mật
+bn    bao nhiêu
 bt    bình thường
 bv    bởi vì
 bvl   bởi vì là
 byg   bây giờ
+cbi   chuẩn bị
 cc    chỉ cần
 ccv   của cái việc
 cd    cái đó
 cdg   cúng dường
 cgd   cái gì đó
+chk   chánh kiến
 ck    chánh kiến
 cl    chất lượng
 cn    chánh niệm
@@ -64,6 +52,9 @@ gtt   giải thoát
 h?    hiểu không?
 h?,   hiểu không,
 h?.   hiểu không.
+hb    hiểu biết
+hd    hành động
+hh    hồi hướng
 hk    hiểu không
 hl    hoặc là
 hn    Hà Nội
@@ -88,6 +79,7 @@ lc    làm cho
 lii   lợi ích
 lp    làm phước
 lpcd  làm phước cúng dường
+lt    lập tức
 lv    làm việc
 m     mình
 mng   mọi người
@@ -98,6 +90,7 @@ ng    người
 ngt   người ta
 ngta  người ta
 nh    nhưng
+nlt   ngay lậl tức
 nm    nhưng mà
 nt    như thế
 nta   người ta
@@ -112,6 +105,8 @@ p     Phật
 pb    phước báu
 pc    phước
 ph    Pháp
+phc   phước
+phuoc phước
 pn    phiền não
 pt    phát triển
 pv    phục vụ
@@ -122,11 +117,15 @@ rl    rất là
 rln   rất là nhiều
 rn    rất nhiều
 sp    số phận
+st    sự thật
 t     Tăng
+tak   tà kiến
 tb    Tam Bảo
+td    thay đổi
 tg    thời gian
 th    thầy
 tht   thông tin
+tl    thì là
 tn    thế nào
 tnl   thế nên là
 tnm   thế nhưng mà
