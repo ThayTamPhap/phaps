@@ -34,7 +34,7 @@ function resetTextAndPos(suffix="") {
     var currP = document.getElementById(currSubIndex);
     var currInnerText = currP.innerText;
 
-    // lastCurrPos = sel.anchorOffset;    
+    // lastCurrPos = sel.anchorOffset;
     if (suffix && currInnerText[lastCurrPos-1] != " ") suffix = " ";
     else suffix = "";
 
@@ -55,7 +55,7 @@ function resetTextAndPos(suffix="") {
 
     }
 
-    console.log(`n=${n}, lastCurrPos=${lastCurrPos}\nnormText="${normText}", remain="${remain}"`);
+    console.log(`n=${n}, lastCurrPos=${lastCurrPos}\n`);//normText="${normText}", remain="${remain}"`);
 
     /* https://javascript.info/selection-range#selecting-the-text-partially */
     // If node is a text node, then offset must be the position in its text.
@@ -77,7 +77,7 @@ function blinkCurPos(pos) {
     return;
   }
 
-  var currPos = typeof pos == 'number' ? pos : sel.anchorOffset;
+  var currPos = typeof pos == 'number' ? pos : lastCurrPos;
   var txt = currP.firstChild ? currP.firstChild.textContent : "";
   var b = currPos, e = currPos+1, n = txt.length;
 
