@@ -6,6 +6,16 @@
 \\d+p 	\\d+ phút
 \\d+t 	\\d+ tiếng
 \\d+y 	\\d+ năm
+P       Tăng
+Ph      Pháp
+T       Tăng
+th      thầy
+Th      Thầy
+TB      Tam Bảo
+cT      chư Tăng
+dd      đắc  đạo
+gtt     giải thoát
+gth     giải thích
 xd      xứng đáng
 vn      Việt Nam
 dt      đối tượng
