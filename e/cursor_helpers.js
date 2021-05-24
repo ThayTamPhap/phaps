@@ -34,31 +34,33 @@ function resetTextAndPos(suffix="") {
     var currP = document.getElementById(currSubIndex);
     var currInnerText = currP.innerText;
 
-    // lastCurrPos = sel.anchorOffset;
+    // if (suffix) { lastCurrPos = sel.anchorOffset; }
     if (suffix && currInnerText[lastCurrPos-1] != " ") suffix = " ";
     else suffix = "";
 
-    let isEndOfSent = lastCurrPos >= currInnerText.length;
+    isEndOfSent = lastCurrPos >= currInnerText.length;
     let normText = 
-      normalizeText(currInnerText.substr(0, lastCurrPos), isEndOfSent) + suffix;
+      normalizeText(currInnerText.substr(0, lastCurrPos)) + suffix;
     let remain = currInnerText.substr(lastCurrPos,);
     currInnerText = normText + remain;
     lastCurrPos = normText.length;
     
     let n = currInnerText.length;    
-    if (currInnerText[n - 1] == " ") {
-     currInnerText = currInnerText.substr(0, n-1) + "&nbsp;";
+    if (currInnerText[n-1] == " ") {
+     currInnerText = currInnerText.slice(0, n-1) + "&nbsp;";
     }
 
     if (autoCapitalizedFirstCharOf(currP, false)) {
       currP.innerHTML = capitalizeFirstCharOf(currInnerText);
-
+    } else {
+      currP.innerHTML = currInnerText;
     }
 
-    console.log(`n=${n}, lastCurrPos=${lastCurrPos}\n`);//normText="${normText}", remain="${remain}"`);
+    // console.log(`n=${n}, lastCurrPos=${lastCurrPos}\nnormText="${normText}", remain="${remain}"`);
 
     /* https://javascript.info/selection-range#selecting-the-text-partially */
     // If node is a text node, then offset must be the position in its text.
+    if (isEndOfSent || lastCurrPos > n) lastCurrPos = n;
     sel.collapse(currP.firstChild, lastCurrPos);
 }
 
@@ -91,8 +93,10 @@ function blinkCurPos(pos) {
   sel.removeAllRanges();
   sel.addRange(range);
 
-  let count = 1;
+  let count = 0;
   let interval = window.setInterval(function() {
+    if (++count > 2) { clearInterval(interval); }
+
     if (selectedText.length > 0) {
       ap.pause();
       clearInterval(interval);
@@ -107,6 +111,5 @@ function blinkCurPos(pos) {
     } else {
       sel.collapse(currP.firstChild, currPos);
     }
-    if (++count > 3) { clearInterval(interval); }
   }, 80);
 }
