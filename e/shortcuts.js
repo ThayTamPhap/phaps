@@ -14,7 +14,8 @@ bt    bình thường
 bv    bởi vì
 bvl   bởi vì là
 byg   bây giờ
-cd    cúng dường
+cd    cái đó
+cgd    cúng dường
 ck    chánh kiến
 cl    chất lượng
 cn    chánh niệm
@@ -33,10 +34,12 @@ d?.   đúng không.
 dc    được
 dd    dễ duôi
 dg    đúng
+dgl   đấy gọi là
 dk    điều kiện
 dp    Đức Phật
 dt    đối tượng
 dđ    đắc đạo
+gl    gọi là
 gth   giải thích
 gtt   giải thoát
 h?    hiểu không?
@@ -62,6 +65,7 @@ kth   kích thước
 kti   kiếm tiền
 ktr   kiểm tra
 lbv   là bởi vì
+lc    làm cho
 lp    làm phước
 lpcd  làm phước cúng dường
 lv    làm việc
@@ -101,6 +105,7 @@ tg    thời gian
 th    thầy
 tht   thông tin
 tn    thế nào
+tnl   thế nên làm
 tnm   thế nhưng mà
 trc   trước
 trtg  truyền thống
