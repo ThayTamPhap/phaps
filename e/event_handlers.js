@@ -33,7 +33,7 @@ async function playAndUpdateSub() {
       saveTime(currSubIndex, ap.currentTime);
       maxPlayTime = ap.currentTime + await getCurrDelta('Whole sentence');
       apPlay();
-      blinkCurPos(0);
+      // blinkCurPos(0);
       if (currSubIndex < subsCount - 1) {
         document.getElementById(currSubIndex+1).contentEditable = true;
       }
@@ -43,7 +43,7 @@ async function playAndUpdateSub() {
       await playCurrSubIndex();
       blinkCurPos(0);
       maxPlayTime = currSubIndex >= subsCount ? 
-        qp.duration : 
+        ap.duration : 
         await loadTime(currSubIndex+1);
       break;
 
@@ -111,7 +111,6 @@ async function handleKeyPress(event) {
 
     case 'Enter':
       event.preventDefault();
-      currKey = null;
       if (cooldown > 0) return;
 
       if (currSubIndex < subsCount-1) { 
