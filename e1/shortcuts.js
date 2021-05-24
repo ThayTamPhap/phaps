@@ -7,6 +7,9 @@
 \\d+p    \\d+ phút
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
+chk   chánh kiến
+tak   tà kiến
+st    sự thật
 cbi   chuẩn bị
 tl    thì là
 hd    hành động
