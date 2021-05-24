@@ -117,8 +117,9 @@ async function handleKeyPress(event) {
 
         let p = document.getElementById(++currSubIndex);
         p.contentEditable = true;
-        p.innerHTML = "&nbsp;";
-        p.focus(); // p.scrollIntoView();
+        if (p.innerText === "") p.innerHTML = "&nbsp;";
+        p.focus();
+        p.scrollIntoView();
         saveCurrSubIndex(currSubIndex);
         lastCurrPos = 0;
         cooldown=2; let inter=setInterval(()=>(--cooldown==0) && clearInterval(inter),1000);
