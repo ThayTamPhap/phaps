@@ -15,7 +15,7 @@ bv    bởi vì
 bvl   bởi vì là
 byg   bây giờ
 cd    cái đó
-cgd    cúng dường
+cgd   cúng dường
 ck    chánh kiến
 cl    chất lượng
 cn    chánh niệm
@@ -105,7 +105,7 @@ tg    thời gian
 th    thầy
 tht   thông tin
 tn    thế nào
-tnl   thế nên làm
+tnl   thế nên là
 tnm   thế nhưng mà
 trc   trước
 trtg  truyền thống
