@@ -7,6 +7,7 @@
 \\d+p    \\d+ phút
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
+hd    hành động
 phuoc phước
 phc   phước
 hh    hồi hướng
