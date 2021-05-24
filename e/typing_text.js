@@ -26,14 +26,14 @@ _shortcuts.split("\n").map(x => {
   typingShortcuts[k] = v;  
   return k.replace("?", "\\?").replace(".", "\\.");
 
-}).slice(1,).join("|")+')(?=[\\s!?.,;:|\\]})]|$)', 'gi'); 
+}).slice(1,).join("|")+')(?=[\\s!?.,;:|\\]})])', 'gi'); 
 
 
 function normalizeText(value) {
   value = value.replace("...","…").replace(" \""," “").replace("\" ","”");
   value = value.replace(/[ ]/," ")
-
   value = convertShortcuts(value);
+
   value = spellSpecialWords(value);
 
   value = value.replace(/[[{(]\s+/g, x => " "+x.replace(/\s+/g,""));
@@ -135,7 +135,7 @@ console.assert(spellNumber("102") == "một trăm lẻ hai");
 
 
 function convertShortcuts(txt) {
-  return txt = txt.replace(typingShortcutsRegex, x => {
+  txt = (txt + " ").replace(typingShortcutsRegex, x => {
     var splits = x.split(/(\s?)(.+)/);
     // console.log("Found:", x, splits);
     let k = splits[2], md;
@@ -149,6 +149,7 @@ function convertShortcuts(txt) {
     return splits[1] + (k[0]===k[0].toLowerCase() ? v 
       : v[0].toUpperCase() + v.substr(1,));
   });
+  return txt.slice(0, txt.length - 1);
 }
 console.assert(convertShortcuts('Byg')==='Bây giờ');
 console.assert(convertShortcuts('byg')==='bây giờ');
