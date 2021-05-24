@@ -7,6 +7,9 @@
 \\d+p    \\d+ phút
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
+phuoc phước
+phc   phước
+hh    hồi hướng
 ad    Ấn Độ
 bg    bao giờ
 blm   ba-la-mật
