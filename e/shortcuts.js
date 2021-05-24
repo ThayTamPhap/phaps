@@ -10,10 +10,12 @@ xd      xứng đáng
 vn      Việt Nam
 dt      đối tượng
 pv      phục vụ
+kbg     không bao giờ
 trtg    truyền thống
 trth    truyền thừa
 ad 	Ấn Độ
 bog  	bao giờ
+bag     bao giờ
 bt 	bình thường
 bv 	bởi vì
 bvl 	bởi vì là
