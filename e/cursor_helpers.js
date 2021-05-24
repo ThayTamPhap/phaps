@@ -104,12 +104,10 @@ function blinkCurPos(pos) {
     }
 
     if (count % 2 == 0) {
-      try {
-        range.setStart(currP.firstChild, b == 0 ? 0 : b+1);
-        range.setEnd(currP.firstChild, e);
-        sel.removeAllRanges();
-        sel.addRange(range);
-      } catch { }
+      range.setStart(currP.firstChild, b == 0 ? 0 : b+1);
+      range.setEnd(currP.firstChild, e);
+      sel.removeAllRanges();
+      sel.addRange(range);
     } else {
       sel.collapse(currP.firstChild, currPos);
     }

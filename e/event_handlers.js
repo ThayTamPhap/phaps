@@ -111,6 +111,7 @@ async function handleKeyPress(event) {
 
     case 'Enter':
       event.preventDefault();
+      currKey = null;
       if (cooldown > 0) return;
 
       if (currSubIndex < subsCount-1) { 
@@ -135,9 +136,11 @@ async function handleKeyPress(event) {
         p.addEventListener("click", playSub);
         p.addEventListener("focus", playAndUpdateSub);
         p.addEventListener("blur", saveCurrentText);
+        if (p.innerText === "") p.innerHTML = "&nbsp;";
         div.appendChild(p);
         document.body.appendChild(div);
         p.focus();
+        p.scrollIntoView();
         saveSubsCount(++subsCount);
       }
       break;
