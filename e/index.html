@@ -1,69 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="vi-VN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link id="favicon" rel="icon" type="image/x-icon" href="/assets/dharma-wheel.png">
-<style type="text/css">
-  body, div, p, a { font-family: Arial, Helvetica, sans-serif; font-size: 22px; }
-
-  .header { position: fixed; left: 0; bottom: 0; width: 100%; padding: 0 0 1px .3em; }
-
-  .header audio#audioPlayer { width: 0%; float: left; height: 25px; }
-
-  .header a, #currentTime, #downloadButton { width: 18%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.5em 0em; float: right; margin-right: 5px; text-align: center; text-decoration: none; }
-
-  #downloadButton { position: fixed; top: 10px; right: 0; width: 3em; padding: 0.3em 0; }
-
-  div { margin-top: 0.5em; padding: .3em; color: #888; }
-  
-  p { padding-top: 0.5em; padding-bottom: 0.5em; margin: 0.1em; 
-      border-style: dotted; border-width: 1px; }
-  
-  p.edited { color: #000; }
-  
-  p:focus { border: 0px; border-style: none; color: #112699; }
-  
-  i { font-size: 12pt; color: #aaa; }
-</style>
-</head>
-<body style="padding-bottom: 8em;">
-  <div class="header">
-    <audio controls id="audioPlayer"></audio>
-
-    <a href="" onclick="
-      event.preventDefault(); event.code='ControlLeft'; handleKeyPress(event);" 
-      style="float:left;"> >| </a>
-
-    <a href="" onclick="
-      event.preventDefault(); event.code='OSRight';handleKeyPress(event);" 
-      style="float:left;"> << </a>
-
-    <a href="" onclick="
-      event.preventDefault(); event.code='AltRight';handleKeyPress(event);" 
-      style="float:left;"> >> </a>
-
-    <a href="" onclick="
-      event.preventDefault(); event.code='Enter'; handleKeyPress(event);"
-      style="margin-right:10px;width:18%;"> Next </a>
-
-    <a href="" id="playPauseBtn" onclick="
-      ap.paused ? apPlay() : ap.pause(); event.preventDefault();
-      document.getElementById(currSubIndex).focus(); "style="width:18%;"> > </a>
-  </div>
-
-  <a href="?" id="downloadButton" style="float:left;">Save</a>  
-</body>
-<script src="localforage.min.js"></script>
-<script src="globals_helpers.js"></script>
-<script src="shortcuts.js"></script>
-<script src="typing_text.js"></script>
-<script src="storage.js"></script>
-<script src="gen_subs.js"></script>
-<script src="audio_player.js"></script>
-<script src="cursor_helpers.js"></script>
-<script src="estimators.js"></script>
-<script src="event_handlers.js"></script>
-<script src="download.js"></script>
-<script src="words_secs.js"></script>
+  <head>
+    <title>audio-annotation text-editor</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      let url = window.location.href;
+      let newUrl = url.replace("/e/", "/e1/");
+      window.location.href = newUrl;
+    </script>
+  </body>
 </html>
