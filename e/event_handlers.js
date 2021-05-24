@@ -136,7 +136,6 @@ async function handleKeyPress(event) {
         p.className = 'edited';
         p.addEventListener("click", playSub);
         p.addEventListener("focus", playAndUpdateSub);
-        p.addEventListener("blur", saveCurrentText);
         div.appendChild(p);
         document.body.appendChild(div);
         p.focus();

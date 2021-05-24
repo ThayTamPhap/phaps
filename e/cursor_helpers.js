@@ -81,12 +81,12 @@ function blinkCurPos(pos) {
 
   // use lastCurrPos since click on virtual button reset curpos to 0
   var currPos = typeof pos == 'number' ? pos : lastCurrPos;
-
-  if (currPos >= currP.innerText) return;
-
   var txt = currP.firstChild ? currP.firstChild.textContent : "";
-  var b = currPos, e = currPos+1, n = txt.length;
+  
+  var n = txt.length;
+  if (currPos > n) currPos = n;
 
+  var b = currPos, e = currPos+1, n = txt.length;
   while (txt[b] != ' ' && b > 0) b--; if (b < 0) b = 0;
   while (txt[e] != ' ' && e < n) e++; if (e > n) e = n;
   
@@ -99,7 +99,10 @@ function blinkCurPos(pos) {
 
   let count = 0;
   let interval = window.setInterval(function() {
-    if (++count > 2) { clearInterval(interval); }
+    if (++count > 2) { 
+      clearInterval(interval); 
+      sel.collapse(currP.firstChild, currPos);
+    }
 
     if (selectedText.length > 0) {
       ap.pause();
