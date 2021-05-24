@@ -86,7 +86,7 @@ async function handleKeyPress(event) {
     event.preventDefault();
     resetTextAndPos(" ");
     await playCurrPos();
-    // blinkCurPos();
+    if (event.keyCode == 13) { blinkCurPos(); }
     return;
   }
 
