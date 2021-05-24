@@ -67,6 +67,7 @@ kti   kiếm tiền
 ktr   kiểm tra
 lbv   là bởi vì
 lc    làm cho
+lii   lợi ích
 lp    làm phước
 lpcd  làm phước cúng dường
 lv    làm việc
