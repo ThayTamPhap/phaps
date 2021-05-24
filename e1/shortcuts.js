@@ -7,6 +7,7 @@
 \\d+p    \\d+ phút
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
+cbi   chuẩn bị
 tl    thì là
 hd    hành động
 phuoc phước
