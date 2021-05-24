@@ -8,9 +8,8 @@
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
 ad    Ấn Độ
-bag   bao giờ
+bg    bao giờ
 blm   ba-la-mật
-bog   bao giờ
 bt    bình thường
 bv    bởi vì
 bvl   bởi vì là
