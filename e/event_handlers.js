@@ -82,7 +82,7 @@ async function handleKeyPress(event) {
   }
   
   // Enter for Android
-  if (currKey == 'Enter' || (event.key == 'Enter' || event.keyCode == 13)) { 
+  if (event.key == 'Enter' || event.keyCode == 13) { 
     event.preventDefault();
     resetTextAndPos(" ");
     await playCurrPos();
