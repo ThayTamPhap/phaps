@@ -3,7 +3,7 @@ var lastCurrPos = 0;
 function getCurrPosStr() {
   var currP = document.getElementById(currSubIndex);
   var currInnerText = currP.innerText;
-  lastCurrPos = window.getSelection().anchorOffset;
+  // lastCurrPos = window.getSelection().anchorOffset;
   return currInnerText.substr(0, lastCurrPos);
 }
 
