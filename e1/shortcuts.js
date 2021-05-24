@@ -7,6 +7,7 @@
 \\d+p    \\d+ phút
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
+bd    bắt đầu
 hb    hiểu biết
 chk   chánh kiến
 tak   tà kiến
