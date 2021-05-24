@@ -14,6 +14,7 @@ bt    bình thường
 bv    bởi vì
 bvl   bởi vì là
 byg   bây giờ
+cc    chỉ cần
 ccv   của cái việc
 cd    cái đó
 cdg   cúng dường
@@ -77,6 +78,7 @@ m     mình
 mng   mọi người
 n     nhưng
 nc    nước
+ncn   nói chuyện
 ng    người
 ngt   người ta
 ngta  người ta
