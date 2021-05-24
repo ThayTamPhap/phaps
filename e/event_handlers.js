@@ -29,6 +29,7 @@ async function playAndUpdateSub() {
 
   switch (currKey) {
     case 'Enter':
+      loadCurrAdjustedDeltas();
       saveCurrSubIndex(currSubIndex);
       saveTime(currSubIndex, ap.currentTime);
       maxPlayTime = ap.currentTime + await getCurrDelta('Whole sentence');
@@ -40,6 +41,7 @@ async function playAndUpdateSub() {
       break;
 
     case 'Tab':
+      loadCurrAdjustedDeltas();
       await playCurrSubIndex();
       blinkCurPos(0);
       maxPlayTime = currSubIndex >= subsCount ? 
