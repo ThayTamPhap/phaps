@@ -33,7 +33,7 @@ d?,   đúng không,
 d?.   đúng không.
 dc    được
 dd    dễ duôi
-dd    đắc  đạo
+dđ    đắc đạo
 dg    đúng
 dk    điều kiện
 dp    Đức Phật
