@@ -39,7 +39,7 @@ async function loadTime(i) {
 
 async function saveTextIndex(i) {
   var p = document.getElementById(i);
-  p.innerHTML = await saveText(i, p.innerText);
+  saveText(i, p.innerText);
 }
 
 async function saveText(i, value) {
