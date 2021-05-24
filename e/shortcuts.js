@@ -14,9 +14,10 @@ bt    bình thường
 bv    bởi vì
 bvl   bởi vì là
 byg   bây giờ
+ccv   của cái việc
 cd    cái đó
-cgd   cúng dường
-cht   chư Tăng
+cdg   cúng dường
+cgd   cái gì đó
 ck    chánh kiến
 cl    chất lượng
 cn    chánh niệm
@@ -25,6 +26,7 @@ cnt   con người ta
 cs    cuộc sống
 ct    có thể
 cta   chúng ta
+ctg   chư Tăng
 ctt   chánh tinh tấn
 cvt   chính vì thế
 cx    cũng
