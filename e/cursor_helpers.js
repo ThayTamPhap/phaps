@@ -7,6 +7,23 @@ function getCurrPosStr() {
   return currInnerText.substr(0, lastCurrPos);
 }
 
+function capitalizeFirstCharOf(sent) {
+  return sent[0].toUpperCase() + sent.slice(1,);
+}
+
+function autoCapitalizedFirstCharOf(p, auto=false) {
+  let yesDoIt = (p.id == "0");
+  if (yesDoIt === false) {
+    let pp = p.parentNode.previousSibling.lastChild;
+    let lastPpChar = pp.firstChild.textContent.slice(-1);
+    yesDoIt = ".?!\\/".includes(lastPpChar);
+  }
+  if (auto && yesDoIt) {
+    p.innerHTML = capitalizeFirstCharOf(p.innerText);
+  }
+  return yesDoIt;
+}
+
 function resetTextAndPos(suffix="") {
     // Reset HTML to plain text to select correct cursor position
     var sel = window.getSelection();
@@ -26,7 +43,11 @@ function resetTextAndPos(suffix="") {
     if (currInnerText[n - 1] == " ") {
      currInnerText = currInnerText.substr(0, n-1) + "&nbsp;";
     }
-    currP.innerHTML = currInnerText;
+
+    if (autoCapitalizedFirstCharOf(currP, false)) {
+      currP.innerHTML = capitalizeFirstCharOf(currInnerText);
+
+    }
 
     console.log(`n=${n}, lastCurrPos=${lastCurrPos}\nnormText="${normText}", remain="${remain}"`);
 
