@@ -1,5 +1,5 @@
 import { _keys_map } from "/e/keys_map.js"
-import { saveLastCursor } from "/e1/cursor_helpers.js"
+import { lastCurrPos, playCurrPos, resetTextAndPos } from "/e1/cursor_helpers.js"
 
 var keysMap = {};
 
@@ -18,7 +18,7 @@ _keys_map.split("\n").map(x => {
 
 document.addEventListener("keyup", mapKeysForMe);
 
-function mapKeysForMe(event) {
+async function mapKeysForMe(event) {
     let currKey = event.code;
     // Android's keyCode: enter = 13; backspace = 8; others are all 229
     if (currKey == '' && (event.key == 'Backspace' || event.keyCode == 8)) { 
@@ -27,17 +27,26 @@ function mapKeysForMe(event) {
     }
 
     var s = window.getSelection();
-    let c = s.anchorOffset;
+    let i = s.anchorOffset;
     var p = document.getElementById(currSubIndex);
     var t = p.innerText;
-    let l = t.substr(0, c);
-    let newl = mapKeys(l);
+    let c = t.charCodeAt(i-1);
 
-    if (newl.slice(-2) != l.slice(-2)) {        
-        p.innerHTML = newl + t.substr(c,);
-        c = newl.length;
-        saveLastCursor("e2:mapKeysForMe", c);
-        s.collapse(p.firstChild, c);
+    // let log = `Typed char: "${c}"`;console.log(); alert(log);
+    if (c === 160) { // space on Android
+        resetTextAndPos(" ");
+        await playCurrPos();
+        return;
+    }
+
+    return;
+    
+    let l = t.substr(0, i);
+    let newl = mapKeys(l);
+    if (newl.slice(-2) != l.slice(-2)) {
+        p.innerHTML = newl + t.substr(i,);
+        lastCurrPos = newl.length;
+        s.collapse(p.firstChild, lastCurrPos);
     }
 }
 

@@ -2,7 +2,7 @@ import * as AudioPlayer from "./audio_player.js";
 import * as Estimators from "./estimators.js";
 import * as TypingText from "./typing_text.js"
 
-var lastCurrPos = 0;
+export let lastCurrPos = 0;
 var selectedText = "";
 
 export function getCursorback(from) {
