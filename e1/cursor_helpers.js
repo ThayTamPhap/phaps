@@ -50,14 +50,14 @@ export function getCurrPosStr() {
   return currInnerText.substr(0, window.getSelection().anchorOffset);
 }
 
-export function resetTextAndPos(suffix="") {
+export function resetTextAndPos(suffix=false) {
     // Reset HTML to plain text to select correct cursor position
     var sel = window.getSelection();
     var currP = document.getElementById(currSubIndex);
     var currInnerText = currP.innerText;
 
-    if (suffix && currInnerText[lastCurrPos-1] != " ") suffix = " ";
-    else suffix = "";
+    if (suffix && currInnerText[lastCurrPos-1] != " ") { suffix = " "; }
+    else { suffix = ""; }
 
     let isEndOfSent = lastCurrPos >= currInnerText.length;
     let normText = 
