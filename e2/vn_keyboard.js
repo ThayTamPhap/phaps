@@ -63,7 +63,7 @@ function mapKeys(sent) {
   });
 }
 console.assert(mapKeys(' j')===' gi');
-console.assert(mapKeys('dfdj')==='dfdgi');
+console.assert(mapKeys('dfdj')==='dfdj');
 console.assert(mapKeys('dfdj ')==='dfdj ');
 
 // Loại bỏ tất cả các kí tự không phải chữ cái và số
