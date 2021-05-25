@@ -1,6 +1,20 @@
+import * as CursorHelpers from "./cursor_helpers.js";
+import * as AudioPlayer from "./audio_player.js";
+import * as Estimators from "./estimators.js";
+
+var cooldown = 0;
+
+document.addEventListener("keydown", handleKeyPress);
+document.addEventListener("keyup", handleKeyUp);
+
+// Export to global to bind to elements
+window.handleKeyPress = handleKeyPress;
+window.playSub = playSub;
+window.playAndUpdateSub = playAndUpdateSub;
+
 // Click a sub will call playSub()
-async function playSub() {
-  var index = parseInt(this.id);
+async function playSub(event) {
+  let index = parseInt(this.id);
   // Click on not edited sub have no effect
   // , only enter can change sub's timing and make it edited 
   if (!(await isEditedIndex(index))) return;
@@ -9,18 +23,18 @@ async function playSub() {
     // First click on sub
     saveCurrSubIndex(index);
     loadCurrAdjustedDeltas();
-    await playCurrSubIndex();
-    blinkCurPos(0);
+    await CursorHelpers.playCurrSubIndex();
+    CursorHelpers.blinkCurPos(0);
   }  else { 
     // Click on current sub
-    saveLastCursor('playSub: Click on current sub');
-    await playCurrPos();
-    blinkCurPos();
+    CursorHelpers.saveLastCursor('playSub: Click on current sub');
+    await CursorHelpers.playCurrPos();
+    CursorHelpers.blinkCurPos();
   }
 }
 
 // Whenever a sub get focused (click, tab, enter) will call playAndUpdateSub()
-async function playAndUpdateSub() {
+async function playAndUpdateSub(event) {
   console.log("currSubIndex", currSubIndex);
   // Save recent edited text
   if (currSubIndex >  1) saveTextIndex(currSubIndex - 1);
@@ -31,10 +45,9 @@ async function playAndUpdateSub() {
     case 'Enter':
       loadCurrAdjustedDeltas();
       saveCurrSubIndex(currSubIndex);
-      saveTime(currSubIndex, ap.currentTime);
-      maxPlayTime = ap.currentTime + await getCurrDelta('Whole sentence');
-      apPlay();
-      // blinkCurPos(0);
+      AudioPlayer.saveCurrentTimeToIndex(currSubIndex);
+      AudioPlayer.adjustMaxPlayTime(null, await Estimators.getCurrDelta('Whole sentence'));
+      AudioPlayer.play();
       if (currSubIndex < subsCount - 1) {
         document.getElementById(currSubIndex+1).contentEditable = true;
       }
@@ -42,11 +55,16 @@ async function playAndUpdateSub() {
 
     case 'Tab':
       loadCurrAdjustedDeltas();
-      await playCurrSubIndex();
-      blinkCurPos(0);
-      maxPlayTime = currSubIndex >= subsCount ? 
-        ap.duration : 
-        await loadTime(currSubIndex+1);
+      await CursorHelpers.playCurrSubIndex();
+      CursorHelpers.blinkCurPos(0);
+
+      if (currSubIndex >= subsCount) {
+        // Play till the end
+        AudioPlayer.adjustMaxPlayTime(99999);
+      } else {
+        // Play till the end of the current sent
+        AudioPlayer.adjustMaxPlayTime(await loadTime(currSubIndex+1));
+      }
       break;
 
     default:
@@ -56,20 +74,14 @@ async function playAndUpdateSub() {
 }
 
 
-document.addEventListener("keyup", handleKeyUp);
-
 async function handleKeyUp(event, blink) {
-  saveLastCursor('handleKeyUp');
+  CursorHelpers.saveLastCursor('handleKeyUp');
 
   if (event.code == 'Space') {
-    resetTextAndPos();
-    await playCurrPos();
+    CursorHelpers.resetTextAndPos();
+    await CursorHelpers.playCurrPos();
   }
 }
-
-
-document.addEventListener("keydown", handleKeyPress);
-var cooldown = 0;
 
 async function handleKeyPress(event) {
   // let logStr = `keydown: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
@@ -87,10 +99,10 @@ async function handleKeyPress(event) {
   
   if (event.key == 'Enter' || event.keyCode == 13) { 
     event.preventDefault();
-    resetTextAndPos(" ");
-    await playCurrPos();
-    p = document.getElementById(currSubIndex); p.focus();
-    if (event.code == '') { blinkCurPos(); } // blinkCurPos for Android
+    CursorHelpers.resetTextAndPos(" ");
+    await CursorHelpers.playCurrPos();
+    let p = document.getElementById(currSubIndex); p.focus();
+    if (event.code == '') { CursorHelpers.blinkCurPos(); } // blinkCurPos for Android
     return;
   }
 
@@ -99,7 +111,8 @@ async function handleKeyPress(event) {
 
     case 'AltLeft':
       event.preventDefault();
-      if (ap.paused) { ap.currentTime -= 0.8; await apPlay(); } else { ap.pause(); };
+      if (event.key === "") { CursorHelpers.getCursorback(); }
+      AudioPlayer.pauseOrSeekAndPlay(-0.8);
       break;
 
     case 'Backspace':
@@ -114,7 +127,7 @@ async function handleKeyPress(event) {
     case 'Enter':
       event.preventDefault();
       if (cooldown > 0) {
-        getCursorback();
+        CursorHelpers.getCursorback();
         break;
       }
 
@@ -158,61 +171,48 @@ async function handleKeyPress(event) {
 
     case 'ControlLeft':
       event.preventDefault();
-      getCursorback();
-      resetTextAndPos();
-      await playCurrPos();
-      blinkCurPos();
+      CursorHelpers.getCursorback();
+      CursorHelpers.resetTextAndPos();
+      await CursorHelpers.playCurrPos();
+      CursorHelpers.blinkCurPos();
       break;
 
     case 'AltRight':
       event.preventDefault();
-      getCursorback();
+      CursorHelpers.getCursorback();
       adjust(+1);
-      blinkCurPos();
+      CursorHelpers.blinkCurPos();
       break;
 
     case 'OSRight':
       event.preventDefault();
-      getCursorback();
+      CursorHelpers.getCursorback();
       adjust(-1);
-      blinkCurPos();
+      CursorHelpers.blinkCurPos();
       break;
 
     case 'Space':
       break;
 
     default:
-      if (await loadTime(currSubIndex) != 0 && !ap.paused) { ap.pause(); }
+      if (await loadTime(currSubIndex) != 0) { AudioPlayer.pause(); }
   }
 }
 
-function getCursorback() {
-  let p = document.getElementById(currSubIndex); p.focus();
-  console.log("\nlastCurrPos:", lastCurrPos);
-  let n = p.innerText.length;
-  if (lastCurrPos > n) lastCurrPos = n;
-  window.getSelection().collapse(p.firstChild, lastCurrPos);
-}
-
-function normalizeTime(time) {
-  if (time > ap.duration) return ap.duration;
-  if (time < 0) return 0;
-  return time;
-}
 
 async function adjust(x) {
-  let delta = await getCurrDelta();
+  let delta = await Estimators.getCurrDelta();
   var _time = await loadTime(currSubIndex) + delta, time;
-  if (delta == 0 && lastCurrPos < 5) {
+  if (delta == 0 && CursorHelpers.getLastCurrPos() < 5) {
     time = _time + 0.15 * x;
-    time = normalizeTime(time);
+    time = AudioPlayer.normalizeTime(time);
     saveTime(currSubIndex, time);
   } else {
-    adjustDeltas(1.5 * x);
+    Estimators.adjustDeltas(1.5 * x);
     time = _time + 1.5 * x;
-    time = normalizeTime(time);
+    time = AudioPlayer.normalizeTime(time);
   }
   console.log(`Adjust ap.currentTime`, time - _time);
-  ap.currentTime = time;
-  await apPlay();
+  AudioPlayer.adjustCurrentTime(time);
+  await AudioPlayer.play();
 }

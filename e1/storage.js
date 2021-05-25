@@ -38,6 +38,11 @@ async function loadTime(i) {
 }
 
 async function saveTextIndex(i) {
+  i = typeof i === "number" ? i : parseInt(this.id);
+  if (i < 0 || i >= subsCount) {
+    console.log(`!!! WARNING: ${i} is out of range`);
+    return;
+  }
   var p = document.getElementById(i);
   saveText(i, p.innerText);
 }
@@ -56,10 +61,6 @@ async function saveAll() {
   for (var i = 0; i < subsCount; i++) {
     await saveTextIndex(i);
   }
-}
-
-function saveCurrentText() {
-  saveTextIndex(parseInt(this.id));
 }
 
 function saveCurrSubIndex(i) {

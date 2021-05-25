@@ -1,33 +1,59 @@
 const ap = document.getElementById("audioPlayer");
-ap.innerHTML = `<source src="/${phapname}.ogg"/>`
-
 var maxPlayTime = ap.duration;
-ap.ontimeupdate = function() {
-  let a = secondsToMinutesAndSecondsAndRemains(ap.currentTime);
-  document.getElementById('playPauseBtn').innerHTML = 
-    `${twoDigitsFmt(a[0])}:${twoDigitsFmt(a[1])}`;
-  if (ap.currentTime > maxPlayTime) ap.pause();
-};
-
-
-async function playCurrSubIndex(delta = 0) {
-  if (selectedText.length > 0) { ap.pause(); return; }
-  var time = await loadTime(currSubIndex);
-  if (isNaN(time)) return;
-  if (time != 0 || currSubIndex == 0) {
-    ap.currentTime = time + delta;
-    maxPlayTime = time + await getCurrDelta('Whole sentence');
-    await apPlay();
-  }  
-}
-
 var goingToPause = false;
 
-async function apPlay() {
+export function initSource(phapname) {
+  ap.innerHTML = 
+   `<source src="/${phapname}.ogg"/>
+    <source src="/${phapname}.mp3"/>`;
+}
+
+
+export function normalizeTime(time) {
+  if (time > ap.duration) return ap.duration;
+  if (time < 0) return 0;
+  return time;
+}
+
+export function getDuration() {
+  return ap.duration;
+}
+export function saveCurrentTimeToIndex(i) {
+  saveTime(currSubIndex, ap.currentTime);
+}
+
+export async function play() {
   goingToPause = false;
   await ap.play();  
 }
 
-async function playCurrPos() {
-  playCurrSubIndex(await getCurrDelta());
+export async function pause() {
+  goingToPause = false;
+  ap.pause();
 }
+
+export function adjustCurrentTime(time=null, delta=0) {
+  ap.currentTime = (time ?? ap.currentTime) + delta;
+}
+
+export function adjustMaxPlayTime(time=null, delta=0) {
+  maxPlayTime = (time ?? maxPlayTime) + delta;
+}
+
+export function pauseOrSeekAndPlay(delta) {
+  if (ap.paused) { 
+    adjustCurrentTime(null, delta);
+    play(); 
+  } else { 
+    pause(); 
+  };
+}
+
+ap.ontimeupdate = function() {
+  let a = secondsToMinutesAndSecondsAndRemains(ap.currentTime);
+  let timeDisp = document.getElementById('playPauseBtn')
+  timeDisp.innerHTML = `${twoDigitsFmt(a[0])}:${twoDigitsFmt(a[1])}`;
+  if (ap.currentTime > maxPlayTime) {
+    ap.pause();
+  }
+};

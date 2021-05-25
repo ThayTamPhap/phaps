@@ -48,22 +48,28 @@
       style="margin-right:10px;width:18%;"> Next </a>
 
     <a href="" id="playPauseBtn" onclick="
-      ap.paused ? apPlay() : ap.pause(); event.preventDefault();
-      document.getElementById(currSubIndex).focus(); "style="width:18%;"> > </a>
+      event.preventDefault(); event.code='AltLeft'; handleKeyPress(event);"
+      style="width:18%;"> > </a>
   </div>
 
   <a href="?" id="downloadButton" style="float:left;">Save</a>  
 </body>
+
 <script src="localforage.min.js"></script>
 <script src="globals_helpers.js"></script>
 <script src="/e/shortcuts.js"></script>
 <script src="typing_text.js"></script>
 <script src="storage.js"></script>
-<script src="gen_subs.js"></script>
-<script src="audio_player.js"></script>
-<script src="cursor_helpers.js"></script>
-<script src="estimators.js"></script>
-<script src="event_handlers.js"></script>
-<script src="download.js"></script>
-<script src="/e/words_secs.js"></script>
+
+<script type="module">
+  import "./event_handlers.js";
+  import "./download.js";
+
+  // Feed the audio player media file
+  import * as AudioPlayer from "./audio_player.js";
+  AudioPlayer.initSource(phapname);
+
+  import * as GenSubs from "./gen_subs.js";
+  GenSubs.run();
+</script>
 </html>

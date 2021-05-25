@@ -1,3 +1,5 @@
+import * as AudioPlayer from "./audio_player.js";
+
 document.getElementById("downloadButton").addEventListener("click", function (event) {
     event.preventDefault();
     saveTextGrid();
@@ -17,13 +19,14 @@ function textGridInterval(index, xmin, xmax, text) {
 async function saveTextGrid(event) {
     await saveAll();
 
-    var str = textGridHeader(ap.duration, subsCount);
+    var str = textGridHeader(AudioPlayer.getDuration(), subsCount);
     var xmin = 0, xmax = 0;
     for (var n = subsCount-1, i = 0; i < n; i++) {
         xmin = xmax;
         xmax = await loadTime(i+1);
         str += textGridInterval(i, xmin, xmax, await loadText(i));
-    }   str += textGridInterval(n, xmax, ap.duration, await loadText(n));
+    }   
+    str += textGridInterval(n, xmax, AudioPlayer.getDuration(), await loadText(n));
 
     var file = new Blob([str], {type: 'text/plain'});
     downloadLink.href = URL.createObjectURL(file);

@@ -1,44 +1,63 @@
+import * as AudioPlayer from "./audio_player.js";
+import * as Estimators from "./estimators.js";
 var lastCurrPos = 0;
+var selectedText = "";
 
-function saveLastCursor(from="") {
+export function getCursorback() {
+  let p = document.getElementById(currSubIndex); p.focus();
+  console.log("\nlastCurrPos:", lastCurrPos);
+  let n = p.innerText.length;
+  if (lastCurrPos > n) {
+    lastCurrPos = n;
+  }
+  window.getSelection().collapse(p.firstChild, lastCurrPos);
+}
+
+export async function playCurrSubIndex(delta = 0) {
+  if (selectedText.length > 0) { AudioPlayer.pause(); return; }
+  var time = await loadTime(currSubIndex);
+  if (isNaN(time)) return;
+  if (time != 0 || currSubIndex == 0) {
+    AudioPlayer.adjustCurrentTime(time, delta);
+    AudioPlayer.adjustMaxPlayTime(time, await Estimators.getCurrDelta('Whole sentence'));
+    await AudioPlayer.play();
+  }  
+}
+
+export async function playCurrPos() {
+  playCurrSubIndex(await Estimators.getCurrDelta());
+}
+
+export function getLastCurrPos() {
+  return lastCurrPos;
+}
+
+export function saveLastCursor(from="") {
   lastCurrPos = window.getSelection().anchorOffset;
   console.log(`\n\nsaveLastCursor(${from}) => ${lastCurrPos}\n\n`);
 }
 
-function getCurrPosStr() {
+export function setLastCursor(from="", value) {
+  lastCurrPos = value;
+  console.log(`\n\setLastCursor(${from}) => ${lastCurrPos}\n\n`);
+}
+
+export function getCurrPosStr() {
   var currP = document.getElementById(currSubIndex);
   var currInnerText = currP.innerText;
   return currInnerText.substr(0, window.getSelection().anchorOffset);
 }
 
-function capitalizeFirstCharOf(sent) {
-  return sent[0].toUpperCase() + sent.slice(1,);
-}
-
-function autoCapitalizedFirstCharOf(p, auto=false) {
-  let yesDoIt = (p.id == "0");
-  if (yesDoIt === false) {
-    let pp = p.parentNode.previousSibling.lastChild;
-    yesDoIt = pp.firstChild.textContent.match(/[.?!\\/]\s*$/);
-  }
-  console.log('yesDoIt', yesDoIt);
-  if (auto && yesDoIt) {
-    p.innerHTML = capitalizeFirstCharOf(p.innerText);
-  }
-  return yesDoIt;
-}
-
-function resetTextAndPos(suffix="") {
+export function resetTextAndPos(suffix="") {
     // Reset HTML to plain text to select correct cursor position
     var sel = window.getSelection();
     var currP = document.getElementById(currSubIndex);
     var currInnerText = currP.innerText;
 
-    // if (suffix) { lastCurrPos = sel.anchorOffset; }
     if (suffix && currInnerText[lastCurrPos-1] != " ") suffix = " ";
     else suffix = "";
 
-    isEndOfSent = lastCurrPos >= currInnerText.length;
+    let isEndOfSent = lastCurrPos >= currInnerText.length;
     let normText = 
       normalizeText(currInnerText.substr(0, lastCurrPos)) + suffix;
     let remain = currInnerText.substr(lastCurrPos,);
@@ -64,8 +83,7 @@ function resetTextAndPos(suffix="") {
     sel.collapse(currP.firstChild, lastCurrPos);
 }
 
-var selectedText = "";
-function blinkCurPos(pos) {
+export function blinkCurPos(pos) {
   var currP = document.getElementById(currSubIndex);
   if (!currP.firstChild) { return; }
 
@@ -75,7 +93,7 @@ function blinkCurPos(pos) {
   console.log('linkCurPos():\nselectedText', selectedText);
 
   if (selectedText.length > 0) {
-    ap.pause();
+    AudioPlayer.pause();
     return;
   }
 
@@ -105,7 +123,7 @@ function blinkCurPos(pos) {
     }
 
     if (selectedText.length > 0) {
-      ap.pause();
+      AudioPlayer.pause();
       clearInterval(interval);
       return;
     }
@@ -119,4 +137,21 @@ function blinkCurPos(pos) {
       sel.collapse(currP.firstChild, currPos);
     }
   }, 80);
+}
+
+function capitalizeFirstCharOf(sent) {
+  return sent[0].toUpperCase() + sent.slice(1,);
+}
+
+function autoCapitalizedFirstCharOf(p, auto=false) {
+  let yesDoIt = (p.id == "0");
+  if (yesDoIt === false) {
+    let pp = p.parentNode.previousSibling.lastChild;
+    yesDoIt = pp.firstChild.textContent.match(/[.?!\\/]\s*$/);
+  }
+  console.log('yesDoIt', yesDoIt);
+  if (auto && yesDoIt) {
+    p.innerHTML = capitalizeFirstCharOf(p.innerText);
+  }
+  return yesDoIt;
 }

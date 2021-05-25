@@ -1,27 +1,31 @@
-loadSubsCount().then(async function () {
-
-  if (!isNaN(subsCount) && subsCount > 0 && !expanding) {
-    console.log("Use cached data to gen subs");
-    genSubs();
-
-  } else {
-
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-      if (this.status == 404) {
-        if (!textGridLoaded) loadTextGrid();
-      } else
-      if (this.readyState == 4 && this.status == 200) {
-        txt = this.responseText;
-        initSubs(txt).then(genSubs);
-      }
-    };
-    xmlhttp.open("GET", `/${phapname}.lab`, true);
-    xmlhttp.send();
-  }
-});
-
 var textGridLoaded = false;
+
+export function run() {
+  
+  loadSubsCount().then(async function () {
+
+    if (!isNaN(subsCount) && subsCount > 0 && !expanding) {
+      console.log("Use cached data to gen subs");
+      genSubs();
+
+    } else {
+
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (this.status == 404) {
+          if (!textGridLoaded) loadTextGrid();
+        } else
+        if (this.readyState == 4 && this.status == 200) {
+          txt = this.responseText;
+          initSubs(txt).then(genSubs);
+        }
+      };
+      xmlhttp.open("GET", `/${phapname}.lab`, true);
+      xmlhttp.send();
+    }
+  });
+}
+
 function loadTextGrid() {
   textGridLoaded = true;
   console.log("Load TextGrid ...")
@@ -148,7 +152,7 @@ async function genSubs() {
     // if p is click then p will get focus
     p.addEventListener("click", playSub);
     p.addEventListener("focus", playAndUpdateSub);
-    p.addEventListener("blur", saveCurrentText);
+    p.addEventListener("blur",  saveTextIndex);
     div.appendChild(p);
     document.body.appendChild(div);
 

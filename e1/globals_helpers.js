@@ -9,6 +9,8 @@ const SPECIAL_WORDS_REGEX =       /(\d+%?)([^\d%|]|$)/g;
 
 // Global variables (app state)
 var currSubIndex, currKey, subsCount;
+let adjustedDeltas = [];
+
 const expanding = false;
 const phapname = location.search.replace("?","").split(".")[0];
 console.log('phapname', phapname);
