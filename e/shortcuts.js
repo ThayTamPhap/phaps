@@ -120,6 +120,11 @@ rn    rất nhiều
 sp    số phận
 st    sự thật
 t     Tăng
+tc    thành công
+thc   thành công
+cbg   chua bao giờ
+ktn   không thể nào
+thn   thể nào
 tak   tà kiến
 tb    Tam Bảo
 td    thay đổi
