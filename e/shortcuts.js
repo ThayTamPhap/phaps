@@ -24,7 +24,7 @@ cd    cái đó
 cdg   cúng dường
 cgd   cái gì đó
 chk   chánh kiến
-ck    chánh kiến
+ck    cực kì
 cl    chất lượng
 cn    chánh niệm
 cng   con người
