@@ -11,7 +11,7 @@
 
   .header audio#audioPlayer { width: 0%; float: left; height: 25px; }
 
-  .header a, #currentTime, #downloadButton { width: 18%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.35em 0em; float: right; margin-right: 5px; text-align: center; text-decoration: none; }
+  .header a, #currentTime, #downloadButton { width: 16.5%; color: blue; background-color: #ccc; border-width: 1px; border-style: solid; padding: 0.35em 0em; float: right; margin-right: 5px; text-align: center; text-decoration: none; }
 
   #downloadButton { position: fixed; top: 6px; right: 0; width: 3em; padding: 0.15em 0; }
 
@@ -34,17 +34,18 @@
     <a href="" onclick="
       event.preventDefault(); event.code='ControlLeft';
       handleKeyPress(event, FROM_VIRTUAL_BUTTON);"
-      style=""> >| </a>
-
-    <a href="" onclick="
-      event.preventDefault(); event.code='OSRight';
-      handleKeyPress(event, FROM_VIRTUAL_BUTTON);"
-      style=""> << </a>
+      style="margin-right:1em;"> >| </a>
 
     <a href="" onclick="
       event.preventDefault(); event.code='AltRight';
       handleKeyPress(event, FROM_VIRTUAL_BUTTON);"
       style=""> >> </a>
+
+    <a1 href="" onclick="
+      event.preventDefault(); event.code='OSRight';
+      handleKeyPress(event, FROM_VIRTUAL_BUTTON);"
+      style=""> << </a>
+
 
     <a href="" onclick="
       event.preventDefault(); event.code='Enter';
