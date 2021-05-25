@@ -6,6 +6,7 @@
 \\d+p    \\d+ phút
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
+tuh   tu hành
 yo    yếu ớt
 mm    mạnh mẽ
 ml    mà lại
