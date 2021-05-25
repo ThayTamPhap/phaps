@@ -87,8 +87,7 @@ async function handleKeyUp(event) {
 
 async function handleKeyPress(event, from=null) {
   // let logStr = `keydown: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
-  // console.log(logStr);
-  // alert(logStr);
+  // console.log(logStr); // alert(logStr);
   currKey = event.code;
   
   // key mapping for different browsers / systems
@@ -173,6 +172,7 @@ async function handleKeyPress(event, from=null) {
     case 'ControlLeft':
       event.preventDefault();
       CursorHelpers.getCursorback(from);
+      CursorHelpers.resetTextAndPos();
       await CursorHelpers.playCurrPos();
       CursorHelpers.blinkCurPos();
       break;
@@ -180,6 +180,7 @@ async function handleKeyPress(event, from=null) {
     case 'AltRight':
       event.preventDefault();
       CursorHelpers.getCursorback(from);
+      CursorHelpers.resetTextAndPos();
       adjust(+1);
       CursorHelpers.blinkCurPos();
       break;
@@ -187,6 +188,7 @@ async function handleKeyPress(event, from=null) {
     case 'OSRight':
       event.preventDefault();
       CursorHelpers.getCursorback(from);
+      CursorHelpers.resetTextAndPos();
       adjust(-1);
       CursorHelpers.blinkCurPos();
       break;

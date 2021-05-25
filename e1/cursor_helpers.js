@@ -61,12 +61,16 @@ export function resetTextAndPos(suffix=false) {
     else { suffix = ""; }
 
     let isEndOfSent = lastCurrPos >= currInnerText.length;
+
     let normText = 
-      TypingText.normalizeText(currInnerText.substr(0, lastCurrPos)) + suffix;
+      TypingText.normalizeText(currInnerText.substr(0, lastCurrPos),false) + suffix;
+
     let remain = currInnerText.substr(lastCurrPos,);
+    remain = TypingText.normalizeText(remain);
+
     currInnerText = normText + remain;
     lastCurrPos = normText.length;
-    
+
     let n = currInnerText.length;    
     if (currInnerText[n-1] == " ") {
      currInnerText = currInnerText.slice(0, n-1) + "&nbsp;";
