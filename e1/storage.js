@@ -44,7 +44,8 @@ async function saveTextIndex(i) {
     return;
   }
   var p = document.getElementById(i);
-  saveText(i, p.innerText);
+  console.log(`saveTextIndex: ${i}, ${p}`);
+  if (p) saveText(i, p.innerText);
 }
 
 async function saveText(i, value) {
