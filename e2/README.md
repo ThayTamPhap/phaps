@@ -4,7 +4,8 @@ shortcuts and auto-complete function.
 
 2s: rất-là là-nhiều
 3s: rất-là-nhiều
-4s: không-những-mà-còn
+4s: không-những-mà-còn, làm phước cúng dường
+Thực ra 4s = 2s + 2s
 
 ## Fast typing for Vietnamese
 
