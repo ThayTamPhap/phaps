@@ -129,6 +129,7 @@ tht   thông tin
 tl    thì là
 tn    thế nào
 tnl   thế nên là
+tnh   thế nhưng
 tnm   thế nhưng mà
 trc   trước
 trtg  truyền thống
