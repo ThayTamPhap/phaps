@@ -43,6 +43,7 @@ dd    dễ duôi
 dg    đúng
 dgl   đấy gọi là
 dk    điều kiện
+dkh   đau khổ
 dp    Đức Phật
 dt    đối tượng
 dđ    đắc đạo
