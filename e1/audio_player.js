@@ -8,7 +8,6 @@ export function initSource(phapname) {
     <source src="/${phapname}.mp3"/>`;
 }
 
-
 export function normalizeTime(time) {
   if (time > ap.duration) return ap.duration;
   if (time < 0) return 0;
@@ -18,6 +17,7 @@ export function normalizeTime(time) {
 export function getDuration() {
   return ap.duration;
 }
+
 export function saveCurrentTimeToIndex(i) {
   saveTime(currSubIndex, ap.currentTime);
 }
@@ -43,9 +43,9 @@ export function adjustMaxPlayTime(time=null, delta=0) {
 export function pauseOrSeekAndPlay(delta) {
   if (ap.paused) { 
     adjustCurrentTime(null, delta);
-    play(); 
+    play();
   } else { 
-    pause(); 
+    pause();
   };
 }
 
