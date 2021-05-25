@@ -65,21 +65,21 @@
 </body>
 
 <script src="/e/localforage.min.js"></script>
-<script src="globals_helpers.js"></script>
-<script src="storage.js"></script>
+<script src="/e1/globals_helpers.js"></script>
+<script src="/e1/storage.js"></script>
 
 <script type="module">
-
-    import "./event_handlers.js";
+    import "/e2/vn_keyboard.js";
+    import "/e1/event_handlers.js";
 
     // Feed the audio player media file
-    import * as AudioPlayer from "./audio_player.js";
+    import * as AudioPlayer from "/e1/audio_player.js";
     AudioPlayer.initSource(phapname);
 
-    import * as GenSubs from "./gen_subs.js";
+    import * as GenSubs from "/e1/gen_subs.js";
     GenSubs.run();
 
-    import "./download.js";
+    import "/e1/download.js";
 
 </script>
 </html>

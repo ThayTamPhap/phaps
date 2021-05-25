@@ -12,24 +12,6 @@ The free Web interface supports text up to 1000 characters.
 
 view-source:https://vietnameseaccent.com/static/diacriticsmarker/insert_diacritics.js
 
-## Replacements
-
-j => gi
-f => ph
-k => kh
-p => ph
-q => qu
-
-júp việc => giúp
-july => july
-
-wo|ưo => ươ
-uo => uô
-ie => iê
-ye => yê
-uu => ưu
-
-puu pieu => phưu phiêu
 
 iê
 yê
