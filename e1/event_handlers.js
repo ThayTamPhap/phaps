@@ -4,6 +4,7 @@ import * as Estimators from "./estimators.js";
 
 var cooldown = 0;
 var currKey;
+var needToResetTextAndPos = true;
 
 document.addEventListener("keydown", handleKeyPress);
 document.addEventListener("keyup", handleKeyUp);
@@ -12,6 +13,13 @@ document.addEventListener("keyup", handleKeyUp);
 window.handleKeyPress = handleKeyPress;
 window.playSub = playSub;
 window.playAndUpdateSub = playAndUpdateSub;
+
+function resetTextAndPos(suffix=false) {
+  if (needToResetTextAndPos) {
+    CursorHelpers.resetTextAndPos(suffix);
+  }
+  needToResetTextAndPos = false;
+}
 
 // Click a sub will call playSub()
 async function playSub(event) {
@@ -80,7 +88,7 @@ async function handleKeyUp(event) {
   CursorHelpers.saveLastCursor('handleKeyUp');
 
   if (event.code == 'Space') {
-    CursorHelpers.resetTextAndPos();
+    resetTextAndPos();
     await CursorHelpers.playCurrPos();
   }
 }
@@ -100,7 +108,8 @@ async function handleKeyPress(event, from=null) {
   
   if (event.key == 'Enter' || event.keyCode == 13) { 
     event.preventDefault();
-    CursorHelpers.resetTextAndPos(" ");
+    needToResetTextAndPos = true;
+    resetTextAndPos(" ");
     await CursorHelpers.playCurrPos();
     let p = document.getElementById(currSubIndex); p.focus();
     if (event.code == '') { CursorHelpers.blinkCurPos(); } // blinkCurPos for Android
@@ -172,7 +181,7 @@ async function handleKeyPress(event, from=null) {
     case 'ControlLeft':
       event.preventDefault();
       CursorHelpers.getCursorback(from);
-      CursorHelpers.resetTextAndPos();
+      resetTextAndPos();
       await CursorHelpers.playCurrPos();
       CursorHelpers.blinkCurPos();
       break;
@@ -180,7 +189,7 @@ async function handleKeyPress(event, from=null) {
     case 'AltRight':
       event.preventDefault();
       CursorHelpers.getCursorback(from);
-      CursorHelpers.resetTextAndPos();
+      resetTextAndPos();
       adjust(+1);
       CursorHelpers.blinkCurPos();
       break;
@@ -188,15 +197,17 @@ async function handleKeyPress(event, from=null) {
     case 'OSRight':
       event.preventDefault();
       CursorHelpers.getCursorback(from);
-      CursorHelpers.resetTextAndPos();
+      resetTextAndPos();
       adjust(-1);
       CursorHelpers.blinkCurPos();
       break;
 
     case 'Space':
+      needToResetTextAndPos = true;
       break;
 
     default:
+      needToResetTextAndPos = true;
       if (await loadTime(currSubIndex) != 0) { AudioPlayer.pause(); }
   }
 }
