@@ -164,7 +164,8 @@ async function handleKeyPress(event, from=null) {
         div.appendChild(p);
         document.body.appendChild(div);
         p.focus();
-        p.scrollIntoView();
+        // p.parentNode.scrollIntoView();
+        window.scrollTo(0,document.body.scrollHeight);
         saveSubsCount(++subsCount);
       }
       break;
