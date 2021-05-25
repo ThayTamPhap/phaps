@@ -62,7 +62,7 @@ function mapKeys(sent) {
     return v;
   });
 }
-console.assert(mapKeys('j')==='gi');
+console.assert(mapKeys(' j')===' gi');
 console.assert(mapKeys('dfdj')==='dfdgi');
 console.assert(mapKeys('dfdj ')==='dfdj ');
 
