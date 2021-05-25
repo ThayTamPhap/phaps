@@ -38,7 +38,7 @@ _shortcuts.split("\n").map(x => {
 window.normalizeText = normalizeText; // Hack: make it available in storage.js
 export function normalizeText(value, completeSent=true) {
   value = value.replace("...","…").replace(" \""," “").replace("\" ","”");
-  value = value.replace(/[ ]/," ")
+  value = value.replace(/[ ]/," ")
   value = convertShortcuts(value, completeSent);
 
   value = spellSpecialWords(value);
@@ -53,7 +53,8 @@ export function normalizeText(value, completeSent=true) {
       x.substr(0,x.length-1)+x[x.length-1].toUpperCase());
 
   // Strip begin, and end spacings
-  value = value.replace(/^\s+/,"").replace(/\s+$/," ");
+  let repStr = completeSent ? "" : " ";
+  value = value.replace(/^\s+/, repStr).replace(/\s+$/, repStr);
   // value = value.trim();
    // and strim in-between spacings
   value = value.replace(/\s+/g," ");
