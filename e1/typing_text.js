@@ -1,3 +1,5 @@
+const SPECIAL_WORDS_REGEX = /(\d+%?)([^\d%|]|$)/g;
+
 /* 
 ?= is a positive lookahead
 https://stackoverflow.com/questions/1570896/what-does-mean-in-a-regular-expression
@@ -161,8 +163,7 @@ console.assert(convertShortcuts('323d')==='323 ngày');
 console.assert(convertShortcuts('Byg chúng ta nc về nx cng đang ở đây')==='Bây giờ chúng ta nước về những con người đang ở đây');
 
 // https://kipalog.com/posts/Mot-so-ki-thuat-xu-li-tieng-Viet-trong-Javascript
-
-function xoa_dau(str) {
+function removeVienameseMarks(str) {
     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
     str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
     str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");

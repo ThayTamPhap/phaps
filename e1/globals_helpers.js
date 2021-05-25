@@ -1,17 +1,11 @@
-const IDEAL_LINE_CHARS = 45*5;
-const MAX_LINE_CHARS = 60*5;
-const MIN_LINE_CHARS = 22*5;
-
 // https://regexr.com/ => to test regex
 const END_PHRASE_AND_SENT_REGEX = /(\s*(?:[,;:\n\\\.\?\!]\s*)+)/gm;
 const END_SENT_REGEX =            /(\s*(?:[\n\\\.\?\!]\s*)+)/gm;
-const SPECIAL_WORDS_REGEX =       /(\d+%?)([^\d%|]|$)/g;
 
 // Global variables (app state)
 var currSubIndex, subsCount;
 let adjustedDeltas = [];
 
-const expanding = false;
 const phapname = location.search.replace("?","").split(".")[0];
 console.log('phapname', phapname);
 

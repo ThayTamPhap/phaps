@@ -1,4 +1,9 @@
+const IDEAL_LINE_CHARS = 45*5;
+const MAX_LINE_CHARS = 60*5;
+const MIN_LINE_CHARS = 22*5;
+
 var textGridLoaded = false;
+const expanding = false;
 
 export function run() {
   
