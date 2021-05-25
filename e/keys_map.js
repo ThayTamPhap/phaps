@@ -1,5 +1,5 @@
 /**/export let _keys_map = `
-f   _ph
+ f  _ ph
 ie  _iê
  j  _ gi
 k   _kh
