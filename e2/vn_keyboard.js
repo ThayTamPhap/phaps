@@ -1,5 +1,5 @@
 import { _keys_map } from "/e/keys_map.js"
-import { lastCurrPos, playCurrPos, resetTextAndPos } from "/e1/cursor_helpers.js"
+import { setLastCursorFast, playCurrPos, resetTextAndPos } from "/e1/cursor_helpers.js"
 
 var keysMap = {};
 
@@ -39,14 +39,13 @@ async function mapKeysForMe(event) {
         return;
     }
 
-    return;
-    
+    // return;
+
     let l = t.substr(0, i);
     let newl = mapKeys(l);
     if (newl.slice(-2) != l.slice(-2)) {
         p.innerHTML = newl + t.substr(i,);
-        lastCurrPos = newl.length;
-        s.collapse(p.firstChild, lastCurrPos);
+        s.collapse(p.firstChild, setLastCursorFast(newl.length));
     }
 }
 
