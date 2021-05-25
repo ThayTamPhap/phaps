@@ -62,6 +62,7 @@ export function resetTextAndPos(suffix=false) {
 
     let isEndOfSent = lastCurrPos >= currInnerText.length;
 
+    // Add suffix first then normalize it
     let normText = currInnerText.substr(0, lastCurrPos) + suffix;
     normText = TypingText.normalizeText(normText,false);
 
@@ -77,11 +78,9 @@ export function resetTextAndPos(suffix=false) {
     }
 
     if (autoCapitalizedFirstCharOf(currP, false)) {
-      currP.innerHTML = capitalizeFirstCharOf(currInnerText);
-    } else {
-      currP.innerHTML = currInnerText;
+      currInnerText = capitalizeFirstCharOf(currInnerText);
     }
-
+    currP.innerHTML = currInnerText;
     // console.log(`n=${n}, lastCurrPos=${lastCurrPos}\nnormText="${normText}", remain="${remain}"`);
 
     /* https://javascript.info/selection-range#selecting-the-text-partially */
