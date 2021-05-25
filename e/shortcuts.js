@@ -6,6 +6,8 @@
 \\d+p    \\d+ phút
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
+mm    mạnh mẽ
+ml    mà lại
 ad    Ấn Độ
 bd    bắt đầu
 bg    bao giờ
