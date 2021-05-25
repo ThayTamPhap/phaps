@@ -92,23 +92,37 @@ console.assert(spellSpecialWords("12") == "|mười hai|12|");
 function spellNumber(x) {
   // console.log(`spellNumber "${x}"`)
   var prefix, md, mdd;
+  // xxxx
+  if (md = x.match(/^(\d)(\d\d\d)$/)) {
+    prefix = `${spellNumber(md[1])} nghìn`;
+
+    if (md[2] == '000') {
+      return prefix;
+    }
+
+    return `${prefix} ${spellNumber(md[2])}`
+  }
 
   // xxx
   if (md = x.match(/^(\d)(\d\d)$/)) {
     prefix = `${spellNumber(md[1])} trăm`;
 
-    if (md[2] == '00')
+    if (md[2] == '00') {
       return prefix;
+    }
 
-    if (mdd = md[2].match(/^0(\d)$/))
-        return `${prefix} lẻ ${spellNumber(mdd[1])}`
+    if (mdd = md[2].match(/^0(\d)$/)) {
+        return `${prefix} lẻ ${spellNumber(mdd[1])}`;
+    }
 
     return `${prefix} ${spellNumber(md[2])}`
   }
 
   // xx
   if (md = x.match(/^(\d)(\d)$/)) {
-    if (x == '10') return 'mười'
+    if (x == '10') {
+      return 'mười';
+    }
 
     // 1x => mười x (11,11,..,19)
     // 2x => 2 x (2x,..,9x)
@@ -139,6 +153,7 @@ function spellNumber(x) {
 console.assert(spellNumber("15") == "mười lăm");
 console.assert(spellNumber("12") == "mười hai");
 console.assert(spellNumber("102") == "một trăm lẻ hai");
+console.assert(spellNumber("1004") == "một nghìn không trăm lẻ bốn");
 
 
 function convertShortcuts(txt, completeSent=true) {
