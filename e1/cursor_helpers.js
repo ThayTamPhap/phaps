@@ -62,8 +62,8 @@ export function resetTextAndPos(suffix=false) {
 
     let isEndOfSent = lastCurrPos >= currInnerText.length;
 
-    let normText = 
-      TypingText.normalizeText(currInnerText.substr(0, lastCurrPos),false) + suffix;
+    let normText = currInnerText.substr(0, lastCurrPos) + suffix;
+    normText = TypingText.normalizeText(normText,false);
 
     let remain = currInnerText.substr(lastCurrPos,);
     remain = TypingText.normalizeText(remain);
