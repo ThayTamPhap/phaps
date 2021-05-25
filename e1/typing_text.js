@@ -1,3 +1,5 @@
+import { _shortcuts } from "../e/shortcuts.js"
+
 // Loại bỏ tất cả các kí tự không phải chữ cái và số
 const notAlphaOrDigitRegex = /[^0-9a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ\s]/gi;
 const SPECIAL_WORDS_REGEX = /(\d+%?)([^\d%|]|$)/g;
@@ -33,7 +35,8 @@ _shortcuts.split("\n").map(x => {
 }).slice(1,).join("|")+')(?=[\\s!?.,;:|\\]})])', 'gi'); 
 
 
-function normalizeText(value, completeSent=true) {
+window.normalizeText = normalizeText; // Hack: make it available in storage.js
+export function normalizeText(value, completeSent=true) {
   value = value.replace("...","…").replace(" \""," “").replace("\" ","”");
   value = value.replace(/[ ]/," ")
   value = convertShortcuts(value, completeSent);
@@ -63,10 +66,10 @@ console.assert(normalizeText("  d  . ")==="d. ");
 console.assert(normalizeText("  d { d f   fd !}  d ,   f .  H? ")==="d {d f fd!} d, f. Hiểu không? ");
 
 
-function spellSpecialWords(txt) {
+export function spellSpecialWords(txt) {
   // e.g: 100 or 100% not end with |
   return txt.replace(SPECIAL_WORDS_REGEX, function (x) {
-    var m = x.match(/(\d+%?)([^\d%\|]|$)/);
+    var md, m = x.match(/(\d+%?)([^\d%\|]|$)/);
     // console.log(txt, x, m);
     // Just return 0-9,10
     if (m[1].match(/^(\d|10)$/)) return x;
@@ -158,12 +161,12 @@ function convertShortcuts(txt, completeSent=true) {
 
   return completeSent ? txt.slice(0, txt.length - 1) : txt;
 }
-
 console.assert(convertShortcuts('Byg',false)==='Byg');
 console.assert(convertShortcuts('byg')==='bây giờ');
 console.assert(convertShortcuts('323d')==='323 ngày');
 console.assert(convertShortcuts('Byg chúng ta nc về nx cng đang ở đây')===
   'Bây giờ chúng ta nước về những con người đang ở đây');
+
 
 // https://kipalog.com/posts/Mot-so-ki-thuat-xu-li-tieng-Viet-trong-Javascript
 function removeVienameseMarks(str) {

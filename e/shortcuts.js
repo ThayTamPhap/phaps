@@ -1,4 +1,4 @@
-/**/_shortcuts = `
+/**/export let _shortcuts = `
 \\d+d    \\d+ ngày
 \\d+h    \\d+ giờ
 \\d+ng   \\d+ người

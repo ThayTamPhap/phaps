@@ -57,19 +57,19 @@
 
 <script src="localforage.min.js"></script>
 <script src="globals_helpers.js"></script>
-<script src="/e/shortcuts.js"></script>
-<script src="typing_text.js"></script>
 <script src="storage.js"></script>
 
 <script type="module">
-  import "./event_handlers.js";
-  import "./download.js";
+    
+    import "./event_handlers.js";
+    import "./download.js";
 
-  // Feed the audio player media file
-  import * as AudioPlayer from "./audio_player.js";
-  AudioPlayer.initSource(phapname);
+    // Feed the audio player media file
+    import * as AudioPlayer from "./audio_player.js";
+    AudioPlayer.initSource(phapname);
 
-  import * as GenSubs from "./gen_subs.js";
-  GenSubs.run();
+    import * as GenSubs from "./gen_subs.js";
+    GenSubs.run();
+
 </script>
 </html>

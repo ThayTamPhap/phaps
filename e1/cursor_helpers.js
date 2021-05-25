@@ -1,5 +1,7 @@
 import * as AudioPlayer from "./audio_player.js";
 import * as Estimators from "./estimators.js";
+import * as TypingText from "./typing_text.js"
+
 var lastCurrPos = 0;
 var selectedText = "";
 
@@ -59,7 +61,7 @@ export function resetTextAndPos(suffix="") {
 
     let isEndOfSent = lastCurrPos >= currInnerText.length;
     let normText = 
-      normalizeText(currInnerText.substr(0, lastCurrPos)) + suffix;
+      TypingText.normalizeText(currInnerText.substr(0, lastCurrPos)) + suffix;
     let remain = currInnerText.substr(lastCurrPos,);
     currInnerText = normText + remain;
     lastCurrPos = normText.length;

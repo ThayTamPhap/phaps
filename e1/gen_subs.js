@@ -1,3 +1,5 @@
+import * as TypingText from "./typing_text.js"
+
 const IDEAL_LINE_CHARS = 45*5;
 const MAX_LINE_CHARS = 60*5;
 const MIN_LINE_CHARS = 22*5;
@@ -148,7 +150,7 @@ async function genSubs() {
     time = await loadTime(i);
     div.innerHTML = `<i>[${i}] ${secondsToTime(time)}</i>`;
     p = document.createElement('p');
-    p.innerHTML = spellSpecialWords(await loadText(i));
+    p.innerHTML = TypingText.spellSpecialWords(await loadText(i));
     p.id = i;
     if (await isEditedIndex(i) || i <= 1) {
       p.contentEditable = "true";
