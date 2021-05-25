@@ -8,7 +8,7 @@ const END_SENT_REGEX =            /(\s*(?:[\n\\\.\?\!]\s*)+)/gm;
 const SPECIAL_WORDS_REGEX =       /(\d+%?)([^\d%|]|$)/g;
 
 // Global variables (app state)
-var currSubIndex, currKey, subsCount;
+var currSubIndex, subsCount;
 let adjustedDeltas = [];
 
 const expanding = false;

@@ -3,6 +3,7 @@ import * as AudioPlayer from "./audio_player.js";
 import * as Estimators from "./estimators.js";
 
 var cooldown = 0;
+var currKey;
 
 document.addEventListener("keydown", handleKeyPress);
 document.addEventListener("keyup", handleKeyUp);
