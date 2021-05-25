@@ -11,6 +11,7 @@
 \\d+p    \\d+ phút
 \\d+t    \\d+ tiếng
 \\d+y    \\d+ năm
+??    [??]
 ad    Ấn Độ
 bc    bất cứ
 bd    bắt đầu
