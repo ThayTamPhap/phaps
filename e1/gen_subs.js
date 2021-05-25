@@ -138,7 +138,7 @@ async function initSubs(txt) {
 
 function focusAndScrollIntoViewSubIndex(index) {
   var p = document.getElementById(index);
-  p.focus();
+  p.parentNode.focus();
   p.scrollIntoView();
 }
 
