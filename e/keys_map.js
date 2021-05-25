@@ -2,8 +2,6 @@
  f  _ ph
 ie  _iê
  j  _ gi
-k   _kh
-q   _qu
 uo  _uô
 uu  _ưu
 wo  _ươ
