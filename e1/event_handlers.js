@@ -22,6 +22,7 @@ async function playSub(event) {
 
   if (currSubIndex != index) {
     // First click on sub
+    CursorHelpers.saveLastCursor('playSub: First click on sub', 0);
     saveCurrSubIndex(index);
     loadCurrAdjustedDeltas();
     await CursorHelpers.playCurrSubIndex();
@@ -172,7 +173,6 @@ async function handleKeyPress(event, from=null) {
     case 'ControlLeft':
       event.preventDefault();
       CursorHelpers.getCursorback(from);
-      CursorHelpers.resetTextAndPos();
       await CursorHelpers.playCurrPos();
       CursorHelpers.blinkCurPos();
       break;

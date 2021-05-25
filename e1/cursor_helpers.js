@@ -35,8 +35,8 @@ export function getLastCurrPos() {
   return lastCurrPos;
 }
 
-export function saveLastCursor(from="") {
-  lastCurrPos = window.getSelection().anchorOffset;
+export function saveLastCursor(from="", pos=null) {
+  lastCurrPos = pos ?? window.getSelection().anchorOffset;
   console.log(`\n\nsaveLastCursor(${from}) => ${lastCurrPos}\n\n`);
 }
 
