@@ -1,3 +1,4 @@
+/* >200 counts tri-syllabels + >450 counts bi-syllabels
 /**/export let _shortcuts = `
 1ng   một người
 1s    một số
@@ -61,6 +62,7 @@ chn   chẳng hạn như
 cht   chúng ta
 cicg  cái cảm giác
 ck    cực kì
+ckn   cực kì nhiều
 ckp   chứ không phải
 cl    chất lượng
 cla   chỉ là
