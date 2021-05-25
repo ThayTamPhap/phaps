@@ -1,3 +1,5 @@
+// Loại bỏ tất cả các kí tự không phải chữ cái và số
+const notAlphaOrDigitRegex = /[^0-9a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ\s]/gi;
 const SPECIAL_WORDS_REGEX = /(\d+%?)([^\d%|]|$)/g;
 
 /* 
@@ -160,7 +162,8 @@ function convertShortcuts(txt, completeSent=true) {
 console.assert(convertShortcuts('Byg',false)==='Byg');
 console.assert(convertShortcuts('byg')==='bây giờ');
 console.assert(convertShortcuts('323d')==='323 ngày');
-console.assert(convertShortcuts('Byg chúng ta nc về nx cng đang ở đây')==='Bây giờ chúng ta nước về những con người đang ở đây');
+console.assert(convertShortcuts('Byg chúng ta nc về nx cng đang ở đây')===
+  'Bây giờ chúng ta nước về những con người đang ở đây');
 
 // https://kipalog.com/posts/Mot-so-ki-thuat-xu-li-tieng-Viet-trong-Javascript
 function removeVienameseMarks(str) {
@@ -180,6 +183,3 @@ function removeVienameseMarks(str) {
     str = str.replace(/Đ/g, "D");
     return str;
 }
-
-// Loại bỏ tất cả các kí tự không phải chữ cái và số
-// str = str.replace(/[^0-9a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ\s]/gi, '');
