@@ -1,5 +1,6 @@
 import { _keys_map } from "/e/keys_map.js"
 import { setLastCursorFast, playCurrPos, resetTextAndPos } from "/e1/cursor_helpers.js"
+import * as AudioPlayer from "/e1/audio_player.js"
 
 var keysMap = {};
 
@@ -49,7 +50,12 @@ async function mapKeysForMe(event) {
     }
 }
 
-export function mapKeys(sent) {
+function playCurrent() {
+    AudioPlayer.adjustMaxPlayTime(null, 60);
+    AudioPlayer.play();
+}
+
+function mapKeys(sent) {
   return sent.replace(keysMapRegex, k => {
     let v = keysMap[k.toLowerCase()];
     console.log(`\n!! mapKeys: '${k}'' => '${v}'`);
