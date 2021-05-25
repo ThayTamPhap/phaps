@@ -5,7 +5,8 @@ import * as TypingText from "./typing_text.js"
 var lastCurrPos = 0;
 var selectedText = "";
 
-export function getCursorback() {
+export function getCursorback(from) {
+  if (from !== FROM_VIRTUAL_BUTTON) { return; }
   let p = document.getElementById(currSubIndex); p.focus();
   console.log("\nlastCurrPos:", lastCurrPos);
   let n = p.innerText.length;

@@ -32,23 +32,28 @@
     <audio controls id="audioPlayer"></audio>
 
     <a href="" onclick="
-      event.preventDefault(); event.code='ControlLeft'; handleKeyPress(event);" 
+      event.preventDefault(); event.code='ControlLeft';
+      handleKeyPress(event, FROM_VIRTUAL_BUTTON);"
       style="float:left;"> >| </a>
 
     <a href="" onclick="
-      event.preventDefault(); event.code='OSRight';handleKeyPress(event);" 
+      event.preventDefault(); event.code='OSRight';
+      handleKeyPress(event, FROM_VIRTUAL_BUTTON);"
       style="float:left;"> << </a>
 
     <a href="" onclick="
-      event.preventDefault(); event.code='AltRight';handleKeyPress(event);" 
+      event.preventDefault(); event.code='AltRight';
+      handleKeyPress(event, FROM_VIRTUAL_BUTTON);"
       style="float:left;"> >> </a>
 
     <a href="" onclick="
-      event.preventDefault(); event.code='Enter'; handleKeyPress(event);"
+      event.preventDefault(); event.code='Enter';
+      handleKeyPress(event, FROM_VIRTUAL_BUTTON);"
       style="margin-right:10px;width:18%;"> Next </a>
 
     <a href="" id="playPauseBtn" onclick="
-      event.preventDefault(); event.code='AltLeft'; handleKeyPress(event);"
+      event.preventDefault(); event.code='AltLeft';
+      handleKeyPress(event, FROM_VIRTUAL_BUTTON);"
       style="width:18%;"> > </a>
   </div>
 

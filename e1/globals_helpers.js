@@ -1,3 +1,5 @@
+const FROM_VIRTUAL_BUTTON = "FROM_VIRTUAL_BUTTON";
+
 // https://regexr.com/ => to test regex
 const END_PHRASE_AND_SENT_REGEX = /(\s*(?:[,;:\n\\\.\?\!]\s*)+)/gm;
 const END_SENT_REGEX =            /(\s*(?:[\n\\\.\?\!]\s*)+)/gm;

@@ -75,7 +75,7 @@ async function playAndUpdateSub(event) {
 }
 
 
-async function handleKeyUp(event, blink) {
+async function handleKeyUp(event) {
   CursorHelpers.saveLastCursor('handleKeyUp');
 
   if (event.code == 'Space') {
@@ -84,7 +84,7 @@ async function handleKeyUp(event, blink) {
   }
 }
 
-async function handleKeyPress(event) {
+async function handleKeyPress(event, from=null) {
   // let logStr = `keydown: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
   // console.log(logStr);
   // alert(logStr);
@@ -107,12 +107,11 @@ async function handleKeyPress(event) {
     return;
   }
 
-
   switch(currKey) {
 
     case 'AltLeft':
       event.preventDefault();
-      if (event.key === "") { CursorHelpers.getCursorback(); }
+      CursorHelpers.getCursorback(from);
       AudioPlayer.pauseOrSeekAndPlay(-0.8);
       break;
 
@@ -128,7 +127,7 @@ async function handleKeyPress(event) {
     case 'Enter':
       event.preventDefault();
       if (cooldown > 0) {
-        CursorHelpers.getCursorback();
+        CursorHelpers.getCursorback(from);
         break;
       }
 
@@ -172,7 +171,7 @@ async function handleKeyPress(event) {
 
     case 'ControlLeft':
       event.preventDefault();
-      CursorHelpers.getCursorback();
+      CursorHelpers.getCursorback(from);
       CursorHelpers.resetTextAndPos();
       await CursorHelpers.playCurrPos();
       CursorHelpers.blinkCurPos();
@@ -180,14 +179,14 @@ async function handleKeyPress(event) {
 
     case 'AltRight':
       event.preventDefault();
-      CursorHelpers.getCursorback();
+      CursorHelpers.getCursorback(from);
       adjust(+1);
       CursorHelpers.blinkCurPos();
       break;
 
     case 'OSRight':
       event.preventDefault();
-      CursorHelpers.getCursorback();
+      CursorHelpers.getCursorback(from);
       adjust(-1);
       CursorHelpers.blinkCurPos();
       break;
