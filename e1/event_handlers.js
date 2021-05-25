@@ -94,7 +94,7 @@ async function handleKeyUp(event) {
 }
 
 async function handleKeyPress(event, from=null) {
-  // let logStr = `keydown: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
+  // let logStr = `keydown: key='${event.key}' | code='${event.code}' | keyCode=${event.keyCode}`;
   // console.log(logStr); // alert(logStr);
   currKey = event.code;
   
@@ -108,11 +108,16 @@ async function handleKeyPress(event, from=null) {
   
   if (event.key == 'Enter' || event.keyCode == 13) { 
     event.preventDefault();
+    // Replace code don't work
+    // event.keyCode = 220; event.key = "\\"; event.code = "Backslash";
+    resetTextAndPos("\\");
+/*
     needToResetTextAndPos = true;
     resetTextAndPos(" ");
     await CursorHelpers.playCurrPos();
     let p = document.getElementById(currSubIndex); p.focus();
     if (event.code == '') { CursorHelpers.blinkCurPos(); } // blinkCurPos for Android
+*/    
     return;
   }
 

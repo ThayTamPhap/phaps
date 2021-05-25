@@ -61,8 +61,10 @@ export function resetTextAndPos(suffix=false) {
     var currP = document.getElementById(currSubIndex);
     var currInnerText = currP.innerText;
 
-    if (suffix && currInnerText[lastCurrPos-1] != " ") { suffix = " "; }
-    else { suffix = ""; }
+    if (suffix != "\\") {
+      if (suffix && currInnerText[lastCurrPos-1] != " ") { suffix = " "; }
+      else { suffix = ""; }
+    }
 
     let isEndOfSent = lastCurrPos >= currInnerText.length;
 
@@ -76,7 +78,7 @@ export function resetTextAndPos(suffix=false) {
     currInnerText = normText + remain;
     lastCurrPos = normText.length;
 
-    let n = currInnerText.length;    
+    let n = currInnerText.length;
     if (currInnerText[n-1] == " ") {
      currInnerText = currInnerText.slice(0, n-1) + "&nbsp;";
     }
