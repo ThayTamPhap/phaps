@@ -15,6 +15,8 @@ bg    bao giờ
 blm   ba-la-mật
 bn    bao nhiêu
 bt    bình thường
+bth   bình thường
+btr   bên trong
 bv    bởi vì
 bvl   bởi vì là
 byg   bây giờ
