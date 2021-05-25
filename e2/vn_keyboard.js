@@ -6,7 +6,7 @@ var keysMap = {};
 const keysMapRegex = new RegExp('(?:' + 
 _keys_map.split("\n").map(x => {
 
-  let splits = x.split(/^(\S+)\s+/);
+  let splits = x.split(/^(.+?)\s+_/);
   let k = splits[1];
   let v = splits[2];
   keysMap[k] = v;  
@@ -14,7 +14,7 @@ _keys_map.split("\n").map(x => {
   return k;
 }).slice(1,).join("|")+')(?=$)', 'i'); // need to match end of string
 
-// console.log(keysMap, keysMapRegex);
+console.log(keysMap, keysMapRegex);
 
 document.addEventListener("keyup", mapKeysForMe);
 
