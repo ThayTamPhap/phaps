@@ -3,7 +3,7 @@ https://sutamphap.com/category/thu-vien-phat-hoc/sach-su-tam-phap-dich/
 https://sutamphap.com/category/thu-thay-tro/
 https://sutamphap.com/category/hoi-dap/
 
-## Scan transcribed text files, build a LM
+## Scan transcribed texts to build a LM
 
 ## Android Keyboard Distance-Based Mis-typing Correction
 
