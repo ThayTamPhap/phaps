@@ -4,7 +4,7 @@
 1s    một số
 1t    một thời
 1tg   một thời gian
-??    [??]
+//    [??]
 \\d+d    \\d+ ngày
 \\d+h    \\d+ giờ
 \\d+ng   \\d+ người
