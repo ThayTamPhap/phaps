@@ -1,23 +1,25 @@
-## Soft-matching shortcuts
+## Two-phrase-matching shortcuts
 
-Example of hard shortcuts (scs for short) typing
+Example of typical shortcuts (scs for short) typing
 bd    bắt đầu
 bg    bao giờ
 bgm   bây giờ mình
 blm   ba-la-mật
 
-PROBLEM: hard-to-remember over 100+ scs. Not suggestion so easily to wrong type 
+[ PROBLEM: ]
+
+hard-to-remember over 100+ scs. Not suggestion so easily to wrong type 
 word-in-your-head with pre-defined sc. e.g: word-in-your-head "chính xác", 
 you typed 'cx' then you got "cảm xúc" :'(
 
-Create hard scs also requires considerable time to check for duplication and 
-create / change scs manually.
+scs requires considerable time to check for duplication and create / change scs manually.
 
-SOLUTION: soft-matching shortcuts
 
-Rule#1: use only first syllabel char => very easy to remember and can be generated automatically
+[ SOLUTION: two-phrase-matching ]
 
-Rule#2: show suggested words while typing so no mis-match with word-in-your-head
+\#1: use only first syllabel char => very easy to remember and can be generated automatically
+
+\#2: show suggested words while typing so no mis-match with word-in-your-head
 and words that machine know. Suggested words are extracted from bi-gram, tri-gram and 4-gram built from a text corpus and sorted by word frequency corelated with already typed
 syllables ...
 
@@ -31,8 +33,29 @@ cbtm  của bản thân mình
 
 =>
 
-bgct  bao giờ chúng ta|bây giờ chúng ta
-cbtm  cho bản thân mình|chính bản thân mình|của bản thân mình
+Human   Computer
+Typed   Showed
+bgct    (1) bao giờ chúng ta (2) bây giờ chúng ta
+cbtm    (1) cho bản thân mình (2) chính bản thân mình (3) của bản thân mình
+
+Human   Computer
+Choose  Finalize
+1       bao giờ chúng ta
+3       của bản thân mình
+
+Finally:
+
+Human   Computer
+bgct1   bao giờ chúng ta
+cbtm3   của bản thân mình
+
+=> Very simple, intuitive UI / UX
+=> And very simple data structure and algorithm too:
+
+shortcuts = {
+	"bgct" : "bao giờ chúng ta|bây giờ chúng ta",
+	"cbtm" : "cho bản thân mình|chính bản thân mình|của bản thân mình"
+}
 
 
 
@@ -75,7 +98,6 @@ t,r u,i,o ee n,m g,f => 2 * 3 * 1 * 2 * 2 = 6 * 4 = 24 combinations
 Sau đó lookup, uni-gram, bi-gram, tri-gram dict để lọc và xếp hạng để chọn ra vài ứng cử viên tốt nhất.
 
 ## Optimization
-
 
 
 https://gitlab.inria.fr/kaldi.web
