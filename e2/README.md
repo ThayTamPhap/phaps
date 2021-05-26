@@ -1,3 +1,41 @@
+## Soft-matching shortcuts
+
+Example of hard shortcuts (scs for short) typing
+bd    bắt đầu
+bg    bao giờ
+bgm   bây giờ mình
+blm   ba-la-mật
+
+PROBLEM: hard-to-remember over 100+ scs. Not suggestion so easily to wrong type 
+word-in-your-head with pre-defined sc. e.g: word-in-your-head "chính xác", 
+you typed 'cx' then you got "cảm xúc" :'(
+
+Create hard scs also requires considerable time to check for duplication and 
+create / change scs manually.
+
+SOLUTION: soft-matching shortcuts
+
+Rule#1: use only first syllabel char => very easy to remember and can be generated automatically
+
+Rule#2: show suggested words while typing so no mis-match with word-in-your-head
+and words that machine know. Suggested words are extracted from bi-gram, tri-gram and 4-gram built from a text corpus and sorted by word frequency corelated with already typed
+syllables ...
+
+For example:
+
+bgct  bao giờ chúng ta
+bgct  bây giờ chúng ta
+cbtm  cho bản thân mình
+cbtm  chính bản thân mình
+cbtm  của bản thân mình
+
+=>
+
+bgct  bao giờ chúng ta|bây giờ chúng ta
+cbtm  cho bản thân mình|chính bản thân mình|của bản thân mình
+
+
+
 ## Android Keyboard Distance-Based Mis-typing Correction
 
 https://keep.google.com/#NOTE/1D2_xbUY2A-qPxbHPkghYfXdH2a1lOU7yvN7mNWaFyTk06K1EqwPQAWjKpvE-J-pb97Qn
