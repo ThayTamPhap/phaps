@@ -38,6 +38,14 @@ Sau đó lookup, uni-gram, bi-gram, tri-gram dict để lọc và xếp hạng �
 
 ## Optimization
 
+
+
+https://gitlab.inria.fr/kaldi.web
+Online decoding part of kaldi ported to run in browser
+https://gitlab.inria.fr/kaldi.web/kaldi-wasm/-/wikis/build_details.md#openfst
+
+https://reposhub.com/cpp/miscellaneous/revdotcom-fstalign.html#Installation
+
 Cần build FST để lọc syllabe, tự động chữa lỗi syllabe dựa trên keyboard-distance.
 Dùng ML (bi-gram, tri-gram) để chọn lọc và xếp hạng các khả năng được đưa ra bởi FST
 dựa trên xác xuất xuất hiện gần nhau của các syllable.
