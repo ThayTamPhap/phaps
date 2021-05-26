@@ -1,10 +1,3 @@
-## Get more text from 
-https://sutamphap.com/category/thu-vien-phat-hoc/sach-su-tam-phap-dich/
-https://sutamphap.com/category/thu-thay-tro/
-https://sutamphap.com/category/hoi-dap/
-
-## Scan transcribed texts to build a LM
-
 ## Android Keyboard Distance-Based Mis-typing Correction
 
 https://keep.google.com/#NOTE/1D2_xbUY2A-qPxbHPkghYfXdH2a1lOU7yvN7mNWaFyTk06K1EqwPQAWjKpvE-J-pb97Qn
@@ -24,6 +17,32 @@ y yu, u yui, i uio, o iop, p op
 h hj, j hjk, k jkl, lkl
 b bn, n bnm, m nm
 
+
+Quá nhiều phím tắt k nhớ nổi, loạn. Làm cn tự động chữa lỗi gõ nhầm, tự động bỏ dấu thì tốt hơn. vietnameseaccent.com tự động bỏ dấu trông kq rất có triển vọng.
+
+Cần build FST để lọc syllabe, tự động chữa lỗi syllabe dựa trên keyboard-distance.
+Dùng ML (bi-gram, tri-gram) để chọn lọc và xếp hạng các khả năng được đưa ra bởi FST
+dựa trên xác xuất xuất hiện gần nhau của các syllable.
+
+Trước đó cần convert Vietnamese syllables thành Telex ascii hết để dễ xây FST, tiết kiệm bộ nhớ, và tận dụng dc keyboard-distance. Sẽ giả sử cách gõ Telex bỏ thanh âm sfrxj (tone) sau cùng, và bỏ dấu ôơư ... (mark) ngay sát nguyên âm.
+
+## https://vietnameseaccent.com/
+
+Automatically inserting accent marks for Vietnamese words.
+The free Web interface supports text up to 1000 characters.
+
+"trong cuoc song chung ta phai biet tran trong nhung dieu nho nhat nhat, co le la khong nen lam gi ca" =>
+
+"trong cuộc sống chúng ta phải biết trân trọng những điều nhỏ nhặt nhất, có lẽ là không nên làm gi cả""
+
+# [ LATER ]
+
+## Get more text from 
+https://sutamphap.com/category/thu-vien-phat-hoc/sach-su-tam-phap-dich/
+https://sutamphap.com/category/thu-thay-tro/
+https://sutamphap.com/category/hoi-dap/
+
+## Scan transcribed texts to build a LM
 
 # [ DONE ]
 
