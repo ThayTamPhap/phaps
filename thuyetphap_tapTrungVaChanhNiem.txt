@@ -1,0 +1,1219 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0
+xmax = 2911.5425
+tiers? <exists>
+size = 1
+item []:
+    item [1]:
+        class = "IntervalTier"
+        name = "segments"
+        xmin = 0
+        xmax = 2911.5425
+        intervals: size = 241
+
+            intervals [1]:
+            xmin = 0
+            xmax = 11.432776
+            text = "Ở đây, chúng ta thực hành trong bốn tư thế: Đi, đứng, ngồi, nằm. Chúng ta cũng không duy trì lâu ở một tư thế nào cả."
+
+            intervals [2]:
+            xmin = 11.432776
+            xmax = 23.179454
+            text = "Nó có lý do của nó. Khi chúng ta duy trì quá lâu ở một tư thế, nhất là tư thế ngồi thì thường chúng ta tham. Chúng ta hay tham sự yên tĩnh,"
+
+            intervals [3]:
+            xmin = 23.179454
+            xmax = 32.521504
+            text = "hay tham sự bình an, sự hỷ lạc và thông thường là chúng ta phấn đấu để tìm cái gì đó nên chúng ta mới cố gắng ngồi lâu."
+
+            intervals [4]:
+            xmin = 32.521504
+            xmax = 41.025752
+            text = "Cái điều ấy rất là nguy hiểm và điều ấy thường nó đến một cách vô thức, lúc đầu khi hành thiền chúng ta không bị như thế đâu."
+
+            intervals [5]:
+            xmin = 41.025752
+            xmax = 49.802579
+            text = "Xong một thời gian tự nhiên cứ bị như vậy, mình cứ bị tham mà mình không biết, cho đến lúc mà chúng ta không thể nào thoát khỏi tham,"
+
+            intervals [6]:
+            xmin = 49.802579
+            xmax = 60.839519
+            text = "chúng ta rất là căng thẳng. Thành ra hành thiền trở thành một sự phấn đấu, một cuộc giằng co vật lộn, như thế không tốt tí nào cả. \"
+
+            intervals [7]:
+            xmin = 60.839519
+            xmax = 74.003133
+            text = "Chúng ta chuyển tư thế liên tục, cứ khoảng |2 mươi|20| phút là đủ rồi. Hoặc thậm chí nếu mà ai muốn thêm thì chỉ thêm mươi mười lăm phút nữa thôi, không nên nhiều."
+
+            intervals [8]:
+            xmin = 74.003133
+            xmax = 87.009243
+            text = "Khi chuyển tư thế như thế, nó có tác dụng là nó ngắt chúng ta khỏi dòng tâm tham, hoặc là ngắt chúng ta khỏi dòng căng thẳng, hoặc là những dòng suy nghĩ miên man."
+
+            intervals [9]:
+            xmin = 87.009243
+            xmax = 108.837028
+            text = "Chuyển tư thế khác nó làm cho chúng ta ngắt khỏi cái dòng đó. Và đặc biệt là khi chúng ta mới sang một tư thế khác thì chúng ta cảm thấy rất là tỉnh giác, đúng không? Các cảm giác nó hiện lên rất là rõ, chúng ta không phải cố tình đi tìm gì cả, chánh niệm tự động có mặt."
+
+            intervals [10]:
+            xmin = 108.837028
+            xmax = 120.446174
+            text = "Thái độ của chúng ta rất là đúng, chúng ta không cố gắng, chúng ta chỉ duy trì sự hay biết liên tục, rất là thoải mái,"
+
+            intervals [11]:
+            xmin = 120.446174
+            xmax = 132.080608
+            text = "nhưng mà sau một thời gian ngắn là nó bắt đầu mờ dần đi hoặc là tâm tham của chúng ta xen vào, hoặc là suy nghĩ bắt đầu nhiều lên hoặc là chúng ta ép mình chú tâm."
+
+            intervals [12]:
+            xmin = 132.080608
+            xmax = 146.149933
+            text = "Nói chung là nó đều theo một quy trình như thế hết, là bởi vì tâm tham trong chúng ta nó luôn luôn có mặt, nó muốn tham nhìn rõ hơn, nó muốn tham duy trì được sự tĩnh lặng, nó tham rất là nhiều thứ."
+
+            intervals [13]:
+            xmin = 146.149933
+            xmax = 164.671083
+            text = "Và trong quá trình tham đó làm cho chúng ta mất năng lượng, và khi tham không được thì bắt đầu sân, chúng ta sân với cả cảm giác khó chịu, sân với cả cái đau, sân với cả suy nghĩ."
+
+            intervals [14]:
+            xmin = 164.671083
+            xmax = 172.202481
+            text = "Do vậy nên thay đổi tư thế, ví dụ đang từ ngồi sang đứng hoặc từ nằm sang ngồi, nó làm cho chúng ta ngắt khỏi cái dòng đó."
+
+            intervals [15]:
+            xmin = 172.202481
+            xmax = 178.914078
+            text = "Nằm cũng vậy, khi nằm thiền một lúc là chúng ta hay bị buồn ngủ, hoặc là tâm chúng ta mờ đi, chúng ta chỉ enjoy cái cảm giác thoải mái khi nằm thôi."
+
+            intervals [16]:
+            xmin = 178.914078
+            xmax = 196.374396
+            text = "Khi ngồi dậy cái là chúng ta ngắt khỏi cái dòng đó và nó làm cho chúng ta chú tâm ngay vào các cảm giác. \ Đấy là một lý do, lý do thứ hai là chúng ta thực hành ở đây để làm sao khi về nhà chúng ta cũng thực hành được."
+
+            intervals [17]:
+            xmin = 196.374396
+            xmax = 204.890878
+            text = "Khi về nhà chúng ta có đủ 4 tư thế đi đứng, ngồi, nằm, chưa kể là ở trong những tư thế đó chúng ta còn phải làm việc nữa."
+
+            intervals [18]:
+            xmin = 204.890878
+            xmax = 221.82319
+            text = "Thế nên thực hành ở nhà khó hơn thực hành ở đây rất là nhiều. Nếu mà chúng ta thay đổi tư thế thường xuyên như vậy mà trong bất cứ tư thế nào chúng ta cũng có thể thực hành được thì khi về nhà chúng ta mới có thể thực hành được."
+
+            intervals [19]:
+            xmin = 221.82319
+            xmax = 230.271701
+            text = "Ở đây ngồi yên như thế này, chúng ta thực hành còn thấy khó, ngồi lái xe chúng ta còn thấy khó hơn rất là nhiều và trong cuộc sống của chúng ta, chúng ta thay đổi tư thế liên tục."
+
+            intervals [20]:
+            xmin = 230.271701
+            xmax = 244.794444
+            text = "Trong bất cứ tư thế nào chúng ta cũng duy trì hay biết các cảm giác trong mình, luôn luôn biết thân mình như thế nào, các cảm giác trong mình như thế nào, nó không phụ thuộc vào tư thế nữa."
+
+            intervals [21]:
+            xmin = 244.794444
+            xmax = 268.872604
+            text = "Do vậy nên nếu người nào đã thực hành ở đâu trước kia mà quen duy trì hành thiền lâu, ngồi thiền lâu thì chúng ta cần phải làm quen lại với cách hành thiền mới này. \ Chúng ta là những người sống ở ngoài cuộc sống, chúng ta khác các vị Sư, các vị Sư hành thiền chuyên nghiệp."
+
+            intervals [22]:
+            xmin = 268.872604
+            xmax = 277.251701
+            text = "Chẳng hạn như là Sư ngày xưa, bởi vì dành cả ngày, cả cuộc đời để thực hành nên sự thực hành nó khác với chúng ta rất nhiều,"
+
+            intervals [23]:
+            xmin = 277.251701
+            xmax = 285.028632
+            text = "nó sâu hơn, có thể là ngồi một tiếng, đi một tiếng, ngồi một tiếng, đi một tiếng, trong suốt từ 3 giờ sáng, 3 rưỡi sáng cho đến tận 10 giờ đêm."
+
+            intervals [24]:
+            xmin = 285.028632
+            xmax = 299.272134
+            text = "Ngày nào cũng như ngày nào như vậy, thậm chí còn ngồi lâu hơn, thậm chí ngồi 2, 3 tiếng. Bởi vì có sự chuyên nghiệp, có sự chuyên sâu rồi, khác với chúng ta."
+
+            intervals [25]:
+            xmin = 299.272134
+            xmax = 313.462407
+            text = "Chúng ta phải thực hành làm sao mà khi về nhà chúng ta cũng thực hành được, chúng ta phải hết sức thực tế. Một số người cũng đã từng đến những trường thiền ở Miến Điện."
+
+            intervals [26]:
+            xmin = 313.462407
+            xmax = 318.278951
+            text = "Những trường thiền ở Miến Điện chuyên dành cho những người tu hành chuyên nghiệp như thế. Nên khi chúng ta áp dụng về đây là trật lất."
+
+            intervals [27]:
+            xmin = 318.278951
+            xmax = 324.146084
+            text = "Hoặc một người khác dạy chúng ta y hệt như cái kiểu bên Miến, khi chúng ta thực hành ở đây, về nhà chúng ta không thực hành được nữa. \"
+
+            intervals [28]:
+            xmin = 324.146084
+            xmax = 335.359842
+            text = "Do vậy nên chúng ta phải hiểu đến đây chúng ta thực hành để làm gì, chúng ta ngồi thiền không phải để đạt được cái gì,"
+
+            intervals [29]:
+            xmin = 335.359842
+            xmax = 340.809497
+            text = "không phải để tìm kiếm sự hỷ lạc bình an, không phải tìm kiếm định tâm, hay là một cảm giác mà mình tu tiến bộ."
+
+            intervals [30]:
+            xmin = 340.809497
+            xmax = 355.490748
+            text = "Mà chúng ta đến đây, ngồi thiền, đi, đứng, ngồi, nằm là để rèn luyện khả năng mindfulness, rèn luyện mindfulness, rèn luyện chánh niệm, đó là gì?"
+
+            intervals [31]:
+            xmin = 355.490748
+            xmax = 365.857655
+            text = "Rèn luyện việc quay trở lại quan sát các cảm giác ở trong mình. Và rèn luyện cái việc dứt mình ra khỏi các dòng suy nghĩ."
+
+            intervals [32]:
+            xmin = 365.857655
+            xmax = 383.750217
+            text = "Chúng ta biết rằng các dòng suy nghĩ có một quán tính cực kỳ lớn, có sức mạnh cực kỳ lớn, nó chi phối suốt cuộc sống của chúng ta, chúng ta không bao giờ dừng suy nghĩ. Khi lái xe chúng ta cũng nghĩ, ăn cũng nghĩ, làm việc cũng nghĩ, nói chung không lúc nào là không nghĩ cả."
+
+            intervals [33]:
+            xmin = 383.750217
+            xmax = 400.981061
+            text = "Và có những người suy nghĩ rất là nặng nề, bị cuốn theo dòng suy nghĩ nặng tới mức mà họ sống như là một nửa thôi, gọi là nửa sống nửa chết, họ làm cái gì cũng chỉ với một nửa tâm thôi, một nửa sự chú ý."
+
+            intervals [34]:
+            xmin = 400.981061
+            xmax = 411.176964
+            text = "Còn một nửa sự chú ý, một nửa năng lượng của họ là dành cho việc suy nghĩ miên man, thậm chí nhiều lúc là cái phần dành cho suy nghĩ miên man nó còn hơn một nửa nhiều."
+
+            intervals [35]:
+            xmin = 411.176964
+            xmax = 420.127589
+            text = "Khi lái xe, có những lúc chúng ta không biết mình là lái nữa, quên mất một đoạn, khi đọc sách có những lúc chúng ta cũng không biết mình đọc cái gì nữa,"
+
+            intervals [36]:
+            xmin = 420.127589
+            xmax = 429.977022
+            text = "hoặc là đôi khi có những lúc chúng ta quên không biết mình đã đánh răng hay chưa, cứ suy nghĩ mãi, có những người đi đánh răng hai lần cho chắc, rất nhiều việc mình vừa làm xong mình đã quên."
+
+            intervals [37]:
+            xmin = 429.977022
+            xmax = 436.31366
+            text = "Là bởi vì lúc đó chúng ta dành phần lớn năng lượng và sự chú ý của chúng ta để suy nghĩ và một phần rất nhỏ để chúng ta biết việc mình làm."
+
+            intervals [38]:
+            xmin = 436.31366
+            xmax = 450.76199
+            text = "Đôi khi chúng ta làm một cách automatic, giống như lái xe, chúng ta cứ thế quen đường, chúng ta đi từ chỗ làm về nhà, quen đường mà đi giống như ngựa quen đường cũ thôi."
+
+            intervals [39]:
+            xmin = 450.76199
+            xmax = 461.411417
+            text = "Chứ trong cả đoạn đường ấy chúng ta ý thức rất là ít. \ Thế nên việc khẩn cấp với chúng ta là ngăn chặn bớt những dòng suy nghĩ đang tiêu tốn năng lượng,"
+
+            intervals [40]:
+            xmin = 461.411417
+            xmax = 473.882119
+            text = "tiêu tốn sự chú ý một cách hoang phí và tiêu tốn cuộc đời của chúng ta một cách hoang phí. Để ngăn chặn cái dòng suy nghĩ đó, chúng ta phải cho tâm một thứ để nó tập trung vào."
+
+            intervals [41]:
+            xmin = 473.882119
+            xmax = 486.071211
+            text = "Giống như như thế này, chúng ta có 10 đơn vị năng lượng, trong đó bình thường các suy nghĩ lung tung nó chiếm của chúng ta khoảng 7,8."
+
+            intervals [42]:
+            xmin = 486.071211
+            xmax = 500.037786
+            text = "Chúng ta chỉ sử dụng được 2,3 phần năng lượng, 2,3 phần chú ý vào việc mình làm thôi. Bây giờ muốn ngăn cản bớt những dòng suy nghĩ miên man đó thì chúng ta cắt bớt năng lượng của nó."
+
+            intervals [43]:
+            xmin = 500.037786
+            xmax = 507.22802
+            text = "Chỉ cần cắt bớt năng lượng của nó, chúng ta không thể nào ngăn chặn được, vì nó rất là mạnh, chúng ta không đủ sức ngăn chặn,"
+
+            intervals [44]:
+            xmin = 507.22802
+            xmax = 518.327267
+            text = "do vậy chúng ta làm một cách là như này: chúng ta rút bớt năng lượng của nó dành sang cho việc khác. Khi chúng ta lấy bớt năng lượng thì nó bắt đầu yếu dần, yếu dần và sẽ chết dần."
+
+            intervals [45]:
+            xmin = 518.327267
+            xmax = 528.98797
+            text = "Giống như đun một nồi nước sôi, nước sôi đến mức là trào ra bên ngoài, thì muốn nó không sôi nữa chúng ta rút dần củi ra khỏi nó."
+
+            intervals [46]:
+            xmin = 528.98797
+            xmax = 536.625929
+            text = "Có một cách cấp cứu là chúng ta đổ gáo nước lạnh vào, nhưng mà chỉ đổ một chút, nó lại sôi trở lại và trào ra ngay."
+
+            intervals [47]:
+            xmin = 536.625929
+            xmax = 548.073606
+            text = "Do vậy cách lâu dài là chúng ta phải rút bớt củi để cho nó hạ bớt nhiệt và không sôi nữa. Thông thường thì chúng ta hay dùng cách là đổ một cốc nước lạnh vào."
+
+            intervals [48]:
+            xmin = 548.073606
+            xmax = 558.35867
+            text = "Đổ như thế nào? Chúng ta suy nghĩ nhiều quá, chúng ta mệt mỏi quá, chúng ta bật nhạc, bật ti vi lên để chúng ta trốn tránh đi, để chúng ta hướng sự chú ý sang việc khác."
+
+            intervals [49]:
+            xmin = 558.35867
+            xmax = 569.364117
+            text = "Hoặc là chúng ta hành thiền theo kiểu như từ trước đến nay, chúng ta chú ý vào hơi thở, chúng ta đè xuống để suy nghĩ không khởi sanh lên."
+
+            intervals [50]:
+            xmin = 569.364117
+            xmax = 585.601357
+            text = "Những cách đó đều là những cách tạm thời, urgent, nhưng mà nó không có tác dụng về lâu về dài. Do vậy nên thỉnh thoảng chúng ta làm cách cấp cứu đó, nhưng mà chúng ta phải đầu tư vào việc rút củi khỏi đáy nồi. \"
+
+            intervals [51]:
+            xmin = 585.601357
+            xmax = 594.947415
+            text = "Chúng ta đến đây thực hành là để bắt đầu thực hành cái thói quen đó, chúng ta rút bớt năng lượng của dòng suy nghĩ."
+
+            intervals [52]:
+            xmin = 594.947415
+            xmax = 604.350962
+            text = "Nên nhớ là chúng ta không bao giờ ngăn chặn được suy nghĩ, nhá! Chúng ta không làm cái việc vô ích đó. Khi ngăn chặn suy nghĩ là chúng ta không chấp nhận nó rồi."
+
+            intervals [53]:
+            xmin = 604.350962
+            xmax = 613.806537
+            text = "Giống như một dòng nước lũ, chúng ta be bờ, chúng ta đắp ngăn thì lúc sau là nó sẽ ào lên và thậm chí nó còn mạnh hơn cũ."
+
+            intervals [54]:
+            xmin = 613.806537
+            xmax = 627.532053
+            text = "Do vậy nên chúng ta không làm cách đó mà chúng ta làm cách là rút bớt năng lượng của suy nghĩ. Chúng ta không chống đối lại suy nghĩ bởi khi chống đối lại suy nghĩ, khi ghét bỏ suy nghĩ là chúng ta chồng thêm sân nữa rồi."
+
+            intervals [55]:
+            xmin = 627.532053
+            xmax = 639.191859
+            text = "Như vậy thực ra chúng ta cấp thêm năng lượng cho các dòng tâm bất thiện. Thay vào đó là chúng ta rút bớt năng lượng của nó bằng cách nào?"
+
+            intervals [56]:
+            xmin = 639.191859
+            xmax = 649.238365
+            text = "Bằng cách là chúng ta chuyển năng lượng đó sang cái phần chú ý vào các cảm giác thì hai cái phần đó sẽ đấu tranh với nhau."
+
+            intervals [57]:
+            xmin = 649.238365
+            xmax = 663.539726
+            text = "Chúng ta chú ý vào cảm giác một lúc sau là bên suy nghĩ giành giật năng lượng của mình, nó lôi mình ra khỏi việc đó, nó bắt đầu suy nghĩ. Chúng ta mất một đoạn, mất một số năng lượng bị nó cướp mất, lúc nhớ ra, chúng ta lại cướp trở lại."
+
+            intervals [58]:
+            xmin = 663.539726
+            xmax = 674.319526
+            text = "Bằng cách chúng ta lại không để ý đến suy nghĩ nữa, không nuôi nó nữa, chúng ta lại hướng tâm về hiện nay ở trong thân mình đang có những cảm giác gì,"
+
+            intervals [59]:
+            xmin = 674.319526
+            xmax = 685.423752
+            text = "chúng ta nhận biết cảm giác toàn thân ra sao, chúng ta thả lỏng khuôn mặt ra, thư giãn, scan nhanh toàn bộ cơ thể, như vậy là chúng ta lấy lại phần năng lượng."
+
+            intervals [60]:
+            xmin = 685.423752
+            xmax = 692.59807
+            text = "Nếu mà chúng ta lấy lại liên tục thì nó càng ngày càng yếu và chánh niệm của chúng ta càng ngày càng mạnh, đó là việc chúng ta làm ở đây. \"
+
+            intervals [61]:
+            xmin = 692.59807
+            xmax = 710.706065
+            text = "Chúng ta có thể tập scan nhanh, roẹt một cái, từ đầu đến chân luôn rồi, scan một cái là chúng ta biết toàn thân đang ngồi như thế nào, thả lỏng nhanh toàn thân, cái việc này rất là ý nghĩa trong cuộc sống của chúng ta."
+
+            intervals [62]:
+            xmin = 710.706065
+            xmax = 729.777193
+            text = "Lúc đi xe chúng ta cũng scan nhanh một cái để quay về, lúc nói chuyện chúng ta cũng scan nhanh một cái để quay về bản thân mình, trong bất kể lúc nào chúng ta cũng tập cái thói quen như thế. Đó là những lúc mà chúng ta cướp lại năng lượng từ những dòng suy nghĩ. Ở đây chúng ta làm việc đó."
+
+            intervals [63]:
+            xmin = 729.777193
+            xmax = 744.238437
+            text = "Mà bởi vì việc đó là việc của tâm nên hầu như không liên quan đến việc thân mình phải ngồi thẳng như thế nào, phải ngồi yên như thế nào, rồi phải chịu đau, phải thế này thế nọ, hầu như không liên quan gì đến chuyện đó."
+
+            intervals [64]:
+            xmin = 744.238437
+            xmax = 752.106614
+            text = "Đối với việc hành thiền chỉ tức là chúng ta tập trung tâm vào việc gì đó đến mức độ rất cao thì như thế thì được."
+
+            intervals [65]:
+            xmin = 752.106614
+            xmax = 757.985769
+            text = "Thế nhưng chúng ta không thực hành thiền chỉ, chúng ta thực hành thiền Vipassana. Thế nên chúng ta không việc gì phải hành xác mình như thế."
+
+            intervals [66]:
+            xmin = 757.985769
+            xmax = 770.09585
+            text = "Thực ra trong lúc làm như thế là chúng ta đã nuôi thêm tâm tham, thậm chí tâm sân nữa. Do vậy nên cái tiêu chí để thực hành là gì thư giãn, thoải mái, biết mình."
+
+            intervals [67]:
+            xmin = 770.09585
+            xmax = 780.373585
+            text = "Chào Khi chúng ta không thư giãn tức là chúng ta mất đi phần năng lượng rồi. Khi chúng ta căng thẳng là chúng ta mất đi năng lượng, trong khi chúng ta đang lấy lại năng lượng cho mình cơ mà, chúng ta mất đi năng lượng vô ích."
+
+            intervals [68]:
+            xmin = 780.373585
+            xmax = 789.095724
+            text = "Thoải mái cũng vậy, thoải mái là gì? Thoải mái nghĩa là không ép buộc mình, không tạo sức ép cho mình, không cố tình làm việc gì cả,"
+
+            intervals [69]:
+            xmin = 789.095724
+            xmax = 798.304238
+            text = "chấp nhận thực tế, không chống đối lại nó, không ghét bỏ nó, không tìm cách thay đổi cái không thể thay đổi. Đó là sự thoải mái,"
+
+            intervals [70]:
+            xmin = 798.304238
+            xmax = 808.006585
+            text = "khi có thư giãn và thoải mái, là chúng ta dành đủ năng lượng và khi đó sự biết mình sẽ xảy đến một cách tự nhiên."
+
+            intervals [71]:
+            xmin = 808.006585
+            xmax = 813.868334
+            text = "Chúng ta bảo tồn được năng lượng, không để suy nghĩ nó cuốn mình đi, không để suy nghĩ lấy năng lượng của mình."
+
+            intervals [72]:
+            xmin = 813.868334
+            xmax = 825.069112
+            text = "Cái quá trình này là một quá trình rất là dài. Ở đây, chúng ta làm chúng ta thấy thường xuyên mình bị thua nó. Mình giành giật lại được một chút thì nó lại giành của mình, nó kéo mình đi, mình quên mất bản thân mình."
+
+            intervals [73]:
+            xmin = 825.069112
+            xmax = 833.082906
+            text = "Bắt đầu suy nghĩ nó kéo mình đi. Một lúc sau mình mới nhớ ra, mình lại dành trở lại, cứ dành đi dành lại hoài như thế. \"
+
+            intervals [74]:
+            xmin = 833.082906
+            xmax = 845.446628
+            text = "Cái làm cho mình chiến thắng không phải là sức dành của chúng ta, chúng ta chỉ cần nhớ ra một cái là chúng ta dành lại được ngay mà, chúng ta không đầu tư cho cái đó, mà cái dành cho chúng ta chiến thắng là sự kiên nhẫn."
+
+            intervals [75]:
+            xmin = 845.446628
+            xmax = 862.370053
+            text = "Suy nghĩ luôn luôn kiên nhẫn, nó kiên nhẫn với chúng ta nhiều lắm, nó luôn luôn rình rập ở đấy. Chúng ta chỉ sơ hở cái là chúng nó kéo đi luôn, nó luôn luôn có mặt ở đấy, giống như là thằng kẻ trộm nó rình quanh nhà của mình ấy."
+
+            intervals [76]:
+            xmin = 862.370053
+            xmax = 871.428298
+            text = "Mình chỉ cần lơi đi một tí là nó vào nó ăn cắp ngay, thì chúng ta biết rằng các dòng suy nghĩ là những kẻ trộm của chúng ta,"
+
+            intervals [77]:
+            xmin = 871.428298
+            xmax = 880.619673
+            text = "nó ăn trộm năng lượng của chúng ta, ăn trộm sự chú ý của chúng ta, ăn trộm thời gian sống của chúng ta. Khi chúng ta ý thức được điều đó,"
+
+            intervals [78]:
+            xmin = 880.619673
+            xmax = 889.765456
+            text = "chúng ta luôn luôn cảnh giác và chúng ta kiên nhẫn, chúng ta giành giật lại, một lúc sau nó giật lại, chúng ta lại kiên nhẫn giật lại."
+
+            intervals [79]:
+            xmin = 889.765456
+            xmax = 895.560504
+            text = "Không được sân, không được khó chịu trong quá trình đó, bởi vì mình khó chịu tức là mình đã rơi vào bẫy của nó rồi."
+
+            intervals [80]:
+            xmin = 895.560504
+            xmax = 904.643352
+            text = "Nó đang lừa lấy năng lượng của mình mà, bây giờ mình khó chịu về cái chuyện suy nghĩ đó, thì khi mình khó chịu tức là mình đã mất năng lượng vào cái việc sân rồi."
+
+            intervals [81]:
+            xmin = 904.643352
+            xmax = 913.954881
+            text = "Và khi chúng ta mong muốn là mình không suy nghĩ, khi mong muốn đó không thực hiện được là chúng ta bị upset ngay."
+
+            intervals [82]:
+            xmin = 913.954881
+            xmax = 927.211451
+            text = "Chúng ta mất thêm năng lượng và mất tự tin, mất nhiệt tình tu tập. \ Do vậy nên chúng ta ý thức được việc chúng ta làm ở đây, nhớ luôn luôn có thái độ đúng khi thực hành thiền."
+
+            intervals [83]:
+            xmin = 927.211451
+            xmax = 936.544643
+            text = "Thái độ đúng là gì, chúng ta chấp nhận mọi thứ đang có trong mình, mọi cảm giác, chấp nhận cả sự suy nghĩ, chấp nhận cả sự buồn ngủ,"
+
+            intervals [84]:
+            xmin = 936.544643
+            xmax = 944.322807
+            text = "chấp nhận bất cứ cái gì, trước hết chúng ta phải chấp nhận, khi chúng ta chấp nhận thì chúng ta mới sẵn lòng quan sát nó, chúng ta mới không mất năng lượng thêm."
+
+            intervals [85]:
+            xmin = 944.322807
+            xmax = 955.855646
+            text = "Thứ hai là tôn trọng cái vòng đời của nó, giống như hôm qua thầy có nói là tôn trọng cuộc sống của nó, nó phải sống hết vòng đời của nó, mình phải tôn trọng nó."
+
+            intervals [86]:
+            xmin = 955.855646
+            xmax = 964.660516
+            text = "Và khi chúng ta cho phép nó sống trọn vẹn cuộc đời của nó thì nó sẽ kết thúc nhanh hơn. Tiếp theo là chúng ta kiên nhẫn,"
+
+            intervals [87]:
+            xmin = 964.660516
+            xmax = 971.679171
+            text = "khi chúng ta tôn trọng mọi thứ có mặt, và chúng ta biết công việc của mình, thì chúng ta sẽ có đủ kiên nhẫn để làm việc đó."
+
+            intervals [88]:
+            xmin = 971.679171
+            xmax = 977.91412
+            text = "Chúng ta không bực mình bởi vì nó luôn luôn cướp năng lượng của mình, chúng ta không bực mình vì kẻ trộm nó luôn luôn rình quanh nhà của chúng ta để lấy trộm."
+
+            intervals [89]:
+            xmin = 977.91412
+            xmax = 988.361809
+            text = "Chúng ta coi đấy là một phần tất yếu của cuộc sống, một phần tất yếu của tâm chúng ta là luôn luôn suy nghĩ, hoặc lúc không suy nghĩ thì nó buồn ngủ."
+
+            intervals [90]:
+            xmin = 988.361809
+            xmax = 995.595804
+            text = "Đấy là bản chất của nó, chúng ta chấp nhận bản chất đó và chúng ta chỉ cần cảnh giác để nó không cướp năng lượng của mình."
+
+            intervals [91]:
+            xmin = 995.595804
+            xmax = 1002.837412
+            text = "Thế thôi, chứ chúng ta không phản ứng một cách vô ích, chúng ta không ép buộc một cách vô ích, như thế thì chúng ta sẽ thực hành đúng. \"
+
+            intervals [92]:
+            xmin = 1002.837412
+            xmax = 1015.698547
+            text = "Khi có chánh niệm đúng, có sự thư giãn thì chúng ta tiêu tốn rất ít năng lượng, trong một ngày ở đây chúng ta tiêu rất ít năng lượng, chúng ta không mất năng lượng đi đâu cả."
+
+            intervals [93]:
+            xmin = 1015.698547
+            xmax = 1025.970844
+            text = "Suy nghĩ chiếm cực kỳ nhiều năng lượng của chúng ta. Suy nghĩ không những chiếm năng lượng mà còn thải ra những chất thải độc hại nữa,"
+
+            intervals [94]:
+            xmin = 1025.970844
+            xmax = 1036.796526
+            text = "nó làm cho chúng ta mệt mỏi về lâu về dài, nó làm cho tâm trí của chúng ta trì độn đi, chúng ta nhìn, chúng ta nghĩ mọi thứ nó không được rõ ràng sáng suốt nữa."
+
+            intervals [95]:
+            xmin = 1036.796526
+            xmax = 1045.373197
+            text = "Còn ở đây, chúng ta không tốn năng lượng vào suy nghĩ, thế nên là chúng ta tiết kiệm được năng lượng, cái năng lượng chúng ta tiêu tốn rất là ít."
+
+            intervals [96]:
+            xmin = 1045.373197
+            xmax = 1054.739333
+            text = "Nếu mà chúng ta ở đây, chúng ta sẽ thấy rằng không cần phải ngủ nhiều, chúng ta cũng không cần phải ăn nhiều, không có nhu cầu cái đó, năng lượng của chúng ta được bảo tồn."
+
+            intervals [97]:
+            xmin = 1054.739333
+            xmax = 1071.017277
+            text = "Thậm chí cả ngày thân nhiệt, huyết áp, mọi thứ, sự chuyển hóa ở trong thân của chúng ta nó giảm tới mức rất là thấp. Ở đây rất nhiều người không ngủ được, rất nhiều người report với Sư là không ngủ được mấy hôm."
+
+            intervals [98]:
+            xmin = 1071.017277
+            xmax = 1084.032469
+            text = "Không ngủ được vẫn không sao, mặt mũi vẫn tươi tỉnh, thậm chí vẫn thư giãn hơn, một thời thiền là tương đương với một giấc ngủ rồi, thỉnh thoảng cho |hai mươi|20| phút nằm thư giãn chúng ta cũng ăn trộm được mấy phút chúng ta ngủ."
+
+            intervals [99]:
+            xmin = 1084.032469
+            xmax = 1099.899408
+            text = "Thực ra khi nằm thư giãn như thế, có những lúc tâm của chúng ta tự động ngắt đi, chúng ta ngủ thiếp đi một chút, giấc ngủ ấy cực kỳ tốt, giấc ngủ chỉ có vài phút thôi nhưng mà nó phục hồi năng lượng y hệt như cũ."
+
+            intervals [100]:
+            xmin = 1099.899408
+            xmax = 1109.060212
+            text = "Chúng ta cảm tưởng như mình vừa tỉnh dậy sau một giấc ngủ rất là sâu rồi, chúng ta rất là sảng khoái, trong khi những lúc khác mà không có chánh niệm, mà chúng ta ngủ cả đêm mà sáng dậy vẫn mệt."
+
+            intervals [101]:
+            xmin = 1109.060212
+            xmax = 1123.532749
+            text = "Do vậy giấc ngủ chúng ta cực kỳ có chất lượng. Khi có chánh niệm chúng ta không bị mất năng lượng, chúng ta không cần ngủ nhiều, chúng ta cũng không cần ăn nhiều, năng lượng của chúng ta không cần sử dụng nhiều, rất là khỏe."
+
+            intervals [102]:
+            xmin = 1123.532749
+            xmax = 1134.775232
+            text = "Sư ăn rất là ít, ngủ không nhiều. Sự chuyển hóa của chúng ta, nếu mà chúng ta chánh niệm miên mật, liên tục, sự chuyển hóa của chúng ta giảm đến mức rất là thấp."
+
+            intervals [103]:
+            xmin = 1134.775232
+            xmax = 1148.426603
+            text = "Chẳng hạn như là ngài U Jotika thầy của Sư hoặc là mấy vị thiền Sư khác, cũng giống như Sư cũng vậy là đều thấy một điều như này, thân nhiệt của mọi người là |ba bảy|37| độ, của Sư chỉ có khoảng |ba lăm|35| độ rưỡi."
+
+            intervals [104]:
+            xmin = 1148.426603
+            xmax = 1164.645483
+            text = "Thân nhiệt, nhiệt độ cơ thể nó luôn luôn thấp hơn bình thường. Nó chỉ khoảng |ba lăm|35| độ rưỡi thôi, lúc nào cũng vậy, nhưng mà nếu ai là bác sĩ thì biết rằng thân nhiệt mà thấp như thế là bị nguy hiểm, là có vấn đề."
+
+            intervals [105]:
+            xmin = 1164.645483
+            xmax = 1174.174887
+            text = "Nhưng mà Sư thường xuyên là thân nhiệt thấp như thế, chỉ khoảng |ba lăm|35| độ rưỡi thôi. Rồi là huyết áp, người bình thường là |một trăm hai mươi|120| /|chín mươi|90|"
+
+            intervals [106]:
+            xmin = 1174.174887
+            xmax = 1187.542933
+            text = "của Sư thường xuyên là |chín mươi|90|/|sáu mươi|60|, thường xuyên như thế mà không hề thấy mệt, mà vẫn thấy rất khỏe, thuyết pháp vẫn nói suốt ngày, không vấn đề gì cả."
+
+            intervals [107]:
+            xmin = 1187.542933
+            xmax = 1200.048137
+            text = "Bây giờ đo vẫn vậy, chỉ có khoảng |chín mươi|90|/|sáu mươi|60| thôi. Tức là sự chuyển hóa ở trong cơ thể sẽ giảm xuống mức thấp nhất và như thế sẽ sống được rất là lâu, rất là trẻ bởi vì mình không tiêu năng lượng."
+
+            intervals [108]:
+            xmin = 1200.048137
+            xmax = 1207.485591
+            text = "Tại sao mà chúng ta già đi là vì, sự chuyển hóa của chúng ta quá mạnh mẽ, nó tạo ra rất nhiều chất ô xy hóa trong cơ thể, rất nhiều rác thải."
+
+            intervals [109]:
+            xmin = 1207.485591
+            xmax = 1217.014966
+            text = "Và chính cái chất oxy hóa nó làm cho mình già đi, làm cho cuộc sống của chúng ta thu ngắn lại. Nhưng mà cái sự chuyển hóa của chúng ta thấp,"
+
+            intervals [110]:
+            xmin = 1217.014966
+            xmax = 1225.120464
+            text = "giống như chúng ta sống chậm lại nên là tốc độ lão hóa của chúng ta giảm đi, chúng ta sẽ trẻ lâu và vòng đời của chúng ta tăng lên. \"
+
+            intervals [111]:
+            xmin = 1225.120464
+            xmax = 1239.488616
+            text = "Nếu chúng ta biết chánh niệm thì cuộc sống của chúng ta rất là khác, chúng ta bình an hơn, chúng ta sống chậm hơn, chúng ta bình tĩnh hơn và sáng suốt hơn."
+
+            intervals [112]:
+            xmin = 1239.488616
+            xmax = 1248.748774
+            text = "Chúng ta làm việc luôn luôn có độ dừng. Tất cả mọi thứ dần dần có độ dừng, chánh niệm làm cho chúng ta có độ dừng, cái độ dừng này cực kỳ quan trọng."
+
+            intervals [113]:
+            xmin = 1248.748774
+            xmax = 1261.910101
+            text = "Khi thu nhận một thông tin, chúng ta có độ dừng. Có khi độ dừng ấy rất là ngắn thôi, nhưng mà độ dừng đó đủ để chúng ta xác định xem thông tin đó đúng hay sai, tin hay không tin, rất là quan trọng."
+
+            intervals [114]:
+            xmin = 1261.910101
+            xmax = 1267.755042
+            text = "Thông thường nếu mà không có chánh niệm, nhất là những người nào tính tình bộp chộp ấy là nghe một cái là tin ngay,"
+
+            intervals [115]:
+            xmin = 1267.755042
+            xmax = 1273.829413
+            text = "nghe một cái là phản ứng ngay, chưa kịp suy xét xem là nó đúng hay sai, thế nên là chúng ta hay hiểu nhầm người khác là như vậy."
+
+            intervals [116]:
+            xmin = 1273.829413
+            xmax = 1280.895019
+            text = "Người ta nói một cái là chúng ta vội kết luận ngay, chúng ta không có đủ độ dừng để cân nhắc xem là cái này đúng hay sai,"
+
+            intervals [117]:
+            xmin = 1280.895019
+            xmax = 1290.761957
+            text = "đôi khi chỉ cần thêm một vài giây thôi là chúng ta đã hiểu đúng rồi, là nó đã khác rồi, nhưng mà chúng ta không có độ dừng đó."
+
+            intervals [118]:
+            xmin = 1290.761957
+            xmax = 1301.998645
+            text = "Cái độ pause, cái độ dừng cực kỳ quan trọng. \ Nhưng mà chánh niệm làm cho chúng ta có độ dừng đó. Vì sao? Bởi vì một phần tâm của chúng ta vẫn ở bên trong này, nên khi tiếp nhận nó chậm hơn một chút."
+
+            intervals [119]:
+            xmin = 1301.998645
+            xmax = 1316.760327
+            text = "Nó không vào thẳng tâm của chúng ta, nó chế biến ra ngay thành lời nói, mà nó hơi chậm một chút, bởi vì một phần tâm nó vẫn ở bên trong mình mà."
+
+            intervals [120]:
+            xmin = 1316.760327
+            xmax = 1320.296338
+            text = "Nên chúng ta tiếp nhận xong rồi xử lý. Trong quá trình đó, chậm chậm như thế, chúng ta đủ sáng suốt để biết rằng thông tin này đúng hay sai."
+
+            intervals [121]:
+            xmin = 1320.296338
+            xmax = 1329.727412
+            text = "Chúng ta sẽ tiếp nhận một cách chính xác hơn. Người có chánh niệm nghe chính xác hơn, nhìn rõ nét hơn, luôn luôn là như thế, họ luôn luôn có độ dừng."
+
+            intervals [122]:
+            xmin = 1329.727412
+            xmax = 1343.55892
+            text = "Đối với một cảm xúc, thì độ dừng đó lại cực kỳ quan trọng. Khi người có chánh niệm thì khi cảm xúc sanh khởi. Chẳng hạn như buồn hay giận thì một phần tâm của họ đã bắt đầu chú ý vào thân mình rồi,"
+
+            intervals [123]:
+            xmin = 1343.55892
+            xmax = 1358.699607
+            text = "vào bản thân của cảm giác, cảm xúc đó đang ở trên thân mình. Do vậy nên chỉ một phần tâm của họ dành cho cảm xúc đó, một phần năng lượng bị cảm xúc cướp đi, nhưng một phần năng lượng họ vẫn giữ ở bên trong. Do vậy họ cảm thấy một phần nào đó tách biệt khỏi cảm xúc, cảm xúc là cảm xúc, mình là mình."
+
+            intervals [124]:
+            xmin = 1358.699607
+            xmax = 1369.741655
+            text = "Còn trước kia, chúng ta coi cảm xúc chính là mình, giận tức là mình giận, còn bây giờ nếu có chánh niệm chúng ta sẽ thấy rằng có cơn giận ở đó và vẫn có cái thân này đang ngồi ở đây,"
+
+            intervals [125]:
+            xmin = 1369.741655
+            xmax = 1373.156253
+            text = "và cái thân này cảm giác được sự khó chịu do cơn giận mang lại."
+
+            intervals [126]:
+            xmin = 1373.156253
+            xmax = 1381.70712
+            text = "Do vậy chúng ta tách biệt khỏi một phần ra khỏi cảm xúc đó và cái phần tách biệt này cực kỳ quan trọng, cái độ dừng này cực kỳ quan trọng,"
+
+            intervals [127]:
+            xmin = 1381.70712
+            xmax = 1392.164415
+            text = "nó làm cho chúng ta chủ động không bị cảm xúc cuốn trôi, không automatic, response, không automatic hành động theo cảm xúc đó nữa."
+
+            intervals [128]:
+            xmin = 1392.164415
+            xmax = 1404.045826
+            text = "Thế nên riêng khoản này đã giúp cho chúng ta tránh khỏi rất nhiều sai lầm, rất nhiều trouble, rất nhiều câu nói chỉ cần chậm đi một nhịp thôi là đã khác hẳn."
+
+            intervals [129]:
+            xmin = 1404.045826
+            xmax = 1412.53646
+            text = "Khi sân chúng ta buột miệng ra một câu hớt người khác là đã khác hẳn rồi, nhưng mà chỉ cần chậm đi một giây, 2 giây, nửa giây thôi đã hoàn toàn khác rồi."
+
+            intervals [130]:
+            xmin = 1412.53646
+            xmax = 1424.293388
+            text = "Khi chậm đó là chúng ta có sự chánh niệm ở bên trong, nó khác. \ Một điều nữa, chánh niệm giúp cho chúng ta tách mình ra khỏi cảm xúc,"
+
+            intervals [131]:
+            xmin = 1424.293388
+            xmax = 1432.362018
+            text = "giúp cho chúng ta tách khỏi, không đồng hóa với cảm xúc, thông thường sự đồng hóa xảy ra một cách tự động, nghĩa là gì."
+
+            intervals [132]:
+            xmin = 1432.362018
+            xmax = 1445.757421
+            text = "Khi có một cảm xúc, chúng ta xác định luôn cảm xúc này là của mình, là mình, mình đang sân. Khi chúng ta nghĩ mình đang sân nó hoàn toàn khác khi chúng ta nghĩ có một cơn sân đang xảy ra."
+
+            intervals [133]:
+            xmin = 1445.757421
+            xmax = 1456.966735
+            text = "Chúng ta, à, cơn sân đó không phải là mình, nó là một hoạt động của tâm, nó xảy ra, nó diễn ra do một tác nhân nào đó ở bên ngoài tác động vào."
+
+            intervals [134]:
+            xmin = 1456.966735
+            xmax = 1466.799191
+            text = "Ví dụ một người vừa chửi mình một câu, hoặc một người vừa hớt mình một cái. Do tác nhân bên ngoài cộng với cả mầm mống bên trong nên nó xảy ra cơn sân đó."
+
+            intervals [135]:
+            xmin = 1466.799191
+            xmax = 1478.213503
+            text = "Chúng ta nhìn rõ quá trình đó, tách biệt khỏi việc là tôi sân, thì bởi vì có sự chú ý quan sát bản thân mình, thế nên chúng ta có sự tách biệt đó."
+
+            intervals [136]:
+            xmin = 1478.213503
+            xmax = 1487.380815
+            text = "Chúng ta không đồng hóa cái sân đó là mình. Cái sân là sân, mình là mình, chính vì thế nên chúng ta không bị cuốn trôi theo cơn sân đó."
+
+            intervals [137]:
+            xmin = 1487.380815
+            xmax = 1500.170538
+            text = "Đây là một điều cực kỳ quan trọng, nó giúp cứu vớt cuộc đời của chúng ta rất là nhiều. \ Khi chúng ta thực hành quen, ở đây chúng ta rèn luyện cái gì?"
+
+            intervals [138]:
+            xmin = 1500.170538
+            xmax = 1509.456623
+            text = "Tất cả mọi thứ đưa về cảm giác, tất cả mọi thứ chúng ta quy về cảm giác, các cảm giác đang có trong mình, sân cũng là một cảm giác,"
+
+            intervals [139]:
+            xmin = 1509.456623
+            xmax = 1516.789691
+            text = "cảm giác khó chịu, buồn là một cảm giác khác, giận là một cảm giác khác, vui là một cảm giác khác. Tất cả chúng ta quy về cảm giác."
+
+            intervals [140]:
+            xmin = 1516.789691
+            xmax = 1528.932381
+            text = "Còn khi chúng ta nghĩ, sân, giận, buồn, vui rồi những chuyện mình sân, những chuyện mình giận, những chuyện mình vui, chúng ta đã bắt đầu bị cuốn đi rồi, nhưng mà chúng ta quy hết tất cả về cảm giác."
+
+            intervals [141]:
+            xmin = 1528.932381
+            xmax = 1539.329489
+            text = "Tại sao mình biết là sân bởi vì một cảm giác khó chịu báo cho chúng ta biết là sân. Quy hết về cảm giác, và chúng ta xác định, à, đó chỉ là một cảm giác."
+
+            intervals [142]:
+            xmin = 1539.329489
+            xmax = 1547.087278
+            text = "Đấy là một điều chúng ta thường xuyên nhắc mình. Khi một cơn sân xảy đến, chúng ta nhắc mình, nó chỉ là một cảm giác."
+
+            intervals [143]:
+            xmin = 1547.087278
+            xmax = 1557.974705
+            text = "Khi buồn xảy đến, chúng ta xác định, nhắc mình đó cũng chỉ là một cảm giác. Khi đau chúng ta cũng nhắc mình, nó chỉ là một cảm giác,"
+
+            intervals [144]:
+            xmin = 1557.974705
+            xmax = 1571.434248
+            text = "khi vui, nó chỉ là một cảm giác, một cảm giác hỷ lạc bình an, cũng nhắc mình nó chỉ là một cảm giác. Khi chúng ta quy về nó chỉ là một cảm giác thì chúng ta đối xử với nó y hệt như chúng ta chánh niệm ở đây."
+
+            intervals [145]:
+            xmin = 1571.434248
+            xmax = 1581.921076
+            text = "À, nó là một cảm giác, nó là một đối tượng để mình quan sát, để mình hay biết và chúng ta biết rằng cảm giác ấy nó lên xuống và nó sẽ mất đi, mình không cần làm gì cả nó cũng mất đi."
+
+            intervals [146]:
+            xmin = 1581.921076
+            xmax = 1596.81962
+            text = "Có ai sân từ sáng đến tối không, có ai sân cả năm không? Không có, đúng không? Mình không cần làm gì nó cũng mất, nó hoạt động theo nó, nó có vòng đời của nó, đó là việc mình không cần quan tâm."
+
+            intervals [147]:
+            xmin = 1596.81962
+            xmax = 1606.167774
+            text = "Nó chỉ là một cảm giác. \ Khi chúng ta nhắc mình, nó chỉ là một cảm giác, chúng ta nhìn sự vật hoàn toàn khác."
+
+            intervals [148]:
+            xmin = 1606.167774
+            xmax = 1617.963002
+            text = "Chúng ta tách biệt khỏi nó và chúng ta đủ kiên nhẫn để chờ cho cảm giác đó qua đi. Có rất nhiều việc chúng ta không cần làm gì cả, chúng ta chỉ cần đơn giản chờ đợi cho nó tự động qua đi."
+
+            intervals [149]:
+            xmin = 1617.963002
+            xmax = 1627.565366
+            text = "Rất là dễ dàng, mọi việc được giải quyết rất là dễ dàng. Có rất nhiều việc, nếu mà chúng ta cố tình giải quyết thì nó sẽ ở lại lâu hơn."
+
+            intervals [150]:
+            xmin = 1627.565366
+            xmax = 1639.000759
+            text = "Nếu mà chúng ta đủ kiên nhẫn thì nó sẽ qua đi rất là nhanh, rất là dễ và không để lại hậu quả. Thế nhưng mà chúng ta phản ứng nhiều việc một cách thừa."
+
+            intervals [151]:
+            xmin = 1639.000759
+            xmax = 1650.141227
+            text = "Chẳng hạn như buổi tối, vẫn một ví dụ là vợ chồng cãi nhau. Nếu mà chúng ta đủ kiên nhẫn, chúng ta sống thuận pháp, thì chúng ta biết rằng,"
+
+            intervals [152]:
+            xmin = 1650.141227
+            xmax = 1659.133148
+            text = "à, đang có một cơn sân xảy ra, có một cái khổ xảy ra, người ta đang khổ và người ta đang có nhu cầu cần phải tuôn cái nỗi khổ ấy ra."
+
+            intervals [153]:
+            xmin = 1659.133148
+            xmax = 1669.761955
+            text = "Người ta cần phải tuôn hết những cái bức xúc, những cái sân mà cả ngày họ tích tụ ra, chúng ta nhìn thấy thế và chúng ta biết rằng, mình tôn trọng quá trình đó, mình chỉ cần kiên nhẫn thôi."
+
+            intervals [154]:
+            xmin = 1669.761955
+            xmax = 1685.258363
+            text = "Cái sân nó đến, cái sân nó đi, theo quy luật vô thường mình không cần làm gì cả nó cũng hết. Ông ấy cáu một lúc, ông ấy đập vài cái bát, một lúc sau là ông ấy ngồi ăn cơm như bình thường thôi. Nếu mà chúng ta nhìn như thế với chánh niệm thì sự việc kết thúc rất nhanh không có hậu quả."
+
+            intervals [155]:
+            xmin = 1685.258363
+            xmax = 1695.639649
+            text = "Nếu chúng ta không có chánh niệm, chúng ta phản ứng ngay lập tức, chúng ta không muốn ông ấy sân với mình, chúng ta nghĩ rằng ông ấy vô lý với mình, nghĩ rằng mình bị ức hiếp, rất nhiều thứ bắt đầu sinh bắt đầu ra từ đó."
+
+            intervals [156]:
+            xmin = 1695.639649
+            xmax = 1709.037247
+            text = "Thay vì để sự việc kết thúc một cách êm đẹp, chỉ vỡ vài cái bát thì chúng ta đập cái ti vi. Thay vì chỉ có |mười lăm|15| phút ông ấy xả ra là xong,"
+
+            intervals [157]:
+            xmin = 1709.037247
+            xmax = 1718.397236
+            text = "thì chúng ta cãi nhau nguyên cả buổi tối và đứa con của mình nó khóc, rất nhiều thứ khác. Và sáng hôm sau cả 2 người mặt mũi sưng vù, không thèm chào nhau, cứ thế đi làm."
+
+            intervals [158]:
+            xmin = 1718.397236
+            xmax = 1729.03334
+            text = "Rất nhiều lần như thế, đơn giản vì chúng ta luôn luôn cộng thêm, chúng ta không để cho nó kết thúc theo đúng quy luật của nó."
+
+            intervals [159]:
+            xmin = 1729.03334
+            xmax = 1742.385648
+            text = "Không đủ kiên nhẫn để chờ đợi cho nó kết thúc. Nguyên nhân sâu xa là vì chúng ta không có chánh niệm, chúng ta bị cuốn theo hoàn toàn theo những dòng suy nghĩ, và những cảm xúc mà nó đến một cách bất ngờ. \"
+
+            intervals [160]:
+            xmin = 1742.385648
+            xmax = 1758.817428
+            text = "Chánh niệm cứu chúng ta cực kỳ nhiều. Do vậy chúng ta mới hiểu là sức mạnh của chánh niệm ở đâu. Ngoài ra, chúng ta sẽ để ý thế này:"
+
+            intervals [161]:
+            xmin = 1758.817428
+            xmax = 1766.632919
+            text = "người có chánh niệm luôn có sự điềm tĩnh và sâu lắng, một sự tự chủ trong mọi việc, từ những hành động và lời nói nhỏ nhất."
+
+            intervals [162]:
+            xmin = 1766.632919
+            xmax = 1778.670714
+            text = "Bởi vì sao? Bởi vì luôn luôn có một phần tâm họ đặt ở trong thân mình. Thế nên mọi hành động, mọi suy nghĩ, nói năng của họ rất điềm tĩnh,"
+
+            intervals [163]:
+            xmin = 1778.670714
+            xmax = 1792.310138
+            text = "sâu lắng và đều có chủ đích cả, không bao giờ làm việc gì một cách bốc đồng, một cách không suy nghĩ cả. Cái điều đó rèn luyện không được, trừ khi chánh niệm có thể làm được."
+
+            intervals [164]:
+            xmin = 1792.310138
+            xmax = 1809.704994
+            text = "Cứ để ý mà xem, nếu mình tu một thời gian mình sẽ thấy mình đầm hơn rất là nhiều, mình trưởng thành hơn rất là nhiều, mình không dễ bị lôi theo cảm xúc, không dễ bốc đồng, mình không dễ vui, không dễ buồn, không dễ sân như trước kia nữa."
+
+            intervals [165]:
+            xmin = 1809.704994
+            xmax = 1819.308704
+            text = "Đó là tác dụng của chánh niệm, đơn giản là nó luôn tạo cho mình một khoảng dừng trước khi làm bất cứ điều gì, khoảng dừng đó cứu chúng ta, khoảng dừng đó làm cho chúng ta sáng suốt hơn."
+
+            intervals [166]:
+            xmin = 1819.308704
+            xmax = 1836.883651
+            text = "Khoảng dừng đó làm cho chúng ta tách biệt ra khỏi cảm xúc, khoảng dừng đó làm cho chúng ta sống một cách lý trí hơn, vô cùng quan trọng. \ Mọi người nói về mindfulness rất là nhiều. Ở đây viết về mindfulness cực kỳ nhiều."
+
+            intervals [167]:
+            xmin = 1836.883651
+            xmax = 1849.796
+            text = "Mindfulness bây giờ trở thành một trào lưu, một fashion, nhưng mà mọi người nói về mindfulness, nhưng mà để thực sự hiểu về mindfulness như thế nào cực kỳ ít,"
+
+            intervals [168]:
+            xmin = 1849.796
+            xmax = 1860.382017
+            text = "mindfulness không phải là thứ đọc để hiểu, nó là thứ thực hành mới có thể hiểu được. Và không phải chỉ thực hành một vài lần,"
+
+            intervals [169]:
+            xmin = 1860.382017
+            xmax = 1866.440533
+            text = "một khóa thiền vài ngày ở đây mà hiểu được, phải thực hành nhiều năm mới hiểu được, mới sống được với mindfulness."
+
+            intervals [170]:
+            xmin = 1866.440533
+            xmax = 1876.248543
+            text = "Rất nhiều học trò của thầy đều nói như này, sau vài năm hành thiền, tham dự nhiều khóa thiền, lúc đó họ mới nói với thầy:"
+
+            intervals [171]:
+            xmin = 1876.248543
+            xmax = 1888.290852
+            text = "Bây giờ con mới thực sự hiểu thế nào là mindfulness, bây giờ con mới thực sự hiểu thế nào là chánh niệm. Và sau mấy năm nữa họ lại nói lại câu nữa: Bây giờ con mới thực sự hiểu thế nào là chánh niệm."
+
+            intervals [172]:
+            xmin = 1888.290852
+            xmax = 1897.860156
+            text = "Tức là cái hiểu của mình nó rất là nông cạn, hời hợt. Chưa kể đấy chỉ là cái suy nghĩ thôi chứ không phải thực sự là hiểu, không phải chúng ta thực sự sống với chánh niệm."
+
+            intervals [173]:
+            xmin = 1897.860156
+            xmax = 1906.14333
+            text = "Chúng ta thực sự sống với chánh niệm nó hoàn toàn khác so với việc chúng ta đọc về chánh niệm, và nghĩ về chánh niệm, nghĩ rằng mình đã hiểu về chánh niệm. \"
+
+            intervals [174]:
+            xmin = 1906.14333
+            xmax = 1914.731499
+            text = "Thông thường những người đọc về chánh niệm, người ta đều nghĩ rằng chánh niệm dễ thôi mà, mình làm được mà, đơn giản."
+
+            intervals [175]:
+            xmin = 1914.731499
+            xmax = 1922.656635
+            text = "Đều như thế cả. Nhưng mà người thực hành chánh niệm, kể cả thực hành rồi, thực hành sai vẫn không có chánh niệm."
+
+            intervals [176]:
+            xmin = 1922.656635
+            xmax = 1932.926887
+            text = "Có những người hành thiền cả chục năm, mấy chục năm, không có chánh niệm, người ta chỉ có sự tập trung, không có chánh niệm."
+
+            intervals [177]:
+            xmin = 1932.926887
+            xmax = 1945.291103
+            text = "Nhớ, chánh niệm không phải là tập trung. Mindfulness is not concentration. Concentration khác, mà mindfulness khác. Mọi người đọc sách,"
+
+            intervals [178]:
+            xmin = 1945.291103
+            xmax = 1955.501039
+            text = "xong mọi người tự thực hành, hoặc là thực hành sai, toàn là chúng ta biến mindfulness trở thành concentration. Chúng ta tập trung vào một việc gì đó,"
+
+            intervals [179]:
+            xmin = 1955.501039
+            xmax = 1972.628045
+            text = "chúng ta nghĩ đấy là chánh niệm, đấy không phải là chánh niệm, đấy chỉ là sự tập trung. Và sự tập trung như thế, nó có một điểm rất là bất lợi, khi chúng ta tập trung vào một điểm gì đó, tức là chúng ta gạt bỏ những thứ khác."
+
+            intervals [180]:
+            xmin = 1972.628045
+            xmax = 1979.031204
+            text = "Khi chúng ta xác định mình ngồi thiền tập trung vào hơi thở, hoặc phồng xẹp tức là chúng ta phải gạt bỏ tất cả những thứ khác để chúng ta tập trung vào nó."
+
+            intervals [181]:
+            xmin = 1979.031204
+            xmax = 1996.606805
+            text = "Như vậy là chúng ta không còn chánh niệm nữa. Chánh niệm là gì? Mindfulness nghĩa là mình biết tất cả mọi thứ ở bên trong mình, mọi thứ liên quan đến mình mình đều biết một cách rõ ràng, rõ nét."
+
+            intervals [182]:
+            xmin = 1996.606805
+            xmax = 2007.281028
+            text = "Đó gọi là mindfulness. Nhưng mà bây giờ mình chỉ biết một thứ thôi, gạt bỏ mọi thứ khác, thậm chí chúng ta sân, chúng ta ép mình, gò tâm vào một thứ, như thế không còn là mindfulness, nó chỉ là concentration."
+
+            intervals [183]:
+            xmin = 2007.281028
+            xmax = 2017.411588
+            text = "Và như thế hoàn toàn không có một chút tỉnh giác nào, chúng ta sống như thế, chúng ta không hòa hợp lại với cuộc sống nữa."
+
+            intervals [184]:
+            xmin = 2017.411588
+            xmax = 2028.975678
+            text = "Những người mà rèn luyện sự tập trung, rất khó chịu đựng cuộc sống, họ rất dễ gọi là get united…… Họ rất khó chịu bởi những thứ xung quanh,"
+
+            intervals [185]:
+            xmin = 2028.975678
+            xmax = 2036.586861
+            text = "những thứ gì trái ý mình là mình khó chịu, mình sân, tiếng động cũng làm mình sân, nói chung là mình cảm thấy khó khăn hơn rất là nhiều."
+
+            intervals [186]:
+            xmin = 2036.586861
+            xmax = 2045.925994
+            text = "Chúng ta gần như là tách biệt ra khỏi cuộc sống và dần dần là chúng ta luôn tìm cách làm sao mà bảo vệ được sự bình an, sự tĩnh lặng trong khi mình tập trung như thế. \"
+
+            intervals [187]:
+            xmin = 2045.925994
+            xmax = 2060.090859
+            text = "Tu như thế là tu sai, hiện nay rất nhiều người tu sai. Tu sai nhiều lắm, mindfulness thì chúng ta chỉ có concentration mà concentration nó mang lại vô số tác hại."
+
+            intervals [188]:
+            xmin = 2060.090859
+            xmax = 2067.075244
+            text = "Chúng ta quay lại cuộc sống chúng ta thành một người không thể nào hòa nhập với cuộc sống. Thay vì tu tập chúng ta bớt phiền não,"
+
+            intervals [189]:
+            xmin = 2067.075244
+            xmax = 2075.900392
+            text = "chúng ta lại càng nhiều phiền não hơn, chúng ta càng nhiều khó khăn hơn trong các quan hệ, trong đủ mọi thứ và những cái chấp của mình càng ngày càng nặng."
+
+            intervals [190]:
+            xmin = 2075.900392
+            xmax = 2087.876704
+            text = "Những người phát triển concentration thì cái chấp của họ cực kỳ nặng, nặng lắm, mà cái thành kiến của họ nặng lắm, mà họ rất hay áp đặt người khác, rất hay bắt người khác phải theo ý của mình."
+
+            intervals [191]:
+            xmin = 2087.876704
+            xmax = 2101.713331
+            text = "Chúng ta phải nhớ điều đó. \ Nên ở đây, nếu mà là những người hoàn toàn không biết gì về mindfulness, Sư dạy rất là dễ."
+
+            intervals [192]:
+            xmin = 2101.713331
+            xmax = 2110.446356
+            text = "Những học trò mà thực hành tốt của Sư đều là những người chưa bao giờ biết gì về mindfulness, thậm chí chưa biết đến đạo Phật, chưa từng đọc một cuốn sách."
+
+            intervals [193]:
+            xmin = 2110.446356
+            xmax = 2120.678075
+            text = "Những người ấy rất dễ dạy. Còn những người đã thực hành rồi, đa phần ở đây là Sư rất là vất vả, vất vả cái gì? Vất vả phá đi cái thói quen và suy nghĩ của họ."
+
+            intervals [194]:
+            xmin = 2120.678075
+            xmax = 2133.064659
+            text = "Họ có chấp nhận phải thực hành như thế này mới là đúng, Sư phải dụ phải dỗ, phải phá, phải dùng rất nhiều biện pháp, phải thuyết pháp,"
+
+            intervals [195]:
+            xmin = 2133.064659
+            xmax = 2141.763967
+            text = "đủ mọi thứ để phá đi cái suy nghĩ sai đó mà họ vẫn không tin, thường là vài năm, những người nào chăm chỉ thực hành, có lòng tin lắm thì vài năm sau họ mới phá đi được cái đó."
+
+            intervals [196]:
+            xmin = 2141.763967
+            xmax = 2151.983132
+            text = "Và điều nữa là phải phá đi cái thói quen thực hành cũ. Ở đây có rất nhiều người có thói quen đó, ngồi là cứ muốn ngồi lỳ, ngồi thật lâu, nghĩ rằng ngồi như thế, ngồi lâu thì mới là hành thiền tốt."
+
+            intervals [197]:
+            xmin = 2151.983132
+            xmax = 2162.504182
+            text = "Rồi là khi hành thiền là cứ phải từ trong tâm vẫn theo thói quen cũ là muốn phải được thanh tịnh, muốn không có suy nghĩ, muốn được bình an,"
+
+            intervals [198]:
+            xmin = 2162.504182
+            xmax = 2175.374744
+            text = "thay vì chúng ta ngồi để tập thói quen để luôn quay lại mình, quan sát bản thân mình, có chánh niệm thì chúng ta lại vẫn theo thói quen cũ, cố gắng tập trung để cho tâm mình thật là yên, để cho không suy nghĩ nữa."
+
+            intervals [199]:
+            xmin = 2175.374744
+            xmax = 2186.293464
+            text = "Nhớ là Sư dạy buông bỏ suy nghĩ, khác hoàn toàn với việc là mình đè nén suy nghĩ, bắt suy nghĩ không được sanh khởi, hai cái đó rất là khác nhau."
+
+            intervals [200]:
+            xmin = 2186.293464
+            xmax = 2197.55847
+            text = "Một cách tiếp cận rất là smooth, rất là mềm, rất là thuận theo tự nhiên thì suy nghĩ nó sẽ giảm dần, một cách là chúng ta dùng một cách thô bạo là áp đặt,"
+
+            intervals [201]:
+            xmin = 2197.55847
+            xmax = 2207.95527
+            text = "tập trung tâm vào hơi thở hay vào phồng xẹp hay vào cái gì đó để gạt bỏ suy nghĩ đi. Cách đối xử thô bạo với tâm mình như thế, luôn mang một tác dụng phụ rất là nguy hại."
+
+            intervals [202]:
+            xmin = 2207.95527
+            xmax = 2218.435111
+            text = "Mà nó không bao giờ tồn tại lâu dài, trong khi cách kia rất là mềm mại, nhẹ nhàng, thuận tự nhiên và dần dần càng thực hành là nó càng bớt đi, càng bớt quấy nhiễu chúng ta."
+
+            intervals [203]:
+            xmin = 2218.435111
+            xmax = 2227.960449
+            text = "Nhưng mà cách thực hành đó, một là đòi hỏi phải có lòng tin, hai là phải có sự kiên nhẫn, ba là phải có sự đầu tư lâu dài."
+
+            intervals [204]:
+            xmin = 2227.960449
+            xmax = 2236.387668
+            text = "Có khi vài năm chúng ta mới bắt đầu thấy có tác dụng, tác dụng âm thầm biến chuyển bên trong. Nếu chúng ta không có đủ lòng tin,"
+
+            intervals [205]:
+            xmin = 2236.387668
+            xmax = 2244.579414
+            text = "kiên nhẫn, không bao giờ chúng ta đợi đến lúc nó trổ quả như vậy, chúng ta sẽ bỏ sớm và chúng ta sẽ quay lại cái cách thực hành kia."
+
+            intervals [206]:
+            xmin = 2244.579414
+            xmax = 2254.193565
+            text = "Những người đã thực hành, đã học ở đâu đó rồi, Sư sẽ luôn luôn bảo, cái yêu cầu trước nhất là phải buông bỏ tất cả cách thực hành cũ,"
+
+            intervals [207]:
+            xmin = 2254.193565
+            xmax = 2261.649377
+            text = "không được trộn lẫn vào, một số người thì dùng kiên nhẫn để uốn nắn, đến bây giờ Sư vẫn phải uốn nắn, vẫn phải chỉ ra cái sai."
+
+            intervals [208]:
+            xmin = 2261.649377
+            xmax = 2272.440773
+            text = "Thực ra mà nói người nào có đủ duyên, có cái tâm rộng mở, mà thực sự muốn tu mà nghe những bài pháp của Sư họ có thể thực hành được, có thể hiểu được. \"
+
+            intervals [209]:
+            xmin = 2272.440773
+            xmax = 2291.790685
+            text = "Thiền sinh: Con bị đau lưng khi nằm, sư nói là mình phải chấp nhận, mình không có cưỡng ép, vậy con có phải kéo cái người con lên không ạ?\"
+
+            intervals [210]:
+            xmin = 2291.790685
+            xmax = 2314.449046
+            text = "Chấp nhận không có nghĩa rằng mình không làm gì cả, chấp nhận là để mình ngăn chặn những phản ứng vô ích, những cái lo lắng hoặc là những phản ứng rất là thô bạo."
+
+            intervals [211]:
+            xmin = 2314.449046
+            xmax = 2330.286392
+            text = "Chứ còn việc cần làm mình vẫn phải làm chứ, ví dụ như cái này đau thì mình phải nâng lên dần cho đỡ đau. Mình phải luôn luôn biết mindful khi mình làm việc đó. \"
+
+            intervals [212]:
+            xmin = 2330.286392
+            xmax = 2401.380766
+            text = "Thiền sinh: Con ráng con tập trung, khi người ta nói nhiều, con thả lỏng lại, con để ý lại người con. Kỳ lạ thay con vẫn nghe được người ta nói cái thân"
+
+            intervals [213]:
+            xmin = 2401.380766
+            xmax = 2401.7755419999953
+            text = "Tự nhiên cái lỗ tai con vẫn nghe được người ta nói. \ Đúng, đó là mindfulness. Đấy, cái đấy chính là cái ví dụ mà Sư muốn nói về concentration và mindfulness,"
+
+            intervals [214]:
+            xmin = 2401.7755419999953
+            xmax = 2412.82498
+            text = "consentration không giúp được gì hết, nhưng mindfulness thì giúp được. Mindfulness làm cho mình mở rộng ra, mình có thể tiếp nhận mọi thứ rất là rõ nét và tâm rất là sáng suốt,"
+
+            intervals [215]:
+            xmin = 2412.82498
+            xmax = 0
+            text = "còn consentration một lúc là mình bắt đầu lost luôn. Lái xe cũng thế, lái xe mà cứ nhăm nhăm nhìn như thế này là dễ đâm, dễ gây tai nạn lắm."
+
+            intervals [216]:
+            xmin = 0
+            xmax = 0
+            text = "Còn người lái xe mà với mindfulness rất là thả lỏng, thư thái, mọi cử động rất là nhẹ nhàng, mọi cử động rất là smooth."
+
+            intervals [217]:
+            xmin = 0
+            xmax = 0
+            text = "Còn người không có chánh niệm là lái xe cứ giật cục, còn người lái xe với chánh niệm rất là smooth, mặt rất là thả lỏng và sau khi lái xe rất là thoải mái chứ không hề mệt mỏi."
+
+            intervals [218]:
+            xmin = 0
+            xmax = 0
+            text = "Nhớ, consentration và mindfulness. \ Thiền sinh: Con hiểu là thiền Vipasana tức là mình minh sát, mình không cho cái bản ngã của mình vô, Sư có nói là đừng có để cho suy nghĩ cuốn đi."
+
+            intervals [219]:
+            xmin = 0
+            xmax = 0
+            text = "Nhưng con có thắc mắc là mình bỏ rơi suy nghĩ của mình. Mình thấy đau mình quan sát nó, mình thấy buồn, mình biết buồn. \"
+
+            intervals [220]:
+            xmin = 0
+            xmax = 0
+            text = "Trong tâm của chúng ta vô số những suy nghĩ lăn tăn lăn tăn, may lắm chúng ta biết một vài suy nghĩ rất là thô."
+
+            intervals [221]:
+            xmin = 0
+            xmax = 0
+            text = "Còn ở phía dưới nó lăn tăn nó giống như giấc mơ, khi giấc mơ chúng ta thấy đầu đuôi nó lẫn lung tung, cái này chắp vá vào cái kia nó giống như dòng hình ảnh."
+
+            intervals [222]:
+            xmin = 0
+            xmax = 0
+            text = "Trong lúc mình thức mình vẫn mơ như vậy, dưới bên nó nữa đấy gọi là vô thức. Vô thức là gì? Là những thứ ở trong tâm chúng ta mà chúng ta không nhìn thấy được, nó gọi là vô thức mà cái tầng vô thức nó cực kỳ dầy."
+
+            intervals [223]:
+            xmin = 0
+            xmax = 0
+            text = "Cứ bảo là mình nhìn thấy, làm sao mà mình nhìn thấy được, nếu mà mình nhìn thấy thì sao gọi là vô thức được nữa."
+
+            intervals [224]:
+            xmin = 0
+            xmax = 0
+            text = "Kiến thức của mình có hạn, tốt nhất là Thầy bảo thực hành cái gì thì mình thực hành đúng như thế. Còn nếu mà mình có thể tự thực hành được thì mình đã chẳng ngồi đây."
+
+            intervals [225]:
+            xmin = 0
+            xmax = 0
+            text = "Đến ngay cả các vị Tam Tạng tức là các vị thuộc lòng những lời dạy của Đức Phật, 9 triệu chữ, họ thuộc lòng hết, họ thông hiểu hoàn toàn. Những người ấy khi thực hành, họ vẫn phải tìm đến một vị thầy chuyên dạy về thiền để mà thực hành."
+
+            intervals [226]:
+            xmin = 0
+            xmax = 0
+            text = "Chứ họ biết tất cả mọi thứ họ có thực hành được đâu, họ vẫn phải tìm đến một vị thầy chuyên dạy về thiền, mặc dù vị thầy ấy học rất ít, nhưng mà là một vị Thiền sư, họ vẫn phải tìm đến học từ đầu, a,b, c. \"
+
+            intervals [227]:
+            xmin = 0
+            xmax = 0
+            text = "Hầu hết mọi kiến thức ở trong lúc mình thiền này là vô ích, thậm chí là có hại. Khi thực hành chúng ta phải bỏ hết, bắt đầu lại từ những thứ chẳng liên quan gì đến những kiến thức đó cả."
+
+            intervals [228]:
+            xmin = 0
+            xmax = 0
+            text = "Chúng ta bắt đầu quan sát các cảm giác trong này, chỗ này đau, chỗ kia nhức, mà chúng ta lôi những thứ mình đọc vào thì lúc đó mình không thiền được nữa."
+
+            intervals [229]:
+            xmin = 0
+            xmax = 0
+            text = "Bắt đầu từ cái đơn giản nhất, nhưng mà làm liên tục, cái pháp hành thầy dạy vô cùng đơn giản. Rất dễ thực hành, việc của chúng ta chỉ là liên tục,"
+
+            intervals [230]:
+            xmin = 0
+            xmax = 0
+            text = "lúc nào nhớ đến thì chúng ta làm, không nhớ thì thôi cũng không sao cả, nhưng mà nhớ đến thì chúng ta làm, càng ngày càng liên tục, nó chỉ như thế thôi.\"
+
+            intervals [231]:
+            xmin = 0
+            xmax = 0
+            text = "Thiền sinh: Thưa Sư, thực tập như vậy cho đến khi mình có thể cảm giác, mình biết hết những cái đau cái này nọ, cái cảm giác thì mình có phải làm cái gì hơn nữa không, hay là chỉ có như vậy thôi? \ Giống như là bây giờ mình hỏi đường từ đây đến trung tâm thành phố."
+
+            intervals [232]:
+            xmin = 0
+            xmax = 0
+            text = "Mình hỏi đường, người ta chỉ bây giờ từ đây đến ngã tư kia rẽ phải nhá, đến đấy thôi đã, xong đến đấy hỏi tiếp, chứ bây giờ người ta chỉ cho mình khoảng ba chục cái ngã rẽ,"
+
+            intervals [233]:
+            xmin = 0
+            xmax = 0
+            text = "mình còn nhớ được không, thế nên mới phải có thầy là như vậy. Thực hành đến đâu, Thầy sẽ biết là đến chỗ nào, điều chỉnh như thế nào, mình không biết được."
+
+            intervals [234]:
+            xmin = 0
+            xmax = 0
+            text = "Bản thân mình khi mình trình pháp không phải |một trăm phần trăm|100%| là những cái mình thực sự trải nghiệm và cảm nhận được đâu. Khi trình pháp là Sư phải rep message rất là nhiều."
+
+            intervals [235]:
+            xmin = 0
+            xmax = 0
+            text = "Từ những cái mình nói, Sư lắng nghe, Sư bắt đầu bắt được là à, chỗ này, chỗ này, còn hầu hết những thứ mình nói là đều không đúng hết, Sư biết chỗ nào mà người ta nói sai, Sư biết chỗ nào là người ta tưởng nhầm."
+
+            intervals [236]:
+            xmin = 0
+            xmax = 0
+            text = "Chỉ những người nào thực hành mới biết, còn có khi họ rất là hào hứng kể tràng giang đại hải những thứ chẳng liên quan gì cả, đa phần là những thứ tưởng."
+
+            intervals [237]:
+            xmin = 0
+            xmax = 0
+            text = "Thế nên phải cần thầy là như vậy. \ Chúng ta cố gắng nhớ, những bài pháp này ghi âm lại, chúng ta phải nghe lại, phải nhắc mình, tất nhiên chúng ta vẫn sai, chúng ta vẫn quên, nhưng mà nhắc mình nhiều."
+
+            intervals [238]:
+            xmin = 0
+            xmax = 0
+            text = "Sư không hy vọng là mọi người sẽ hiểu được ngay và đã làm được ngay. Nhưng mà no problem, nhiệm vụ của mình là quay lại quan sát những cảm giác trong mình."
+
+            intervals [239]:
+            xmin = 0
+            xmax = 0
+            text = "Và đừng để tâm mình suy nghĩ lung tung, đấy là nhiệm vụ, luôn luôn thư giãn và biết các cảm giác của mình, không theo suy nghĩ,"
+
+            intervals [240]:
+            xmin = 0
+            xmax = 0
+            text = "trong quá trình mình nghe là mình diễn dịch theo cái hiểu của mình từ trước, theo sách vở theo rất nhiều thứ. Thế nên là so đi so lại từ một câu đơn giản là mỗi người hiểu một kiểu, thành ra thứ vô cùng phức tạp, tại sao chúng ta không thực hành nổi. Bắt đầu hồi hướng nhá!\"
+
+            intervals [241]:
+            xmin = 0
+            xmax = 2911.5425
+            text = "./."
