@@ -2,7 +2,7 @@ File type = "ooTextFile"
 Object class = "TextGrid"
 
 xmin = 0
-xmax = 5312.6705
+xmax = 5312.7
 tiers? <exists>
 size = 1
 item []:
@@ -10,8 +10,8 @@ item []:
         class = "IntervalTier"
         name = "segments"
         xmin = 0
-        xmax = 5312.6705
-        intervals: size = 42
+        xmax = 5312.7
+        intervals: size = 240
 
             intervals [1]:
             xmin = 0
@@ -56,17 +56,17 @@ item []:
             intervals [9]:
             xmin = 101.335803
             xmax = 116.104267
-            text = "Một cái xe mà muốn chạy đến đích là phải có đủ xăng. Ba-la-mật nó là những phẩm chất tâm linh. Có 10 loại ba-la-mật [ko nghe rõ] tinh tấn ba la mật."
+            text = "Một cái xe mà muốn chạy đến đích là phải có đủ xăng. Ba-la-mật nó là những phẩm chất tâm linh. Có mười loại ba-la-mật [ko nghe rõ] tinh tấn ba la mật."
 
             intervals [10]:
             xmin = 116.104267
             xmax = 126.9868
-            text = "Trong 10 cái loại đức rất quan trọng, cái loại phẩm chất rất quan trọng để quyết định con người ta cái trình độ phát triển tâm linh của người ta đến đâu."
+            text = "Trong mười cái loại đức rất quan trọng, cái loại phẩm chất rất quan trọng để quyết định con người ta cái trình độ phát triển tâm linh của người ta đến đâu."
 
             intervals [11]:
             xmin = 126.9868
             xmax = 137.973845
-            text = "Trình độ cao thấp của con người, cái tiềm năng con người này phát triển và có thể đắc đạo được hay không ấy nó có 1 cái đức tính gọi là tinh tấn."
+            text = "Trình độ cao thấp của con người, cái tiềm năng con người này phát triển và có thể đắc đạo được hay không ấy nó có một cái đức tính gọi là tinh tấn."
 
             intervals [12]:
             xmin = 137.973845
@@ -76,7 +76,7 @@ item []:
             intervals [13]:
             xmin = 159.675353
             xmax = 170.958716
-            text = "Tinh tấn rất là quan trọng và đấy là 1 đức tính mà chúng ta cần phải rèn luyện không phải tự nhiên mà nó có."
+            text = "Tinh tấn rất là quan trọng và đấy là một đức tính mà chúng ta cần phải rèn luyện không phải tự nhiên mà nó có."
 
             intervals [14]:
             xmin = 170.958716
@@ -111,12 +111,12 @@ item []:
             intervals [20]:
             xmin = 233.294266
             xmax = 249.416974
-            text = "Trẻ con bây giờ đến tận 10 tuổi hơn 10 tuổi bố mẹ vẫn phải chăm lo cho từng li từng tí. Không biết làm những cái việc mà chăm lo cho bản thân mình, không hề biết. Điều đó rất là nguy hiểm.\\"
+            text = "Trẻ con bây giờ đến tận mười tuổi hơn mười tuổi bố mẹ vẫn phải chăm lo cho từng lợi ích từng tí. Không biết làm những cái việc mà chăm lo cho bản thân mình, không hề biết. Điều đó rất là nguy hiểm.\\"
 
             intervals [21]:
             xmin = 249.416974
             xmax = 280.180036
-            text = "Việc chăm bẵm quá thì rất trở nên rất là yếu ớt. 1 cái cây chúng ta biết cây giá đỗ (giá đỗ) không? Làm giá đỗ ấy! Cho thật nhiều nước vào, thậm chí cho cả thuốc kích thích vào. Xong rồi đậy kín vào để ra một chỗ tối, mấy ngày nó lên dài ngoằng nhưng mà rất là yếu ớt. Còn, cái giá đỗb ấy vứt ra ngoài không bao giờ sống được."
+            text = "Việc chăm bẵm quá thì rất trở nên rất là yếu ớt. Một cái cây chúng ta biết cây giá đỗ (giá đỗ) không? Làm giá đỗ ấy! Cho thật nhiều nước vào, thậm chí cho cả thuốc kích thích vào. Xong rồi đậy kín vào để ra một chỗ tối, mấy ngày nó lên dài ngoằng nhưng mà rất là yếu ớt. Còn, cái giá đỗb ấy vứt ra ngoài không bao giờ sống được."
 
             intervals [22]:
             xmin = 280.180036
@@ -126,7 +126,7 @@ item []:
             intervals [23]:
             xmin = 291.967577
             xmax = 304.484743
-            text = "Nó còn sót 1 tí nó cũng mọc lại, chỗ nào nó cũng mọc, ở trong cái kẽ đá nó cũng mọc được. Cái sức sống nó rất là mạnh mẽ bởi vì nó được tôi luyện ở trong khó khăn."
+            text = "Nó còn sót một tí nó cũng mọc lại, chỗ nào nó cũng mọc, ở trong cái kẽ đá nó cũng mọc được. Cái sức sống nó rất là mạnh mẽ bởi vì nó được tôi luyện ở trong khó khăn."
 
             intervals [24]:
             xmin = 304.484743
@@ -146,12 +146,12 @@ item []:
             intervals [27]:
             xmin = 346.4459370000001
             xmax = 365.481025
-            text = "Bây giờ rất nhiều trầm cảm và đa phần còn trẻ. Đa phần tuổi trẻ không chịu nổi sóng gió củacuộc đời và thường là gục ngã. Bởi vì sức chống cự nó quá yếu ớt, chỉ cần 1 cơn gió thôi là gục ngã rồi. Và gục ngã là không hiểu thể nào đứng dậy nổi."
+            text = "Bây giờ rất nhiều trầm cảm và đa phần còn trẻ. Đa phần tuổi trẻ không chịu nổi sóng gió củacuộc đời và thường là gục ngã. Bởi vì sức chống cự nó quá yếu ớt, chỉ cần một cơn gió thôi là gục ngã rồi. Và gục ngã là không hiểu thể nào đứng dậy nổi."
 
             intervals [28]:
             xmin = 365.481025
             xmax = 374.204672
-            text = "Bởi vì chưa bao giờ được dạy điều đó, chưa bao giờ được rèn luyện điều đó. 1 người tu hành đắc đạo là 1 người cực kì mạnh mẽ."
+            text = "Bởi vì chưa bao giờ được dạy điều đó, chưa bao giờ được rèn luyện điều đó. Một người tu hành đắc đạo là một người cực kì mạnh mẽ."
 
             intervals [29]:
             xmin = 374.204672
@@ -161,12 +161,12 @@ item []:
             intervals [30]:
             xmin = 385.038891
             xmax = 400.277303
-            text = "Đó là 1 loại không thể nào thiếu được. Chưa thấy 1 cái ai lười biếng mà đắc đạc được hết, chưa có ai tu tập thành công mà lại, mà lại lười biếng cả, mà lại không mạnh mẽ cả."
+            text = "Đó là một loại không thể nào thiếu được. Chưa thấy một cái ai lười biếng mà đắc đạc được hết, chưa có ai tu tập thành công mà lại, mà lại lười biếng cả, mà lại không mạnh mẽ cả."
 
             intervals [31]:
             xmin = 400.277303
             xmax = 413.81819
-            text = "Họ rất mạnh mẽ, 1 người rất là mạnh mẽ, trông rất là dịu dàng, trông rất là từ bi, trông rất là lành nhưng mà cực kì mạnh mẽ."
+            text = "Họ rất mạnh mẽ, một người rất là mạnh mẽ, trông rất là dịu dàng, trông rất là từ bi, trông rất là lành nhưng mà cực kì mạnh mẽ."
 
             intervals [32]:
             xmin = 413.81819
@@ -186,7 +186,7 @@ item []:
             intervals [35]:
             xmin = 451.284801
             xmax = 463.903452
-            text = "Thứ 2 ấy, là bởi vì chúng ta tham. Đúng không? Nó hầu như nó không có tác dụng tôi luyện, nó vùi dập chúng ta là chính."
+            text = "Thứ hai ấy, là bởi vì chúng ta tham. Đúng không? Nó hầu như nó không có tác dụng tôi luyện, nó vùi dập chúng ta là chính."
 
             intervals [36]:
             xmin = 463.903452
@@ -206,7 +206,7 @@ item []:
             intervals [39]:
             xmin = 502.34175
             xmax = 514.106399
-            text = "Thế nên chúng ta mới có mặt ở đây. 1 sản phẩm hoàn hảo nó phải ở nơi khác rồi, nó không tồn tại trên thế giới này nữa."
+            text = "Thế nên chúng ta mới có mặt ở đây. Một sản phẩm hoàn hảo nó phải ở nơi khác rồi, nó không tồn tại trên thế giới này nữa."
 
             intervals [40]:
             xmin = 514.106399
@@ -216,9 +216,999 @@ item []:
             intervals [41]:
             xmin = 528.990155
             xmax = 552.066744
-            text = "Việc tinh tấn rất là quan trọng để chúng ta sử dụng những nguồn lực đó. Tinh tấn bao giờ cũng làm cho khởi sinh tính tích tích cực, tại sao nó là 1 ba-la-mật, tại sao nó là 1 đức tính quan trọng là bởi vì nó là tiền đề để phát sinh ra các cái tâm thiện, phát sinh ra sự tích cực."
+            text = "Việc tinh tấn rất là quan trọng để chúng ta sử dụng những nguồn lực đó. Tinh tấn bao giờ cũng làm cho khởi sinh tính tích tích cực, tại sao nó là một ba-la-mật, tại sao nó là một đức tính quan trọng là bởi vì nó là tiền đề để phát sinh ra các cái tâm thiện, phát sinh ra sự tích cực."
 
             intervals [42]:
             xmin = 552.066744
-            xmax = 5312.6705
+            xmax = 555.712978
+            text = "Tác dụng của tinh tấn là như thế."
+
+            intervals [43]:
+            xmin = 555.712978
+            xmax = 565.01708
+            text = "Khi chúng ta tinh tấn nó luôn luôn tích cực. Còn khi chúng ta ăn không ngồi rồi thì bao giờ cũng là nhàn cư vi bất thiện."
+
+            intervals [44]:
+            xmin = 565.01708
+            xmax = 573.672399
+            text = "Cứ để ý mà xem, những người nào mà nhàn rỗi là y như rằng rất nhiều tính xấu, chìm nhập trong tính xấu mà không thể nào dứt ra được."
+
+            intervals [45]:
+            xmin = 573.672399
+            xmax = 581.201181
+            text = "Còn những người đầu tắp mặt tối mưu sinh để tự gây dựng mọi thứ thì họ tích cực hơn rất là nhiều."
+
+            intervals [46]:
+            xmin = 581.201181
+            xmax = 589.829135
+            text = "Đức Phật bảo là khi con người không làm điều thiện thì tâm nó hay thường hay là hướng điều ác."
+
+            intervals [47]:
+            xmin = 589.829135
+            xmax = 597.910187
+            text = "Khi chúng ta không tích cực, không tinh tấn làm những việc thiện, làm những việc cần làm ấy, thì tâm luôn luôn có xu hướng về việc ác, việc xấu."
+
+            intervals [48]:
+            xmin = 597.910187
+            xmax = 611.621171
+            text = "Hãy nhìn cuộc sống của chúng ta mà xem, ví dụ một ngày nghỉ, chúng ta không có việc gì làm, thử xem chúng ta làm việc gì trong ngày nghỉ đó. Hiểu không?"
+
+            intervals [49]:
+            xmin = 611.621171
+            xmax = 626.848668
+            text = "Ôm điện thoại, đúng không, xem ti vi, dễ duôi, ca hát, nhảy nhót rồi đủ mọi trò, có làm được việc gì tốt không? Quanh đi quẩn lại hết buổi chiều rồi, hết cả ngày."
+
+            intervals [50]:
+            xmin = 626.848668
+            xmax = 637.683911
+            text = "Hoặc là ngủ tít mít. Hoặc là lôi nhau ra rỉa rói, cãi nhau, đánh chửi con cái. Làm việc bất thiện từ sáng đến tối."
+
+            intervals [51]:
+            xmin = 637.683911
+            xmax = 662.791141
+            text = "Trong cái dịp covid ấy, khi xã hội cách ly ấy người ta thống kê được là tỉ lệ ly hôn tăng vọt, bình thường thì phải đi làm vất vả thì cái mong muốn là được nghỉ ngơi. Vợ chồng con cái nghỉ ngơi ở bên nhau vun bồi tình cảm thì được biết |hai tư|24| trên |hai tư|24| vụn bồi tình cảm thì thành ra ngộ độc tình cảm."
+
+            intervals [52]:
+            xmin = 662.791141
+            xmax = 685.197501
+            text = "Lôi hết nhau ra tòa. Nhàn cư vi bất thiện không có việc gì làm cứ nhìn thấy mặt nhau là bắt đầu chán lắm xong bắt đầu gây sự. Con người ta không làm việc tích cực thì báo giờ cũng nảy sinh ra tiêu cực và tâm luôn luôn hướng về việc tiêu cực. Thế nên Đức Phật mới dậy rằng: đừng có thấy việc thiện nhỏ mà không làm."
+
+            intervals [53]:
+            xmin = 685.197501
+            xmax = 693.234137
+            text = "Đừng có thấy việc ác nhỏ mà làm. Và Đức Phật cũng dậy rằng khi thấy một việc thiện là phải làm ngay lập tức."
+
+            intervals [54]:
+            xmin = 693.234137
+            xmax = 700.6084629999999
+            text = "một việc thiện khởi sinh ra, một việc tích cực khởi sinh là phải làm ngay lập tức. Đấy là tinh tấn."
+
+            intervals [55]:
+            xmin = 700.6084629999999
+            xmax = 707.814567
+            text = "Nếu còn cứ trì hoãn làm việc thiện thì rất là thích những người ấy rất thích làm việc ác, làm việc xấu."
+
+            intervals [56]:
+            xmin = 707.814567
+            xmax = 721.151454
+            text = "Đó vậy nên là đấy là sự lựa chọn, sự lựa chọn, và cái điều đó quyết định cuộc đời của chúng ta. Đấy là sự lựa chọn."
+
+            intervals [57]:
+            xmin = 721.151454
+            xmax = 747.108897
+            text = "Thầy may mắn là Thầy sinh ra từ thời ngày xưa, thời chiến tranh bom đạn. Chứ Thầy không sinh vào cái thời sau này, hòa bình sau này. May mắn là bởi vì rất là khổ. May mắn là bởi vì mình phải tự lập hoàn toàn. Và mấy mắn là mình được quẳng vào một cái giá đình mà vứt ccho mình tự sinh diệt."
+
+            intervals [58]:
+            xmin = 747.108897
+            xmax = 758.913978
+            text = "Tự học hành tự bươn chải, tự, tự hết mọi thứ. Rất là mấy mắn như thế. Mình phải tự làm tất cả mọi thứ."
+
+            intervals [59]:
+            xmin = 758.913978
+            xmax = 760.882805
             text = ""
+
+            intervals [60]:
+            xmin = 760.882805
+            xmax = 771.261472
+            text = "May mắn, may mắn được sinh đúng thời, may mắn được được mọi thứ để mà mình được tự lập. Mặc dù rất là vất vả, cực kỳ vất vả."
+
+            intervals [61]:
+            xmin = 771.261472
+            xmax = 788.977707
+            text = "Thế nhưng mà rất là may mắn đấy là cái tài sản rất lớn của Thầy. Những cái thời tuổi trẻ Thầy vất vả kinh khủng. Nhưng mà cực kì chăm chỉ. May mắn là rèn luyện được cái tính chăm chỉ đó."
+
+            intervals [62]:
+            xmin = 788.977707
+            xmax = 814.596873
+            text = "Chăm chỉ và cố gắng, cố gắng kinh khủng. Khi đi tu cũng thế, đi tu còn khổ hơn nữa. Đi tu đói khổ nghèo mạt rệp lên. Mà ốm yếu hơn rất là nhiều. Thế nhưng mà lại cực kì chăm chỉ và cố gắng và cũng không hiểu sức ở đâu sức lực ở đâu ra."
+
+            intervals [63]:
+            xmin = 814.596873
+            xmax = 827.340729
+            text = "Khi chúng ta tinh tấn chúng ta có rất nhiều sức lực. Còn có những thanh niên to khỏe như thế kia nặng gấp đôi gấp ba Thầy thế nhưng mà suốt ngày than mệt."
+
+            intervals [64]:
+            xmin = 827.340729
+            xmax = 837.332359
+            text = "Đến đây hành thiền suốt ngày kêu mệt thôi, mệt mỏi, mà thanh niên đấy nhớ, to khỏe như thế cứ than mệt suốt ngày."
+
+            intervals [65]:
+            xmin = 837.332359
+            xmax = 861.582414
+            text = "Cứ vật và vật vờ hoài. Trong khi Thầy có những giai đoạn Thầy có bốn mươi mấy cân, toàn da với xương, thế mà Thầy làm rất nhiều: Thầy hành thiền rất nhiều, đi kinh hành cực kì nhiều một ngày mấy chục cây số đi nó cực kì nhiều năng lượng, không biết nó ở đâu ra."
+
+            intervals [66]:
+            xmin = 861.582414
+            xmax = 882.675305
+            text = "Khi chúng ta tinh tấn là chúng ta có năng lượng, nhớ. Cái điều ấy rất hay ấy là khi chúng ta tinh tấn và chăm chỉ, cái năng lượng nó, nó có rất nhiều. Năng lượng ấy từ đâu ra? Năng lượng ấy từ sự tích cực, năng lượng từ những tâm thiện từ những tâm tích cực tự động nó sinh ra năng lượng."
+
+            intervals [67]:
+            xmin = 882.675305
+            xmax = 893.296778
+            text = "Và khi chúng ta ở, khi chúng ta mất năng lượng tức là tâm của chúng ta đang ở trạng thái tiêu cực, và lúc đó rất nhiều tâm phiền não, rất nhiều sự bất thiện ở bên tronchúng ta luôn luôn mất năng lượng."
+
+            intervals [68]:
+            xmin = 893.296778
+            xmax = 899.272628
+            text = "Và khi nào chúng ta thấy cứ ủ ê mệt mới thì không còn sức làm gì nữa. Tâm chúng ta phiền não."
+
+            intervals [69]:
+            xmin = 899.272628
+            xmax = 905.355188
+            text = "Rõ ràng tâm rất tiêu cực và bất thiện."
+
+            intervals [70]:
+            xmin = 905.355188
+            xmax = 909.3270759999999
+            text = "Đối với mấy người trầm cảm ấy, họ không hề có sức một chút nào cả."
+
+            intervals [71]:
+            xmin = 909.3270759999999
+            xmax = 926.051067
+            text = "Mặc dù họ không làm gì nhé. Họ cảm thấy ngồi dậy thôi đi ra ngoài thôi cũng là một sự cố gắng và họ không thể nào làm được. Sức lực đi, mất đi đâu? Mất đi từ những phiền não và những tâm bất thiện nó tiêu hao hết năng lượng của họ."
+
+            intervals [72]:
+            xmin = 926.051067
+            xmax = 947.994533
+            text = "Do vậy nên sự tinh tấn, sự chăm chỉ, cực kỳ quan trọng bởi vì nó sản sinh ra năng lượng, cung cấp nhựa sống, nó cung cấp sự nhiệt huyết sống. Cái điều đó hầu hết mọi người đều thiếu. Thầy thấy nhìn thấy rất nhiều người, toàn thanh niên trẻ nhưng mà trông èo uột cực kỳ."
+
+            intervals [73]:
+            xmin = 947.994533
+            xmax = 958.672312
+            text = "Trông không có sức sống, trông thể hiện rõ sự chán nản, thể hiện rõ sự ủ ê mà làm cái gì cũng miễn miễn cưỡng cưỡng."
+
+            intervals [74]:
+            xmin = 958.672312
+            xmax = 970.8346
+            text = "Nó không có sự nhiệt huyết nhìn thấy là không có một cái sự nhiệt, không có một nhiệt huyết không có một cái sức sống manh mẽ. Thầy già như thế này nhưng mà thầy còn có sức sống hơn họ nữa cơ."
+
+            intervals [75]:
+            xmin = 970.8346
+            xmax = 979.745757
+            text = "Nó thể hiện ra toàn bộ con người, rồi toàn bộ phong thái, tất cả mọi thứ."
+
+            intervals [76]:
+            xmin = 979.745757
+            xmax = 1011.592898
+            text = "Vì sao? Vì không có thói quen tinh tấn. Khi chúng ta sử dụng, cái cuộc đời này là để sử dụng, thân thể này là để sử dụng, thời gian này là để sử dụng. Khi chúng ta sử dụng trọn vẹn những gì chúng ta đang có, những cái nguồn lực chúng ta đang có chúng ta khai phá những tiềm năng, sử dụng một cách hiệu quả nó thì đương nhiên cái hiệu quả sống của chúng ta sẽ được nâng lên."
+
+            intervals [77]:
+            xmin = 1011.592898
+            xmax = 1016.716252
+            text = "Nhưng mà chúng ta không sử dụng nó sẽ thui chột đi, đúng không?"
+
+            intervals [78]:
+            xmin = 1016.716252
+            xmax = 1028.326828
+            text = "Đó là những nguồn lực tiêu hao, tiêu hao dần theo năm tháng. Nếu chúng ta không sử dụng thì nó vẫn còn đấy để dự trữ, không phải."
+
+            intervals [79]:
+            xmin = 1028.326828
+            xmax = 1036.60258
+            text = "Tuổi trẻ chúng ta không sử dụng nó cũng mất, đúng không? Chúng ta ngồi im ở đấy nó cũng già chứ không phải chúng ta ngồi im không làm gì thì nó cứ trẻ mãi."
+
+            intervals [80]:
+            xmin = 1036.60258
+            xmax = 1047.593993
+            text = "Sức khỏe cũng như thế. Mọi thứ trí tuệ cũng như vậy. Có rất nhiều nguồn lực, nếu chúng ta không sử dụng nó thì nó sẽ mất dần đi."
+
+            intervals [81]:
+            xmin = 1047.593993
+            xmax = 1057.557165
+            text = "Và nếu chúng ta sử dụng thì nó sẽ ngày càng nhiều hơn. Giống như là cái dao ấy, cái dao mà chúng ta sử dụng nhiều bao giờ nó cũng sắc hơn."
+
+            intervals [82]:
+            xmin = 1057.557165
+            xmax = 1074.4220890000004
+            text = "một cái dao cứ vất xó đấy cả năm thì gỉ, đúng không? Thì mới thứ trong chúng ta cũng thế. Cơ thể này, tâm trí này, trí tuệ này, tất cả mọi phẩm chất của chúng ta nếu chúng ta sử dụng thì nó ngày càng nhiều hơn, ngày càng sắc bén hơn."
+
+            intervals [83]:
+            xmin = 1074.4220890000004
+            xmax = 1085.8574420000002
+            text = "Và nếu chúng ta không sử dụng là nó mất đi. Người tinh tấn không bao giờ thấy chán nản, không bao giờ thấy chán nản."
+
+            intervals [84]:
+            xmin = 1085.8574420000002
+            xmax = 1099.327624
+            text = "Con người ăn không ngồi rồi luôn luôn chán nản. Luôn luôn có trạng thái chán nản. Người tinh tấn không có chán nản, ho không có thời gian để mà chán nữa."
+
+            intervals [85]:
+            xmin = 1099.327624
+            xmax = 1107.950619
+            text = "Ho sử dụng thời gian của họ cực kỳ hợp lý và cực kỳ hiệu quả. Không bao giờ để phí đâu."
+
+            intervals [86]:
+            xmin = 1107.950619
+            xmax = 1120.972228
+            text = "Chúng ta, chúng ta có rất nhiều vấn đề, chúng ta có rất nhiều buồn chán. Đúng không? Không có ai ngăn cản chúng ta cả chỉ trừ chúng ta ngăn cản."
+
+            intervals [87]:
+            xmin = 1120.972228
+            xmax = 1125.75059
+            text = "Quy tắc của chúng ta ngăn cản chúng ta chứ không phải một ai ngăn cản chúng ta hết."
+
+            intervals [88]:
+            xmin = 1125.75059
+            xmax = 1140.039319
+            text = "Khi làm việc chẳng hạn. Rất ít khi người ta [??] mệt. Cuốc đất, cuốc cả ngày có khi cũng không mệt đâu. Hoặc là khi chúng ta mệt thì chúng ta nghỉ ngơi một lúc là cơ thể nó hồi phục lại chúng ta lại còn thấy khỏe."
+
+            intervals [89]:
+            xmin = 1140.039319
+            xmax = 1149.565622
+            text = "Nhưng mà chúng ta không làm được, chúng ta cảm thấy mệt là bởi vì cái tâm mệt. Chúng ta không làm được việc là bởi vì cái tâm này nó xúi."
+
+            intervals [90]:
+            xmin = 1149.565622
+            xmax = 1154.671905
+            text = "Nó luôn luôn bảo mệt quá rồi, nó luôn luôn bảo ôi đủ rồi, ôi thôi ngồi nghỉ đi một chút,"
+
+            intervals [91]:
+            xmin = 1154.671905
+            xmax = 1162.870421
+            text = "ôi thôi còn quá trời việc khác đang đợi mình, ôi thôi còn, còn thời gian trôi quá bạn bè đang đợi rồi đủ mọi thứ."
+
+            intervals [92]:
+            xmin = 1162.870421
+            xmax = 1182.788943
+            text = "Những cái đó nó làm cho chúng ta không làm được việc chứ không phải là chúng ta không có sức. Những cái suy nghĩ đó làm cho chúng ta thấy rằng mình chẳng có tí sức nào cả, mệt rồi, nghỉ. Đức Phật cũng nói có mấy lý do mà cái người dễ duôi hay nặn ra lắm. No quá không hành thiền được."
+
+            intervals [93]:
+            xmin = 1182.788943
+            xmax = 1193.473658
+            text = "Đói quá cũng không hành thiền. Sớm quá cũng không, muộn quá cũng không. Mưa cũng không, ốm bệnh lại càng không."
+
+            intervals [94]:
+            xmin = 1193.473658
+            xmax = 1208.557214
+            text = "[??] nhiều lý đó lắm. Đúng không, mọi người có thấy thế không? Nhất là khi về nhà nhiều lý đó lắm. Ở đây Thầy bắt phải hành thiền nhưng mà khi về nhà. Ôi hôm nay lạnh quá ngủ thêm tí nữa."
+
+            intervals [95]:
+            xmin = 1208.557214
+            xmax = 1217.859791
+            text = "Thôi tí nữa phải đưa con đi sớm. Ối giời hôm nay còn phải làm cái món từ hôm qua. Còn một chồng bát chưa rửa."
+
+            intervals [96]:
+            xmin = 1217.859791
+            xmax = 1228.020013
+            text = "Ngày nào cũng có lý do. Ngày nào cũng có lý do. Không phải cái thân mình không khỏe."
+
+            intervals [97]:
+            xmin = 1228.020013
+            xmax = 1241.319365
+            text = "Mình khỏe như vâm ấy. Ai gọi đi chơi thì nhanh lắm. Khỏe như vâm, nhưng mà cái tâm mình nó lại ra đủ mọi thứ. Do cái tâm này, nó không quen sử dụng."
+
+            intervals [98]:
+            xmin = 1241.319365
+            xmax = 1261.876395
+            text = "Nó không quen sử dụng. Khi nó không quen sử dụng là nó thấy khó mà nó thấy nản. Bây giờ chẳng hạn mọi người ở đây không quen, tất cả mọi người ở đây không quen việc trồng rau cuốc đất đúng không? Mọi người quen gõ máy tính."
+
+            intervals [99]:
+            xmin = 1261.876395
+            xmax = 1271.988959
+            text = "Thế bây giờ mà bảo bây giờ phát cho mọi người một cái cuốc đi ra cuộc đất trồng cho Thầy luống rau, hứ, làm một lúc là thấy chán, thấy mệt, bỏ hết."
+
+            intervals [100]:
+            xmin = 1271.988959
+            xmax = 1287.84119
+            text = "Vì sao, chúng ta khỏe chúng ta trẻ như thế này khỏe như thế này chúng ta không làm bởi vì cái việc đó không quen làm và không quen làm nó lóng ngóng, nó lóng ngóng, nó làm cho chúng ta cảm thấy mình rất là tệ."
+
+            intervals [101]:
+            xmin = 1287.84119
+            xmax = 1294.044877
+            text = "Mình không làm được việc này, tự thuyết phục cái việc này là không phù hợp với mình, mình sinh ra không phải là để làm việc này."
+
+            intervals [102]:
+            xmin = 1294.044877
+            xmax = 1308.199695
+            text = "Phí thời gian làm một tí thì mệt cuốc ngay vào chân đủ mọi thứ. Khi những cái việc mình không quen làm ấy thì rõ ràng là tâm nó chống đối và có rất nhiều lý đó để mình không làm được."
+
+            intervals [103]:
+            xmin = 1308.199695
+            xmax = 1317.168215
+            text = "Và bởi vì không quen làm nên chúng ta cảm thấy nản, hiệu quả làm không cao nên chúng ta cảm thấy không thành công, và chúng ta nặn, chúng ta bỏ."
+
+            intervals [104]:
+            xmin = 1317.168215
+            xmax = 1332.730921
+            text = "Thế còn khi quen làm thì nó không phải là vấn đề. Nó rất là dễ dàng, đúng không? Bây giờ mà bảo bác nông dân ngồi gõ máy tính như mọi người nhớay nhoáy nhoay nhoáy như thế này thì, thì cũng bỏ ngay."
+
+            intervals [105]:
+            xmin = 1332.730921
+            xmax = 1348.9754039999996
+            text = "Đó vậy là khi chúng ta quen là thì nó cũng dễ dàng hơn. Cũng như vậy tinh tấn cũng như thế, chăm chỉ cũng như thế khi chúng ta quen cố gắng, quen luôn luôn làm thì nó rất dễ dàng."
+
+            intervals [106]:
+            xmin = 1348.9754039999996
+            xmax = 1355.912195
+            text = "Còn khi chúng ta quen ngồi yên, chúng ta quen lười biếng thì làm cái gì cũng khó. Cái gì cũng khó đúng không?"
+
+            intervals [107]:
+            xmin = 1355.912195
+            xmax = 1367.509898
+            text = "Thế nên tinh tấn nó là một cái hạnh mà người ta phải rèn luyện, rèn luyện quá nhiều năm trời. Rất là chăm chỉ."
+
+            intervals [108]:
+            xmin = 1367.509898
+            xmax = 1378.6565090000001
+            text = "một người quen làm việc nhà thì không có ngại cầm cái chổi quét nhà đâu. Thấy, thấy bẩn là họ cảm quét ngay. Còn một người lười chẳng bao giờ làm việc nhà là thôi trốn được là trốn."
+
+            intervals [109]:
+            xmin = 1378.6565090000001
+            xmax = 1390.649021
+            text = "Ngay việc quét cái nhà cũng cảm thấy rất là ngại. Các thanh niên này vốn có như thế không?"
+
+            intervals [110]:
+            xmin = 1390.649021
+            xmax = 1409.836352
+            text = "Ai cũng ngại, ai cũng mệt, nói thật là khi mới làm một việc gì ai cũng ngại, ai cũng mệt, đúng không? Thế nhưng mà người tinh tấn lại khác, mệt ngại vẫn làm, cứ làm đi, cơ thể là sai, có thể là vô ích, nhưng mà chẳng sao cả, cứ làm."
+
+            intervals [111]:
+            xmin = 1409.836352
+            xmax = 1417.921652
+            text = "Làm thật nhiều, lắm xong rồi thấy không ngại nữa và bởi vì làm nhiều nên tự nhiên thấy làm tốt hơn, làm dễ hơn."
+
+            intervals [112]:
+            xmin = 1417.921652
+            xmax = 1426.090657
+            text = "Và cũng như thế, ngày nuôi ngày, ngày nuôi ngày như thế, chúng ta rèn luyện trong người ta một cái tính tốt tích cực."
+
+            intervals [113]:
+            xmin = 1426.090657
+            xmax = 1441.467036
+            text = "Rất là tích cực, Thầy chăm chỉ từ bé, chẳng cần phải ai nhắc cả. Nhất là việc học hành, Thầy chăm lắm và rất là tự giác, luôn luôn, ngày xưa là luôn luôn tìm mọi cách tiến lên."
+
+            intervals [114]:
+            xmin = 1441.467036
+            xmax = 1458.533041
+            text = "Bất cứ cách gì miễn là tiến lên. Phải tiền lên, không bao giờ chịu dừng lại. Học hành hay là phần đấu cái này làm cái kia, luôn luôn tiến lên, không bao giờ chịu dừng lại và sử dụng thời gian cực kì triệt để."
+
+            intervals [115]:
+            xmin = 1458.533041
+            xmax = 1471.312991
+            text = "từ ba giờ sáng cho đến tận tối đêm. Cực kỳ triệt để như thế và nó trở thành một cái nếp mà mình luôn luôn hoạt động, luôn luôn hoạt động và luôn luôn làm việc."
+
+            intervals [116]:
+            xmin = 1471.312991
+            xmax = 1482.514096
+            text = "Và toàn làm những việc cần thôi. Khi chúng ta toàn làm những việc cần và toàn làm những việc có ích thì không có thời gian để cho những việc khác nữa."
+
+            intervals [117]:
+            xmin = 1482.514096
+            xmax = 1492.003745
+            text = "Không có thời gian để cho những việc vô ích, không có thời gian để cho những việc có hai nữa. Rõ ràng, con người của chúng ta cực kì dễ duôi."
+
+            intervals [118]:
+            xmin = 1492.003745
+            xmax = 1514.31649
+            text = "Và sức chống cự của chúng ta đối với sự lôi kéo của dục lạc của những việc bất thiện cực kì hiếm, cực kì yếu, chúng ta rất khó chống cự một lời mời của đám bạn bè đi nhậu, đúng không? Chúng ta rất khó chong cứ cái việc tỉ tê ngồi lê đôi mách, nghe những chuyện vô ích."
+
+            intervals [119]:
+            xmin = 1514.31649
+            xmax = 1524.742864
+            text = "Chúng ta rất khó chống cự với cái iphone chúng ta lên mạng đúng không? Rất khó chống cự, đừng nghĩ rằng mình có thể chống cự được."
+
+            intervals [120]:
+            xmin = 1524.742864
+            xmax = 1534.4596879999997
+            text = "Thế nhưng mà chúng ta quen làm những việc, chúng ta quen phấn đấu, quen tinh tấn thì những thứ đó nó không lôi kéo mình được."
+
+            intervals [121]:
+            xmin = 1534.4596879999997
+            xmax = 1544.245606
+            text = "Là bởi vì những việc này mình con đang làm. Khi chúng ta bận thì ai lôi kéo cũng không được. Nhưng mà khi chúng ta để cho mình rảnh rồi thì những thứ đó nó lôi kéo ngay."
+
+            intervals [122]:
+            xmin = 1544.245606
+            xmax = 1550.8262639999996
+            text = "vô số thứ và nhất là bây giờ nó luôn luôn sẵn trong tầm tay. Nó luôn chiếm hữu, chiếm dụng thời gian của chúng ta."
+
+            intervals [123]:
+            xmin = 1550.8262639999996
+            xmax = 1557.5053670000002
+            text = "Thế nên chúng ta phải sử dụng thời gian của mình, nếu không những cái thứ vô ích đó nó sẽ sử dụng mất."
+
+            intervals [124]:
+            xmin = 1557.5053670000002
+            xmax = 1566.57725
+            text = "Đúng không? Ngồi nhà ấy mà không hành thiền, không đi làm việc nhà ấy là cái điện thoại nó sẽ chiếm hữu cái số thời gian đó của mình."
+
+            intervals [125]:
+            xmin = 1566.57725
+            xmax = 1582.215538
+            text = "Thời gian đó không dành cho con, không dành cho gia đình ấy, thì cái ti vi và cái điện thoại hay là những cái đứa tận đẩu đẩu đâu đâu ấy nó sẽ lôi mình đi, nó chiếm dụng hết những thời gian đó của mình."
+
+            intervals [126]:
+            xmin = 1582.215538
+            xmax = 1591.952164
+            text = "Đúng không? Rõ ràng cái thời gian đó là thời gian bất thiện. Do vậy nếu chúng ta không chủ động tinh tấn làm việc thiện thì cuộc đời của chúng ta sẽ chỉ có bất thiện."
+
+            intervals [127]:
+            xmin = 1591.952164
+            xmax = 1599.101165
+            text = "Ăn không ngồi rồi chắc chắn là bất thiện. Không làm gì cả chắn chắn là bất thiện."
+
+            intervals [128]:
+            xmin = 1599.101165
+            xmax = 1604.992475
+            text = "Nhớ đấy nhớ, không có một người tu hành nào mà ăn không ngồi rồi hết."
+
+            intervals [129]:
+            xmin = 1604.992475
+            xmax = 1609.571018
+            text = "Không có một người tu hành nào mà, mà lười biếng cả."
+
+            intervals [130]:
+            xmin = 1609.571018
+            xmax = 1627.4214590000008
+            text = "Thực sự. Sự tinh tấn luôn luôn nuôi dưỡng tích cực và tạo ra những cái năng lượng tích cực, lành mạnh."
+
+            intervals [131]:
+            xmin = 1627.4214590000008
+            xmax = 1637.823257
+            text = "Bản thân nó đã là lành mạnh rồi, bản thân nó đã là tích cực rồi, thế nên tại sao nó là một ba la mật bởi nó luôn luôn tạo nên sự tích cực."
+
+            intervals [132]:
+            xmin = 1637.823257
+            xmax = 1652.3010869999998
+            text = "Mọi người đến đây có thấy bình an không? Rất thích đúng không? Ngồi thiền ở đây rất thích, rất bình an, đố biết tại sao không?"
+
+            intervals [133]:
+            xmin = 1652.3010869999998
+            xmax = 1674.9552620000002
+            text = "Từng con đường, từng gốc cây ngọn cỏ ở đây, thấm đẫm tâm từ và công sức của Thầy. Mười năm trước khi Thầy mới đến đây, ở đây có một vài người biết từ cái thời đó, cỏ dại mọc cao lút đầu đây này, đến trong cực kì, hoang vắng, hoang vu, mà cảm giác rất là sợ."
+
+            intervals [134]:
+            xmin = 1674.9552620000002
+            xmax = 1686.862873
+            text = "Đúng không? Cảm giác âm u lắm. Ở dây nó âm u cực kì. Xe ôm không bao giờ vào đây, taxi cũng thế. Thả tít ngoài xóm kia,, trả tiền thêm cũng không bao giờ chịu đi."
+
+            intervals [135]:
+            xmin = 1686.862873
+            xmax = 1697.222504
+            text = "Chỗ khu này nó là một cái chỗ ở trong cùng núi rồi ngày xưa trông nó hoang vắng rồi nó trông nó tiêu điêu, nó sợ hãi không như bây giờ."
+
+            intervals [136]:
+            xmin = 1697.222504
+            xmax = 1707.356224000001
+            text = "mười năm trời, bao nhiêu công sức một mình Thầy nó mới được như thế này. Nó là [một] cái chỗ bình an để cho mọi người đến hành thiền như thế này."
+
+            intervals [137]:
+            xmin = 1707.356224000001
+            xmax = 1728.25747
+            text = "một mình Thầy trong mười năm trời. Ngày xưa Thầy mới ở Miến Điện về Thầy gầy yếu kinh khủng. Gầy lắm, toàn da với xương thôi. Mà qua bao nhiêu khó khăn trở ngại ấy nhé. Chính quyền, công an, rồi đủ mọi nơi, dân họ tìm cách họ đuổi. Họ tìm cách gây khó dễ."
+
+            intervals [138]:
+            xmin = 1728.25747
+            xmax = 1745.280714
+            text = "Rồi đủ mọi thứ, rồi không có tiền, không có nguồn lực để xây dựng. Bởi khi Thầy mới về đây Thầy có biết ai đâu, không hề biết ai cả, chỉ có một số vài học trò khi lúc bắt đầu ở Miến Điện về mới bắt đầu gặp và mới bắt đầu biết."
+
+            intervals [139]:
+            xmin = 1745.280714
+            xmax = 1757.379424
+            text = "Họ còn chưa biết gì về Phật Giáo cả. Thế nên là cực kỳ khó khăn cực kỳ vất vả mà vẫn phải tu."
+
+            intervals [140]:
+            xmin = 1757.379424
+            xmax = 1769.299035
+            text = "vẫn không bộ từ, vẫn phải tu, vẫn phải làm việc. Thầy làm quần quật như trâu ấy, làm quần quật cả ngày ấy, ngoài lúc tu, những lúc khác làm quần quật ấy."
+
+            intervals [141]:
+            xmin = 1769.299035
+            xmax = 1780.491521
+            text = "Vất vả lắm, Thầy biết mọi người cũng vất vả, nhiều người cũng kêu, vất vả lắm ăn ngủ quần quật cả ngày."
+
+            intervals [142]:
+            xmin = 1780.491521
+            xmax = 1796.550933
+            text = "Bận rộn tối tăm mặt mũi với cái điện thoại cả ngày. Mà không biết là sức lực ở đâu ra. Không biết sức lực ở đâu ra, nó luôn luôn có, luôn luôn có nhiều sức mà luôn luôn làm việc."
+
+            intervals [143]:
+            xmin = 1796.550933
+            xmax = 1812.956552
+            text = "Luôn luôn làm việc, hành thiền. Người Thầy đầy thương tích, nhất là chân tay các thứ là xước xát lúc thì ong đốt, lúc thì rết cắn"
+
+            intervals [144]:
+            xmin = 1812.956552
+            xmax = 1820.623312
+            text = "lúc thì va phải cái mảnh chai sắt thép rồi ngã dàn giáo rồi đủ mọi thứ."
+
+            intervals [145]:
+            xmin = 1820.623312
+            xmax = 1831.211807
+            text = "Bao nhiêu năm trời mỗi lần xây dựng là [??] thế nên là, thế nên là hệ miễn dịch của Thấy khỏe làm nó luôn luôn được thử thách, luôn luôn được tôi luyện."
+
+            intervals [146]:
+            xmin = 1831.211807
+            xmax = 1838.119736
+            text = "Người lúc nào nó cũng có vết thương, có rất nhiều thứ, thế nên là rất là khỏe."
+
+            intervals [147]:
+            xmin = 1838.119736
+            xmax = 1842.2491129999994
+            text = "Ong đốt này, mỗi lần nó đốt, ong rừng nó đốt đau lắm."
+
+            intervals [148]:
+            xmin = 1842.2491129999994
+            xmax = 1846.9892
+            text = "mỗi lần nó đốt sưng tấy, sốt mấy hôm liền. Không ăn uống gì được."
+
+            intervals [149]:
+            xmin = 1846.9892
+            xmax = 1852.334687
+            text = "Mỗi lần nó đốt mặt sưng vù lên."
+
+            intervals [150]:
+            xmin = 1852.334687
+            xmax = 1861.40153
+            text = "Rắn rết, hồi mới đến đây rắn rất nhiều. Bây giờ mọi người hầu như không nhìn thấy rắn. Ngày xưa rắn rết nhiều lắm, rắn toàn rắn độc thôi."
+
+            intervals [151]:
+            xmin = 1861.40153
+            xmax = 1870.813428
+            text = "Bây giờ thỉnh thoảng vẫn gặp nhưng bây giờ ít hơn rất là nhiều. Và Thầy ở đây một thời gian nó chạy hết đi đâu ấy, nó chạy hết sang bên kia núi rồi."
+
+            intervals [152]:
+            xmin = 1870.813428
+            xmax = 1877.584768
+            text = "Có cái trang trại bên kia núi giờ cũng nhiều rắn lắm. Không hiểu sao nó chạy hết sang bên đấy."
+
+            intervals [153]:
+            xmin = 1877.584768
+            xmax = 1889.523726
+            text = "Những cái năng lượng đấy nó thấm đẫm ở nơi đây, từng con đường từng gốc cây ngọn cỏ. Nó đều là tâm huyết của Thầy."
+
+            intervals [154]:
+            xmin = 1889.523726
+            xmax = 1896.238254
+            text = "Khi Thầy làm Thầy biết khi đi trên con đường này nó sẽ cảm thấy như thế nào, nó sẽ cảm thấy bình an hay không?"
+
+            intervals [155]:
+            xmin = 1896.238254
+            xmax = 1906.953233
+            text = "Mình sẽ chọn những cái cách để mà làm sao mà ở đó những cái lán Thầy thiết kế, những cái con đường mà làm sao ngồi ở đó, đi ở đó đó cảm thấy bình an nhất."
+
+            intervals [156]:
+            xmin = 1906.953233
+            xmax = 1917.965476
+            text = "Tự bản thân mình, tự bản thân mình cảm nhận thấy thì người khác cũng sẽ cảm nhận thấy. Làm sao như thế này là hợp lý nhất với một, với một nguồn lực có hạn như thế."
+
+            intervals [157]:
+            xmin = 1917.965476
+            xmax = 1928.117709
+            text = "Cái chánh điện này mười năm rồi, nó làm từ gỗ, từ từ những cây rừng ở quanh đây thôi."
+
+            intervals [158]:
+            xmin = 1928.117709
+            xmax = 1950.564456
+            text = "Vẫn còn, yên tâm nó chưa sụp đâu. Những cây rừng, những cái cây, những cây bạch đàn rừng nó rất là cứng, nó rất là cứng nó cong queo lắm làm được cái chánh điện nữa là. Mà xây mãi mới xong, xây lay lắt mà không xong lại để đấy, để đấy xong một thời gian lại dựng tiếp. Dựng tiếp mãi dần dần mới thành cái chánh điện như thế này."
+
+            intervals [159]:
+            xmin = 1950.564456
+            xmax = 1972.967408
+            text = "Đến ngày nay vẫn còn sử dụng tốt. Thì khi mình làm như thế nó tạo nên một cái gọi là tâm trường ấy, gọi là những năng lượng tích cực của mình nó, nó để lại tất cả những nơi đây. Thế nên là mọi người đến đây, cảm thấy khác, khác hoàn toàn so với ngày xưa thời mới đến đây."
+
+            intervals [160]:
+            xmin = 1972.967408
+            xmax = 1981.515084
+            text = "một cái nhà, khi chúng ta vào một ngôi nhà, cái ngôi nhà đó có người ở hay không, hoặc là nhà hoang chúng ta biết liền."
+
+            intervals [161]:
+            xmin = 1981.515084
+            xmax = 1990.849255
+            text = "một ngôi nhà hoang nó rất là lạnh lẽo, nó rất lạnh lẽo và cái cảm giác rất là hoang vắng mà không muốn ở. Còn cái ngôi nhà có người chúng ta hoàn toàn khác là bởi vì sao?"
+
+            intervals [162]:
+            xmin = 1990.849255
+            xmax = 1998.720807
+            text = "Bởi vì những năng lượng sống của chúng ta, cái tâm của chúng ta nó luôn luôn lan tỏa và nó còn để lại ở nơi đó, nó tác động đến."
+
+            intervals [163]:
+            xmin = 1998.720807
+            xmax = 2014.116494
+            text = "Cũng như vậy thôi, cuộc sống của chúng ta cũng như ngôi nhà vậy, nếu chúng ta chăm sóc, chúng ta sử dụng nó một cách hiệu quả, chúng ta làm nhiều việc thiện, việc cần thì luôn luôn nó để lại năng lượng, mà năng lượng đó rất là tích cực."
+
+            intervals [164]:
+            xmin = 2014.116494
+            xmax = 2022.777361
+            text = "một ngôi nhà của chúng ta, chỗ của chúng ta mà chúng ta thường xuyên chăm sóc, thường xuyên để tâm vào trong đó thì nó hoàn toàn khác với"
+
+            intervals [165]:
+            xmin = 2022.777361
+            xmax = 2037.168492
+            text = "một ngôi nhà tuềnh toàng chúng ta chỉ về để ngủ xong rồi đi, đúng không? Đấy là ngôi nhà còn như thế nữa là cả cuộc đời của chúng ta. Rõ ràng tại sao một người nhìn rất tích cực mà một người trong rất là chán nản èo uột."
+
+            intervals [166]:
+            xmin = 2037.168492
+            xmax = 2050.597668
+            text = "Do cách sống của họ, do cái cách họ đối xử với cuộc đời của họ nó sẽ, nó sẽ thể hiện ra điều đó do vậy nên là bản thân cái việc mình làm không quan trọng."
+
+            intervals [167]:
+            xmin = 2050.597668
+            xmax = 2067.905
+            text = "Mà quan trọng là cái quá trình mình làm có thể rất nhiều việc mình đã làm sai. Thầy làm sai [??] bởi vì mình đã làm rất nhiều điều sai. Trong mười việc làm có thể nó qua năm bẩy việc sai và dần dần còn hai ba việc xong dần dần nó ít dần đi nhưng mà rõ ràng vẫn còn sai sót."
+
+            intervals [168]:
+            xmin = 2067.905
+            xmax = 2075.356579
+            text = "Nhưng mà chúng ta học hỏi được rất nhiều từ những việc đó. Dù đúng hay sai vẫn học hỏi được."
+
+            intervals [169]:
+            xmin = 2075.356579
+            xmax = 2092.253528
+            text = "Người do thái có một câu rất là hay, Thầy vẫn thường trích dẫn đấy. Tốt nhất là làm việc đúng, tốt thứ nhì là làm việc sai, làm mà làm sai vẫn tốt. Còn tệ nhất là chẳng làm gì cả."
+
+            intervals [170]:
+            xmin = 2092.253528
+            xmax = 2096.877135
+            text = "Hầu hết chúng ta ở đây rất nhiều người chúng ta chẳng làm gì cả."
+
+            intervals [171]:
+            xmin = 2096.877135
+            xmax = 2106.612084
+            text = "Làm tốt ok. Nhưng mà rất ít khi chúng ta làm được việc đúng, việc tốt. Bởi vì sao? Bởi vì trí tuệ chúng ta có hạn."
+
+            intervals [172]:
+            xmin = 2106.612084
+            xmax = 2113.129316
+            text = "Thế nhưng mà làm việc sai, làm việc sai xong rồi trả giá nhờ làm việc sai đó chúng ta bắt đầu làm được việc tốt."
+
+            intervals [173]:
+            xmin = 2113.129316
+            xmax = 2120.747404
+            text = "Khi chúng ta mới làm một cái việc gì đó thông thường chúng ta làm sai rất là nhiều. Mà sai nhiều xong rồi sửa dần, dần dần chúng ta biết có thể làm được việc đấy."
+
+            intervals [174]:
+            xmin = 2120.747404
+            xmax = 2136.369421
+            text = "Nhưng mà chúng ta làm càng nhiều thì cái khả năng chúng ta đúng càng nhiều. Đúng không? Chúng ta càng nhanh đúng. Chúng ta sợ sai và chúng ta lười biếng chúng ta không làm thì không bao giờ chúng ta có thể dành đúng được."
+
+            intervals [175]:
+            xmin = 2136.369421
+            xmax = 2146.201725
+            text = "Do vậy nên tinh tấn là cực kỳ quan trọng. Tinh tấn nó sẽ nuôi dưỡng tinh tấn. Dần dần sẽ không ngại nữa. Không ngại việc nữa."
+
+            intervals [176]:
+            xmin = 2146.201725
+            xmax = 2161.877958
+            text = "Người không tinh tấn là luôn luôn nhìn thấy khó khăn. Nó khác biệt ở chỗ người không tinh tấn người lười biếng là hay nhìn thấy khó khăn lắm. Trước khi làm việc gì là tâm nó vẽ ra đủ mọi thứ kho khăn là bắt đầu ngài rồi. Trước khi làm là đã ngại rồi. Đúng không?"
+
+            intervals [177]:
+            xmin = 2161.877958
+            xmax = 2170.2778910000006
+            text = "Tâm nó vẽ ra rất nhiều thứ khó khăn, rất nhiều lý do lý chấu. Còn một người tinh tấn thậm chí cái đó nó không có ở trong tâm họ nữa."
+
+            intervals [178]:
+            xmin = 2170.2778910000006
+            xmax = 2183.479561
+            text = "Người lười biếng là luôn luôn vật lộn với chính mình, vật lộn với những lý do tâm mình đưa ra mãi mới quyết định được là nên làm hay không."
+
+            intervals [179]:
+            xmin = 2183.479561
+            xmax = 2192.99578
+            text = "Buổi sáng chủ nhật trăn trở vật lộn mãi với đống chăn chiếu mãi sau mới có thể là chiến thắng mà ngóc cái đầu dậy. Đúng không?"
+
+            intervals [180]:
+            xmin = 2192.99578
+            xmax = 2200.315112
+            text = "Rõ ràng như thế nhưng chúng ta ở nhà chúng ta có vật lộn không? Vật lộn để mà ngồi thiền không?"
+
+            intervals [181]:
+            xmin = 2200.315112
+            xmax = 2210.033307
+            text = "Chúng ta còn (tồn?) rất nhiều, chiến đấu với mình rất là nhiều chúng ta mới mang cái thân mình miễn cưỡng ngồi xuống cái chiếu thiền một lúc."
+
+            intervals [182]:
+            xmin = 2210.033307
+            xmax = 2221.325418
+            text = "Điều kiện? Rõ ràng là vật lộn rất là nhiều. Người tinh tấn không [??] để tâm, người tinh tấn thậm chí còn chẳng nghĩ đến chuyện đấy nữa."
+
+            intervals [183]:
+            xmin = 2221.325418
+            xmax = 2229.82816
+            text = "Bởi vì sao? Bởi vì họ làm rất nhiều, khi làm rất nhiều rồi thì nó không còn cái chuyện là khó hay không, ngại hay không nữa."
+
+            intervals [184]:
+            xmin = 2229.82816
+            xmax = 2242.230319
+            text = "Ngày nào chúng ta cũng đánh răng có ngại không? Không đúng không? Chúng ta còn thậm chí không còn nghĩ đến là có ngại hay không hoặc là có nên hay không, nên đánh răng hay không. Đúng không?"
+
+            intervals [185]:
+            xmin = 2242.230319
+            xmax = 2261.861383
+            text = "Chúng ta không hề nghĩ chúng ta không phải vật lộn về cái chuyện nên đánh răng hay không? Bởi vì chúng ta làm hàng ngày. Cũng như thế thế nhưng mà bây giờ bảo ngồi thiền rõ ràng là phải vật lộn rất nhiều làm sao mà khi nào đến mức mà chúng ta ngồi thiện y hệt như đánh răng ấy, không còn phải vật lộn cái chuyện đấy nữa thì là chúng ta thành công đấy. Đúng không?"
+
+            intervals [186]:
+            xmin = 2261.861383
+            xmax = 2268.715878
+            text = "Khi chúng ta làm rất nhiều ấy thì thậm chí cái việc có nên làm hay không nó không khởi lên trong đầu chúng ta nữa."
+
+            intervals [187]:
+            xmin = 2268.715878
+            xmax = 2284.9534140000005
+            text = "Đó là việc cần mà chúng ta làm một cách tự nhiên đúng không? Làm một cách tự nhiên thôi nó không còn thành vấn đề nó không còn phải mất năng lượng về cái chuyện là có làm hay không? Làm thế nào để vượt qua khó khăn? Làm thế nào để thuyết phục mình, mình phải làm."
+
+            intervals [188]:
+            xmin = 2284.9534140000005
+            xmax = 2290.803115
+            text = "Khi chúng ta thường xuyên tinh tấn thì nó chỉ thấy đó là việc đó đương nhiên."
+
+            intervals [189]:
+            xmin = 2290.803115
+            xmax = 2298.638587
+            text = "Việc đó là việc cần làm và đương, và tự nhiên làm. Nó không còn phải vật lộn nữa."
+
+            intervals [190]:
+            xmin = 2298.638587
+            xmax = 2305.537912
+            text = "và do đó làm rất là tự nguyện và chất lượng làm rất là tốt."
+
+            intervals [191]:
+            xmin = 2305.537912
+            xmax = 2312.03546
+            text = "Còn khi chúng ta không tinh tấn ấy, nó trở thành một cái thói xấu, mà cái thói xấu ấy nó cực kỳ khó vượt qua."
+
+            intervals [192]:
+            xmin = 2312.03546
+            xmax = 2319.072763
+            text = "Các thanh niên nhớ điều đó rất lười biếng."
+
+            intervals [193]:
+            xmin = 2319.072763
+            xmax = 2323.834168
+            text = "Mà thanh niên hiện nay là cứ hỏi gặp khó khăn một tí là chột ngay lập tức."
+
+            intervals [194]:
+            xmin = 2323.834168
+            xmax = 2336.474955
+            text = "Hơi bất như ý cái là chột, là thôi tốt nhất không làm, không làm đỡ sai. Đúng không? Không được, không được lười như thế."
+
+            intervals [195]:
+            xmin = 2336.474955
+            xmax = 2355.05399
+            text = "Phải làm, làm thật nhiều. Trong, trong kinh điển ấy, Đức Phật có kể lại những cái kiếp sống mà ngài rèn luyện cái hạnh tinh tấn."
+
+            intervals [196]:
+            xmin = 2355.05399
+            xmax = 2366.717429
+            text = "Hóa ra tinh tấn nó cũng đơn giản thôi, không cứ là phải tinh tấn là hành thiền tu tập thế này vì không phải lúc nào Đức Phật cũng gặp được chánh Pháp để mà tu đâu."
+
+            intervals [197]:
+            xmin = 2366.717429
+            xmax = 2375.180409
+            text = "Có khi ngài là những con người bình thường có một kiếp Đức Phật là một nhà lái buôn hay đi đường biển đi buôn."
+
+            intervals [198]:
+            xmin = 2375.180409
+            xmax = 2382.148449
+            text = "Thì trong một chuyến đi biển đó thì bão đắm thuyền."
+
+            intervals [199]:
+            xmin = 2382.148449
+            xmax = 2393.995335
+            text = "Tất cả mọi người trôi nổi trên biển và phải tự bơi. Đức Phật bơi bảy ngày bảy đêm cuối cùng cũng táp được vào bờ và sống sót. Những người khác chết hết."
+
+            intervals [200]:
+            xmin = 2393.995335
+            xmax = 2403.662189
+            text = "Đức Phật kể đấy là một cái ví dụ đấy là một cái điển hình ở trong một kiếp sống ngài rèn luyện hạnh tinh tấn."
+
+            intervals [201]:
+            xmin = 2403.662189
+            xmax = 2412.407869
+            text = "Đơn giản tinh tấn là cố gắng, tinh tấn là nỗ lực là chăm chỉ. Những người khác không có sự cố gắng như thế chết hết."
+
+            intervals [202]:
+            xmin = 2412.407869
+            xmax = 2426.218256
+            text = "Còn cái người cố gắng, luôn luôn cố gắng không bỏ cuộc thì còn sống sót. Đấy là tinh tấn, đấy là, đấy là một cái phẩm chất là không bao giờ bỏ cuộc."
+
+            intervals [203]:
+            xmin = 2426.218256
+            xmax = 2435.656678
+            text = "Và Thầy cũng có kinh nghiệm ấy rồi. Thầy cũng đã từng bơi ở trên biển, ngày xưa Thầy bởi rất giỏi, Thầy bơi mấy cây số trên biển."
+
+            intervals [204]:
+            xmin = 2435.656678
+            xmax = 2448.581228
+            text = "Thì Thầy qua nhiều lần bơi thì Thầy mới nhận ra một vấn đề là như thế này này: khi nào mà mình bơi có mục đích thì bơi bao giờ cũng rất dở."
+
+            intervals [205]:
+            xmin = 2448.581228
+            xmax = 2459.693797
+            text = "Nhất là khi bơi từ biển vào bờ ấy, khi sóng nó dành ra ấy mà mình cứ phải mong vào bờ nhanh nhanh ấy, đuối rồi ấy, thì lúc ấy, cực kì mệt cực kì mất sức."
+
+            intervals [206]:
+            xmin = 2459.693797
+            xmax = 2474.50711
+            text = "Thế còn khi bơi mà không, không có ý định là đến một chỗ nào cả, nó chỉ đơn giản là enjoy cái việc mình bơi với từng động tác. Thì nó lại rất là nhẹ nhàng, và bơi được rất lâu, không hề mệt, mấy tiếng không hề mệt, mấy tiếng không hề mệt."
+
+            intervals [207]:
+            xmin = 2474.50711
+            xmax = 2483.01556
+            text = "Đó, người tinh tấn người ta chú trọng vào quá trình chứ không chú trọng vào quá trình chứ không chú trọng vào kết quả."
+
+            intervals [208]:
+            xmin = 2483.01556
+            xmax = 2499.369509
+            text = "[??] đấy là một đặc điểm, khi chúng ta làm bao giờ chúng ta cũng đặt mục đích lên hàng đầu đúng không? Chúng ta nghĩ rất nhiều về mục đích và chúng ta tìm cách đạt được cái mục đích đó, chúng ta tưởng rằng thế là tốt, thế là hay nhưng mà thế là dở."
+
+            intervals [209]:
+            xmin = 2499.369509
+            xmax = 2505.6507
+            text = "Con người ngày nay càng ngày càng đặt nặng cái việc mục đích, ngay cả việc hành thiền chúng ta cũng đặt rất nặng việc mục đích."
+
+            intervals [210]:
+            xmin = 2505.6507
+            xmax = 2513.71061
+            text = "Và rõ ràng bản thân chúng ta thấy khi chúng ta hành thìền, chúng ta đặt nặng mục đích như thế chúng ta hành thiền dở, kém hơn rất nhiều."
+
+            intervals [211]:
+            xmin = 2513.71061
+            xmax = 2526.787984
+            text = "Vì sao? Vì khi chúng ta đặt nặng mục đích là luôn luôn có tâm tham và luôn luôn có sự lo sợ. Chúng ta lo sợ chúng ta không đạt được cái mình muốn, không đạt được cái mục đích đó."
+
+            intervals [212]:
+            xmin = 2526.787984
+            xmax = 2540.414011
+            text = "Trong quá trình đó tâm lăn tăn rất là nhiều, chúng ta không bao giờ trọn vẹn được với quá trình, bởi chúng ta nghĩ đến cái kết quả nên chúng ta không bao giờ trọn vẹn được với quá trình. Và bởi vì không trọn vẹn được quá trình chúng ta không, không hiệu quả."
+
+            intervals [213]:
+            xmin = 2540.414011
+            xmax = 2555.842702
+            text = "Và rõ ràng như thế rõ ràng là như thế. Khi đi leo núi mà, mọi người đi leo núi ấy đúng không chiều nay, nếu mà mắt cứ chừng chừng nhìn lên cái đỉnh núi có đi được không? Đi được ba bước là vấp, vấp cây, vấp đá đúng không?"
+
+            intervals [214]:
+            xmin = 2555.842702
+            xmax = 2564.392534
+            text = "Và hoàn toàn là không, thực ra cảm thấy rất là mệt, bao giờ mới đến nơi đây, ui giời mãi cũng không đến nơi, mệt quá, đi leo núi thường như thế đúng không?"
+
+            intervals [215]:
+            xmin = 2564.392534
+            xmax = 2587.088174
+            text = "Thế còn khi đi leo núi chúng ta không để ý là đến cái chỗ đó, không đến cũng được, chẳng sao. Nhưng mà enjoy cái đường đi, enjoy cái con đường đi, từng bước chân, rồi là cảm nhận xung quanh, rồi chúng ta từng bước chắn chúng ta bước một cách rất là nhẹ nhàng, thoải mái, chúng ta không cần phải đặt mục đích là đến chỗ nào cả, bao giờ đến được đỉnh núi."
+
+            intervals [216]:
+            xmin = 2587.088174
+            xmax = 2600.77247
+            text = "Thì như thế chúng ta mới thấy mình đến đi rất là nhanh, mà không có mệt. Trong mọi việc cũng thế nếu chúng ta luôn luôn đặt mục đích, cái mục đích nó quá đè nặng ở trong tâm người ta thì chúng ta làm cực kì dở."
+
+            intervals [217]:
+            xmin = 2600.77247
+            xmax = 2612.52222
+            text = "Và chúng ta mất rất nhiều năng lượng, cái gì làm mình mất nhiều năng lượng? Không phải việc đó làm mình mất nhiều năng lượng mà bởi vì tâm tham và sự lo sợ nó làm cho chúng ta mất năng lượng."
+
+            intervals [218]:
+            xmin = 2612.52222
+            xmax = 2631.519292
+            text = "Đúng không? Phiền não luôn luôn tiêu hao năng lượng, bất thiện luôn luôn tiêu hao năng lượng, và việc thiện, tâm thiện luôn luôn sản sinh năng lượng đó vậy nên những người tinh tấn họ có rất nhiều năng lượng, không biết năng lượng ở đâu ra nhưng mà rất là nhiều năng lượng."
+
+            intervals [219]:
+            xmin = 2631.519292
+            xmax = 2638.517359
+            text = "Luôn luôn tích cực, luôn luôn tràn đầy nhiệt huyết, cái đặc điểm của một người tinh tấn là họ sống rất là nhiệt huyết."
+
+            intervals [220]:
+            xmin = 2638.517359
+            xmax = 2649.789191
+            text = "Cái điều đó Thầy rất ít thấy [??]. Thầy rất ít thấy một người sống rất là nhiệt huyết, nhiệt tâm, rất nhiều năng lượng, tràn đầy nhựa sống."
+
+            intervals [221]:
+            xmin = 2649.789191
+            xmax = 2662.312153
+            text = "Thầy rất ít khi nhìn thấy một người như thế. Thầy thường nhìn thấy một người ủ ê, phiền não, một người mà tham hiện rõ lên mặt, sân hiện rõ lên mặt."
+
+            intervals [222]:
+            xmin = 2662.312153
+            xmax = 2669.053959
+            text = "Một người miễn miễn cưỡng cưỡng èo uột. Những cái thành phần như thế cực kì nhiều, mặt mũi nhăn nhúm bạc phếch ra."
+
+            intervals [223]:
+            xmin = 2669.053959
+            xmax = 2678.481343
+            text = "Thầy rất ít khi thấy một người mà tươi trẻ yêu đời, mà, một người mà tràn đầy năng lượng, một người mà nhìn đã thấy sự tích cực rồi."
+
+            intervals [224]:
+            xmin = 2678.481343
+            xmax = 2690.632471999
+            text = "Nhìn đã thấy sự sẵn, sẵn sàng rồi. Những người như thế mình rất thích nhờ, đúng không? Khi làm một việc gì ấy, những người đó mình cảm cho mình cảm giác rất là tin tưởng mà mình nghĩ gì, nhờ gì thì cũng dễ dàng."
+
+            intervals [225]:
+            xmin = 2690.632471999
+            xmax = 2700.64837592
+            text = "Một người nhìn cái mặt đã viết ngay cái chứ đừng động đến tôi nhờ cái gì thì cũng miền cưỡng làm một cách miễn cưỡng nhìn đã không muốn nhờ rồi."
+
+            intervals [226]:
+            xmin = 2700.64837592
+            xmax = 2712.858735292
+            text = "Đúng không? Đấy! Bởi vì bản thân họ luôn luôn tỏa ra một cái năng lượng tiêu cực, không phải tỏa ra năng lượng tích cực. Người tinh tấn là như thế."
+
+            intervals [227]:
+            xmin = 2712.858735292
+            xmax = 2725.612611467
+            text = "Người tinh tấn là làm tràn ngập cuộc sống của họ với những điều tích cực. Và họ, và họ không, họ chú trọng nhiều đến quá trình chứ không quan tâm về cái kết quả. Rõ chưa."
+
+            intervals [228]:
+            xmin = 2725.612611467
+            xmax = 2753.218965777
+            text = "Và chính bởi vì như thế nên việc gì họ làm cũng rất là tốt. Người tinh tấn là luôn luôn chú trọng đến chất lượng của việc làm, trong quá trình làm họ luôn luôn nghĩ làm thế nào mà làm cho tốt nhất. Tốt nhất, tiết kiệm thời gian nhất mà chất, hiệu quả tốt nhất, và luôn luôn nghĩ chuyện cải tiến, lần này phải làm thế này rồi, lần sau làm thế nào để cho tốt hơn, bao giờ cũng có cái đó."
+
+            intervals [229]:
+            xmin = 2753.218965777
+            xmax = 2762.71658078
+            text = "Và họ làm rất nhiều bởi vì họ làm rất nhiều mỗi lần làm họ rút kinh nghiệm thế nên là họ càng ngày càng giỏi hơn, càng ngày càng thuần thục hơn cái việc họ làm."
+
+            intervals [230]:
+            xmin = 2762.71658078
+            xmax = 2772.792531868
+            text = "Người ta bảo rằng để làm một chuyên gia, trở thành một chuyên gia, một người giỏi trong ở trong một lĩnh vực nào đó người ta phải làm cái việc đó ít nhất là mười ngàn giờ."
+
+            intervals [231]:
+            xmin = 2772.792531868
+            xmax = 2778.097669261
+            text = "Mười ngàn giờ, chúng ta đã ngồi thiền đủ mười ngàn giờ chưa?"
+
+            intervals [232]:
+            xmin = 2778.097669261
+            xmax = 2801.563737592
+            text = "Việc gì cũng thế, đấy, đấy là một quy luật mà người ta đã thống kê. Tức là trong bất cứ một nghề nghiệp gì, chẳng hạn như con làm nghề kế toán chẳng hạn. Để con trở thành một người kế toán giỏi nhớ, một người thật sự là chuyên gia trong ngành đó là con phải làm việc trong cái ngành đó mười ngàn giờ."
+
+            intervals [233]:
+            xmin = 2801.563737592
+            xmax = 2822.378743793
+            text = "Mười ngàn giờ chắc là khoảng cỡ mười năm gì đó. Ừ. Đấy. Thì, phải lăn lộn ở trong cái nghề đó, lăn lộn trong cái lĩnh vực đó khoảng mười ngàn giờ thì lúc đó mới trở thành chuyên gia. Đúng không?"
+
+            intervals [234]:
+            xmin = 2822.378743793
+            xmax = 2835.738562244
+            text = "Đấy, thế nên là người tinh tấn người ta vượt mười ngàn giờ rất là nhanh, còn cái người nào, cái người lười biếng, có khi cả đời chưa được mười ngàn giờ đó. Thấy không? Ngay cả nấu ăn cũng phải mười ngàn giờ mới nấu ăn giỏi."
+
+            intervals [235]:
+            xmin = 2835.738562244
+            xmax = 2841.056414133
+            text = "Các ông chồng cứ chuẩn bị đôi khi nào răng rụng thì sẽ được ăn ngon."
+
+            intervals [236]:
+            xmin = 2841.056414133
+            xmax = 2859.791858734
+            text = "[??] thì sẽ học hỏi được nhiều, rút kinh nghiệm được nhiều, đúng không? Và bởi vì chú ý vào quá trình người tinh tấn tìm được niềm vui trong quá trình. [??] Còn người không, còn những cái người mà làm với mục đích tâm tham ấy"
+
+            intervals [237]:
+            xmin = 2859.791858734
+            xmax = 2878.133083373
+            text = "thì quá trình nó là đau khổ, hiểu không? Khi chúng ta tham một cái gì đó, ví dụ phải phấn đấu bằng được cái chức kia, cạnh tranh làm sao mà lên được cái chức trưởng phòng hay gì gì đó thì trong quá trình phấn đấu để đạt được điều ấy nó tràn đầy đau khổ."
+
+            intervals [238]:
+            xmin = 2878.133083373
+            xmax = 2892.842387923
+            text = "Nó phải chiến đấu với người này, chiến đấu với người nọ nó phải lo sợ đúng không? Nó phải lo sợ nó phải tràn đầy tâm tham, tham đi kèm theo lo sợ và đó là một quá trình tràn đầy đau khổ cho đến khi họ làm được cái mục đích của họ."
+
+            intervals [239]:
+            xmin = 2892.842387923
+            xmax = 2908.2806022259997
+            text = "Còn một người tinh tấn, bởi vì tinh tấn, bởi vì làm nhiều, giống như việc đánh răng ấy, họ không nghĩ nhiều đến chuyện đó, họ chỉ tập trung vào việc họ làm thôi thì cái quá trình làm việc nó tràn đầy hạnh phúc, tràn đầy niềm vui."
+
+            intervals [240]:
+            xmin = 2908.2806022259997
+            xmax = 5312.7
+            text = "Họ tự kiếm niềm vui thôi, à mình vui vì bởi vì mình làm việc này rất là tốt. À mình vui là bởi vì mình làm việc này nó ít thời gian hơn, nó tốt hơn lần trước mình làm, đấy, họ tự kiếm niềm vui ở chỗ đấy nieemnmnfd"
