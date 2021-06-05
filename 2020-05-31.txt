@@ -1,0 +1,39 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0
+xmax = 5044.248
+tiers? <exists>
+size = 1
+item []:
+    item [1]:
+        class = "IntervalTier"
+        name = "segments"
+        xmin = 0
+        xmax = 5044.248
+        intervals: size = 5
+
+            intervals [1]:
+            xmin = 0
+            xmax = 51
+            text = ""
+
+            intervals [2]:
+            xmin = 51
+            xmax = 60.482972
+            text = "ngày hôm nay ngồi thiền có vẻ mệt mỏi nhở? Có vẻ mệt mỏi đúng không? Thấy chồng lên chống tay chống lên chống xuống suốt."
+
+            intervals [3]:
+            xmin = 60.482972
+            xmax = 82.633523
+            text = "Chánh niệm có khó không? Khó…? Không khó tí nào cả, chánh niệm không khó tí nào cả. Giơ tay lên mọi người dơ tay lên thầy xem nào."
+
+            intervals [4]:
+            xmin = 82.633523
+            xmax = 90.735523
+            text = "Dơ cái tay kia lên cấu vào tay này một cái có thấy đau không? Có biết là có dấu không? Dễ hay khó?"
+
+            intervals [5]:
+            xmin = 90.735523
+            xmax = 5044.248
+            text = "thấy không? Chánh niệm không không không có khó tí nào cả, cấu cái là biết. Cái biết đó gọi là chánh niệm. Không khó một tí nào cả, mọi người cứ than khó."
